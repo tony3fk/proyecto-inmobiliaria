@@ -9,10 +9,10 @@ class Session
         session_start();
     }
 
-    public function setSession($user, $tipo, $ciudad, $temperatura)
+    public function setSession($nombre, $tipo, $ciudad, $temperatura)
     {
-        session_name($user);
-        $_SESSION['user'] = $user;
+        //session_name($nombre);
+        $_SESSION['nombre'] = $nombre;
         $_SESSION['tipo'] = $tipo;
         $_SESSION['time'] = time();
         $_SESSION['ciudad'] = $ciudad;

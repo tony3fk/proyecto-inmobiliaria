@@ -17,7 +17,7 @@
         <form action="index.php?ctl=register" method="POST">
             <input type="text" placeholder="Nombre" name="nombre" required />
             <br><br>
-            <input type="text" placeholder="eMail" name="email" required />
+            <input type="text" placeholder="email" name="email" required />
             <br><br>
             <input type="password" placeholder="Password" name="password" required />
             <br><br>
@@ -26,7 +26,9 @@
             <input class="bg-success" type="submit" value="Registrarse" name="bRegister" />
             <hr>
 
+
         </form>
+        <a href="index.php?ctl=login">Login</a>
 
 
 

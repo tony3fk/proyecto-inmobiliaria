@@ -1,0 +1,10 @@
+Error 404: No existe la ruta ver
+Error 404: No existe la ruta ver
+Error 404: No existe la ruta 2
+Error 404: No existe la ruta buscarPorOperacion
+Too few arguments to function validarDatos(), 4 passed in C:\wamp64\www\proyecto\app\controller.php on line 107 and exactly 5 expected0.10145000 1584482262
+Too few arguments to function validarDatos(), 4 passed in C:\wamp64\www\proyecto\app\controller.php on line 107 and exactly 5 expected0.98120700 1584482305
+Too few arguments to function validarDatos(), 4 passed in C:\wamp64\www\proyecto\app\controller.php on line 107 and exactly 5 expected0.07729600 1584482318
+Too few arguments to function validarDatos(), 4 passed in C:\wamp64\www\proyecto\app\controller.php on line 107 and exactly 5 expected0.12165300 1584482331
+Too few arguments to function validarDatos(), 4 passed in C:\wamp64\www\proyecto\app\controller.php on line 107 and exactly 5 expected0.01539100 1584482346
+Error 404: No existe la ruta buscarPorOperacion

@@ -45,12 +45,12 @@ $map = array(
     */
     'login' => array('controller' => 'Controller', 'action' => 'login', 'tipo' => 0),
     'register' => array('controller' => 'Controller', 'action' => 'register', 'tipo' => 0),
-    'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'tipo' => 1),
-    'listar' => array('controller' => 'Controller', 'action' => 'listar', 'tipo' => 1),
-    'insertar' => array('controller' => 'Controller', 'action' => 'insertar', 'tipo' => 2),
-    'buscar' => array('controller' => 'Controller', 'action' => 'buscarPorNombre', 'tipo' => 1),
-    'buscarInmueblesPorTipo' => array('controller' => 'Controller', 'action' => 'buscarInmueblesPorTipo', 'tipo' => 1),
-    'ver' => array('controller' => 'Controller', 'action' => 'ver', 'tipo' => 1),
+    'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'tipo' => 0),
+    'listar' => array('controller' => 'Controller', 'action' => 'listar', 'tipo' => 0),
+    'insertar' => array('controller' => 'Controller', 'action' => 'insertarInmueble', 'tipo' => 0),
+    'buscarPorProvincia' => array('controller' => 'Controller', 'action' => 'buscarPorProvincia', 'tipo' => 0),
+    'buscarPorTipo' => array('controller' => 'Controller', 'action' => 'buscarPorTipo', 'tipo' => 10),
+    'verInmueble' => array('controller' => 'Controller', 'action' => 'verInmueble', 'tipo' => 0),
     'salir' => array('controller' => 'Controller', 'action' => 'salir', 'tipo' => 0),
     'error' => array('controller' => 'Controller', 'action' => 'error', 'tipo' => 0),
     'errorderuta' => array('controller' => 'Controller', 'action' => 'errorderuta', 'tipo' => 0)
@@ -66,7 +66,7 @@ if (isset($_GET['ctl'])) {
         $ruta = $_GET['ctl'];
     } else {
 
-        if ($_SESSION['nivel'] == 0) { //si no está logueado mostrará el mensaje sólamente
+        if ($_SESSION['tipo'] == 0) { //si no está logueado mostrará el mensaje sólamente
             //Si el valor puesto en ctl en la URL no existe en el array de mapeo escribe en el fichero logError.txt y envía una cabecera de error
             $errorMensaje = "Error 404: No existe la ruta " . $_GET['ctl'];
             errorsLog($errorMensaje);
@@ -97,11 +97,11 @@ En caso de estar utilizando sesiones y permisos en las diferentes acciones compr
 if (method_exists($controlador['controller'], $controlador['action'])) { //comprobar aqui si el usuario tiene el nivel suficiente para ejecutar la accion
     //--------------control de nivel//
 
-    if ($map[$ruta]['nivel'] <= $sesion->get('nivel')) {
+    if ($map[$ruta]['tipo'] <= $sesion->get('tipo')) {
         call_user_func(array(new $controlador['controller'], $controlador['action']));
     } else {
 
-        $errorMensaje = $sesion->get('user') . " No tienes perniso para realizar esta acción. Se requiere un nivel " . $map[$ruta]['nivel'] . " pero sólo tienes nivel " . $sesion->get('nivel');
+        $errorMensaje = $sesion->get('nombre') . " No tienes perniso para realizar esta acción. Se requiere un nivel " . $map[$ruta]['tipo'] . " pero sólo tienes nivel " . $sesion->get('tipo');
         errorsLog($errorMensaje);
         header('location: index.php?ctl=error');
         //echo '<html><body><h1>Error: No tiene privilegios para realizar esta acción.</h1></body></html>';

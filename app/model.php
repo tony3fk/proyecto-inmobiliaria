@@ -110,19 +110,19 @@ class Model extends PDO
 
 
     //funcion para insertar nuevos usuarios
-    function InsertUser($nombre, $email, $password, $ciudad)
+    function InsertUser(array $params)
     {
 
-        $consulta = "INSERT INTO usuarios (nombre, email, password, tipo, ciudad) VALUES (:nombre, :email, :password, 1, :ciudad)";
+        $consulta = "INSERT INTO usuarios (nombre, email, password, ciudad) VALUES (:nombre, :password, :email, :ciudad)"; //por defecto los usuarios registrados son de nivel 1
         $insert = $this->conexion->prepare($consulta);
-        $insert->bindParam(':nombre', $nombre);
-        $insert->bindParam(':email', $email);
-        $insert->bindParam('password', $password);
-        $insert->bindParam('ciudad', $ciudad);
+        $insert->bindParam(':nombre', $params['nombre']);
+        $insert->bindParam('email', $params['email']);
+        $insert->bindParam(':password', $params['password']);
+
+        $insert->bindParam('ciudad', $params['ciudad']);
         $insert->execute();
         return $insert;
     }
-
 
 
 

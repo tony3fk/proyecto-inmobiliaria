@@ -16,17 +16,18 @@
 
             if (empty($_SESSION)) {
 
-                $_SESSION['user'] = "Invitado";
-                $_SESSION['nivel'] = 0;
+                $_SESSION['nombre'] = "Invitado";
+                $_SESSION['tipo'] = 0;
             }
-            echo "Hola " . $_SESSION['user'];
+            echo "Hola " . $_SESSION['nombre'];
+
 
             ?></h2>
 
     </div>
     <div id="login">
         <form action="index.php?ctl=login" method="POST">
-            <input type="text" placeholder="Username" name="user" required />
+            <input type="text" placeholder="nombre" name="nombre" required />
             <br><br>
             <input type="password" placeholder="Password" name="password" required />
             <br><br>

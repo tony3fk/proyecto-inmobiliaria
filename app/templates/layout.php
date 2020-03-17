@@ -14,7 +14,7 @@
 
 
         <h2 style="text-align: right"><?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; ?> </h2>
-        <h2><?php echo "Hola " . $_SESSION['user']; ?></h2>
+        <h2><?php echo "Hola " . $_SESSION['nombre']; ?></h2>
         <h1>Información de alimentos</h1>
     </div>
 
@@ -23,8 +23,8 @@
         <a href="index.php?ctl=inicio">inicio</a> |
         <a href="index.php?ctl=listar">ver inmuebles</a> |
         <a href="index.php?ctl=insertar">insertar inmueble</a> |
-        <a href="index.php?ctl=buscar">buscar por tipo</a> |
-        <a href="index.php?ctl=buscarAlimentosPorOperacion">buscar por operación</a> |
+        <a href="index.php?ctl=buscarPorProvincia">buscar por provincia</a> |
+        <a href="index.php?ctl=buscarPorOperacion">buscar por operación</a> |
         <a href="index.php?ctl=salir">Salir</a>
         <hr />
     </div>

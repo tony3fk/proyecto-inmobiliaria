@@ -16,22 +16,22 @@ class Controller
         $sesion = new Session;
 
         //Recojo y valido datos del formulario
-        $user = recoge('user');
+        $nombre = recoge('nombre');
         $password = recoge('password')/*crypt_blowfish(recoge('password')) No lo utilizo porque el campo para la contraseña está limitado a varchar(30) y se trunca el dato*/;
 
 
-        if (isset($user) && isset($password)) { //compruebo si tengo datos 
+        if (isset($nombre) && isset($password)) { //compruebo si tengo datos 
 
             if (isset($_POST['bLogin'])) { // si se pulsa login
 
-                if ($registro = $m->SelectUser($user, $password)) {
+                if ($registro = $m->SelectUser($nombre, $password)) {
 
                     $sesion->cerrarSesion(); //cierra sesion de invitado
                     $sesion->init(); //inicia sesion de usuario registrado
 
                     include('libs/clima.php'); //archivo con la funcion API del tiempo
                     $temperatura = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
-                    $sesion->setSession($user, $registro['nivel'], $registro['ciudad'], $temperatura); //establece el user, el nivel a la sesion, la ciudad y la temperatura
+                    $sesion->setSession($nombre, $registro['nivel'], $registro['ciudad'], $temperatura); //establece el user, el nivel a la sesion, la ciudad y la temperatura
                     header('location: index.php?ctl=inicio');
                 } else {
 
@@ -50,34 +50,98 @@ class Controller
 
 
 
-    function register()
+    // function register()
+    // {
+    //     $params['mensaje'] = "";
+    //     $m = new Model;
+    //     //Recojo y valido datos del formulario
+    //     $nombre = recoge('nombre');
+    //     $email = recoge('email');
+    //     $password = recoge('password') /*crypt_blowfish(recoge('password'))*/;
+    //     $ciudad = recoge('ciudad');
+    //     if (isset($nombre) && isset($email) && _email($password) && isset($ciudad)) { //compruebo si tengo datos y si el email es correcto
+
+    //         if (isset($_POST['bRegister'])) { //si se pulsa registrar
+
+    //             if ($m->InsertUser($nombre, $email, $password, $ciudad)) {
+    //                 $params['mensaje'] = 'Registrado con éxito.';
+
+    //                 enviaMail($email);
+
+    //                 header('Location: index.php?ctl=login');
+    //             } else {
+
+    //                 //$params['mensaje'] = 'No se ha podido registrar el usuario o ya existe.';
+    //                 echo "No se ha podido registrar el usuario o ya existe.";
+    //             }
+    //         }
+    //     }
+
+    //     require __DIR__ . '/templates/register.php';
+    // }
+
+
+
+    public function register()
     {
-        $params['mensaje'] = "";
-        $m = new Model;
-        //Recojo y valido datos del formulario
-        $user = recoge('user');
-        $password = recoge('password') /*crypt_blowfish(recoge('password'))*/;
+        try {
 
-        $email = recoge('email');
-        $ciudad = recoge('ciudad');
-        if (isset($user) && isset($password) && _email($email) && isset($ciudad)) { //compruebo si tengo datos y si el email es correcto
+            $params = array(
+                'nombre' => '',
+                'email' => '',
+                'password' => '',
+                'ciudad' => '',
+                'mensaje' => ''
 
-            if (isset($_POST['bRegister'])) { //si se pulsa registrar
+            );
 
-                if ($m->InsertUser($user, $password, $email, $ciudad)) {
-                    $params['mensaje'] = 'Registrado con éxito.';
 
-                    enviaMail($email);
+            $params['nombre'] = recoge('nombre');
+            $params['email'] = recoge('email');
+            $params['password'] = recoge('password');
+            $params['ciudad'] = recoge('ciudad');
 
-                    header('Location: index.php?ctl=login');
+
+            // comprobar campos formulario
+            if (isset($params['nombre']) && isset($params['email']) && _email($params['password']) && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
+                if (isset($_POST['bRegister'])) { //si se pulsa registrar
+
+                    // Si no ha habido problema creo modelo y hago inserción
+                    $m = new Model();
+                    if ($m->InsertUser($params)) {
+                        header('Location: index.php?ctl=login');
+                    } else {
+                        $params = array(
+                            'nombre' => $params['nombre'],
+                            'email' =>   $params['email'],
+                            'provincia' => $params['password'],
+                            'ciudad' =>  $params['ciudad']
+
+
+                        );
+                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
+                    }
                 } else {
-
-                    $params['mensaje'] = 'No se ha podido registrar el usuario o ya existe.';
+                    $params = array(
+                        'nombre' => $params['nombre'],
+                        'email' =>   $params['email'],
+                        'provincia' => $params['password'],
+                        'ciudad' =>  $params['ciudad']
+                    );
+                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
                 }
             }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
         }
+
         require __DIR__ . '/templates/register.php';
     }
+
 
 
 
@@ -120,7 +184,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/mostrarAlimentos.php';
+        require __DIR__ . '/templates/mostrarInmuebles.php';
     }
 
 
@@ -198,7 +262,7 @@ class Controller
                 'resultado' => array()
             );
             $m = new Model();
-            if (isset($_POST['buscar'])) {
+            if (isset($_POST['buscarPorProvincia'])) {
                 $provincia = recoge("provincia");
                 $params['provincia'] = $provincia;
                 $params['resultado'] = $m->buscarPorProvincia($provincia);
@@ -210,13 +274,13 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/buscarPorNombre.php';
+        require __DIR__ . '/templates/buscarPorProvincia.php';
     }
 
 
 
 
-    public function buscarInmueblesPorTipo()
+    public function buscarPorTipo()
     {
         try {
             $params = array(
@@ -236,7 +300,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/buscarPorEnergia.php';
+        require __DIR__ . '/templates/buscarPorTipo.php';
     }
 
 
@@ -261,7 +325,7 @@ class Controller
 
 
 
-        require __DIR__ . '/templates/verAlimento.php';
+        require __DIR__ . '/templates/verInmueble.php';
     }
 
 
