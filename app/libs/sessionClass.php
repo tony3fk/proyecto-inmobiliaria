@@ -9,14 +9,14 @@ class Session
         session_start();
     }
 
-    public function setSession($nombre, $tipo, $ciudad, $temperatura)
+    public function setSession(array $params)
     {
         //session_name($nombre);
-        $_SESSION['nombre'] = $nombre;
-        $_SESSION['tipo'] = $tipo;
+        $_SESSION['nombre'] = $params['nombre'];
+        $_SESSION['tipo'] = $params['tipo'];
         $_SESSION['time'] = time();
-        $_SESSION['ciudad'] = $ciudad;
-        $_SESSION['temp'] = $temperatura;
+        $_SESSION['ciudad'] = $params['ciudad'];
+        $_SESSION['temp'] = $params['temp'];
     }
 
     public function get($key)

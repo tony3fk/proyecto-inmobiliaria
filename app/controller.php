@@ -16,22 +16,25 @@ class Controller
         $sesion = new Session;
 
         //Recojo y valido datos del formulario
-        $nombre = recoge('nombre');
-        $password = recoge('password')/*crypt_blowfish(recoge('password')) No lo utilizo porque el campo para la contraseña está limitado a varchar(30) y se trunca el dato*/;
+        $params['nombre'] = recoge('nombre');
+        $params['password'] = recoge('password')/*crypt_blowfish(recoge('password')) No lo utilizo porque el campo para la contraseña está limitado a varchar(30) y se trunca el dato*/;
 
 
-        if (isset($nombre) && isset($password)) { //compruebo si tengo datos 
+        if (isset($params['nombre']) && isset($params['password'])) { //compruebo si tengo datos 
 
             if (isset($_POST['bLogin'])) { // si se pulsa login
 
-                if ($registro = $m->SelectUser($nombre, $password)) {
+                if ($registro = $m->SelectUser($params['nombre'],  $params['password'])) {
 
-                    $sesion->cerrarSesion(); //cierra sesion de invitado
-                    $sesion->init(); //inicia sesion de usuario registrado
+                    //$sesion->cerrarSesion(); //cierra sesion de invitado
+                    //$sesion->init(); //inicia sesion de usuario registrado
 
                     include('libs/clima.php'); //archivo con la funcion API del tiempo
-                    $temperatura = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
-                    $sesion->setSession($nombre, $registro['nivel'], $registro['ciudad'], $temperatura); //establece el user, el nivel a la sesion, la ciudad y la temperatura
+                    $params['temp'] = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
+                    $params['tipo'] = $registro['tipo'];
+                    $params['ciudad'] = $registro['ciudad'];
+                    $sesion->setSession($params); //establece el user, el nivel a la sesion, la ciudad y la temperatura
+
                     header('location: index.php?ctl=inicio');
                 } else {
 
@@ -103,12 +106,13 @@ class Controller
 
 
             // comprobar campos formulario
-            if (isset($params['nombre']) && isset($params['email']) && _email($params['password']) && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
+            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password'])  && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
                 if (isset($_POST['bRegister'])) { //si se pulsa registrar
 
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
                     if ($m->InsertUser($params)) {
+
                         header('Location: index.php?ctl=login');
                     } else {
                         $params = array(
@@ -262,9 +266,10 @@ class Controller
                 'resultado' => array()
             );
             $m = new Model();
-            if (isset($_POST['buscarPorProvincia'])) {
-                $provincia = recoge("provincia");
+            if (isset($_POST['buscar'])) {
+                $provincia =  recoge("provincia");
                 $params['provincia'] = $provincia;
+
                 $params['resultado'] = $m->buscarPorProvincia($provincia);
             }
         } catch (Exception $e) {
