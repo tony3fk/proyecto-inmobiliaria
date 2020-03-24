@@ -1,8 +1,7 @@
 <?php ob_start() ?>
 
-<div class="row">
-    <h1>Hola <?php echo $_SESSION['nombre'] ?></h1>
-    <h1> Fecha: <?php echo date('d-m-Y', time()) ?> </h1>
+<div class="row" id="inicio">
+    <img src="../app/images/inicio.jpg" alt="ImagenInicio" id="imagenInicio">
 
     <?php if (isset($params['mensajeError'])) : ?>
     <div class="alert alert-danger">

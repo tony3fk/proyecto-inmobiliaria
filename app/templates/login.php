@@ -39,8 +39,7 @@
             </ul>
 
         </nav>
-        <br>
-        <br>
+
         <br>
         <div class="jumbotron ">
             <div class="row h-100 justify-content-center align-items-center" id="cabecera">
@@ -186,7 +185,8 @@
                     data-id="3e98da93" data-element_type="widget" data-widget_type="heading.default">
                     <div class="elementor-widget-container">
                         <span id="copyright">Antonio Rodríguez</span>
-                        <p class="elementor-heading-title elementor-size-default">©2007—2019 Spain, EU.</p>
+                        <p class="elementor-heading-title elementor-size-default">©<?php echo date("Y", time()) ?>
+                            Spain, EU.</p>
                     </div>
                 </div>
             </div>
