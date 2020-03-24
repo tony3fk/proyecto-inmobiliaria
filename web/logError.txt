@@ -11,3 +11,4 @@ Error 404: No existe la ruta buscarPorOperacion
 Error 404: No existe la ruta buscarPorOperacion
 Error 404: No existe la ruta buscarPorOperacion
 Error 404: No existe la ruta buscarPorOperacion
+Error 404: No existe la ruta buscarPorOperacion
