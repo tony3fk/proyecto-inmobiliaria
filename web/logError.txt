@@ -12,3 +12,13 @@ Error 404: No existe la ruta buscarPorOperacion
 Error 404: No existe la ruta buscarPorOperacion
 Error 404: No existe la ruta buscarPorOperacion
 Error 404: No existe la ruta buscarPorOperacion
+Error 404: No existe la ruta listar
+paco No tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1
+paco No tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1
+paco, no tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1
+paco, no tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1
+paco, no tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1
+paco, no tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1
+paco, no tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1
+paco, no tienes perniso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1.
+paco, no tienes permiso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1.

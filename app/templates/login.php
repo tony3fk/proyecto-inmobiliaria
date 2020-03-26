@@ -34,7 +34,7 @@
                 </li>
 
 
-                <h2 class="text-muted">Login</h2>
+                <h2 class="text-muted">Log in</h2>
 
             </ul>
 
@@ -85,10 +85,7 @@
                                 </span>
 
                                 <hr>
-                                <!-- <span style="width:48%; text-align:left;  display: inline-block;">
-                            <h5 class="text-light">No tienes cuenta?</h5>
-                            <input type="submit" value="Regístrate" name="bRegister" />
-                        </span> -->
+
                             </div>
 
                         </fieldset>
@@ -96,13 +93,7 @@
 
 
 
-                        <!-- <input type="text" placeholder="nombre" name="nombre" required />
-                <br><br>
-                <input type="password" placeholder="Password" name="password" required />
-                <br><br>
 
-                <input class="bg-success" type="submit" value="Iniciar sesión" name="bLogin" />
-                <hr> -->
 
                     </form>
 
@@ -114,15 +105,16 @@
                 </div>
             </div>
 
+            <br>
+            <div class="justify-content-center">
 
-            <div>
-                <?php echo $params['mensaje']; ?>
+                <h3 class="text-center alert alert-danger" role="alert"><?php echo $params['mensaje']; ?></h3>
             </div>
         </div>
 
 
 
-        <footer id="pie" class="row bg-light jumbotron justify-content-center  mb-0">
+        <footer id="pie" class="navbar fixed-bottom row bg-light  justify-content-center p-1">
 
             <div class=" elementor-widget-wrap col-md-3 text-center bg-light">
 

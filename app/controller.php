@@ -172,12 +172,12 @@ class Controller
 
 
 
-    public function listar()
+    public function listarVenta()
     {
         try {
             $m = new Model();
             $params = array(
-                'inmuebles' => $m->listar()
+                'inmuebles' => $m->listarVenta()
             );
 
             // Recogemos los dos tipos de excepciones que se pueden producir
@@ -190,6 +190,46 @@ class Controller
         }
         require __DIR__ . '/templates/mostrarInmuebles.php';
     }
+
+    public function listarAlquiler()
+    {
+        try {
+            $m = new Model();
+            $params = array(
+                'inmuebles' => $m->listarAlquiler()
+            );
+
+            // Recogemos los dos tipos de excepciones que se pueden producir
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        require __DIR__ . '/templates/mostrarInmuebles.php';
+    }
+
+    public function listarUsuarios()
+    {
+        try {
+            $m = new Model();
+            $params = array(
+                'usuarios' => $m->listarUsuarios()
+            );
+
+            // Recogemos los dos tipos de excepciones que se pueden producir
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        require __DIR__ . '/templates/listarUsuarios.php';
+    }
+
+
 
 
 

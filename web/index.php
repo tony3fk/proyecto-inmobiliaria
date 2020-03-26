@@ -46,10 +46,12 @@ $map = array(
     'login' => array('controller' => 'Controller', 'action' => 'login', 'tipo' => 0),
     'register' => array('controller' => 'Controller', 'action' => 'register', 'tipo' => 0),
     'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'tipo' => 0),
-    'listar' => array('controller' => 'Controller', 'action' => 'listar', 'tipo' => 0),
-    'insertar' => array('controller' => 'Controller', 'action' => 'insertarInmueble', 'tipo' => 0),
+    'listarVenta' => array('controller' => 'Controller', 'action' => 'listarVenta', 'tipo' => 0),
+    'listarAlquiler' => array('controller' => 'Controller', 'action' => 'listarAlquiler', 'tipo' => 0),
+    'insertar' => array('controller' => 'Controller', 'action' => 'insertarInmueble', 'tipo' => 2),
     'buscarPorProvincia' => array('controller' => 'Controller', 'action' => 'buscarPorProvincia', 'tipo' => 0),
-    'buscarPorTipo' => array('controller' => 'Controller', 'action' => 'buscarPorTipo', 'tipo' => 10),
+    'listarUsuarios' => array('controller' => 'Controller', 'action' => 'listarUsuarios', 'tipo' => 2),
+
     'verInmueble' => array('controller' => 'Controller', 'action' => 'verInmueble', 'tipo' => 0),
     'salir' => array('controller' => 'Controller', 'action' => 'salir', 'tipo' => 0),
     'error' => array('controller' => 'Controller', 'action' => 'error', 'tipo' => 0),
@@ -101,7 +103,8 @@ if (method_exists($controlador['controller'], $controlador['action'])) { //compr
         call_user_func(array(new $controlador['controller'], $controlador['action']));
     } else {
 
-        $errorMensaje = $sesion->get('nombre') . " No tienes perniso para realizar esta acción. Se requiere un nivel " . $map[$ruta]['tipo'] . " pero sólo tienes nivel " . $sesion->get('tipo');
+        $errorMensaje = $sesion->get('nombre') . ", no tienes permiso para realizar esta acción. Se requiere un nivel " . $map[$ruta]['tipo'] . " pero sólo tienes nivel " . $sesion->get('tipo') . ".";
+        $_SESSION['mensaje'] = $errorMensaje;
         errorsLog($errorMensaje);
         header('location: index.php?ctl=error');
         //echo '<html><body><h1>Error: No tiene privilegios para realizar esta acción.</h1></body></html>';

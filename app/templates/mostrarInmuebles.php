@@ -24,7 +24,8 @@
 
 
                 <!-- Title -->
-                <h4 class="card-title">Precio: <?php echo number_format($inmuebles['precio_venta'], 2, ',', '.')  ?> €
+                <h4 class="card-title">Precio:
+                    <?php echo number_format($inmuebles['precio_venta'], 2, ',', '.') . " €" ?>
                 </h4>
                 <hr class="hr-light">
                 <!-- Text -->

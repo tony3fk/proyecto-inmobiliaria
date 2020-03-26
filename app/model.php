@@ -17,13 +17,32 @@ class Model extends PDO
 
 
 
-    public function listar()
+    public function listarVenta()
     {
 
-        $consulta = "select * from inmuebles";
+        $consulta = "select * from inmuebles where operacion = 'Venta'";
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
+    public function listarAlquiler()
+    {
+
+        $consulta = "select * from inmuebles where operacion = 'Alquiler'";
+        $result = $this->conexion->query($consulta);
+        return $result->fetchAll();
+    }
+
+    public function listarUsuarios()
+    {
+
+        $consulta = "select * from usuarios";
+        $result = $this->conexion->query($consulta);
+        return $result->fetchAll();
+    }
+
+
+
+
 
 
 
