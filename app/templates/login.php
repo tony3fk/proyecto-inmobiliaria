@@ -60,10 +60,11 @@
 
             </div>
             <br>
+
+            <!-- formulario login -->
             <div class="row h-100 justify-content-center align-items-center ">
                 <div id="login">
                     <form action="index.php?ctl=login" method="POST">
-
 
                         <fieldset class="clearfix">
                             <p>
@@ -90,11 +91,6 @@
 
                         </fieldset>
 
-
-
-
-
-
                     </form>
 
                     <form action="index.php?ctl=register" method="POST">
@@ -105,12 +101,33 @@
                 </div>
             </div>
 
+            <!-- fin formulario login -->
+
             <br>
+
+
+
+            <!-- mensaje de error -->
             <div class="justify-content-center">
 
-                <h3 class="text-center alert alert-danger" role="alert"><?php echo $params['mensaje']; ?></h3>
+                <?php if ($params['mensaje'] != '') {
+                    $fondoRojo = "text-center alert alert-danger";
+                } else {
+                    $fondoRojo = '';
+                } ?>
+
+                <h3 class="<?php echo $fondoRojo ?>" role="alert"><?php echo $params['mensaje'];
+                                                                    $params['mensaje'] = ''; ?></h3>
+
             </div>
+            <!-- fin mensaje de error -->
+
+
+
         </div>
+
+
+
 
 
 

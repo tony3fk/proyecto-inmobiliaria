@@ -230,6 +230,26 @@ class Controller
     }
 
 
+    public function listarInmuebles()
+    {
+        try {
+            $m = new Model();
+            $params = array(
+                'inmuebles' => $m->listarInmuebles()
+            );
+
+            // Recogemos los dos tipos de excepciones que se pueden producir
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        require __DIR__ . '/templates/listarInmuebles.php';
+    }
+
+
 
 
 
@@ -372,6 +392,34 @@ class Controller
 
         require __DIR__ . '/templates/verInmueble.php';
     }
+
+
+
+
+    public function eliminarInmuebles()
+    {
+        try {
+
+
+            if (!isset($_GET['id'])) {
+                throw new Exception('Inmueble no encontrado');
+            }
+            $referencia = recoge('id');
+            $m = new Model();
+            $result = $m->eliminarInmuebles($referencia);
+            $params['resultado'] = $result;
+            $params['mensaje'] = "Ref: " . $referencia . " eliminado";
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+
+        header('Location: index.php?ctl=listarInmuebles&borrado=1');
+    }
+
 
 
 

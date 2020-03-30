@@ -51,6 +51,9 @@ $map = array(
     'insertar' => array('controller' => 'Controller', 'action' => 'insertarInmueble', 'tipo' => 2),
     'buscarPorProvincia' => array('controller' => 'Controller', 'action' => 'buscarPorProvincia', 'tipo' => 0),
     'listarUsuarios' => array('controller' => 'Controller', 'action' => 'listarUsuarios', 'tipo' => 2),
+    'listarInmuebles' => array('controller' => 'Controller', 'action' => 'listarInmuebles', 'tipo' => 2),
+    'eliminarInmuebles' => array('controller' => 'Controller', 'action' => 'eliminarInmuebles', 'tipo' => 2),
+
 
     'verInmueble' => array('controller' => 'Controller', 'action' => 'verInmueble', 'tipo' => 0),
     'salir' => array('controller' => 'Controller', 'action' => 'salir', 'tipo' => 0),

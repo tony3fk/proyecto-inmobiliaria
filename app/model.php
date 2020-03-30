@@ -40,6 +40,28 @@ class Model extends PDO
         return $result->fetchAll();
     }
 
+    public function listarInmuebles()
+    {
+
+        $consulta = "select * from inmuebles";
+        $result = $this->conexion->query($consulta);
+        return $result->fetchAll();
+    }
+
+
+
+    public function eliminarInmuebles($referencia)
+    {
+
+        $consulta = "delete from inmuebles where referencia = :referencia";
+
+        $result = $this->conexion->prepare($consulta);
+        $result->bindParam(':referencia', $referencia);
+        $result->execute();
+
+
+        return $referencia;
+    }
 
 
 
