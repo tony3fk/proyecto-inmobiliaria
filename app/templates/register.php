@@ -42,6 +42,9 @@
 
         <div class="jumbotron ">
             <div class="row h-100 justify-content-center align-items-center" id="register">
+
+
+
                 <form action="index.php?ctl=register" method="POST">
                     <input type="text" placeholder="Nombre" name="nombre" required />
                     <br><br>

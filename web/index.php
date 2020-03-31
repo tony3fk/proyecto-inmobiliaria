@@ -41,10 +41,11 @@ $map = array(
     /*
     En cada elemento podemos añadir una posición mas que se encargará de otorgar el nivel mínimo para ejecutar la acción
     Puede quedar de la siguiente manera
-    tipo 0->público / 1->cliente / vendedor->2 / administrador->3
+    tipo 0->público / 1->usuario / admin->2 / 
     */
     'login' => array('controller' => 'Controller', 'action' => 'login', 'tipo' => 0),
     'register' => array('controller' => 'Controller', 'action' => 'register', 'tipo' => 0),
+    // 'registerAdmin' => array('controller' => 'Controller', 'action' => 'registerAdmin', 'tipo' => 2),
     'inicio' => array('controller' => 'Controller', 'action' => 'inicio', 'tipo' => 0),
     'listarVenta' => array('controller' => 'Controller', 'action' => 'listarVenta', 'tipo' => 0),
     'listarAlquiler' => array('controller' => 'Controller', 'action' => 'listarAlquiler', 'tipo' => 0),
@@ -107,7 +108,7 @@ if (method_exists($controlador['controller'], $controlador['action'])) { //compr
         call_user_func(array(new $controlador['controller'], $controlador['action']));
     } else {
 
-        $errorMensaje = $sesion->get('nombre') . ", no tienes permiso para realizar esta acción. Se requiere un nivel " . $map[$ruta]['tipo'] . " pero sólo tienes nivel " . $sesion->get('tipo') . ".";
+        $errorMensaje = $sesion->get('nombre') . ", no tienes permiso para realizar esta acción. Se requiere ser administrador.";
         $_SESSION['mensaje'] = $errorMensaje;
         errorsLog($errorMensaje);
         header('location: index.php?ctl=error');

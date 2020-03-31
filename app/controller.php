@@ -58,6 +58,7 @@ class Controller
                 'email' => '',
                 'password' => '',
                 'ciudad' => '',
+                'tipo' => '',
                 'mensaje' => ''
 
             );
@@ -65,23 +66,105 @@ class Controller
             $params['nombre'] = recoge('nombre');
             $params['email'] = recoge('email');
             $params['password'] = crypt_blowfish(recoge('password'));
+
+            if ($_SESSION['tipo'] == 2) { //si está iniciada una sesión de administrador
+                $params['tipo'] = 2;
+            } else {
+                $params['tipo'] = 1;
+            }
+
             $params['ciudad'] = recoge('ciudad');
 
 
             // comprobar campos formulario
-            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password'])  && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
+            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && is_numeric($params['tipo'])  && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
                 if (isset($_POST['bRegister'])) { //si se pulsa registrar
 
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
                     if ($m->InsertUser($params)) {
+
                         self::email($params['email']);
-                        header('Location: index.php?ctl=login');
+
+                        if ($_SESSION['tipo'] == 2) {
+                            header('Location: index.php?ctl=listarUsuarios'); //si es admin
+                        } else {
+                            header('Location: index.php?ctl=login'); //si no es admin
+                        }
                     } else {
                         $params = array(
                             'nombre' => $params['nombre'],
                             'email' =>   $params['email'],
                             'provincia' => $params['password'],
+                            'ciudad' =>  $params['ciudad'],
+                            'tipo' => $params['tipo']
+
+
+                        );
+                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
+                    }
+                } else {
+                    $params = array(
+                        'nombre' => $params['nombre'],
+                        'email' =>   $params['email'],
+                        'provincia' => $params['password'],
+                        'ciudad' =>  $params['ciudad'],
+                        'tipo' => $params['tipo']
+                    );
+                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
+                }
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+
+        require __DIR__ . '/templates/register.php';
+    }
+    //FIN REGISTRO
+
+    /*
+    //REGISTRO ADMIN
+    public function registerAdmin()
+    {
+        try {
+
+            $params = array(
+                'nombre' => '',
+                'email' => '',
+                'password' => '',
+                'ciudad' => '',
+                'tipo' => '',
+                'mensaje' => ''
+
+            );
+
+            $params['nombre'] = recoge('nombre');
+            $params['email'] = recoge('email');
+            $params['password'] = crypt_blowfish(recoge('password'));
+            $params['tipo'] = 2;
+            $params['ciudad'] = recoge('ciudad');
+
+
+            // comprobar campos formulario
+            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && isset($params['tipo']) && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
+                if (isset($_POST['bRegister'])) { //si se pulsa registrar
+
+
+                    // Si no ha habido problema creo modelo y hago inserción
+                    $m = new Model();
+                    if ($m->InsertUser($params)) {
+                        self::email($params['email']);
+                        header('Location: index.php?ctl=listarUsuarios');
+                    } else {
+                        $params = array(
+                            'nombre' => $params['nombre'],
+                            'email' =>   $params['email'],
+                            'provincia' => $params['password'],
+                            'tipo' => $params['tipo'],
                             'ciudad' =>  $params['ciudad']
 
 
@@ -93,6 +176,7 @@ class Controller
                         'nombre' => $params['nombre'],
                         'email' =>   $params['email'],
                         'provincia' => $params['password'],
+                        'tipo' => $params['tipo'],
                         'ciudad' =>  $params['ciudad']
                     );
                     $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
@@ -108,8 +192,8 @@ class Controller
 
         require __DIR__ . '/templates/register.php';
     }
-    //FIN REGISTRO
-
+    //FIN REGISTRO ADMIN
+*/
 
 
     //INICIO

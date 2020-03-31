@@ -60,26 +60,11 @@
                     <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link">Alquiler</a>
 
 
-                    <?php
-                    //si no es administrador se aplica la class de Bootstrap d-none en el siguiente elemento div #menuAdmin
-                    $displayNone = "";
-                    if ($_SESSION['tipo'] < 2) {
-                        $displayNone = " d-none";
-                    }
-                    ?>
 
-                    <div id="menuAdmin" class="nav-item dropdown <?php echo $displayNone ?> ">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menú Admin</a>
-                        <div class="dropdown-menu">
-
-                            <a href="index.php?ctl=insertar" class="dropdown-item">Insertar Inmuebles</a>
-                            <a href="index.php?ctl=listarInmuebles" class="dropdown-item">Gestión Inmuebles</a>
-                            <a href="index.php?ctl=listarUsuarios" class="dropdown-item">Gestión Usuarios</a>
-
-                        </div>
-                    </div>
                     <a href="index.php?ctl=salir" class="nav-item nav-link">Salir</a>
                 </div>
+
+
                 <form class="form-inline">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Buscar">
@@ -88,7 +73,31 @@
                         </div>
                     </div>
                 </form>
+
+
+
+                <?php
+                //si no es administrador se aplica la class de Bootstrap d-none en el siguiente elemento div #menuAdmin
+                $displayNone = "";
+                if ($_SESSION['tipo'] < 2) {
+                    $displayNone = " d-none";
+                }
+                ?>
                 <div class="navbar-nav">
+                    <div id="menuAdmin" class="nav-item dropdown <?php echo $displayNone ?> ">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menú Admin</a>
+                        <div class="dropdown-menu">
+                            <a href="index.php?ctl=listarInmuebles" class="dropdown-item">Gestión Inmuebles</a>
+                            <a href="index.php?ctl=insertar" class="dropdown-item">Añadir Inmueble</a>
+
+                            <a href="index.php?ctl=listarUsuarios" class="dropdown-item">Gestión Usuarios</a>
+                            <a href="index.php?ctl=register" class="dropdown-item">Añadir Administrador</a>
+
+                        </div>
+                    </div>
+
+
+
                     <a href="#" class="nav-item nav-link"><?php echo $_SESSION['nombre']; ?></a>
                 </div>
             </div>
