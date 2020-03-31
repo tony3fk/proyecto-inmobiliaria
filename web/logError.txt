@@ -29,3 +29,4 @@ paco, no tienes permiso para realizar esta acción. Se requiere un nivel 2 pero 
 admin, no tienes permiso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1.
 admin, no tienes permiso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1.
 tony3fk, no tienes permiso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1.
+tony3fk, no tienes permiso para realizar esta acción. Se requiere un nivel 2 pero sólo tienes nivel 1.
