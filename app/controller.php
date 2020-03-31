@@ -3,12 +3,10 @@ include('libs/utils.php');
 include('libs/sessionClass.php');
 include('libs/enviaMail.php');
 
-
-
 class Controller
 {
 
-
+    //LOGIN
     public function login()
     {
         $params['mensaje'] = "";
@@ -17,7 +15,7 @@ class Controller
 
         //Recojo y valido datos del formulario
         $params['nombre'] = recoge('nombre');
-        $params['password'] = recoge('password')/*crypt_blowfish(recoge('password')) No lo utilizo porque el campo para la contraseña está limitado a varchar(30) y se trunca el dato*/;
+        $params['password'] = crypt_blowfish(recoge('password'))  /*recoge('password')*/;
 
 
         if (isset($params['nombre']) && isset($params['password'])) { //compruebo si tengo datos 
@@ -46,45 +44,11 @@ class Controller
 
         require __DIR__ . '/templates/login.php';
     }
+    //FIN LOGIN
 
 
 
-
-
-
-
-    // function register()
-    // {
-    //     $params['mensaje'] = "";
-    //     $m = new Model;
-    //     //Recojo y valido datos del formulario
-    //     $nombre = recoge('nombre');
-    //     $email = recoge('email');
-    //     $password = recoge('password') /*crypt_blowfish(recoge('password'))*/;
-    //     $ciudad = recoge('ciudad');
-    //     if (isset($nombre) && isset($email) && _email($password) && isset($ciudad)) { //compruebo si tengo datos y si el email es correcto
-
-    //         if (isset($_POST['bRegister'])) { //si se pulsa registrar
-
-    //             if ($m->InsertUser($nombre, $email, $password, $ciudad)) {
-    //                 $params['mensaje'] = 'Registrado con éxito.';
-
-    //                 enviaMail($email);
-
-    //                 header('Location: index.php?ctl=login');
-    //             } else {
-
-    //                 //$params['mensaje'] = 'No se ha podido registrar el usuario o ya existe.';
-    //                 echo "No se ha podido registrar el usuario o ya existe.";
-    //             }
-    //         }
-    //     }
-
-    //     require __DIR__ . '/templates/register.php';
-    // }
-
-
-
+    //REGISTRO
     public function register()
     {
         try {
@@ -98,10 +62,9 @@ class Controller
 
             );
 
-
             $params['nombre'] = recoge('nombre');
             $params['email'] = recoge('email');
-            $params['password'] = recoge('password');
+            $params['password'] = crypt_blowfish(recoge('password'));
             $params['ciudad'] = recoge('ciudad');
 
 
@@ -112,7 +75,7 @@ class Controller
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
                     if ($m->InsertUser($params)) {
-
+                        self::email($params['email']);
                         header('Location: index.php?ctl=login');
                     } else {
                         $params = array(
@@ -145,10 +108,11 @@ class Controller
 
         require __DIR__ . '/templates/register.php';
     }
+    //FIN REGISTRO
 
 
 
-
+    //INICIO
     public function inicio()
     {
         $params = array(
@@ -157,21 +121,28 @@ class Controller
         );
         require __DIR__ . '/templates/inicio.php';
     }
+    //FIN INICIO
 
+
+    //PÁGINA DE ERROR
     public function error()
     {
 
         require __DIR__ . '/templates/error.php';
     }
+    //FIN PAGINA DE ERROR
 
 
+    //PÁGINA ERROR DE RUTA
     public function errorDeRuta()
     {
         require __DIR__ . '/templates/errorderuta.php';
     }
+    //FIN PÁGINA ERROR DE RUTA
 
 
 
+    //LISTAR INMUEBLES EN VENTA
     public function listarVenta()
     {
         try {
@@ -190,7 +161,11 @@ class Controller
         }
         require __DIR__ . '/templates/mostrarInmuebles.php';
     }
+    //FIN LISTAR INMUEBLES EN VENTA
 
+
+
+    //LISTAR INMUEBLES EN ALQUILER
     public function listarAlquiler()
     {
         try {
@@ -209,7 +184,11 @@ class Controller
         }
         require __DIR__ . '/templates/mostrarInmuebles.php';
     }
+    //FIN LISTAR INMUEBLES EN ALQUILER
 
+
+
+    //LISTAR USUARIOS MENU ADMIN
     public function listarUsuarios()
     {
         try {
@@ -228,8 +207,11 @@ class Controller
         }
         require __DIR__ . '/templates/listarUsuarios.php';
     }
+    //FIN LISTAR USUARIOS MENÚ ADMIN
 
 
+
+    //LISTAR INMUEBLES MENÚ ADMIN
     public function listarInmuebles()
     {
         try {
@@ -248,11 +230,12 @@ class Controller
         }
         require __DIR__ . '/templates/listarInmuebles.php';
     }
+    //FIN LISTAR INMUEBLES MENÚ ADMIN
 
 
 
 
-
+    //INSERTAR INMUEBLES
     public function insertarInmueble()
     {
         try {
@@ -312,12 +295,13 @@ class Controller
 
         require __DIR__ . '/templates/formInsertar.php';
     }
+    //FIN INSERTAR INMUEBLES
 
 
 
 
 
-
+    //BUSCAR POR PROVINCIA (SIN USAR)
     public function buscarPorProvincia()
     {
         try {
@@ -341,10 +325,11 @@ class Controller
         }
         require __DIR__ . '/templates/buscarPorProvincia.php';
     }
+    // FIN BUSCAR POR PROVINCIA
 
 
 
-
+    //BUSCAR POR TIPO (SIN USAR)
     public function buscarPorTipo()
     {
         try {
@@ -367,9 +352,10 @@ class Controller
         }
         require __DIR__ . '/templates/buscarPorTipo.php';
     }
+    //FIN BUSCAR POR TIPO
 
 
-
+    //VER INMUEBLE
     public function verInmueble()
     {
         try {
@@ -392,10 +378,11 @@ class Controller
 
         require __DIR__ . '/templates/verInmueble.php';
     }
+    //FIN VER INMUEBLE
 
 
 
-
+    //ELIMINAR INMUEBLE
     public function eliminarInmuebles()
     {
         try {
@@ -419,24 +406,27 @@ class Controller
 
         header('Location: index.php?ctl=listarInmuebles&borrado=1');
     }
+    //FIN ELIMINAR INMUEBLE
 
 
 
-
+    //SALIR
     public function salir()
     {
         session_destroy();
         header('Location: index.php?ctl=login');
     }
+    //FIN SALIR
 
 
+    //ENVÍO EMAIL DE REGISTRO
     public function email($email)
     {
 
         $para = $email; //aquí mail del registrado
-        $asunto = "Alta repositorio de alimentos";
+        $asunto = "Alta Gestión Inmobiliaria";
         $mensaje = "<hr>";
-        $mensaje .= "<h2>Bienvenido al repositorio de alimentos </h2><br>";
+        $mensaje .= "<h2>Bienvenidos a Gestión Inmobiliaria </h2><br>";
         $mensaje .= "<hr>";
 
         // Para enviar correo HTML, la cabecera Content-type debe definirse
@@ -454,4 +444,45 @@ class Controller
             return true;
         }
     }
+    //FIN ENVÍO EMAIL DE REGISTRO
+
+
+
+
+
+
+
+
+
+
+
+    // function register()
+    // {
+    //     $params['mensaje'] = "";
+    //     $m = new Model;
+    //     //Recojo y valido datos del formulario
+    //     $nombre = recoge('nombre');
+    //     $email = recoge('email');
+    //     $password = recoge('password') /*crypt_blowfish(recoge('password'))*/;
+    //     $ciudad = recoge('ciudad');
+    //     if (isset($nombre) && isset($email) && _email($password) && isset($ciudad)) { //compruebo si tengo datos y si el email es correcto
+
+    //         if (isset($_POST['bRegister'])) { //si se pulsa registrar
+
+    //             if ($m->InsertUser($nombre, $email, $password, $ciudad)) {
+    //                 $params['mensaje'] = 'Registrado con éxito.';
+
+    //                 enviaMail($email);
+
+    //                 header('Location: index.php?ctl=login');
+    //             } else {
+
+    //                 //$params['mensaje'] = 'No se ha podido registrar el usuario o ya existe.';
+    //                 echo "No se ha podido registrar el usuario o ya existe.";
+    //             }
+    //         }
+    //     }
+
+    //     require __DIR__ . '/templates/register.php';
+    // }
 }
