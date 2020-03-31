@@ -1,9 +1,19 @@
 <?php ob_start(); ?>
 
 
-<script></script>
+
 
 <div class="container">
+
+    <?php
+    if (isset($_GET['borrado'])) {
+
+        echo '<h2 class="text-danger bg-warning">';
+        echo " Usuario eliminado";
+        echo "</h2>";
+    } ?>
+
+
     <table class="table table-striped">
 
         <thead>
@@ -26,11 +36,12 @@
             <td><?php echo $usuarios['id'] ?></td>
             <td><?php echo $usuarios['nombre'] ?></td>
             <td><?php echo $usuarios['email'] ?></td>
-            <td><?php echo $usuarios['password'] ?></td>
+            <td><?php echo "******" /*$usuarios['password']*/ ?></td>
             <td><?php echo $usuarios['tipo'] ?></td>
             <td><?php echo $usuarios['ciudad'] ?></td>
             <td>
-                <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                <a href="index.php?ctl=eliminarUsuario&id=<?php echo $usuarios['id'] ?>"
+                    class="btn btn-outline-danger">Eliminar</a>
             </td>
         </tr>
         <?php
@@ -38,13 +49,6 @@
         ?>
     </table>
 </div>
-
-
-
-
-
-
-
 
 
 

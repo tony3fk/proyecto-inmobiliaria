@@ -409,6 +409,34 @@ class Controller
     //FIN ELIMINAR INMUEBLE
 
 
+    //ELIMINAR USUARIOS
+    public function eliminarUsuario()
+    {
+        try {
+
+
+            if (!isset($_GET['id'])) {
+                throw new Exception('Usuario no encontrado');
+            }
+            $id = recoge('id');
+            $m = new Model();
+            $result = $m->eliminarUsuario($id);
+            $params['resultado'] = $result;
+            $params['mensaje'] = "Usuario eliminado";
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+
+        header('Location: index.php?ctl=listarUsuarios&borrado=1');
+    }
+    //FIN ELIMINAR USUARIOS
+
+
+
 
     //SALIR
     public function salir()

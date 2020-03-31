@@ -64,6 +64,20 @@ class Model extends PDO
     }
 
 
+    public function eliminarUsuario($id)
+    {
+
+        $consulta = "delete from usuarios where id = :id";
+
+        $result = $this->conexion->prepare($consulta);
+        $result->bindParam(':id', $id);
+        $result->execute();
+
+
+        return $id;
+    }
+
+
 
 
 

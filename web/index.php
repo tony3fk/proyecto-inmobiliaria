@@ -53,6 +53,7 @@ $map = array(
     'listarUsuarios' => array('controller' => 'Controller', 'action' => 'listarUsuarios', 'tipo' => 2),
     'listarInmuebles' => array('controller' => 'Controller', 'action' => 'listarInmuebles', 'tipo' => 2),
     'eliminarInmuebles' => array('controller' => 'Controller', 'action' => 'eliminarInmuebles', 'tipo' => 2),
+    'eliminarUsuario' => array('controller' => 'Controller', 'action' => 'eliminarUsuario', 'tipo' => 2),
 
 
     'verInmueble' => array('controller' => 'Controller', 'action' => 'verInmueble', 'tipo' => 0),
