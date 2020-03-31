@@ -262,7 +262,8 @@ class Controller
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
                     if ($m->insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta)) {
-                        header('Location: index.php?ctl=listar');
+                        $params['mensaje'] = "Insertado correctamente";
+                        header('Location: index.php?ctl=listarInmuebles');
                     } else {
                         $params = array(
                             'tipo' => $tipo,
@@ -286,10 +287,10 @@ class Controller
                 }
             }
         } catch (Exception $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logExceptio.txt");
             header('Location: index.php?ctl=error');
         } catch (Error $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
 
@@ -299,60 +300,6 @@ class Controller
 
 
 
-
-
-    //BUSCAR POR PROVINCIA (SIN USAR)
-    public function buscarPorProvincia()
-    {
-        try {
-            $params = array(
-                'provincia' => '',
-                'resultado' => array()
-            );
-            $m = new Model();
-            if (isset($_POST['buscar'])) {
-                $provincia =  recoge("provincia");
-                $params['provincia'] = $provincia;
-
-                $params['resultado'] = $m->buscarPorProvincia($provincia);
-            }
-        } catch (Exception $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
-        } catch (Error $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
-        }
-        require __DIR__ . '/templates/buscarPorProvincia.php';
-    }
-    // FIN BUSCAR POR PROVINCIA
-
-
-
-    //BUSCAR POR TIPO (SIN USAR)
-    public function buscarPorTipo()
-    {
-        try {
-            $params = array(
-                'tipo' => '',
-                'resultado' => array()
-            );
-            $m = new Model();
-            if (isset($_POST['buscar'])) {
-                $tipo = recoge("tipo");
-                $params['tipo'] = $tipo;
-                $params['resultado'] = $m->buscarPorTipo($tipo);
-            }
-        } catch (Exception $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
-        } catch (Error $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
-        }
-        require __DIR__ . '/templates/buscarPorTipo.php';
-    }
-    //FIN BUSCAR POR TIPO
 
 
     //VER INMUEBLE
@@ -513,4 +460,61 @@ class Controller
 
     //     require __DIR__ . '/templates/register.php';
     // }
+
+
+
+    /*
+    //BUSCAR POR PROVINCIA (SIN USAR)
+    public function buscarPorProvincia()
+    {
+        try {
+            $params = array(
+                'provincia' => '',
+                'resultado' => array()
+            );
+            $m = new Model();
+            if (isset($_POST['buscar'])) {
+                $provincia =  recoge("provincia");
+                $params['provincia'] = $provincia;
+
+                $params['resultado'] = $m->buscarPorProvincia($provincia);
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        require __DIR__ . '/templates/buscarPorProvincia.php';
+    }
+    // FIN BUSCAR POR PROVINCIA
+
+
+
+    //BUSCAR POR TIPO (SIN USAR)
+    public function buscarPorTipo()
+    {
+        try {
+            $params = array(
+                'tipo' => '',
+                'resultado' => array()
+            );
+            $m = new Model();
+            if (isset($_POST['buscar'])) {
+                $tipo = recoge("tipo");
+                $params['tipo'] = $tipo;
+                $params['resultado'] = $m->buscarPorTipo($tipo);
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        require __DIR__ . '/templates/buscarPorTipo.php';
+    }
+    //FIN BUSCAR POR TIPO
+*/
 }

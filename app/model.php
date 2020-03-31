@@ -40,10 +40,10 @@ class Model extends PDO
         return $result->fetchAll();
     }
 
-    public function listarInmuebles()
+    public function listarInmuebles($orderBy = " order by referencia desc")
     {
 
-        $consulta = "select * from inmuebles";
+        $consulta = "select * from inmuebles $orderBy";
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
@@ -101,34 +101,6 @@ class Model extends PDO
 
 
 
-    public function buscarPorTipo($tipo)
-    {
-        try {
-            $consulta = "select * from inmuebles where tipo like :tipo";
-
-            $result = $this->conexion->prepare($consulta);
-            $result->bindParam(':tipo', $tipo);
-            $result->execute();
-
-            return $result->fetchAll();
-        } catch (PDOException $e) {
-            echo "<p>Error: " . $e->getMessage();
-        }
-    }
-
-
-
-
-    public function buscarPorProvincia($provincia)
-    {
-
-        $consulta = "select * from inmuebles where provincia=:provincia";
-
-        $result = $this->conexion->prepare($consulta);
-        $result->bindParam(':provincia', $provincia);
-        $result->execute();
-        return $result->fetch();
-    }
 
 
     public function verInmueble($referencia)

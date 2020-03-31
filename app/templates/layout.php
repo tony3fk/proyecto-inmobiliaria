@@ -28,21 +28,27 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row  bg-dark justify-content-center">
+
+        <div class="row  bg-dark justify-content-center pt-3 pb-0">
             <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
-
-
+            <h5 class="text-warning ">Tu portal inmobiliario</h5>
         </div>
         <div class="row  bg-dark justify-content-center">
 
-            <h3 class="text-warning ">Tu portal inmobiliario</h3>
+            <div class="col-11">
+
+            </div>
+            <div class="col-1">
+                <h3 class="text-warning navbar-brand">
+                    <?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; ?></h3>
+            </div>
+
         </div>
 
 
 
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a href="#" class="navbar-brand"><?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC";
-                                                ?></a>
+
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>

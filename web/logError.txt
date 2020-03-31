@@ -33,3 +33,4 @@ tony3fk, no tienes permiso para realizar esta acción. Se requiere un nivel 2 pe
 Error 404: No existe la ruta eliminarUsuarios
 Error 404: No existe la ruta eliminarUsuarios
 Error 404: No existe la ruta eliminarUsuarios
+Error 404: No existe la ruta listar
