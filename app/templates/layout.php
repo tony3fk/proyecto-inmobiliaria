@@ -19,6 +19,7 @@
         id="bootstrap-css" />-->
 
     <script src="css/bootstrap/js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/ab12d61800.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -35,50 +36,54 @@
 <body>
     <div class="container-fluid">
 
-        <div class="row  bg-dark justify-content-center pt-3 pb-0 header">
+        <div class="row  bg-dark justify-content-center  header">
             <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
-            <h5 class="text-warning ">Tu portal inmobiliario</h5>
+
         </div>
-        <div class="row  bg-dark justify-content-center">
-
-            <div class="col-11">
-
+        <div class="row">
+            <div class=" col-11 bg-dark text-center">
+                <h5 class="text-warning ">Tu portal inmobiliario</h5>
             </div>
-            <div class="col-1">
+
+            <div class=" col-1 bg-dark ">
+
+
+
                 <h3 class="text-warning navbar-brand">
                     <?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; ?></h3>
-            </div>
 
+
+            </div>
         </div>
 
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-light menu">
+        <nav class=" row navbar navbar-expand-md navbar-light bg-warning menu">
 
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav">
+
+
+                <div class="navbar-nav mr-auto">
                     <a href="index.php?ctl=inicio" class="nav-item nav-link active">Inicio</a>
-                    <a href="index.php?ctl=listarVenta" class="nav-item nav-link">Venta</a>
-                    <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link">Alquiler</a>
-
-
+                    <a href="index.php?ctl=listarVenta" class="nav-item nav-link active">Venta</a>
+                    <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link active">Alquiler</a>
 
                     <a href="index.php?ctl=salir" class="nav-item nav-link">Salir</a>
                 </div>
 
 
-                <form class="form-inline">
+                <!-- <form class="form-inline">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Buscar">
                         <div class="input-group-append">
                             <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
-                </form>
+                </form> -->
 
 
 
@@ -89,7 +94,7 @@
                     $displayNone = " d-none";
                 }
                 ?>
-                <div class="navbar-nav">
+                <div class="navbar-nav ml-auto">
                     <div id="menuAdmin" class="nav-item dropdown <?php echo $displayNone ?> ">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menú Admin</a>
                         <div class="dropdown-menu">
@@ -104,7 +109,8 @@
 
 
 
-                    <a href="#" class="nav-item nav-link"><?php echo $_SESSION['nombre']; ?></a>
+                    <a href="#" class="nav-item nav-link"><i class="fas fa-user"></i>
+                        <?php echo strtoupper(" " . $_SESSION['nombre']); ?></a>
                 </div>
             </div>
         </nav>
