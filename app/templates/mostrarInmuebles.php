@@ -27,7 +27,16 @@
 
                 <!-- Title -->
                 <h4 class="card-title">Precio:
-                    <?php echo number_format($inmuebles['precio_venta'], 2, ',', '.') . " €" ?>
+                    <?php
+                        if ($inmuebles['operacion'] == "Alquiler") {
+                            echo number_format(substr($inmuebles['precio_venta'], 1, 4), 2, ',', '.') . " €/mes";
+                        } else {
+                            echo number_format($inmuebles['precio_venta'], 2, ',', '.') . " €";
+                        }
+                        ?>
+
+
+
                 </h4>
 
 
