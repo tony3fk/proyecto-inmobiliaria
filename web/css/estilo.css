@@ -2,9 +2,10 @@ ul {
     text-decoration: none;
 }
 
-/*.card-img-top {
-    height: 20rem !important;
-}*/
+.embed-responsive .card-img-top {
+    object-fit: cover;
+}
+
 
 @media (max-width: 750px) {
 
@@ -31,5 +32,3 @@ table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
     bottom: .5em !important;
 }
-
-
