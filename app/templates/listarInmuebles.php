@@ -2,7 +2,6 @@
 
 
 
-
 <div class="container">
 
     <?php
@@ -14,17 +13,18 @@
     } ?>
 
 
-    <table class="table table-striped">
+    <table id="tabla" class="table table-hover table-bordered table-sm " cellspacing="0" width="100%">
 
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th>REF</th>
-                <th>FECHA_ALTA</th>
-                <th>TIPO</th>
-                <th>OPERACION</th>
-                <th>PROVINCIA</th>
-                <th>SUPERFICIE</th>
-                <th>PRECIO</th>
+                <th class="th-sm text-center">REF</th>
+                <th class="th-sm text-center">FECHA_ALTA</th>
+                <th class="th-sm text-center">TIPO</th>
+                <th class="th-sm text-center">OPERACION</th>
+                <th class="th-sm text-center">PROVINCIA</th>
+                <th class="th-sm text-center">SUPERFICIE</th>
+                <th class="th-sm text-center">PRECIO</th>
+                <th class="th-sm text-center"></th>
 
 
 
@@ -43,37 +43,17 @@
             <td><?php echo $inmuebles['superficie'] ?></td>
             <td><?php echo $inmuebles['precio_venta'] ?></td>
 
-            <td>
+            <td class="text-center">
                 <a href="index.php?ctl=eliminarInmuebles&id=<?php echo $inmuebles['referencia'] ?>"
-                    class="btn btn-outline-danger">Eliminar</a>
+                    class="btn btn-outline-danger w-100">Eliminar Registro</a>
             </td>
         </tr>
         <?php
 
-            // $id = extract($_GET);
-
-            // if (@$idborrar == 2) {
-
-            //     header('location:index.php?ctl=eliminarInmuebles?id=$id');
-
-
-
-
-            //     echo '<script>alert("ELIMINADO")</script> ';
-            //     echo "<script>location.href='/templates/listarInmuebles.php'</script>";
-            // }
         }
         ?>
     </table>
 </div>
-
-
-
-
-
-
-
-
 
 
 

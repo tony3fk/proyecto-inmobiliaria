@@ -14,16 +14,18 @@
     } ?>
 
 
-    <table class="table table-striped">
+    <table id="tabla" class="table table-hover table-bordered table-sm " cellspacing="0" width="100%">
 
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th>ID</th>
-                <th>NOMBRE</th>
-                <th>EMAIL</th>
-                <th>PASSWORD</th>
-                <th>TIPO</th>
-                <th>CIUDAD</th>
+                <th class="th-sm text-center">ID</th>
+                <th class="th-sm text-center">NOMBRE</th>
+                <th class="th-sm text-center">EMAIL</th>
+                <th class="th-sm text-center">PASSWORD</th>
+                <th class="th-sm text-center">TIPO</th>
+                <th class="th-sm text-center">CIUDAD</th>
+                <th class="th-sm text-center"></th>
+
 
 
             </tr>
@@ -39,9 +41,9 @@
             <td><?php echo "******" /*$usuarios['password']*/ ?></td>
             <td><?php echo $usuarios['tipo'] ?></td>
             <td><?php echo $usuarios['ciudad'] ?></td>
-            <td>
+            <td class="text-center">
                 <a href="index.php?ctl=eliminarUsuario&id=<?php echo $usuarios['id'] ?>"
-                    class="btn btn-outline-danger">Eliminar</a>
+                    class="btn btn-outline-danger w-100">Eliminar Registro</a>
             </td>
         </tr>
         <?php

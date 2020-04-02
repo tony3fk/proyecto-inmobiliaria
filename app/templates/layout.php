@@ -5,31 +5,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="/web/css/estilo.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
         id="bootstrap-css" />-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />-->
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+
     <script src="css/bootstrap/js/bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style type="text/css">
-    .bs-example {
-        margin: 20px;
-    }
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
-    </style>
     <title>Gestión Inmobiliaria</title>
+
+
 
 </head>
 
 <body>
     <div class="container-fluid">
 
-        <div class="row  bg-dark justify-content-center pt-3 pb-0">
+        <div class="row  bg-dark justify-content-center pt-3 pb-0 header">
             <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
             <h5 class="text-warning ">Tu portal inmobiliario</h5>
         </div>
@@ -47,7 +53,7 @@
 
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light bg-light menu">
 
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -117,23 +123,29 @@
 
 
 
-        <footer id="pie" class="navbar fixed-bottom row bg-light  justify-content-center p-1 ">
+        <footer id="pie" class="navbar row bg-light  justify-content-center p-1 ">
             <div class=" elementor-widget-wrap col-md-3 text-center bg-light">
                 <div class="elementor-element elementor-element-4b7c45aa elementor-align-left elementor-widget elementor-widget-button"
                     data-id="4b7c45aa" data-element_type="widget" data-widget_type="button.default">
                     <div class="elementor-widget-container">
-                        <div class="elementor-button-wrapper"><a href="mailto:" class="" role="button"><span
-                                    class="elementor-button-content-wrapper"><span
-                                        class="elementor-button-text">info@gestioninmobiliaria.com</span></span></a>
+                        <div class="elementor-button-wrapper">
+                            <a href="mailto:" class="" role="button">
+                                <span class="elementor-button-content-wrapper">
+                                    <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="elementor-element elementor-element-4431d60d elementor-align-left elementor-widget elementor-widget-button"
                     data-id="4431d60d" data-element_type="widget" data-widget_type="button.default">
                     <div class="elementor-widget-container">
-                        <div class="elementor-button-wrapper"><a href="tel:+34-415-513-559" class="" role="button"><span
-                                    class="elementor-button-content-wrapper"><span class="elementor-button-text">tel:+34
-                                        415 513 559</span></span></a>
+                        <div class="elementor-button-wrapper">
+                            <a href="tel:+34-415-513-559" class="" role="button">
+                                <span class="elementor-button-content-wrapper">
+                                    <span class="elementor-button-text">tel:+34 415 513 559</span>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -181,6 +193,15 @@
             </div>
         </footer>
     </div>
+
+    <script>
+    $(document).ready(function() {
+        $('#tabla').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+    </script>
+
+
 </body>
 
 </html>

@@ -32,10 +32,10 @@ class Model extends PDO
         return $result->fetchAll();
     }
 
-    public function listarUsuarios()
+    public function listarUsuarios($orderBy = " order by tipo desc")
     {
 
-        $consulta = "select * from usuarios";
+        $consulta = "select * from usuarios $orderBy";
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }

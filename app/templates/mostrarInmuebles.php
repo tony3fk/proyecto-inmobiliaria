@@ -6,17 +6,16 @@
     <?php foreach ($params['inmuebles'] as $inmuebles) : ?>
 
 
-    <div class="col-md-4 col-12 col-sm-6">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
         <!-- Card Dark -->
-        <div class="card id=" card">
+        <div class="card" id="card">
 
             <!-- Card image -->
             <div class="view overlay">
-                <img class="card-img-top" src="../app/images/<?php echo $inmuebles['referencia'] . ".jpeg"; ?>"
-                    alt="Card image cap" id="img-inmueble">
-                <a>
-                    <div class="mask rgba-white-slight"></div>
-                </a>
+                <img class="card-img-top img-responsive p-2"
+                    src="../app/images/<?php echo $inmuebles['referencia'] . ".jpeg"; ?>" alt="Card image cap"
+                    id="img-inmueble">
+
             </div>
 
             <!-- Card content -->
