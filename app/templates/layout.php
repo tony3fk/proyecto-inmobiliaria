@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
-
+    <link rel='stylesheet' id='elementor-frontend-css'
+        href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
+        media='all' />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
@@ -30,12 +32,24 @@
 
     <title>Gestión Inmobiliaria</title>
 
+    <script>
+    $(document).ready(function() {
+        $('#bContact').click(function() {
+            var destino = $(this.hash); //this.hash lee el atributo href de este
+            $('html, body').animate({
+                scrollTop: destino.offset().top
+            }, 700); //Llega a su destino con el tiempo deseado
+            return false;
+        });
+    });
+    </script>
+
 
 
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid bg-light">
 
         <div class="row  bg-dark justify-content-center  header">
             <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
@@ -72,6 +86,7 @@
                     <a href="index.php?ctl=inicio" class="nav-item nav-link active">Inicio</a>
                     <a href="index.php?ctl=listarVenta" class="nav-item nav-link active">Venta</a>
                     <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link active">Alquiler</a>
+                    <a href="#footer" class="nav-item nav-link active" id=" bContact">Contacto</a>
 
                     <a href="index.php?ctl=salir" class="nav-item nav-link">Salir</a>
                 </div>
@@ -120,85 +135,175 @@
 
 
 
-        <br><br>
+        <br>
         <div class="container-fluid">
             <div class="row " id="contenido"><?php echo $contenido ?></div>
         </div>
+        <br>
 
 
 
 
+        <!-- Footer -->
+
+        <footer id="footer" class="mb-4 bg-dark text-light col-12 p-2 pl-5 pb-5">
 
 
-        <footer id="pie" class="navbar row bg-light  justify-content-center p-1 ">
-            <div class=" elementor-widget-wrap col-md-3 text-center bg-light">
-                <div class="elementor-element elementor-element-4b7c45aa elementor-align-left elementor-widget elementor-widget-button"
-                    data-id="4b7c45aa" data-element_type="widget" data-widget_type="button.default">
-                    <div class="elementor-widget-container">
-                        <div class="elementor-button-wrapper">
-                            <a href="mailto:" class="" role="button">
-                                <span class="elementor-button-content-wrapper">
-                                    <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
-                                </span>
-                            </a>
+
+
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
+
+
+
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="name" name="name" class="form-control">
+                                    <label for="name" class="">Tu nombre</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="email" name="email" class="form-control">
+                                    <label for="email" class="">Tu email</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <label for="subject" class="">Asunto</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12">
+
+                                <div class="md-form">
+                                    <textarea type="text" id="message" name="message" rows="2"
+                                        class="form-control md-textarea"></textarea>
+                                    <label for="message">Tu mensaje</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                    </form>
+
+                    <div class="text-center text-md-center ">
+                        <a class="btn btn-warning" href="#">Enviar</a> <!-- añadir envio por mail-->
+                    </div>
+                    <div class="status"></div>
+                </div>
+                <!--Grid column-->
+
+
+                <div class="elementor-widget-wrap col-md-2 text-center bg-dark text-light">
+                    <div class="elementor-element elementor-element-7fee44d3 elementor-align-left elementor-widget elementor-widget-button"
+                        data-id="7fee44d3" data-element_type="widget" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                            <div class="elementor-button-wrapper">
+                                <a class="" role="button">
+                                    <span class="elementor-button-content-wrapper">
+                                        <span class="elementor-button-text">O MÁNDANOS UN EMAIL:</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-4b7c45aa elementor-align-left elementor-widget elementor-widget-button"
+                        data-id="4b7c45aa" data-element_type="widget" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                            <div class="elementor-button-wrapper">
+                                <a href="mailto:" class="" role="button">
+                                    <span class="elementor-button-content-wrapper">
+                                        <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-4431d60d elementor-align-left elementor-widget elementor-widget-button"
+                        data-id="4431d60d" data-element_type="widget" data-widget_type="button.default">
+                        <div class="elementor-widget-container">
+                            <div class="elementor-button-wrapper">
+                                <a href="tel:001-415-513-5579" class="" role="button">
+                                    <span class="elementor-button-content-wrapper">
+                                        <span class="elementor-button-text">Tel: +34 698 415 2828</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-3ccdfd1 elementor-shape-rounded elementor-widget elementor-widget-global elementor-global-3711 elementor-widget-social-icons"
+                        data-id="3ccdfd1" data-element_type="widget" data-widget_type="social-icons.default">
+                        <div class="elementor-widget-container">
+                            <div class="elementor-social-icons-wrapper">
+                                <a href="https://www.facebook.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-993ef04"
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Facebook</span>
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="https://twitter.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-a229ff5"
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Twitter</span>
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-f2294d9"
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Linkedin</span>
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-f6707fb"
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Instagram</span>
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-3e98da93 elementor-widget elementor-widget-heading"
+                        data-id="3e98da93" data-element_type="widget" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                            <p class="elementor-heading-title elementor-size-default">Antonio Rodríguez<br>
+                                ©<?php echo date("Y", time()) . " "; ?>Spain</p>
                         </div>
                     </div>
                 </div>
-                <div class="elementor-element elementor-element-4431d60d elementor-align-left elementor-widget elementor-widget-button"
-                    data-id="4431d60d" data-element_type="widget" data-widget_type="button.default">
-                    <div class="elementor-widget-container">
-                        <div class="elementor-button-wrapper">
-                            <a href="tel:+34-415-513-559" class="" role="button">
-                                <span class="elementor-button-content-wrapper">
-                                    <span class="elementor-button-text">tel:+34 415 513 559</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="elementor-element elementor-element-3ccdfd1 elementor-shape-rounded elementor-widget elementor-widget-global elementor-global-3711 elementor-widget-social-icons"
-                    data-id="3ccdfd1" data-element_type="widget" data-widget_type="social-icons.default">
-                    <div class="elementor-widget-container">
-                        <div class="elementor-social-icons-wrapper">
-                            <a href="https://www.facebook.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-993ef04"
-                                target="_blank">
-                                <span class="elementor-screen-only"></span>
-                                <i class="fa fa-facebook">
-                                </i>
-                            </a>
-                            <a href="https://twitter.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-a229ff5"
-                                target="_blank">
-                                <span class="elementor-screen-only"></span>
-                                <i class="fa fa-twitter">
-                                </i>
-                            </a>
-                            <a href="https://www.linkedin.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-f2294d9"
-                                target="_blank">
-                                <span class="elementor-screen-only"> </span>
-                                <i class="fa fa-linkedin"> </i>
-                            </a>
-                            <a href="https://www.instagram.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-f6707fb"
-                                target="_blank">
-                                <span class="elementor-screen-only"></span>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="elementor-element elementor-element-3e98da93 elementor-widget elementor-widget-heading"
-                    data-id="3e98da93" data-element_type="widget" data-widget_type="heading.default">
-                    <div class="elementor-widget-container">
-                        <span id="copyright">Antonio Rodríguez</span>
-                        <p class="elementor-heading-title elementor-size-default">
-                            ©<?php echo date("Y", time()) . " "; ?>Spain, EU.</p>
-                    </div>
-                </div>
+
             </div>
+
         </footer>
+
+
     </div>
 
     <script>
