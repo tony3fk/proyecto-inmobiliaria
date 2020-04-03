@@ -55,20 +55,20 @@
 
         <header class="header">
 
-            <div class="row  bg-dark justify-content-center  header">
+            <div class="row bg-dark justify-content-center  header">
                 <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
 
             </div>
             <div class="row">
-                <div class=" col-11 bg-dark text-center">
+                <div class=" col-10 bg-dark text-center">
                     <h5 class="text-warning ">Tu portal inmobiliario</h5>
                 </div>
 
-                <div class=" col-1 bg-dark ">
+                <div class=" col-2 bg-dark text-right">
 
 
 
-                    <h3 class="text-warning navbar-brand">
+                    <h3 class="text-warning navbar-brand ">
                         <?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; ?></h3>
 
 
@@ -142,7 +142,7 @@
 
         <br>
         <div class="container-fluid">
-            <div class="row " id="contenido"><?php echo $contenido ?></div>
+            <div class="row" id="contenido"><?php echo $contenido ?></div>
         </div>
 
 

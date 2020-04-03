@@ -72,6 +72,16 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-login">
 
+                            <?php if ($_SESSION['tipo'] == 2) { //si el logueado es admin, es porque accede desde el menú de administrador y se oculta la opción de login
+                                $displayLogin = " none";
+                                $displayRegister = " block";
+                                $display = "d-none";
+                            } else {
+                                $displayLogin = " block";
+                                $displayRegister = " none";
+                                $display = "";
+                            }
+                            ?>
 
 
 
@@ -79,7 +89,8 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <a href="#" class="btn btn-outline-primary " id="login-form-link">Login</a>
+                                        <a href="#" class="btn btn-outline-primary <?php echo $display ?>"
+                                            id="login-form-link">Login</a>
                                     </div>
                                     <div class="col-xs-6">
                                         <a href="#" class="btn btn-outline-secondary "
@@ -96,14 +107,6 @@
                                 <div class="row">
                                     <div class="col-lg-12">
 
-                                        <?php if ($_SESSION['tipo'] == 2) {
-                                            $displayLogin = " none";
-                                            $displayRegister = " block";
-                                        } else {
-                                            $displayLogin = " block";
-                                            $displayRegister = " none";
-                                        }
-                                        ?>
 
 
                                         <form id="login-form" action="index.php?ctl=login" method="post" role="form"
@@ -259,29 +262,14 @@
 
         <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4 ">
 
-            <div class=" elementor-widget-wrap col-md-3 text-center text-dark bg-light">
+            <div class="  col-md-5 text-center text-dark bg-light">
 
-                <div class="elementor-element elementor-align-center elementor-widget elementor-widget-button">
-                    <div class="elementor-widget-container">
-                        <div class="elementor-button-wrapper">
-                            <a href="mailto:" class="" role="button">
-                                <span class="elementor-button-content-wrapper">
-                                    <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
+
+                <div class="elementor-align-center  elementor-widget-button">
+                    <a href="mailto:" class="" role="button">info@gestioninmobiliaria.com</a>
                 </div>
-                <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
-                    <div class="elementor-widget-container">
-                        <div class="elementor-button-wrapper">
-                            <a href="tel:+34-698-415-282" class="" role="button">
-                                <span class="elementor-button-content-wrapper">
-                                    <span class="elementor-button-text">tel: +34 698 415 282</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
+                <div class="  elementor-align-center elementor-widget elementor-widget-button">
+                    <a href="tel:+34-698-415-282" class="" role="button">tel: +34 698 415 282</a>
                 </div>
 
 
