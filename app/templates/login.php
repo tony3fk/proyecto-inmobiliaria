@@ -9,12 +9,20 @@
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" /> -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" /> -->
+    <link rel='stylesheet' id='elementor-frontend-css'
+        href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
+        media='all' />
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
 
-    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="/web/css/estilo.css" />
 
     <script src="css/bootstrap/js/bootstrap.js"></script>
 
@@ -24,27 +32,24 @@
 
 </head>
 
-<body>
-    <div class="container-fluid h-100">
-        <nav class=" col-13 navbar bg-dark justify-content-center ">
+<body class="bg-light">
+    <div class="container-fluid  bg-light">
+
+        <header class=" row col-12 navbar bg-dark justify-content-center ">
             <ul>
                 <li>
                     <h1 class="text-warning display-1 title ">Gestión Inmobiliaria</h1>
-
                 </li>
-
-
                 <h2 class="text-muted">Log in</h2>
-
             </ul>
-
-        </nav>
+        </header>
 
         <br>
-        <div class="jumbotron ">
-            <div class="row h-100 justify-content-center align-items-center" id="cabecera">
+        <br>
 
 
+        <div class="container">
+            <div class="row  justify-content-center align-items-center" id="cabecera">
 
                 <h3><?php
 
@@ -53,7 +58,7 @@
                         $_SESSION['nombre'] = "Invitado";
                         $_SESSION['tipo'] = 0;
                     }
-                    echo "Hola " . $_SESSION['nombre'] . ", inicia sesión.";
+                    //echo "Hola " . $_SESSION['nombre'] . ", inicia sesión.";
 
 
                     ?></h3>
@@ -61,8 +66,120 @@
             </div>
             <br>
 
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-login">
+
+
+
+
+
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <a href="#" class="btn btn-outline-primary " id="login-form-link">Login</a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="#" class="btn btn-outline-secondary "
+                                            id="register-form-link">Register</a>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+
+
+
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+
+
+                                        <form id="login-form" action="index.php?ctl=login" method="post" role="form"
+                                            style="display: block;">
+                                            <div class="form-group">
+                                                <input type="text" name="nombre" id="username" tabindex="1"
+                                                    class="form-control" placeholder="Username" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" id="password" tabindex="2"
+                                                    class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <input type="checkbox" tabindex="3" class="" name="remember"
+                                                    id="remember">
+                                                <label for="remember"> Remember Me</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                        <input type="submit" name="bLogin" id="login-submit"
+                                                            tabindex="4" class="form-control btn btn-login btn-primary"
+                                                            value="Log In">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="text-center">
+                                                            <a href="https://phpoll.com/recover" tabindex="5"
+                                                                class="forgot-password">Forgot Password?</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+
+
+                                        <form id="register-form" action="index.php?ctl=register" method="post"
+                                            role="form" style="display: none;">
+                                            <div class="form-group">
+                                                <input type="text" name="nombre" id="username" tabindex="1"
+                                                    class="form-control" placeholder="Username" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" name="email" id="email" tabindex="1"
+                                                    class="form-control" placeholder="Email Address" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" id="password" tabindex="2"
+                                                    class="form-control" placeholder="Password">
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <input type="password" name="confirm-password" id="confirm-password"
+                                                    tabindex="2" class="form-control" placeholder="Confirm Password">
+                                            </div> -->
+                                            <div class="form-group">
+                                                <input type="text" name="ciudad" id="ciudad" tabindex="2"
+                                                    class="form-control" placeholder="Ciudad">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                        <input type="submit" name="bRegister" id="register-submit"
+                                                            tabindex="4"
+                                                            class="form-control btn btn-register btn-secondary"
+                                                            value="Register Now">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- formulario login -->
-            <div class="row h-100 justify-content-center align-items-center ">
+            <!-- <div class="row  justify-content-center align-items-center ">
                 <div id="login">
                     <form action="index.php?ctl=login" method="POST">
 
@@ -99,11 +216,11 @@
                     </form>
 
                 </div>
-            </div>
+            </div> -->
 
             <!-- fin formulario login -->
 
-            <br>
+
 
 
 
@@ -131,12 +248,11 @@
 
 
 
-        <footer id="pie" class="navbar fixed-bottom row bg-light  justify-content-center p-1">
+        <footer id="pie" class="row col-12 fixed-bottom bg-dark  justify-content-center p-4 ">
 
-            <div class=" elementor-widget-wrap col-md-3 text-center bg-light">
+            <div class=" elementor-widget-wrap col-md-3 text-center text-light bg-dark">
 
-                <div class="elementor-element elementor-element-4b7c45aa elementor-align-left elementor-widget elementor-widget-button"
-                    data-id="4b7c45aa" data-element_type="widget" data-widget_type="button.default">
+                <div class="elementor-element elementor-align-center elementor-widget elementor-widget-button">
                     <div class="elementor-widget-container">
                         <div class="elementor-button-wrapper">
                             <a href="mailto:" class="" role="button">
@@ -147,42 +263,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="elementor-element elementor-element-4431d60d elementor-align-left elementor-widget elementor-widget-button"
-                    data-id="4431d60d" data-element_type="widget" data-widget_type="button.default">
+                <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
                     <div class="elementor-widget-container">
                         <div class="elementor-button-wrapper">
-                            <a href="tel:+34-415-513-559" class="" role="button">
+                            <a href="tel:+34-698-415-282" class="" role="button">
                                 <span class="elementor-button-content-wrapper">
-                                    <span class="elementor-button-text">tel:+34 415 513 559</span>
+                                    <span class="elementor-button-text">tel: +34 698 415 282</span>
                                 </span>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="elementor-element elementor-element-3ccdfd1 elementor-shape-rounded elementor-widget elementor-widget-global elementor-global-3711 elementor-widget-social-icons"
-                    data-id="3ccdfd1" data-element_type="widget" data-widget_type="social-icons.default">
+                <div
+                    class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
                     <div class="elementor-widget-container">
                         <div class="elementor-social-icons-wrapper">
                             <a href="https://www.facebook.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-993ef04"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
                                 target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-facebook"></i>
                             </a>
                             <a href="https://twitter.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-a229ff5"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
                                 target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-twitter"></i>
                             </a>
                             <a href="https://www.linkedin.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-f2294d9"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
                                 target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-linkedin"></i>
                             </a>
                             <a href="https://www.instagram.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-f6707fb"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
                                 target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-instagram"></i>
@@ -190,12 +305,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="elementor-element elementor-element-3e98da93 elementor-widget elementor-widget-heading"
-                    data-id="3e98da93" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-element  elementor-widget elementor-widget-heading">
                     <div class="elementor-widget-container">
                         <span id="copyright">Antonio Rodríguez</span>
                         <p class="elementor-heading-title elementor-size-default">©<?php echo date("Y", time()) ?>
-                            Spain, EU.</p>
+                            Spain.</p>
                     </div>
                 </div>
             </div>
@@ -206,6 +320,27 @@
 
 
     </div>
+
+    <script>
+    $(function() {
+
+        $('#login-form-link').click(function(e) {
+            $("#login-form").delay(100).fadeIn(100);
+            $("#register-form").fadeOut(100);
+            $('#register-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+        $('#register-form-link').click(function(e) {
+            $("#register-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            $('#login-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+
+    });
+    </script>
 </body>
 
 </html>

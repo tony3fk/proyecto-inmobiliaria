@@ -51,28 +51,33 @@
 <body>
     <div class="container-fluid bg-light">
 
-        <div class="row  bg-dark justify-content-center  header">
-            <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
+        <!-- header -->
 
-        </div>
-        <div class="row">
-            <div class=" col-11 bg-dark text-center">
-                <h5 class="text-warning ">Tu portal inmobiliario</h5>
-            </div>
+        <header class="header">
 
-            <div class=" col-1 bg-dark ">
-
-
-
-                <h3 class="text-warning navbar-brand">
-                    <?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; ?></h3>
-
+            <div class="row  bg-dark justify-content-center  header">
+                <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
 
             </div>
-        </div>
+            <div class="row">
+                <div class=" col-11 bg-dark text-center">
+                    <h5 class="text-warning ">Tu portal inmobiliario</h5>
+                </div>
+
+                <div class=" col-1 bg-dark ">
 
 
 
+                    <h3 class="text-warning navbar-brand">
+                        <?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; ?></h3>
+
+
+                </div>
+            </div>
+        </header>
+
+
+        <!-- navbar -->
         <nav class=" row navbar navbar-expand-md navbar-light bg-warning menu">
 
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -133,20 +138,20 @@
 
 
 
-
+        <!-- contenido-->
 
         <br>
         <div class="container-fluid">
             <div class="row " id="contenido"><?php echo $contenido ?></div>
         </div>
-        <br>
+
 
 
 
 
         <!-- Footer -->
 
-        <footer id="footer" class="mb-4 bg-dark text-light col-12 p-2 pl-5 pb-5">
+        <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 ">
 
 
 
@@ -155,10 +160,11 @@
 
 
 
-            <div class="row">
+            <div class="row justify-content-center">
+                <div class="col-md-1"></div>
 
-                <!--Grid column-->
-                <div class="col-md-9 mb-md-0 mb-5">
+                <!--formulario-->
+                <div class="col-md-8 mb-md-0 mb-5">
                     <form id="contact-form" name="contact-form" action="mail.php" method="POST">
 
                         <!--Grid row-->
@@ -167,7 +173,7 @@
                             <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control">
+                                    <input type="text" id="name" name="name" class="form-control" required>
                                     <label for="name" class="">Tu nombre</label>
                                 </div>
                             </div>
@@ -176,7 +182,7 @@
                             <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control">
+                                    <input type="email" id="email" name="email" class="form-control" required>
                                     <label for="email" class="">Tu email</label>
                                 </div>
                             </div>
@@ -189,7 +195,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <input type="text" id="subject" name="subject" class="form-control" required>
                                     <label for="subject" class="">Asunto</label>
                                 </div>
                             </div>
@@ -204,7 +210,7 @@
 
                                 <div class="md-form">
                                     <textarea type="text" id="message" name="message" rows="2"
-                                        class="form-control md-textarea"></textarea>
+                                        class="form-control md-textarea" required></textarea>
                                     <label for="message">Tu mensaje</label>
                                 </div>
 
@@ -219,37 +225,36 @@
                     </div>
                     <div class="status"></div>
                 </div>
-                <!--Grid column-->
+                <!--fin formulario-->
 
 
-                <div class="elementor-widget-wrap col-md-2 text-center bg-dark text-light">
-                    <div class="elementor-element elementor-element-7fee44d3 elementor-align-left elementor-widget elementor-widget-button"
-                        data-id="7fee44d3" data-element_type="widget" data-widget_type="button.default">
-                        <div class="elementor-widget-container">
-                            <div class="elementor-button-wrapper">
-                                <a class="" role="button">
-                                    <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">O MÁNDANOS UN EMAIL:</span>
-                                    </span>
-                                </a>
+                <div class="col-md-3 text-center justify-content-center">
+                    <!--  mail y telefono -->
+                    <div class="elementor-widget-wrap   bg-light text-dark ">
+                        <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
+                            <div class="elementor-widget-container">
+                                <div class="elementor-button-wrapper">
+                                    <a class="" role="button">
+                                        <span class="elementor-button-content-wrapper">
+                                            <span class="elementor-button-text">O MÁNDANOS UN EMAIL:</span>
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="elementor-element elementor-element-4b7c45aa elementor-align-left elementor-widget elementor-widget-button"
-                        data-id="4b7c45aa" data-element_type="widget" data-widget_type="button.default">
-                        <div class="elementor-widget-container">
-                            <div class="elementor-button-wrapper">
-                                <a href="mailto:" class="" role="button">
-                                    <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
-                                    </span>
-                                </a>
+                        <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
+                            <div class="elementor-widget-container">
+                                <div class="elementor-button-wrapper">
+                                    <a href="mailto:" class="" role="button">
+                                        <span class="elementor-button-content-wrapper">
+                                            <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="elementor-element elementor-element-4431d60d elementor-align-left elementor-widget elementor-widget-button"
-                        data-id="4431d60d" data-element_type="widget" data-widget_type="button.default">
-                        <div class="elementor-widget-container">
+                        <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button" ">
+                        <div class=" elementor-widget-container">
                             <div class="elementor-button-wrapper">
                                 <a href="tel:001-415-513-5579" class="" role="button">
                                     <span class="elementor-button-content-wrapper">
@@ -259,30 +264,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-element elementor-element-3ccdfd1 elementor-shape-rounded elementor-widget elementor-widget-global elementor-global-3711 elementor-widget-social-icons"
-                        data-id="3ccdfd1" data-element_type="widget" data-widget_type="social-icons.default">
+
+                    <!-- fin mail y telefono -->
+
+
+                    <div
+                        class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
                         <div class="elementor-widget-container">
                             <div class="elementor-social-icons-wrapper">
                                 <a href="https://www.facebook.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-993ef04"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
                                     target="_blank">
                                     <span class="elementor-screen-only">Facebook</span>
                                     <i class="fa fa-facebook"></i>
                                 </a>
                                 <a href="https://twitter.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-a229ff5"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
                                     target="_blank">
                                     <span class="elementor-screen-only">Twitter</span>
                                     <i class="fa fa-twitter"></i>
                                 </a>
                                 <a href="https://www.linkedin.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-f2294d9"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
                                     target="_blank">
                                     <span class="elementor-screen-only">Linkedin</span>
                                     <i class="fa fa-linkedin"></i>
                                 </a>
                                 <a href="https://www.instagram.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-f6707fb"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
                                     target="_blank">
                                     <span class="elementor-screen-only">Instagram</span>
                                     <i class="fa fa-instagram"></i>
@@ -290,21 +299,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="elementor-element elementor-element-3e98da93 elementor-widget elementor-widget-heading"
-                        data-id="3e98da93" data-element_type="widget" data-widget_type="heading.default">
+                    <br>
+                    <div class="elementor-element  elementor-widget elementor-widget-heading">
                         <div class="elementor-widget-container">
                             <p class="elementor-heading-title elementor-size-default">Antonio Rodríguez<br>
                                 ©<?php echo date("Y", time()) . " "; ?>Spain</p>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-        </footer>
+    </div>
+
+    </footer>
 
 
     </div>
+
+
+
+
+
+
 
     <script>
     $(document).ready(function() {
