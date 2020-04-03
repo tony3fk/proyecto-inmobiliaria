@@ -101,7 +101,7 @@ class Controller
 
 
                         );
-                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
+                        $params['mensaje'] = 'Revisa el formulario';
                     }
                 } else {
                     $params = array(
@@ -122,7 +122,7 @@ class Controller
             header('Location: index.php?ctl=error');
         }
 
-        require __DIR__ . '/templates/register.php';
+        require __DIR__ . '/templates/login.php';
     }
     //FIN REGISTRO
 

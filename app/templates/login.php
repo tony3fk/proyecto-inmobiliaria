@@ -35,7 +35,7 @@
 <body class="bg-light">
     <div class="container-fluid  bg-light">
 
-        <header class=" row col-12 navbar bg-dark justify-content-center ">
+        <header class=" row  navbar bg-dark justify-content-center ">
             <ul>
                 <li>
                     <h1 class="text-warning display-1 title ">Gestión Inmobiliaria</h1>
@@ -44,8 +44,7 @@
             </ul>
         </header>
 
-        <br>
-        <br>
+
 
 
         <div class="container">
@@ -97,9 +96,18 @@
                                 <div class="row">
                                     <div class="col-lg-12">
 
+                                        <?php if ($_SESSION['tipo'] == 2) {
+                                            $displayLogin = " none";
+                                            $displayRegister = " block";
+                                        } else {
+                                            $displayLogin = " block";
+                                            $displayRegister = " none";
+                                        }
+                                        ?>
+
 
                                         <form id="login-form" action="index.php?ctl=login" method="post" role="form"
-                                            style="display: block;">
+                                            style="display: <?php echo $displayLogin ?>;">
                                             <div class="form-group">
                                                 <input type="text" name="nombre" id="username" tabindex="1"
                                                     class="form-control" placeholder="Username" value="">
@@ -137,19 +145,20 @@
 
 
 
+
                                         <form id="register-form" action="index.php?ctl=register" method="post"
-                                            role="form" style="display: none;">
+                                            role="form" style="display: <?php echo $displayRegister ?>;">
                                             <div class="form-group">
                                                 <input type="text" name="nombre" id="username" tabindex="1"
-                                                    class="form-control" placeholder="Username" value="">
+                                                    class="form-control" placeholder="Username" value="" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="email" name="email" id="email" tabindex="1"
-                                                    class="form-control" placeholder="Email Address" value="">
+                                                    class="form-control" placeholder="Email Address" value="" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" id="password" tabindex="2"
-                                                    class="form-control" placeholder="Password">
+                                                    class="form-control" placeholder="Password" required>
                                             </div>
                                             <!-- <div class="form-group">
                                                 <input type="password" name="confirm-password" id="confirm-password"
@@ -157,7 +166,7 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <input type="text" name="ciudad" id="ciudad" tabindex="2"
-                                                    class="form-control" placeholder="Ciudad">
+                                                    class="form-control" placeholder="Ciudad" required>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
@@ -248,9 +257,9 @@
 
 
 
-        <footer id="pie" class="row col-12 fixed-bottom bg-dark  justify-content-center p-4 ">
+        <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4 ">
 
-            <div class=" elementor-widget-wrap col-md-3 text-center text-light bg-dark">
+            <div class=" elementor-widget-wrap col-md-3 text-center text-dark bg-light">
 
                 <div class="elementor-element elementor-align-center elementor-widget elementor-widget-button">
                     <div class="elementor-widget-container">
@@ -274,6 +283,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <div
                     class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
                     <div class="elementor-widget-container">
