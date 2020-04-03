@@ -7,25 +7,25 @@
 
 
 
-    <div class="jumbotron ">
+    <div class="jumbotron h-auto" style="background-image: url(../app/images/inicio.jpg); background-size: cover; ">
 
         <form class="form-horizontal">
             <fieldset>
 
                 <!-- Form Name -->
-                <h2 class="h1-responsive font-weight-bold text-center ">¿Qué estás buscando?</h2>
+                <h2 class="h1-responsive font-weight-bold text-center text-warning ">¿Qué estás buscando?</h2>
                 <br>
 
                 <!-- Multiple Checkboxes (inline) -->
                 <div class="form-group row">
-                    <label class="col-md-7 control-label text-center" for="checkboxes">Operación</label>
+                    <h6 class="col-md-5 control-label text-right text-warning" for="checkboxes">Operación</h6>
                     <div class="col-md-4">
-                        <label class="checkbox-inline" for="checkboxes-0">
+                        <label class="checkbox-inline text-light" for="checkboxes-0">
                             <input type="checkbox" name="checkboxes" id="checkboxes-0" value="Comprar">
                             Comprar
                         </label>
                         &nbsp;
-                        <label class="checkbox-inline" for="checkboxes-1">
+                        <label class="checkbox-inline text-light" for="checkboxes-1">
                             <input type="checkbox" name="checkboxes" id="checkboxes-1" value="Alquilar">
                             Alquilar
                         </label>
@@ -34,7 +34,7 @@
 
                 <!-- Select Basic -->
                 <div class="form-group row">
-                    <label class="col-md-7 control-label text-center" for="selectbasic">Tipo</label>
+                    <h6 class="col-md-5 control-label text-right text-warning " for="selectbasic">Tipo</h6>
                     <div class="col-md-2">
                         <select id="selectbasic" name="selectbasic" class="form-control">
                             <option value="Parking">Parking</option>
@@ -50,7 +50,7 @@
 
                 <!-- Select Basic -->
                 <div class="form-group row">
-                    <label class="col-md-7 control-label text-center" for="selectbasic">Provincia</label>
+                    <h6 class="col-md-5 control-label text-right text-warning" for="selectbasic">Provincia</h6>
                     <div class="col-md-2">
                         <select id="selectbasic" name="selectbasic" class="form-control">
                             <option value='alava'>Álava</option>
@@ -113,7 +113,7 @@
                     <div class="col-md-5 control-label text-center" for="selectbasic"></div>
 
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary col-12">Submit</button>
+                        <button type="submit" class="btn btn-warning col-12">Submit</button>
                     </div>
 
                 </div>
