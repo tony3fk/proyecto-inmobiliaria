@@ -2,7 +2,7 @@
 
 
 <!-- Grid column -->
-<div class="row">
+<div class="row col-12">
 
 
     <?php foreach ($params['inmuebles'] as $inmuebles) : ?>

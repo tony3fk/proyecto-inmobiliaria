@@ -115,7 +115,7 @@
                     <div class="col-md-5 control-label text-center"></div>
 
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-warning col-12" name="bSubmitInicio">Submit</button>
+                        <button type="submit" class="btn btn-warning col-12" name="bSubmitInicio">Enviar</button>
                     </div>
 
                 </div>
