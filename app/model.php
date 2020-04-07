@@ -17,20 +17,35 @@ class Model extends PDO
 
 
 
-    public function listarVenta()
-    {
+    public function listarVenta($tipo, $provincia)
 
-        $consulta = "select * from inmuebles where operacion = 'Venta'";
+    {
+        if (!empty($tipo) && !empty($provincia)) {
+            $parametros = " and tipo='$tipo' and provincia='$provincia'";
+        } else {
+            $parametros = '';
+        }
+
+        $consulta = "select * from inmuebles where operacion = 'Venta'" . $parametros;
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
-    public function listarAlquiler()
+    public function listarAlquiler($tipo, $provincia)
     {
+        if (!empty($tipo) && !empty($provincia)) {
+            $parametros = " and tipo='$tipo' and provincia='$provincia'";
+        } else {
+            $parametros = '';
+        }
 
-        $consulta = "select * from inmuebles where operacion = 'Alquiler'";
+        $consulta = "select * from inmuebles where operacion = 'Alquiler'" . $parametros;
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
+
+
+
+
 
     public function listarUsuarios($orderBy = " order by tipo desc")
     {

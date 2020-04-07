@@ -9,7 +9,7 @@
 
     <div class="jumbotron h-auto" style="background-image: url(../app/images/inicio.jpg); background-size: cover; ">
 
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="index.php?ctl=inicio" method="POST">
             <fieldset>
 
                 <!-- Form Name -->
@@ -18,25 +18,25 @@
 
                 <!-- Multiple Checkboxes (inline) -->
                 <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning" for="checkboxes">Operación</h6>
+                    <h6 class="col-md-5 control-label text-right text-warning" for="radiobutton">Operación</h6>
                     <div class="col-md-4">
-                        <label class="checkbox-inline text-light" for="checkboxes-0">
-                            <input type="checkbox" name="checkboxes" id="checkboxes-0" value="Comprar">
-                            Comprar
+                        <label class="checkbox-inline text-light" for="radiobutton">
+                            <input type="radio" name="operacion" id="radiobutton" value="Venta">
+                            Venta
                         </label>
                         &nbsp;
-                        <label class="checkbox-inline text-light" for="checkboxes-1">
-                            <input type="checkbox" name="checkboxes" id="checkboxes-1" value="Alquilar">
-                            Alquilar
+                        <label class="checkbox-inline text-light" for="radiobutton">
+                            <input type="radio" name="operacion" id="radiobutton" value="Alquiler">
+                            Alquiler
                         </label>
                     </div>
                 </div>
 
                 <!-- Select Basic -->
                 <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning " for="selectbasic">Tipo</h6>
+                    <h6 class="col-md-5 control-label text-right text-warning " for="tipo">Tipo</h6>
                     <div class="col-md-2">
-                        <select id="selectbasic" name="selectbasic" class="form-control">
+                        <select id="selectTipo" name="tipo" class="form-control">
                             <option value="Parking">Parking</option>
                             <option value="Local">Local</option>
                             <option value="Oficina">Oficina</option>
@@ -50,9 +50,9 @@
 
                 <!-- Select Basic -->
                 <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning" for="selectbasic">Provincia</h6>
+                    <h6 class="col-md-5 control-label text-right text-warning" for="provincia">Provincia</h6>
                     <div class="col-md-2">
-                        <select id="selectbasic" name="selectbasic" class="form-control">
+                        <select id="selectProvincia" name="provincia" class="form-control">
                             <option value='alava'>Álava</option>
                             <option value='albacete'>Albacete</option>
                             <option value='alicante'>Alicante/Alacant</option>
@@ -110,10 +110,10 @@
                 </div>
                 <br>
                 <div class="form-group row">
-                    <div class="col-md-5 control-label text-center" for="selectbasic"></div>
+                    <div class="col-md-5 control-label text-center"></div>
 
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-warning col-12">Submit</button>
+                        <button type="submit" class="btn btn-warning col-12" name="bSubmitInicio">Submit</button>
                     </div>
 
                 </div>

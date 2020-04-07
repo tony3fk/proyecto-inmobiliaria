@@ -198,11 +198,27 @@ class Controller
 
     //INICIO
     public function inicio()
+
     {
-        $params = array(
-            'mensaje' => 'Bienvenido a Gestión Inmobiliaria',
-            'fecha' => date('d-m-yy')
-        );
+
+        $operacion = recoge('operacion');
+        $tipo = recoge('tipo');
+        $provincia = recoge('provincia');
+
+
+        if (isset($_POST['bSubmitInicio'])) {
+
+            if ($operacion == 'Venta') {
+
+                Self::listarVenta($tipo, $provincia);
+            } else {
+                Self::listarAlquiler($tipo, $provincia);
+            }
+        }
+
+
+
+
         require __DIR__ . '/templates/inicio.php';
     }
     //FIN INICIO
@@ -227,12 +243,12 @@ class Controller
 
 
     //LISTAR INMUEBLES EN VENTA
-    public function listarVenta()
+    public function listarVenta($tipo = '', $provincia = '')
     {
         try {
             $m = new Model();
             $params = array(
-                'inmuebles' => $m->listarVenta()
+                'inmuebles' => $m->listarVenta($tipo, $provincia)
             );
 
             // Recogemos los dos tipos de excepciones que se pueden producir
@@ -250,12 +266,12 @@ class Controller
 
 
     //LISTAR INMUEBLES EN ALQUILER
-    public function listarAlquiler()
+    public function listarAlquiler($tipo = '', $provincia = '')
     {
         try {
             $m = new Model();
             $params = array(
-                'inmuebles' => $m->listarAlquiler()
+                'inmuebles' => $m->listarAlquiler($tipo, $provincia)
             );
 
             // Recogemos los dos tipos de excepciones que se pueden producir
