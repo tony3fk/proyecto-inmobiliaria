@@ -37,6 +37,7 @@
                     <h6 class="col-md-5 control-label text-right text-warning " for="tipo">Tipo</h6>
                     <div class="col-md-2">
                         <select id="selectTipo" name="tipo" class="form-control">
+                            <option value="">Todos</option>
                             <option value="Parking">Parking</option>
                             <option value="Local">Local</option>
                             <option value="Oficina">Oficina</option>
@@ -53,6 +54,7 @@
                     <h6 class="col-md-5 control-label text-right text-warning" for="provincia">Provincia</h6>
                     <div class="col-md-2">
                         <select id="selectProvincia" name="provincia" class="form-control">
+                            <option value=''>Todas</option>
                             <option value='alava'>Álava</option>
                             <option value='albacete'>Albacete</option>
                             <option value='alicante'>Alicante/Alacant</option>
