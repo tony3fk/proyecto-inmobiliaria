@@ -13,18 +13,30 @@
         href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
         media='all' />
 
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
 
-    <link rel="stylesheet" type="text/css" href="/web/css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
 
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+    <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="css/bootstrap/js/bootstrap.js"></script>
+
+    <!-- <script>
+    $.get("http://ipinfo.io", function(response) {
+        var provincia = response.region;
+        console.log(provincia);
+        document.cookie = 'provincia=' + provincia;
+    }, "jsonp");
+
+    //crea la $_COOKIE['provincia] según la ip del navegador.
+    </script> -->
 
     <title>Login Gestión Inmobiliaria</title>
 
@@ -152,7 +164,7 @@
                                         <form id="register-form" action="index.php?ctl=register" method="post"
                                             role="form" style="display: <?php echo $displayRegister ?>;">
                                             <div class="form-group">
-                                                <input type="text" name="nombre" id="username" tabindex="1"
+                                                <input type="text" name="nombre" id="usernamereg" tabindex="1"
                                                     class="form-control" placeholder="Username" value="" required>
                                             </div>
                                             <div class="form-group">
@@ -160,7 +172,7 @@
                                                     class="form-control" placeholder="Email Address" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" id="password" tabindex="2"
+                                                <input type="password" name="password" id="passwordreg" tabindex="2"
                                                     class="form-control" placeholder="Password" required>
                                             </div>
                                             <!-- <div class="form-group">

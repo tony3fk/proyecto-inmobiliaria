@@ -27,10 +27,10 @@ class Controller
                     //$sesion->cerrarSesion(); //cierra sesion de invitado
                     //$sesion->init(); //inicia sesion de usuario registrado
 
-                    include('libs/clima.php'); //archivo con la funcion API del tiempo
-                    $params['temp'] = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
+                    //include('libs/clima.php'); //archivo con la funcion API del tiempo
+                    //$params['temp'] = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
                     $params['tipo'] = $registro['tipo'];
-                    $params['ciudad'] = $registro['ciudad'];
+                    $params['ciudad'] = $registro['ciudad']; //determinar ciudad desde la geolocalización
                     $sesion->setSession($params); //establece el user, el nivel a la sesion, la ciudad y la temperatura
 
                     header('location: index.php?ctl=inicio');

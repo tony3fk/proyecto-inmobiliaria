@@ -1,7 +1,4 @@
 <?php
-
-$ciudad = $_SESSION['ciudad'];
-
 function weather($ciudad)
 {
     $url = "http://api.openweathermap.org/data/2.5/weather?q=" . $ciudad . ",es&appid=96edde9f7c64ae00b99322b16b678542";
@@ -12,3 +9,4 @@ function weather($ciudad)
     $celsius = $kelvin - 273.15; //la API devuelve la temperatura en kelvin, conversion a grados celsius
     return round($celsius, 1); //redondeo de temperatura a un decimal
 }
+?>

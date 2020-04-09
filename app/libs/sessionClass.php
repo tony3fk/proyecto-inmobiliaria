@@ -16,7 +16,7 @@ class Session
         $_SESSION['tipo'] = $params['tipo'];
         $_SESSION['time'] = time();
         $_SESSION['ciudad'] = $params['ciudad'];
-        $_SESSION['temp'] = $params['temp'];
+        //$_SESSION['temp'] = $params['temp'];
     }
 
     public function get($key)
