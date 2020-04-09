@@ -6,49 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="/web/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
-    <link rel='stylesheet' id='elementor-frontend-css'
-        href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
-        media='all' />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel='stylesheet' id='elementor-frontend-css' href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css' media='all' />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="/web/css/estilo.css" />
+
+    <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
 
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
         id="bootstrap-css" />-->
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="css/bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/ab12d61800.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="../app/libs/geolocalizacion.js"></script>
 
     <title>Gestión Inmobiliaria</title>
 
     <script>
-    $(document).ready(function() {
-        $('#bContact').click(function() {
-            var destino = $(this.hash); //this.hash lee el atributo href de este
-            $('html, body').animate({
-                scrollTop: destino.offset().top
-            }, 700); //Llega a su destino con el tiempo deseado
-            return false;
+        $(document).ready(function() {
+            $('#bContact').click(function() {
+                var destino = $(this.hash); //this.hash lee el atributo href de este
+                $('html, body').animate({
+                    scrollTop: destino.offset().top
+                }, 700); //Llega a su destino con el tiempo deseado
+                return false;
+            });
         });
-    });
     </script>
 
 
 
 </head>
 
-<body>
+<body onload="geoFindMe()">
     <div class="container-fluid bg-light">
 
         <!-- header -->
@@ -68,8 +71,13 @@
 
 
 
-                    <h3 class="text-warning navbar-brand ">
-                        <?php echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; ?></h3>
+                    <h3 class="text-warning navbar-brand " id="temp">
+
+
+
+                        <?php //echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; 
+                        ?>
+                    </h3>
 
 
                 </div>
@@ -209,8 +217,7 @@
                             <div class="col-md-12">
 
                                 <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2"
-                                        class="form-control md-textarea" required></textarea>
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required></textarea>
                                     <label for="message">Tu mensaje</label>
                                 </div>
 
@@ -268,31 +275,22 @@
                     <!-- fin mail y telefono -->
 
 
-                    <div
-                        class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
+                    <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
                         <div class="elementor-widget-container">
                             <div class="elementor-social-icons-wrapper">
-                                <a href="https://www.facebook.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
-                                    target="_blank">
+                                <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook " target="_blank">
                                     <span class="elementor-screen-only">Facebook</span>
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <a href="https://twitter.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
-                                    target="_blank">
+                                <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
                                     <span class="elementor-screen-only">Twitter</span>
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
-                                    target="_blank">
+                                <a href="https://www.linkedin.com/" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin " target="_blank">
                                     <span class="elementor-screen-only">Linkedin</span>
                                     <i class="fa fa-linkedin"></i>
                                 </a>
-                                <a href="https://www.instagram.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
-                                    target="_blank">
+                                <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram " target="_blank">
                                     <span class="elementor-screen-only">Instagram</span>
                                     <i class="fa fa-instagram"></i>
                                 </a>
@@ -323,10 +321,10 @@
 
 
     <script>
-    $(document).ready(function() {
-        $('#tabla').DataTable();
-        $('.dataTables_length').addClass('bs-select');
-    });
+        $(document).ready(function() {
+            $('#tabla').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
     </script>
 
 

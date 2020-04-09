@@ -25,7 +25,8 @@
             <div class="card-body ">
 
 
-                <!-- Title -->
+
+                <!-- Title  -->
                 <h4 class="card-title">Precio:
                     <?php
                         if ($inmuebles['operacion'] == "Alquiler") {
