@@ -37,6 +37,9 @@ table.dataTable thead .sorting_desc_disabled:before {
     height: 45rem !important;
 }
 
+.btn-social {
+    height: 100px !important;
+}
 
 
 

@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
@@ -117,7 +117,7 @@
 
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-12">
 
 
 
@@ -131,11 +131,7 @@
                                                 <input type="password" name="password" id="password" tabindex="2"
                                                     class="form-control" placeholder="Password">
                                             </div>
-                                            <div class="form-group text-center">
-                                                <input type="checkbox" tabindex="3" class="" name="remember"
-                                                    id="remember">
-                                                <label for="remember"> Remember Me</label>
-                                            </div>
+
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
@@ -145,31 +141,11 @@
                                                     </div>
                                                 </div>
 
-                                                <br>
 
-
-
-                                                <div class="row ">
-                                                    <div class="col-sm-3"></div>
-                                                    <div class="col-sm-3 ">
-                                                        <input type="button" name="bRegisterGoogle" id="register-google"
-                                                            tabindex="4" class="form-control btn btn-login btn-light"
-                                                            value="Google">
-
-                                                    </div>
-                                                    <div class="col-sm-3 ">
-                                                        <input type="button" name="bRegisterFacebook"
-                                                            id="register-facebook" tabindex="4"
-                                                            class="form-control btn btn-login btn-light"
-                                                            value="Facebook">
-                                                    </div>
-                                                    <div class="col-sm-3"></div>
-                                                </div>
-                                                <br>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-lg-12">
+                                                    <div class="col-12">
                                                         <div class="text-center">
                                                             <a href="https://phpoll.com/recover" tabindex="5"
                                                                 class="forgot-password">Forgot Password?</a>
@@ -178,6 +154,24 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <br>
+
+                                        <!-- botones inicio social -->
+                                        <div class=" row  ">
+
+                                            <div class="col-sm-6 ">
+                                                <a href="#" class="btn btn-block btn-social btn-google">
+                                                    <span class="fa fa-google">Log In</span>
+                                                </a>
+
+                                            </div>
+                                            <div class="col-sm-6 ">
+                                                <a href="#" class="btn btn-block btn-social btn-facebook">
+                                                    <span class="fa fa-facebook">Log In</span>
+                                                </a>
+                                            </div>
+
+                                        </div>
 
 
 
