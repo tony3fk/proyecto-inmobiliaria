@@ -144,6 +144,28 @@
                                                             value="Log In">
                                                     </div>
                                                 </div>
+
+                                                <br>
+
+
+
+                                                <div class="row ">
+                                                    <div class="col-sm-3"></div>
+                                                    <div class="col-sm-3 ">
+                                                        <input type="button" name="bRegisterGoogle" id="register-google"
+                                                            tabindex="4" class="form-control btn btn-login btn-light"
+                                                            value="Google">
+
+                                                    </div>
+                                                    <div class="col-sm-3 ">
+                                                        <input type="button" name="bRegisterFacebook"
+                                                            id="register-facebook" tabindex="4"
+                                                            class="form-control btn btn-login btn-light"
+                                                            value="Facebook">
+                                                    </div>
+                                                    <div class="col-sm-3"></div>
+                                                </div>
+                                                <br>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
@@ -194,6 +216,11 @@
                                                 </div>
                                             </div>
                                         </form>
+
+
+
+
+
                                     </div>
                                 </div>
                             </div>

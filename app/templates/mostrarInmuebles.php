@@ -1,6 +1,5 @@
 <?php ob_start() ?>
 
-
 <!-- Grid column -->
 <div class="row col-12">
 

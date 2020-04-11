@@ -30,6 +30,9 @@ class Model extends PDO
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
+
+
+
     public function listarAlquiler($tipo, $provincia)
     {
         if (!empty($tipo) && !empty($provincia)) {
