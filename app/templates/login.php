@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" /> -->
+
     <link rel='stylesheet' id='elementor-frontend-css'
         href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
         media='all' />
 
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
+
+    <!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css"> -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
 
     <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
 
@@ -45,6 +47,52 @@
 </head>
 
 <body class="bg-light">
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC8ubn24RFj9FH7ys5LYx5edY-vacOCU0o",
+        authDomain: "gestioninmobiliaria-15009.firebaseapp.com",
+        databaseURL: "https://gestioninmobiliaria-15009.firebaseio.com",
+        projectId: "gestioninmobiliaria-15009",
+        storageBucket: "gestioninmobiliaria-15009.appspot.com",
+        messagingSenderId: "201858462683",
+        appId: "1:201858462683:web:6ce80885b75483ab1f2dfe",
+        measurementId: "G-LXRZQWRH02"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    document.getElementById("btnLoginGoogle").addEventListener("click", function() {
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth().signInWithPopup(provider).then(function(user) {
+            alert("Google Sign In");
+            console.log(user);
+        }).catch(function(error) {
+            alert("Error");
+            console.log(error);
+        })
+
+    });
+    </script>
+
+
+
+
+
+
+
+
     <div class="container-fluid  bg-light">
 
         <header class=" row  navbar bg-dark justify-content-center ">
@@ -125,11 +173,11 @@
                                             style="display: <?php echo $displayLogin ?>;">
                                             <div class="form-group">
                                                 <input type="text" name="nombre" id="username" tabindex="1"
-                                                    class="form-control" placeholder="Username" value="">
+                                                    class="form-control text-center" placeholder="Username" value="">
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" id="password" tabindex="2"
-                                                    class="form-control" placeholder="Password">
+                                                    class="form-control text-center" placeholder="Password">
                                             </div>
 
                                             <div class="form-group">
@@ -158,16 +206,24 @@
 
                                         <!-- botones inicio social -->
                                         <div class=" row  ">
-
-                                            <div class="col-sm-6 ">
-                                                <a href="#" class="btn btn-block btn-social btn-google">
-                                                    <span class="fa fa-google">Log In</span>
+                                            <div class="col-sm-4 ">
+                                                <a href="#" class="btn btn-block btn-social btn-facebook"
+                                                    id="btnLoginFacebook">
+                                                    <span class="fa fa-facebook">Login </span>
                                                 </a>
-
                                             </div>
-                                            <div class="col-sm-6 ">
-                                                <a href="#" class="btn btn-block btn-social btn-facebook">
-                                                    <span class="fa fa-facebook">Log In</span>
+
+                                            <div class="col-sm-4 ">
+                                                <a href="#" class="btn btn-block btn-social btn-google"
+                                                    id="btnLoginGoogle">
+                                                    <span class="fa fa-google"> Login </span>
+                                                </a>
+                                            </div>
+
+                                            <div class="col-sm-4 ">
+                                                <a href="#" class="btn btn-block btn-social btn-twitter"
+                                                    id="btnLoginTwitter">
+                                                    <span class="fa fa-twitter ">Login </span>
                                                 </a>
                                             </div>
 

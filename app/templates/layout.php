@@ -55,6 +55,41 @@
 </head>
 
 <body onload="geoFindMe()">
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC8ubn24RFj9FH7ys5LYx5edY-vacOCU0o",
+        authDomain: "gestioninmobiliaria-15009.firebaseapp.com",
+        databaseURL: "https://gestioninmobiliaria-15009.firebaseio.com",
+        projectId: "gestioninmobiliaria-15009",
+        storageBucket: "gestioninmobiliaria-15009.appspot.com",
+        messagingSenderId: "201858462683",
+        appId: "1:201858462683:web:6ce80885b75483ab1f2dfe",
+        measurementId: "G-LXRZQWRH02"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+
+
+
+
+
+
+
+
+
+
     <div class="container-fluid bg-light">
 
         <!-- header -->
