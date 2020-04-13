@@ -94,7 +94,9 @@
                     <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-login">
 
-                            <?php if ($_SESSION['tipo'] == 2) { //si el logueado es admin, es porque accede desde el menú de administrador y se oculta la opción de login
+                            <?php
+                            //si el logueado es admin, es porque accede desde el menú de administrador y se oculta la opción de login
+                            if ($_SESSION['tipo'] == 2) {
                                 $displayLogin = " none";
                                 $displayRegister = " block";
                                 $display = "d-none";
@@ -169,10 +171,10 @@
                                         <!-- botones inicio social -->
                                         <div class=" row">
                                             <div class="col-sm-4 ">
-                                                <a href="#" class="btn btn-block btn-social btn-facebook"
-                                                    id="btnLoginFacebook">
-                                                    <span class="fa fa-facebook">Login </span>
-                                                </a>
+                                                <button onclick="facebookSignIn()"
+                                                    class="btn btn-block btn-social btn-facebook" id="btnLoginFacebook">
+                                                    <span class="fa fa-facebook">Facebook Login </span>
+                                                </button>
                                             </div>
 
                                             <div class="col-sm-4 ">

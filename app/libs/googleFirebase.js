@@ -12,29 +12,63 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-    googleSignIn = () => {
-        base_provider = new firebase.auth.GoogleAuthProvider()
-        firebase.auth().signInWithPopup(base_provider).then(function(result) {
-            // var accessToken = result.credential.accessToken;
-            // var idToken = result.credential.idToken;
-            // var providerId = result.credential.providerId;
-            var displayName = result.user.displayName;
-            var email = result.user.email;
-            var photoURL = result.user.photoURL;
-            console.log(result)
-            console.log("Success!")
-            //mandar variables a la sesión
-            document.cookie = "nombre=" + encodeURIComponent(displayName);
-            document.cookie="imagen="+ encodeURIComponent(photoURL);
+googleSignIn = () => {
+    base_provider = new firebase.auth.GoogleAuthProvider()
+    firebase.auth().signInWithPopup(base_provider).then(function (result) {
+        // var accessToken = result.credential.accessToken;
+        // var idToken = result.credential.idToken;
+        // var providerId = result.credential.providerId;
+        var displayName = result.user.displayName;
+        var email = result.user.email;
+        var providerId = result.user.providerData.providerId;
+        var photoURL = result.user.photoURL;
+        // console.log(result)
+        console.log("Success!")
+        
+        //crear cookies
+        document.cookie = "nombre=" + encodeURIComponent(displayName);
+        document.cookie = "imagen=" + encodeURIComponent(photoURL);
 
-            window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
+        window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
 
-            // var userActivo = document.getElementById("userActivo");
-            // userActivo.innerHTML(displayName);
+        // var userActivo = document.getElementById("userActivo");
+        // userActivo.innerHTML(displayName);
 
 
-        }).catch(function(error) {
-            console.log(error)
-            console.log("Error!")
-        })
-    }
+    }).catch(function (error) {
+        console.log(error)
+       
+        console.log("Error!")
+    })
+
+
+}
+
+facebookSignIn = () => { 
+    base_provider = new firebase.auth.FacebookAuthProvider()
+    
+    firebase.auth().signInWithPopup(base_provider).then(function (result) {
+        // var accessToken = result.credential.accessToken;
+        // var idToken = result.credential.idToken;
+        // var providerId = result.credential.providerId;
+        var displayName = result.user.displayName;
+        var email = result.user.email;
+        var providerId = result.user.providerData.providerId;
+        var photoURL = result.user.photoURL;
+        console.log(result)
+        console.log("Success!")
+        
+
+        //crear cookies
+        document.cookie = "nombre=" + encodeURIComponent(displayName);
+        document.cookie = "imagen=" + encodeURIComponent(photoURL);
+
+        window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
+         
+    }).catch(function (error) {
+        console.log(error)
+        console.log("Error!")
+        alert("Error!\n"+error.email+"\n"+error.message);
+    })
+
+}
