@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+
 
     <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
 
@@ -47,51 +50,6 @@
 </head>
 
 <body class="bg-light">
-
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
-
-    <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyC8ubn24RFj9FH7ys5LYx5edY-vacOCU0o",
-        authDomain: "gestioninmobiliaria-15009.firebaseapp.com",
-        databaseURL: "https://gestioninmobiliaria-15009.firebaseio.com",
-        projectId: "gestioninmobiliaria-15009",
-        storageBucket: "gestioninmobiliaria-15009.appspot.com",
-        messagingSenderId: "201858462683",
-        appId: "1:201858462683:web:6ce80885b75483ab1f2dfe",
-        measurementId: "G-LXRZQWRH02"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-
-    document.getElementById("btnLoginGoogle").addEventListener("click", function() {
-        var provider = new firebase.auth.GoogleAuthProvider();
-
-        firebase.auth().signInWithPopup(provider).then(function(user) {
-            alert("Google Sign In");
-            console.log(user);
-        }).catch(function(error) {
-            alert("Error");
-            console.log(error);
-        })
-
-    });
-    </script>
-
-
-
-
-
-
-
 
     <div class="container-fluid  bg-light">
 
@@ -205,7 +163,7 @@
                                         <br>
 
                                         <!-- botones inicio social -->
-                                        <div class=" row  ">
+                                        <div class=" row">
                                             <div class="col-sm-4 ">
                                                 <a href="#" class="btn btn-block btn-social btn-facebook"
                                                     id="btnLoginFacebook">
@@ -214,10 +172,10 @@
                                             </div>
 
                                             <div class="col-sm-4 ">
-                                                <a href="#" class="btn btn-block btn-social btn-google"
-                                                    id="btnLoginGoogle">
-                                                    <span class="fa fa-google"> Login </span>
-                                                </a>
+                                                <button onclick="googleSignIn()"
+                                                    class="btn btn-block btn-social btn-google" id="btnLoginGoogle">
+                                                    <span class="fa fa-google">Google SignIn</span>
+                                                </button>
                                             </div>
 
                                             <div class="col-sm-4 ">
@@ -430,6 +388,51 @@
 
     });
     </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyC8ubn24RFj9FH7ys5LYx5edY-vacOCU0o",
+        authDomain: "gestioninmobiliaria-15009.firebaseapp.com",
+        databaseURL: "https://gestioninmobiliaria-15009.firebaseio.com",
+        projectId: "gestioninmobiliaria-15009",
+        storageBucket: "gestioninmobiliaria-15009.appspot.com",
+        messagingSenderId: "201858462683",
+        appId: "1:201858462683:web:6ce80885b75483ab1f2dfe",
+        measurementId: "G-LXRZQWRH02"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    googleSignIn = () => {
+        base_provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithPopup(base_provider).then(function(result) {
+            var accessToken = result.credential.accessToken;
+            var idToken = result.credential.idToken;
+            var providerId = result.credential.providerId;
+            var displayName = result.user.displayName;
+            var email = result.user.email;
+            var photoURL = result.user.photoURL;
+            console.log(result)
+            console.log("Success!")
+            window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
+        }).catch(function(error) {
+            console.log(error)
+            console.log("Error!")
+        })
+    }
+    </script>
+
+
+
 </body>
 
 </html>

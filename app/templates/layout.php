@@ -22,6 +22,9 @@
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
         id="bootstrap-css" />-->
 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
@@ -55,38 +58,6 @@
 </head>
 
 <body onload="geoFindMe()">
-
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
-
-    <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyC8ubn24RFj9FH7ys5LYx5edY-vacOCU0o",
-        authDomain: "gestioninmobiliaria-15009.firebaseapp.com",
-        databaseURL: "https://gestioninmobiliaria-15009.firebaseio.com",
-        projectId: "gestioninmobiliaria-15009",
-        storageBucket: "gestioninmobiliaria-15009.appspot.com",
-        messagingSenderId: "201858462683",
-        appId: "1:201858462683:web:6ce80885b75483ab1f2dfe",
-        measurementId: "G-LXRZQWRH02"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-    </script>
-
-
-
-
-
-
-
 
 
 
@@ -160,8 +131,15 @@
 
 
 
-                    <a href="#" class="nav-item nav-link"><i class="fas fa-user"></i>
-                        <?php echo strtoupper(" " . $_SESSION['nombre']); ?></a>
+                    <a id="userActive" href="#" class="nav-item nav-link"><i class="fas fa-user"></i>
+                        <?php
+                        if (isset($_SESSION)) {
+                            echo strtoupper(" " . $_SESSION['nombre']);
+                        } else {
+                            echo " ";
+                        }
+
+                        ?></a>
                 </div>
             </div>
         </nav>
