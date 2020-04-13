@@ -489,7 +489,8 @@ class Controller
     public function salir()
     {
         session_destroy();
-        
+        setcookie('nombre', '', time() - 100);
+        setcookie('imagen', '', time() - 100);
         header('Location: index.php?ctl=login');
     }
     //FIN SALIR

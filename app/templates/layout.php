@@ -135,13 +135,14 @@
 
                         <i class="fas fa-user"></i>
                         <?php
-                        if (!$_SESSION['nombre'] == 'invitado') {
-                            echo strtoupper(" " . $_SESSION['nombre']);
-                        } else {
+                        if (isset($_COOKIE['nombre'])) {
                             echo strtoupper(" " . $_COOKIE['nombre'] . "  ");
                             $imagen = $_COOKIE['imagen'];
                             echo '<img src=' . $imagen . ' style="width:40px; border: 1px solid black";>';
+                        } else if ($_SESSION['nombre'] != 'invitado') {
+                            echo strtoupper(" " . $_SESSION['nombre']);
                         }
+
 
                         ?></a>
                 </div>
