@@ -489,6 +489,7 @@ class Controller
     public function salir()
     {
         session_destroy();
+        
         header('Location: index.php?ctl=login');
     }
     //FIN SALIR

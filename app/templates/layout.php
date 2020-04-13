@@ -131,12 +131,16 @@
 
 
 
-                    <a id="userActive" href="#" class="nav-item nav-link"><i class="fas fa-user"></i>
+                    <a id="userActivo" href="#" class="nav-item nav-link">
+
+                        <i class="fas fa-user"></i>
                         <?php
-                        if (isset($_SESSION)) {
+                        if (!$_SESSION['nombre'] == 'invitado') {
                             echo strtoupper(" " . $_SESSION['nombre']);
                         } else {
-                            echo " ";
+                            echo strtoupper(" " . $_COOKIE['nombre'] . "  ");
+                            $imagen = $_COOKIE['imagen'];
+                            echo '<img src=' . $imagen . ' style="width:40px; border: 1px solid black";>';
                         }
 
                         ?></a>
@@ -336,6 +340,11 @@
         $('.dataTables_length').addClass('bs-select');
     });
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+
+    <script src="../app/libs/googleFirebase.js"></script>
+
 
 
 </body>
