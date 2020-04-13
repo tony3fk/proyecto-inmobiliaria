@@ -12,6 +12,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
+//google sign in
 googleSignIn = () => {
     base_provider = new firebase.auth.GoogleAuthProvider()
     firebase.auth().signInWithPopup(base_provider).then(function (result) {
@@ -36,14 +37,15 @@ googleSignIn = () => {
 
 
     }).catch(function (error) {
-        console.log(error)
-       
-        console.log("Error!")
+        console.log(error);
+        console.log("Error!");
+        alert("Error!\n"+error.email+"\n"+error.message);
     })
 
 
 }
 
+//facebook sign in
 facebookSignIn = () => { 
     base_provider = new firebase.auth.FacebookAuthProvider()
     
@@ -72,3 +74,32 @@ facebookSignIn = () => {
     })
 
 }
+
+//twitter sign in
+twitterSignIn = () => {
+    base_provider = new firebase.auth.TwitterAuthProvider()
+    
+    firebase.auth().signInWithPopup(base_provider).then(function (result) {
+        // var accessToken = result.credential.accessToken;
+        // var idToken = result.credential.idToken;
+        // var providerId = result.credential.providerId;
+        var displayName = result.user.displayName;
+        var email = result.user.email;
+        var providerId = result.user.providerData.providerId;
+        var photoURL = result.user.photoURL;
+        console.log(result)
+        console.log("Success!")
+        
+
+        //crear cookies
+        document.cookie = "nombre=" + encodeURIComponent(displayName);
+        document.cookie = "imagen=" + encodeURIComponent(photoURL);
+
+        window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
+         
+    }).catch(function (error) {
+        console.log(error)
+        console.log("Error!")
+        alert("Error!\n"+error.email+"\n"+error.message);
+    })
+ }

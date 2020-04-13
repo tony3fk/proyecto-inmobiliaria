@@ -59,8 +59,6 @@
 
 <body onload="geoFindMe()">
 
-
-
     <div class="container-fluid bg-light">
 
         <!-- header -->
@@ -166,12 +164,7 @@
 
         <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 ">
 
-
-
-
             <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
-
-
 
             <div class="row justify-content-center">
                 <div class="col-md-1"></div>
@@ -242,6 +235,7 @@
 
 
                 <div class="col-md-3 text-center justify-content-center">
+
                     <!--  mail y telefono -->
                     <div class="elementor-widget-wrap   bg-light text-dark ">
                         <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
@@ -280,7 +274,7 @@
 
                     <!-- fin mail y telefono -->
 
-
+                    <!-- botones redes sociales -->
                     <div
                         class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
                         <div class="elementor-widget-container">
@@ -312,6 +306,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- fin botones redes sociales -->
                     <br>
                     <div class="elementor-element  elementor-widget elementor-widget-heading">
                         <div class="elementor-widget-container">
@@ -321,19 +316,12 @@
                     </div>
                 </div>
             </div>
-
-    </div>
-
-    </footer>
-
-
+        </footer>
     </div>
 
 
 
-
-
-
+    <!-- --------------------S C R I P T S ------------------------  -->
 
     <script>
     $(document).ready(function() {
@@ -344,7 +332,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 
-    <script src="../app/libs/googleFirebase.js"></script>
+    <script src="../app/libs/authFirebase.js"></script>
 
 
 

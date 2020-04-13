@@ -80,14 +80,12 @@
                         $_SESSION['tipo'] = 0;
                     }
                     //echo "Hola " . $_SESSION['nombre'] . ", inicia sesión.";
-
-
                     ?></h3>
 
             </div>
             <br>
 
-
+            <!-- formulario de acceso -->
             <div class="container">
                 <div class="row">
 
@@ -107,9 +105,6 @@
                             }
                             ?>
 
-
-
-
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-6">
@@ -125,14 +120,12 @@
                             </div>
 
 
-
-
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-12">
 
 
-
+                                        <!-- formulario de login -->
                                         <form id="login-form" action="index.php?ctl=login" method="post" role="form"
                                             style="display: <?php echo $displayLogin ?>;">
                                             <div class="form-group">
@@ -152,8 +145,6 @@
                                                             value="Log In">
                                                     </div>
                                                 </div>
-
-
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
@@ -166,37 +157,39 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <!-- fin formulario de login -->
+
+
                                         <br>
 
-                                        <!-- botones inicio social -->
+                                        <!-- botones inicio mediante redes sociales -->
                                         <div class=" row">
                                             <div class="col-sm-4 ">
-                                                <button onclick="facebookSignIn()"
-                                                    class="btn btn-block btn-social btn-facebook" id="btnLoginFacebook">
-                                                    <span class="fa fa-facebook">Facebook Login </span>
+                                                <button onclick="facebookSignIn()" class="btn btn-block btn-facebook "
+                                                    id="btnLoginFacebook">
+                                                    <i class="fa fa-facebook fa-fw"></i> Facebook Login
                                                 </button>
                                             </div>
 
                                             <div class="col-sm-4 ">
-                                                <button onclick="googleSignIn()"
-                                                    class="btn btn-block btn-social btn-google" id="btnLoginGoogle">
-                                                    <span class="fa fa-google">Google SignIn</span>
+                                                <button onclick="googleSignIn()" class="btn btn-block btn-google"
+                                                    id="btnLoginGoogle">
+                                                    <i class="fa fa-google fa-fw"></i> Google Login
                                                 </button>
                                             </div>
 
                                             <div class="col-sm-4 ">
-                                                <a href="#" class="btn btn-block btn-social btn-twitter"
+                                                <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter"
                                                     id="btnLoginTwitter">
-                                                    <span class="fa fa-twitter ">Login </span>
-                                                </a>
+                                                    <i class="fa fa-twitter fa-fw"></i> Twitter Login
+                                                </button>
                                             </div>
 
                                         </div>
+                                        <!-- fin inicio redes sociales -->
 
 
-
-
-
+                                        <!--formulario de registro -->
                                         <form id="register-form" action="index.php?ctl=register" method="post"
                                             role="form" style="display: <?php echo $displayRegister ?>;">
                                             <div class="form-group">
@@ -230,9 +223,7 @@
                                                 </div>
                                             </div>
                                         </form>
-
-
-
+                                        <!-- Fin formulario de registro -->
 
 
                                     </div>
@@ -243,7 +234,12 @@
                 </div>
             </div>
 
-            <!-- formulario login -->
+            <!-- fin formulario de acceso -->
+
+
+
+
+
             <!-- <div class="row  justify-content-center align-items-center ">
                 <div id="login">
                     <form action="index.php?ctl=login" method="POST">
@@ -283,7 +279,7 @@
                 </div>
             </div> -->
 
-            <!-- fin formulario login -->
+
 
 
 
@@ -304,14 +300,12 @@
             </div>
             <!-- fin mensaje de error -->
 
-
-
         </div>
 
 
 
 
-
+        <!-- footer -->
 
         <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4 ">
 
@@ -367,14 +361,16 @@
                 </div>
             </div>
 
-
-
         </footer>
-
+        <!-- Fin footer -->
 
     </div>
 
+
+    <!-- --------------------S C R I P T S ------------------------  -->
+
     <script>
+    //script jQuery de efectos del formulario
     $(function() {
 
         $('#login-form-link').click(function(e) {
@@ -396,13 +392,7 @@
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-
-    <script src="../app/libs/googleFirebase.js"></script>
-
-
-
-
-
+    <script src="../app/libs/authFirebase.js"></script>
 
 
 </body>
