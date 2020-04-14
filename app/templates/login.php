@@ -91,9 +91,9 @@
 
             <!-- formulario de acceso -->
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
 
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-10 col-md-8 col-lg-6 ">
                         <div class="panel panel-login">
 
                             <?php
@@ -111,11 +111,11 @@
 
                             <div class="panel-heading">
                                 <div class="row">
-                                    <div class="col-xs-6">
+                                    <div class="col-6">
                                         <a href="#" class="btn btn-outline-primary <?php echo $display ?>"
                                             id="login-form-link">Login</a>
                                     </div>
-                                    <div class="col-xs-6">
+                                    <div class="col-6">
                                         <a href="#" class="btn btn-outline-secondary"
                                             id="register-form-link">Register</a>
                                     </div>
@@ -126,7 +126,7 @@
 
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-sm-12">
 
 
                                         <!-- formulario de login -->
@@ -143,7 +143,7 @@
 
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                    <div class="col-sm-12 col-md-6 col-sm-offset-3">
                                                         <input type="submit" name="bLogin" id="login-submit"
                                                             tabindex="4" class="form-control btn btn-login btn-primary"
                                                             value="Log In">
@@ -164,22 +164,22 @@
                                         <!-- fin formulario de login -->
 
                                         <!-- botones inicio mediante redes sociales -->
-                                        <div class=" row" style="display: <?php echo $displayLogin ?>;">
-                                            <div class="col-sm-4 ">
+                                        <div class=" row" style="display: <?php echo $display ?>;">
+                                            <div class="col-4 ">
                                                 <button onclick="facebookSignIn()" class="btn btn-block btn-facebook "
                                                     id="btnLoginFacebook">
                                                     <i class="fa fa-facebook fa-fw"></i> Facebook Login
                                                 </button>
                                             </div>
 
-                                            <div class="col-sm-4 ">
+                                            <div class="col-4 ">
                                                 <button onclick="googleSignIn()" class="btn btn-block btn-google"
                                                     id="btnLoginGoogle">
                                                     <i class="fa fa-google fa-fw"></i> Google Login
                                                 </button>
                                             </div>
 
-                                            <div class="col-sm-4 ">
+                                            <div class="col-4 ">
                                                 <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter"
                                                     id="btnLoginTwitter">
                                                     <i class="fa fa-twitter fa-fw"></i> Twitter Login
@@ -288,7 +288,7 @@
                 <div
                     class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
                     <div class="elementor-widget-container">
-                        <div class="elementor-social-icons-wrapper">
+                        <div>
                             <a href="https://www.facebook.com/"
                                 class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
                                 target="_blank">

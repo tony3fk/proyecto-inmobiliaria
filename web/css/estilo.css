@@ -17,6 +17,17 @@ ul {
     h3 {
         font-size: 1.2em !important;
     }
+
+
+}
+
+#inicio {
+    height: 45rem;
+}
+
+#fondoInicio {
+    background-image: url(../../app/images/inicio.jpg);
+    background-size: cover;
 }
 
 

@@ -93,10 +93,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-
-
-                <div class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <div class="navbar-nav mr-auto justify-content-between">
                     <a href="index.php?ctl=inicio" class="nav-item nav-link active">Inicio</a>
                     <a href="index.php?ctl=listarVenta" class="nav-item nav-link active">Venta</a>
                     <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link active">Alquiler</a>
@@ -104,11 +102,6 @@
 
                     <a href="index.php?ctl=salir" class="nav-item nav-link">Salir</a>
                 </div>
-
-
-
-
-
                 <?php
                 //si no es administrador se aplica la class de Bootstrap d-none en el siguiente elemento div #menuAdmin
                 $displayNone = "";
@@ -130,21 +123,21 @@
                     </div>
 
 
+                    <div>
+                        <h5 id="userActivo" href="#" class="nav-item nav-link">
 
-                    <a id="userActivo" href="#" class="nav-item nav-link">
-
-                        <i class="fas fa-user"></i>
-                        <?php
-                        if (isset($_COOKIE['nombre'])) {
-                            echo strtoupper(" " . $_COOKIE['nombre'] . "  ");
-                            $imagen = $_COOKIE['imagen'];
-                            echo '<img src=' . $imagen . ' style="width:40px; border: 1px solid black";>';
-                        } else if ($_SESSION['nombre'] != 'invitado') {
-                            echo strtoupper(" " . $_SESSION['nombre']);
-                        }
-
-
-                        ?></a>
+                            <i class="fas fa-user"></i>
+                            <?php
+                            if (isset($_COOKIE['nombre'])) {
+                                echo strtoupper(" " . $_COOKIE['nombre'] . "  ");
+                                $imagen = $_COOKIE['imagen'];
+                                echo '<img src=' . $imagen . ' style="width:40px; border: 1px solid black";>';
+                            } else if ($_SESSION['nombre'] != 'invitado') {
+                                echo strtoupper(" " . $_SESSION['nombre']);
+                            }
+                            ?>
+                        </h5>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -169,10 +162,10 @@
             <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
 
             <div class="row justify-content-center">
-                <div class="col-md-1"></div>
+                <div class="col-lg-1"></div>
 
                 <!--formulario-->
-                <div class="col-md-8 mb-md-0 mb-5">
+                <div class="col-lg-8 mb-md-0 mb-5">
                     <form id="contact-form" name="contact-form" action="mail.php" method="POST">
 
                         <!--Grid row-->
@@ -236,7 +229,7 @@
                 <!--fin formulario-->
 
 
-                <div class="col-md-3 text-center justify-content-center">
+                <div class="col-lg-3 text-center justify-content-center">
 
                     <!--  mail y telefono -->
                     <div class="elementor-widget-wrap   bg-light text-dark ">
@@ -280,32 +273,32 @@
                     <div
                         class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
                         <div class="elementor-widget-container">
-                            <div class="elementor-social-icons-wrapper">
-                                <a href="https://www.facebook.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
-                                    target="_blank">
-                                    <span class="elementor-screen-only">Facebook</span>
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="https://twitter.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
-                                    target="_blank">
-                                    <span class="elementor-screen-only">Twitter</span>
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
-                                    target="_blank">
-                                    <span class="elementor-screen-only">Linkedin</span>
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a href="https://www.instagram.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
-                                    target="_blank">
-                                    <span class="elementor-screen-only">Instagram</span>
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </div>
+
+                            <a href="https://www.facebook.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
+                                target="_blank">
+                                <span class="elementor-screen-only">Facebook</span>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
+                                target="_blank">
+                                <span class="elementor-screen-only">Twitter</span>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
+                                target="_blank">
+                                <span class="elementor-screen-only">Linkedin</span>
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
+                                target="_blank">
+                                <span class="elementor-screen-only">Instagram</span>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+
                         </div>
                     </div>
                     <!-- fin botones redes sociales -->

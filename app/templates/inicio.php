@@ -1,15 +1,10 @@
 <?php ob_start() ?>
 
-<div class=" col-md-12 " id="inicio" style="height: 45rem">
-    <!-- <img src="../app/images/inicio.jpg" alt="ImagenInicio" id="imagenInicio"> -->
+<div class=" col-12 " id="inicio">
 
+    <div id="fondoInicio" class="jumbotron h-100">
 
-
-
-
-    <div class="jumbotron h-100" style="background-image: url(./app/images/inicio.jpg); background-size: cover; ">
-
-        <form class="form-horizontal" action="index.php?ctl=inicio" method="POST">
+        <form class="form-horizontal justify-content-center" action="index.php?ctl=inicio" method="POST">
             <fieldset style="margin-top: 9rem">
 
                 <!-- Form Name -->
@@ -17,25 +12,35 @@
                 <br>
 
                 <!-- Multiple Checkboxes (inline) -->
-                <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning" for="radiobutton">Operación</h6>
-                    <div class="col-md-4">
-                        <label class="checkbox-inline text-light" for="radiobutton">
-                            <input type="radio" name="operacion" id="radiobutton" value="Venta">
-                            Venta
-                        </label>
-                        &nbsp;
-                        <label class="checkbox-inline text-light" for="radiobutton">
+                <div class="form-group row justify-content-center">
+                    <div class="col-5">
+                        <h5 class="control-label text-warning text-md-right text-sm-left font-weight-bold"
+                            for="radiobutton">Operación
+                        </h5>
+                    </div>
+
+                    <div class="col-2 text-center">
+                        <h5 class="checkbox-inline text-light  " for="radiobutton"> <input type="radio" name="operacion"
+                                id="radiobutton" value="Venta">Venta
+                        </h5>
+
+
+                    </div>
+                    <div class="col-5">
+                        <h5 class="checkbox-inline text-light" for="radiobutton">
                             <input type="radio" name="operacion" id="radiobutton" value="Alquiler">
                             Alquiler
-                        </label>
+                        </h5>
                     </div>
                 </div>
 
                 <!-- Select Basic -->
-                <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning " for="tipo">Tipo</h6>
-                    <div class="col-md-2">
+                <div class="form-group row justify-content-center">
+                    <div class="col-3 col-md-2 ">
+                        <h5 class=" control-label text-warning text-center font-weight-bold " for=" tipo">Tipo</h5>
+                    </div>
+
+                    <div class="col-9 col-md-5 col-xl-3">
                         <select id="selectTipo" name="tipo" class="form-control">
                             <option value="">Todos</option>
                             <option value="Parking">Parking</option>
@@ -50,9 +55,13 @@
                 </div>
 
                 <!-- Select Basic -->
-                <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning" for="provincia">Provincia</h6>
-                    <div class="col-md-2">
+                <div class="form-group row justify-content-center">
+                    <div class="col-3 col-md-2">
+                        <h5 class=" control-label text-warning text-center font-weight-bold" for="provincia">Provincia
+                        </h5>
+                    </div>
+
+                    <div class="col-9 col-md-5 col-xl-3">
                         <select id="selectProvincia" name="provincia" class="form-control">
                             <option value=''>Todas</option>
                             <option value='Alava'>Álava</option>
@@ -111,10 +120,10 @@
                     </div>
                 </div>
                 <br>
-                <div class="form-group row">
-                    <div class="col-md-5 control-label text-center"></div>
+                <div class="form-group row justify-content-center">
+                    <!-- <div class="col-md-5 control-label text-center"></div> -->
 
-                    <div class="col-md-2">
+                    <div class="col-7 col-md-5 col-xl-3">
                         <button type="submit" class="btn btn-warning col-12" name="bSubmitInicio">Enviar</button>
                     </div>
 
