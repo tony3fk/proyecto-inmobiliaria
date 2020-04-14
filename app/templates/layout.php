@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
+    <link rel="stylesheet" href="./web/css/bootstrap/css/bootstrap" id="bootstrap-css">
     <link rel='stylesheet' id='elementor-frontend-css'
         href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
         media='all' />
@@ -17,18 +17,20 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
-    <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
 
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
         id="bootstrap-css" />-->
 
     <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.js"></script>
+    <script src="./web/css/bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/ab12d61800.js" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -37,7 +39,7 @@
 
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
-    <script src="../app/libs/geolocalizacion.js"></script>
+    <script src="./app/libs/geolocalizacion.js"></script>
 
     <title>Gestión Inmobiliaria</title>
 
@@ -331,9 +333,7 @@
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-
-    <script src="../app/libs/authFirebase.js"></script>
-
+    <script src="./app/libs/authFirebase.js"></script>
 
 
 </body>

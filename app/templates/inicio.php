@@ -7,7 +7,7 @@
 
 
 
-    <div class="jumbotron h-100" style="background-image: url(../app/images/inicio.jpg); background-size: cover; ">
+    <div class="jumbotron h-100" style="background-image: url(./app/images/inicio.jpg); background-size: cover; ">
 
         <form class="form-horizontal" action="index.php?ctl=inicio" method="POST">
             <fieldset style="margin-top: 9rem">

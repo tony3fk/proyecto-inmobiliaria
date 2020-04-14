@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
     <link rel='stylesheet' id='elementor-frontend-css'
         href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
@@ -16,22 +16,26 @@
 
 
     <!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css"> -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css" />
 
-    <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
 
     <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
 
 
     <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
 
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="./web/css/bootstrap/js/bootstrap.js"></script>
 
     <!-- <script>
     $.get("http://ipinfo.io", function(response) {
@@ -100,7 +104,7 @@
                                 $display = "d-none";
                             } else {
                                 $displayLogin = " block";
-                                $displayRegister = " none";
+                                $displayRegister = "none";
                                 $display = "";
                             }
                             ?>
@@ -112,7 +116,7 @@
                                             id="login-form-link">Login</a>
                                     </div>
                                     <div class="col-xs-6">
-                                        <a href="#" class="btn btn-outline-secondary "
+                                        <a href="#" class="btn btn-outline-secondary"
                                             id="register-form-link">Register</a>
                                     </div>
                                 </div>
@@ -159,11 +163,8 @@
                                         </form>
                                         <!-- fin formulario de login -->
 
-
-                                        <br>
-
                                         <!-- botones inicio mediante redes sociales -->
-                                        <div class=" row">
+                                        <div class=" row" style="display: <?php echo $displayLogin ?>;">
                                             <div class="col-sm-4 ">
                                                 <button onclick="facebookSignIn()" class="btn btn-block btn-facebook "
                                                     id="btnLoginFacebook">
@@ -187,6 +188,11 @@
 
                                         </div>
                                         <!-- fin inicio redes sociales -->
+
+
+
+                                        <br>
+
 
 
                                         <!--formulario de registro -->
@@ -226,6 +232,10 @@
                                         <!-- Fin formulario de registro -->
 
 
+
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -235,52 +245,6 @@
             </div>
 
             <!-- fin formulario de acceso -->
-
-
-
-
-
-            <!-- <div class="row  justify-content-center align-items-center ">
-                <div id="login">
-                    <form action="index.php?ctl=login" method="POST">
-
-                        <fieldset class="clearfix">
-                            <p>
-                                <span class="fa fa-user mr-3"> </span>
-                                <input type="text" placeholder="nombre" name="nombre" required />
-                            </p>
-
-                            <p>
-                                <span class="fa fa-lock mr-3"> </span>
-                                <input type="password" placeholder="Password" name="password" required />
-                            </p>
-
-
-                            <div>
-                                <br>
-
-                                <span style="width:50%; text-align:right;  display: inline-block;">
-                                    <input class="btn btn-success" type="submit" value="Iniciar sesión" name="bLogin" />
-                                </span>
-
-                                <hr>
-
-                            </div>
-
-                        </fieldset>
-
-                    </form>
-
-                    <form action="index.php?ctl=register" method="POST">
-                        <h5 class="text-dark">No tienes cuenta?</h5>
-                        <input type="submit" class="btn btn-warning" value="Regístrate" name="bRegister" />
-                    </form>
-
-                </div>
-            </div> -->
-
-
-
 
 
 
@@ -307,7 +271,7 @@
 
         <!-- footer -->
 
-        <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4 ">
+        <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4">
 
             <div class="  col-md-5 text-center text-dark bg-light">
 
@@ -392,7 +356,8 @@
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-    <script src="../app/libs/authFirebase.js"></script>
+    <script src="./app/libs/authFirebase.js"></script>
+
 
 
 </body>

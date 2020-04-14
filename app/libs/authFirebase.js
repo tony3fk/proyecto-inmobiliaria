@@ -1,14 +1,25 @@
+
    // Your web app's Firebase configuration
+    // var firebaseConfig = {
+    //     apiKey: "AIzaSyC8ubn24RFj9FH7ys5LYx5edY-vacOCU0o",
+    //     authDomain: "gestioninmobiliaria-15009.firebaseapp.com",
+    //     databaseURL: "https://gestioninmobiliaria-15009.firebaseio.com",
+    //     projectId: "gestioninmobiliaria-15009",
+    //     storageBucket: "gestioninmobiliaria-15009.appspot.com",
+    //     messagingSenderId: "201858462683",
+    //     appId: "1:201858462683:web:6ce80885b75483ab1f2dfe",
+    //     measurementId: "G-LXRZQWRH02"
+    // };
     var firebaseConfig = {
-        apiKey: "AIzaSyC8ubn24RFj9FH7ys5LYx5edY-vacOCU0o",
-        authDomain: "gestioninmobiliaria-15009.firebaseapp.com",
-        databaseURL: "https://gestioninmobiliaria-15009.firebaseio.com",
-        projectId: "gestioninmobiliaria-15009",
-        storageBucket: "gestioninmobiliaria-15009.appspot.com",
-        messagingSenderId: "201858462683",
-        appId: "1:201858462683:web:6ce80885b75483ab1f2dfe",
-        measurementId: "G-LXRZQWRH02"
+        apiKey: "AIzaSyC2mc4gTTSwSnmK2QO9wH-OVbG6BMc0t4k",
+        authDomain: "gestion-inmobiliaria-82e40.firebaseapp.com",
+        databaseURL: "https://gestion-inmobiliaria-82e40.firebaseio.com",
+        projectId: "gestion-inmobiliaria-82e40",
+        storageBucket: "gestion-inmobiliaria-82e40.appspot.com",
+        messagingSenderId: "760578758890",
+        appId: "1:760578758890:web:e479d9d2e668740cf4df93"
     };
+
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
@@ -30,7 +41,7 @@ googleSignIn = () => {
         document.cookie = "nombre=" + encodeURIComponent(displayName);
         document.cookie = "imagen=" + encodeURIComponent(photoURL);
 
-        window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
+        window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
 
         // var userActivo = document.getElementById("userActivo");
         // userActivo.innerHTML(displayName);
@@ -65,7 +76,7 @@ facebookSignIn = () => {
         document.cookie = "nombre=" + encodeURIComponent(displayName);
         document.cookie = "imagen=" + encodeURIComponent(photoURL);
 
-        window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
+        window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
          
     }).catch(function (error) {
         console.log(error)
@@ -95,7 +106,7 @@ twitterSignIn = () => {
         document.cookie = "nombre=" + encodeURIComponent(displayName);
         document.cookie = "imagen=" + encodeURIComponent(photoURL);
 
-        window.location.replace("http://localhost:8080/proyecto/web/index.php?ctl=inicio");
+        window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
          
     }).catch(function (error) {
         console.log(error)

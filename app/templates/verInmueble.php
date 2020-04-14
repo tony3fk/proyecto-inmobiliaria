@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 <div class="container-fluid">
     <div class="row">
-        <img class="col-6" src="../app/images/<?php echo $params['referencia'] . ".jpeg"; ?>">
+        <img class="col-6" src="./app/images/<?php echo $params['referencia'] . ".jpeg"; ?>">
 
 
         <table class="col-4 bg-light  ml-5">

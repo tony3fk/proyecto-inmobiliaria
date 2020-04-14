@@ -1,12 +1,11 @@
-
 <?php
 
 // web/index.php
 // carga del modelo y los controladores
-require_once __DIR__ . '/../app/Config.php';
-require_once __DIR__ . '/../app/Model.php';
-require_once __DIR__ . '/../app/Controller.php';
-require_once __DIR__ . '../../app/libs/sessionClass.php';
+require_once('./app/Config.php');
+require_once('./app/Model.php');
+require_once('./app/Controller.php');
+require_once('./app/libs/sessionClass.php');
 
 
 

@@ -1,7 +1,7 @@
 <?php
-include('libs/utils.php');
-include('libs/sessionClass.php');
-include('libs/enviaMail.php');
+include('app/libs/utils.php');
+include('app/libs/sessionClass.php');
+include('app/libs/enviaMail.php');
 
 class Controller
 {
@@ -42,7 +42,7 @@ class Controller
         }
 
 
-        require __DIR__ . '/templates/login.php';
+        require('./app/templates/login.php');
     }
     //FIN LOGIN
 
@@ -122,7 +122,7 @@ class Controller
             header('Location: index.php?ctl=error');
         }
 
-        require __DIR__ . '/templates/login.php';
+        require('./app/templates/login.php');
     }
     //FIN REGISTRO
 
@@ -219,7 +219,7 @@ class Controller
 
 
 
-        require __DIR__ . '/templates/inicio.php';
+        require('./app/templates/inicio.php');
     }
     //FIN INICIO
 
@@ -228,7 +228,7 @@ class Controller
     public function error()
     {
 
-        require __DIR__ . '/templates/error.php';
+        require('./app/templates/error.php');
     }
     //FIN PAGINA DE ERROR
 
@@ -236,7 +236,7 @@ class Controller
     //PÁGINA ERROR DE RUTA
     public function errorDeRuta()
     {
-        require __DIR__ . '/templates/errorderuta.php';
+        require('./app/templates/errorderuta.php');
     }
     //FIN PÁGINA ERROR DE RUTA
 
@@ -259,7 +259,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/mostrarInmuebles.php';
+        require('./app/templates/mostrarInmuebles.php');
     }
     //FIN LISTAR INMUEBLES EN VENTA
 
@@ -282,7 +282,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/mostrarInmuebles.php';
+        require('./app/templates/mostrarInmuebles.php');
     }
     //FIN LISTAR INMUEBLES EN ALQUILER
 
@@ -305,7 +305,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/listarUsuarios.php';
+        require('./app/templates/listarUsuarios.php');
     }
     //FIN LISTAR USUARIOS MENÚ ADMIN
 
@@ -328,7 +328,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/listarInmuebles.php';
+        require('./app/templates/listarInmuebles.php');
     }
     //FIN LISTAR INMUEBLES MENÚ ADMIN
 
@@ -394,7 +394,7 @@ class Controller
             header('Location: index.php?ctl=error');
         }
 
-        require __DIR__ . '/templates/formInsertar.php';
+        require('./app/templates/formInsertar.php');
     }
     //FIN INSERTAR INMUEBLES
 
@@ -423,7 +423,7 @@ class Controller
 
 
 
-        require __DIR__ . '/templates/verInmueble.php';
+        require('./app/templates/verInmueble.php');
     }
     //FIN VER INMUEBLE
 
