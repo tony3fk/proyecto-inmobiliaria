@@ -1,49 +1,48 @@
 <?php ob_start() ?>
 <div class="container-fluid">
     <div class="row">
-        <img class="col-6" src="./app/images/<?php echo $params['referencia'] . ".jpeg"; ?>">
+        <div class="col-5">
+            <img class=" img-thumbnail" src="./app/images/<?php echo $params['referencia'] . ".jpeg"; ?>">
+        </div>
 
 
-        <table class="col-4 bg-light  ml-5">
-            <tr>
-                <td>
-                    <h1>Ref: <?php echo $params['referencia'] ?></h1>
-                </td>
-            </tr>
+        <div id="fichaInmueble" class="col-7 align-content-center">
+            <h1 class="text-center">Ref: <?php echo $params['referencia'] ?></h1>
+            <table class="bg-light table-striped ">
 
+                <tr>
+                    <td>Fecha de alta</td>
+                    <td><?php echo $params['fecha_alta'] ?></td>
 
-            <tr>
-                <td>fecha_alta</td>
-                <td><?php echo $params['fecha_alta'] ?></td>
+                </tr>
+                <tr>
+                    <td>Tipo &nbsp;</td>
+                    <td><?php echo $params['tipo'] ?></td>
 
-            </tr>
-            <tr>
-                <td>Tipo &nbsp;</td>
-                <td><?php echo $params['tipo'] ?></td>
+                </tr>
+                <tr>
+                    <td>Operación</td>
+                    <td><?php echo $params['operacion'] ?></td>
 
-            </tr>
-            <tr>
-                <td>operacion</td>
-                <td><?php echo $params['operacion'] ?></td>
+                </tr>
+                <tr>
+                    <td>Provincia</td>
+                    <td><?php echo $params['provincia'] ?></td>
 
-            </tr>
-            <tr>
-                <td>Provincia</td>
-                <td><?php echo $params['provincia'] ?></td>
+                </tr>
+                <tr>
+                    <td>Superficie</td>
+                    <td><?php echo $params['superficie'] . " m2" ?></td>
 
-            </tr>
-            <tr>
-                <td>superficie</td>
-                <td><?php echo $params['superficie'] . " m2" ?></td>
+                </tr>
+                <tr>
+                    <td>Precio</td>
+                    <td><?php echo "" . number_format($params['precio_venta'], 2, ',', '.') . " €" ?></td>
 
-            </tr>
-            <tr>
-                <td>precio</td>
-                <td><?php echo "" . number_format($params['precio_venta'], 2, ',', '.') . " €" ?></td>
+                </tr>
 
-            </tr>
-
-        </table>
+            </table>
+        </div>
     </div>
 </div>
 

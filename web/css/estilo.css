@@ -52,6 +52,34 @@ table.dataTable thead .sorting_desc_disabled:before {
     height: 4rem !important;
 }
 
+#userActivo img {
+    width: 3rem;
+
+
+}
+
+#fichaInmueble {
+    margin: auto;
+    width: 100%;
+}
+
+#fichaInmueble table {
+    margin: auto;
+    width: 100%;
+
+}
+
+#fichaInmueble td {
+    border: 1px solid black;
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+#fichaInmueble tr {
+    height: 4rem;
+}
+
 
 
 

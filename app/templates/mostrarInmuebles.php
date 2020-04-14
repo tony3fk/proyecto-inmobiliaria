@@ -14,7 +14,7 @@
             <!-- Card image -->
             <div class="embed-responsive embed-responsive-4by3">
 
-                <img class="card-img-top embed-responsive-item"
+                <img class="card-img-top embed-responsive-item img-thumbnail"
                     src="./app/images/<?php echo $inmuebles['referencia'] . ".jpeg"; ?>" alt="Card image cap"
                     id="img-inmueble">
 
