@@ -537,8 +537,10 @@ class Controller
 
             if ($password == $confirm_password) {
                 $m = new Model();
-                if ($m->resetPassword($password, $email)) {
-
+                $row = $m->resetPassword($password, $email);
+                // echo $row;
+                // die();
+                if ($row == 1) {
 
                     header('Location: index.php?ctl=login');
                 } else {

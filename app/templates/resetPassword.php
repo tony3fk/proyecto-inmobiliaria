@@ -98,7 +98,7 @@
             </div>
             <div class="col-4"></div>
         </div>
-        <div>
+        <div class="row">
             <h1><?php echo $params['mensaje'] ?></h1>
         </div>
 

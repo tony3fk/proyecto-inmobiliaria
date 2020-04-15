@@ -181,9 +181,11 @@ class Model extends PDO
     public function resetPassword($password, $email)
     {
 
-        $sql = "UPDATE usuarios SET password=? WHERE email=?";
+        $sql = 'update usuarios set password="' . $password . '" WHERE email="' . $email . '"';
+        // echo $sql;
+        // die();
         $stmt = $this->conexion->prepare($sql);
         $stmt->execute([$password, $email]);
-        return true;
+        return $stmt->rowCount();
     }
 }
