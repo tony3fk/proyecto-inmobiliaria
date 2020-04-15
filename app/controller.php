@@ -1,7 +1,7 @@
 <?php
-include('libs/utils.php');
-include('libs/sessionClass.php');
-include('libs/enviaMail.php');
+include('app/libs/utils.php');
+include('app/libs/sessionClass.php');
+include('app/libs/enviaMail.php');
 
 class Controller
 {
@@ -12,6 +12,7 @@ class Controller
         $params['mensaje'] = "";
         $m = new Model;
         $sesion = new Session;
+
 
         //Recojo y valido datos del formulario
         $params['nombre'] = recoge('nombre');
@@ -31,6 +32,7 @@ class Controller
                     //$params['temp'] = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
                     $params['tipo'] = $registro['tipo'];
                     $params['ciudad'] = $registro['ciudad']; //determinar ciudad desde la geolocalización
+
                     $sesion->setSession($params); //establece el user, el nivel a la sesion, la ciudad y la temperatura
 
                     header('location: index.php?ctl=inicio');
@@ -42,7 +44,7 @@ class Controller
         }
 
 
-        require __DIR__ . '/templates/login.php';
+        require('./app/templates/login.php');
     }
     //FIN LOGIN
 
@@ -122,7 +124,7 @@ class Controller
             header('Location: index.php?ctl=error');
         }
 
-        require __DIR__ . '/templates/login.php';
+        require('./app/templates/login.php');
     }
     //FIN REGISTRO
 
@@ -219,7 +221,7 @@ class Controller
 
 
 
-        require __DIR__ . '/templates/inicio.php';
+        require('./app/templates/inicio.php');
     }
     //FIN INICIO
 
@@ -228,7 +230,7 @@ class Controller
     public function error()
     {
 
-        require __DIR__ . '/templates/error.php';
+        require('./app/templates/error.php');
     }
     //FIN PAGINA DE ERROR
 
@@ -236,7 +238,7 @@ class Controller
     //PÁGINA ERROR DE RUTA
     public function errorDeRuta()
     {
-        require __DIR__ . '/templates/errorderuta.php';
+        require('./app/templates/errorderuta.php');
     }
     //FIN PÁGINA ERROR DE RUTA
 
@@ -259,7 +261,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/mostrarInmuebles.php';
+        require('./app/templates/mostrarInmuebles.php');
     }
     //FIN LISTAR INMUEBLES EN VENTA
 
@@ -282,7 +284,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/mostrarInmuebles.php';
+        require('./app/templates/mostrarInmuebles.php');
     }
     //FIN LISTAR INMUEBLES EN ALQUILER
 
@@ -305,7 +307,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/listarUsuarios.php';
+        require('./app/templates/listarUsuarios.php');
     }
     //FIN LISTAR USUARIOS MENÚ ADMIN
 
@@ -328,7 +330,7 @@ class Controller
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
             header('Location: index.php?ctl=error');
         }
-        require __DIR__ . '/templates/listarInmuebles.php';
+        require('./app/templates/listarInmuebles.php');
     }
     //FIN LISTAR INMUEBLES MENÚ ADMIN
 
@@ -394,7 +396,7 @@ class Controller
             header('Location: index.php?ctl=error');
         }
 
-        require __DIR__ . '/templates/formInsertar.php';
+        require('./app/templates/formInsertar.php');
     }
     //FIN INSERTAR INMUEBLES
 
@@ -423,7 +425,7 @@ class Controller
 
 
 
-        require __DIR__ . '/templates/verInmueble.php';
+        require('./app/templates/verInmueble.php');
     }
     //FIN VER INMUEBLE
 
@@ -489,6 +491,8 @@ class Controller
     public function salir()
     {
         session_destroy();
+        setcookie('nombre', '', time() - 100);
+        setcookie('imagen', '', time() - 100);
         header('Location: index.php?ctl=login');
     }
     //FIN SALIR
@@ -520,6 +524,38 @@ class Controller
         }
     }
     //FIN ENVÍO EMAIL DE REGISTRO
+
+
+    public function resetPassword()
+    {
+        if (isset($_POST['bReset'])) {
+            // $nombre = recoge('nombre');
+            $params['mensaje'] = "";
+            $email = recoge('email');
+            $password = crypt_blowfish(recoge('password'));
+            $confirm_password = crypt_blowfish(recoge('password'));
+
+            if ($password == $confirm_password) {
+                $m = new Model();
+                $row = $m->resetPassword($password, $email);
+                // echo $row;
+                // die();
+                if ($row == 1) {
+
+                    header('Location: index.php?ctl=login');
+                } else {
+                    $params['mensaje'] = "No hay ningún usuario con ese email";
+                    header('Location: index.php?ctl=resetPassword');
+                }
+            } else {
+                $params['mensaje'] = "Los passwords han de ser iguales";
+                header('Location: index.php?ctl=resetPassword');
+            }
+        }
+
+
+        require('./app/templates/resetPassword.php');
+    }
 
 
 

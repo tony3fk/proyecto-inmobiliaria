@@ -6,37 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" /> -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" /> -->
+    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+
     <link rel='stylesheet' id='elementor-frontend-css'
         href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
         media='all' />
 
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
 
-    <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
+    <!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css" />
 
+    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
+
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
 
 
     <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
 
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="./web/css/bootstrap/js/bootstrap.js"></script>
 
-    <!-- <script>
-    $.get("http://ipinfo.io", function(response) {
-        var provincia = response.region;
-        console.log(provincia);
-        document.cookie = 'provincia=' + provincia;
-    }, "jsonp");
 
-    //crea la $_COOKIE['provincia] según la ip del navegador.
-    </script> -->
+
 
     <title>Login Gestión Inmobiliaria</title>
 
@@ -45,6 +47,11 @@
 </head>
 
 <body class="bg-light">
+
+
+
+
+
     <div class="container-fluid  bg-light">
 
         <header class=" row  navbar bg-dark justify-content-center ">
@@ -70,42 +77,42 @@
                         $_SESSION['tipo'] = 0;
                     }
                     //echo "Hola " . $_SESSION['nombre'] . ", inicia sesión.";
-
-
                     ?></h3>
 
             </div>
             <br>
 
-
+            <!-- formulario de acceso -->
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
 
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-10 col-md-8 col-lg-6 ">
                         <div class="panel panel-login">
 
-                            <?php if ($_SESSION['tipo'] == 2) { //si el logueado es admin, es porque accede desde el menú de administrador y se oculta la opción de login
+                            <?php
+
+                            //si el logueado es admin, es porque accede desde el menú de administrador y se oculta la opción de login
+
+                            if ($_COOKIE['tipo'] === 2) {
                                 $displayLogin = " none";
                                 $displayRegister = " block";
                                 $display = "d-none";
                             } else {
                                 $displayLogin = " block";
-                                $displayRegister = " none";
+                                $displayRegister = "none";
                                 $display = "";
                             }
+
                             ?>
-
-
-
 
                             <div class="panel-heading">
                                 <div class="row">
-                                    <div class="col-xs-6">
+                                    <div class="col-6">
                                         <a href="#" class="btn btn-outline-primary <?php echo $display ?>"
                                             id="login-form-link">Login</a>
                                     </div>
-                                    <div class="col-xs-6">
-                                        <a href="#" class="btn btn-outline-secondary "
+                                    <div class="col-6">
+                                        <a href="#" class="btn btn-outline-secondary"
                                             id="register-form-link">Register</a>
                                     </div>
                                 </div>
@@ -113,54 +120,79 @@
                             </div>
 
 
-
-
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-sm-12">
 
 
-
+                                        <!-- formulario de login -->
                                         <form id="login-form" action="index.php?ctl=login" method="post" role="form"
                                             style="display: <?php echo $displayLogin ?>;">
                                             <div class="form-group">
                                                 <input type="text" name="nombre" id="username" tabindex="1"
-                                                    class="form-control" placeholder="Username" value="">
+                                                    class="form-control text-center" placeholder="Username" value="">
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" id="password" tabindex="2"
-                                                    class="form-control" placeholder="Password">
+                                                    class="form-control text-center" placeholder="Password">
                                             </div>
-                                            <div class="form-group text-center">
-                                                <input type="checkbox" tabindex="3" class="" name="remember"
-                                                    id="remember">
-                                                <label for="remember"> Remember Me</label>
-                                            </div>
+
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                    <div class="col-sm-12 col-md-6 col-sm-offset-3">
                                                         <input type="submit" name="bLogin" id="login-submit"
                                                             tabindex="4" class="form-control btn btn-login btn-primary"
                                                             value="Log In">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="text-center">
-                                                            <a href="https://phpoll.com/recover" tabindex="5"
-                                                                class="forgot-password">Forgot Password?</a>
-                                                        </div>
+
+                                        </form>
+                                        <!-- fin formulario de login -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <a href="index.php?ctl=resetPassword" tabindex="5"
+                                                            class="forgot-password">Forgot Password?</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+
+                                        <!-- botones inicio mediante redes sociales -->
+                                        <div class=" row" style="display: <?php echo $display ?>;">
+                                            <div class="col-4 ">
+                                                <button onclick="facebookSignIn()" class="btn btn-block btn-facebook "
+                                                    id="btnLoginFacebook">
+                                                    <i class="fa fa-facebook fa-fw"></i> Facebook Login
+                                                </button>
+                                            </div>
+
+                                            <div class="col-4 ">
+                                                <button onclick="googleSignIn()" class="btn btn-block btn-google"
+                                                    id="btnLoginGoogle">
+                                                    <i class="fa fa-google fa-fw"></i> Google Login
+                                                </button>
+                                            </div>
+
+                                            <div class="col-4 ">
+                                                <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter"
+                                                    id="btnLoginTwitter">
+                                                    <i class="fa fa-twitter fa-fw"></i> Twitter Login
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                        <!-- fin inicio redes sociales -->
 
 
 
+                                        <br>
 
 
+
+                                        <!--formulario de registro -->
                                         <form id="register-form" action="index.php?ctl=register" method="post"
                                             role="form" style="display: <?php echo $displayRegister ?>;">
                                             <div class="form-group">
@@ -194,6 +226,9 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <!-- Fin formulario de registro -->
+
+
                                     </div>
                                 </div>
                             </div>
@@ -202,48 +237,7 @@
                 </div>
             </div>
 
-            <!-- formulario login -->
-            <!-- <div class="row  justify-content-center align-items-center ">
-                <div id="login">
-                    <form action="index.php?ctl=login" method="POST">
-
-                        <fieldset class="clearfix">
-                            <p>
-                                <span class="fa fa-user mr-3"> </span>
-                                <input type="text" placeholder="nombre" name="nombre" required />
-                            </p>
-
-                            <p>
-                                <span class="fa fa-lock mr-3"> </span>
-                                <input type="password" placeholder="Password" name="password" required />
-                            </p>
-
-
-                            <div>
-                                <br>
-
-                                <span style="width:50%; text-align:right;  display: inline-block;">
-                                    <input class="btn btn-success" type="submit" value="Iniciar sesión" name="bLogin" />
-                                </span>
-
-                                <hr>
-
-                            </div>
-
-                        </fieldset>
-
-                    </form>
-
-                    <form action="index.php?ctl=register" method="POST">
-                        <h5 class="text-dark">No tienes cuenta?</h5>
-                        <input type="submit" class="btn btn-warning" value="Regístrate" name="bRegister" />
-                    </form>
-
-                </div>
-            </div> -->
-
-            <!-- fin formulario login -->
-
+            <!-- fin formulario de acceso -->
 
 
 
@@ -263,16 +257,14 @@
             </div>
             <!-- fin mensaje de error -->
 
-
-
         </div>
 
 
 
 
+        <!-- footer -->
 
-
-        <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4 ">
+        <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4">
 
             <div class="  col-md-5 text-center text-dark bg-light">
 
@@ -289,7 +281,7 @@
                 <div
                     class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
                     <div class="elementor-widget-container">
-                        <div class="elementor-social-icons-wrapper">
+                        <div>
                             <a href="https://www.facebook.com/"
                                 class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
                                 target="_blank">
@@ -326,14 +318,16 @@
                 </div>
             </div>
 
-
-
         </footer>
-
+        <!-- Fin footer -->
 
     </div>
 
+
+    <!-- --------------------S C R I P T S ------------------------  -->
+
     <script>
+    //script jQuery de efectos del formulario
     $(function() {
 
         $('#login-form-link').click(function(e) {
@@ -353,6 +347,12 @@
 
     });
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script src="./app/libs/authFirebase.js"></script>
+
+
+
 </body>
 
 </html>

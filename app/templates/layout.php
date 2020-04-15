@@ -6,23 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css">
-    <link rel='stylesheet' id='elementor-frontend-css' href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css' media='all' />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="./web/css/bootstrap/css/bootstrap" id="bootstrap-css">
+    <link rel='stylesheet' id='elementor-frontend-css'
+        href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
+        media='all' />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 
-    <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
 
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
         id="bootstrap-css" />-->
 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="css/bootstrap/js/bootstrap.js"></script>
+    <script src="./web/css/bootstrap/js/bootstrap.js"></script>
     <script src="https://kit.fontawesome.com/ab12d61800.js" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -31,27 +39,30 @@
 
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
-    <script src="../app/libs/geolocalizacion.js"></script>
+    <script src="./app/libs/geolocalizacion.js"></script>
+
 
     <title>Gestión Inmobiliaria</title>
 
     <script>
-        $(document).ready(function() {
-            $('#bContact').click(function() {
-                var destino = $(this.hash); //this.hash lee el atributo href de este
-                $('html, body').animate({
-                    scrollTop: destino.offset().top
-                }, 700); //Llega a su destino con el tiempo deseado
-                return false;
-            });
+    $(document).ready(function() {
+        $('#bContact').click(function() {
+            var destino = $(this.hash); //this.hash lee el atributo href de este
+            $('html, body').animate({
+                scrollTop: destino.offset().top
+            }, 700); //Llega a su destino con el tiempo deseado
+            return false;
         });
+    });
     </script>
+
 
 
 
 </head>
 
 <body onload="geoFindMe()">
+
     <div class="container-fluid bg-light">
 
         <!-- header -->
@@ -69,16 +80,8 @@
 
                 <div class=" col-2 bg-dark text-right">
 
-
-
-                    <h3 class="text-warning navbar-brand " id="temp">
-
-
-
-                        <?php //echo $_SESSION['ciudad'] . ", " . $_SESSION['temp'] . "ºC"; 
-                        ?>
-                    </h3>
-
+                    <h3 class="text-warning navbar-brand " id="temp"></h3>
+                    <!-- widget de geolocalizacion y temperatura -->
 
                 </div>
             </div>
@@ -86,40 +89,37 @@
 
 
         <!-- navbar -->
-        <nav class=" row navbar navbar-expand-md navbar-light bg-warning menu">
+        <nav class="row navbar navbar-expand-md navbar-light bg-warning menu">
+            <div>
 
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <div class="navbar-nav mr-auto justify-content-between">
+                    <a href="index.php?ctl=inicio" class="nav-item nav-link ">
+                        <h4>Inicio |</h4>
+                    </a>
+                    <a href="index.php?ctl=listarVenta" class="nav-item nav-link ">
+                        <h4>Venta |</h4>
+                    </a>
+                    <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link ">
+                        <h4>Alquiler |</h4>
+                    </a>
+                    <a href="#footer" class="nav-item nav-link " id=" bContact">
+                        <h4>Contacto |</h4>
+                    </a>
 
-
-                <div class="navbar-nav mr-auto">
-                    <a href="index.php?ctl=inicio" class="nav-item nav-link active">Inicio</a>
-                    <a href="index.php?ctl=listarVenta" class="nav-item nav-link active">Venta</a>
-                    <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link active">Alquiler</a>
-                    <a href="#footer" class="nav-item nav-link active" id=" bContact">Contacto</a>
-
-                    <a href="index.php?ctl=salir" class="nav-item nav-link">Salir</a>
+                    <a href="index.php?ctl=salir" class="nav-item nav-link">
+                        <h4>Salir </h4>
+                    </a>
                 </div>
-
-
-                <!-- <form class="form-inline">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar">
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </form> -->
-
-
-
                 <?php
                 //si no es administrador se aplica la class de Bootstrap d-none en el siguiente elemento div #menuAdmin
                 $displayNone = "";
-                if ($_SESSION['tipo'] < 2) {
+                if ($_COOKIE['tipo'] != 2) {
                     $displayNone = " d-none";
                 }
                 ?>
@@ -138,8 +138,17 @@
 
 
 
-                    <a href="#" class="nav-item nav-link"><i class="fas fa-user"></i>
-                        <?php echo strtoupper(" " . $_SESSION['nombre']); ?></a>
+                </div>
+            </div>
+            <div>
+                <div id="userActivo" class="p-1">
+                    <h5 class="nav-item nav-link">
+                        <?php
+                        echo strtoupper('<span class="text-dark"> ' . $_COOKIE['nombre'] . ' </span>');
+                        $imagen = $_COOKIE['imagen'];
+                        echo '<img src=' . $imagen . '>';
+                        ?>
+                    </h5>
                 </div>
             </div>
         </nav>
@@ -161,18 +170,13 @@
 
         <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 ">
 
-
-
-
             <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
 
-
-
             <div class="row justify-content-center">
-                <div class="col-md-1"></div>
+                <div class="col-lg-1"></div>
 
                 <!--formulario-->
-                <div class="col-md-8 mb-md-0 mb-5">
+                <div class="col-lg-8 mb-md-0 mb-5">
                     <form id="contact-form" name="contact-form" action="mail.php" method="POST">
 
                         <!--Grid row-->
@@ -217,7 +221,8 @@
                             <div class="col-md-12">
 
                                 <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required></textarea>
+                                    <textarea type="text" id="message" name="message" rows="2"
+                                        class="form-control md-textarea" required></textarea>
                                     <label for="message">Tu mensaje</label>
                                 </div>
 
@@ -235,7 +240,8 @@
                 <!--fin formulario-->
 
 
-                <div class="col-md-3 text-center justify-content-center">
+                <div class="col-lg-3 text-center justify-content-center">
+
                     <!--  mail y telefono -->
                     <div class="elementor-widget-wrap   bg-light text-dark ">
                         <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
@@ -274,29 +280,39 @@
 
                     <!-- fin mail y telefono -->
 
-
-                    <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
+                    <!-- botones redes sociales -->
+                    <div
+                        class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
                         <div class="elementor-widget-container">
-                            <div class="elementor-social-icons-wrapper">
-                                <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook " target="_blank">
-                                    <span class="elementor-screen-only">Facebook</span>
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
-                                    <span class="elementor-screen-only">Twitter</span>
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin " target="_blank">
-                                    <span class="elementor-screen-only">Linkedin</span>
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram " target="_blank">
-                                    <span class="elementor-screen-only">Instagram</span>
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </div>
+
+                            <a href="https://www.facebook.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
+                                target="_blank">
+                                <span class="elementor-screen-only">Facebook</span>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
+                                target="_blank">
+                                <span class="elementor-screen-only">Twitter</span>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
+                                target="_blank">
+                                <span class="elementor-screen-only">Linkedin</span>
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/"
+                                class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
+                                target="_blank">
+                                <span class="elementor-screen-only">Instagram</span>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+
                         </div>
                     </div>
+                    <!-- fin botones redes sociales -->
                     <br>
                     <div class="elementor-element  elementor-widget elementor-widget-heading">
                         <div class="elementor-widget-container">
@@ -306,26 +322,22 @@
                     </div>
                 </div>
             </div>
-
-    </div>
-
-    </footer>
-
-
+        </footer>
     </div>
 
 
 
-
-
-
+    <!-- --------------------S C R I P T S ------------------------  -->
 
     <script>
-        $(document).ready(function() {
-            $('#tabla').DataTable();
-            $('.dataTables_length').addClass('bs-select');
-        });
+    $(document).ready(function() {
+        $('#tabla').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
     </script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script src="./app/libs/authFirebase.js"></script>
 
 
 </body>

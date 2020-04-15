@@ -13,13 +13,18 @@ class Session
     {
         //session_name($nombre);
         $_SESSION['nombre'] = $params['nombre'];
+        setcookie('nombre', $params['nombre']);
         $_SESSION['tipo'] = $params['tipo'];
+        setcookie('tipo', $params['tipo']);
         $_SESSION['time'] = time();
+        setcookie('imagen', './app/images/profile.png');
         $_SESSION['ciudad'] = $params['ciudad'];
         //$_SESSION['temp'] = $params['temp'];
+
+
     }
 
-    public function get($key)
+    public static function get($key)
     {
         return !empty($_SESSION[$key]) ? $_SESSION[$key] : null;
     }

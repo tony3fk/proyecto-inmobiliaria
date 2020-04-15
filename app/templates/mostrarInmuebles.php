@@ -1,6 +1,5 @@
 <?php ob_start() ?>
 
-
 <!-- Grid column -->
 <div class="row col-12">
 
@@ -15,8 +14,8 @@
             <!-- Card image -->
             <div class="embed-responsive embed-responsive-4by3">
 
-                <img class="card-img-top embed-responsive-item"
-                    src="../app/images/<?php echo $inmuebles['referencia'] . ".jpeg"; ?>" alt="Card image cap"
+                <img class="card-img-top embed-responsive-item img-thumbnail"
+                    src="./app/images/<?php echo $inmuebles['referencia'] . ".jpeg"; ?>" alt="Card image cap"
                     id="img-inmueble">
 
             </div>

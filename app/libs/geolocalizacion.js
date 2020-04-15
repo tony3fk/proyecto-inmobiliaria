@@ -35,7 +35,7 @@ function geoFindMe() {
             output.innerHTML = "No se puede determinar localización.";
         };
 
-        output.innerHTML = "<p>Localizando…</p>";
+        output.innerHTML = "<p>Localizando… </p>";
 
         navigator.geolocation.getCurrentPosition(success, error);
     }

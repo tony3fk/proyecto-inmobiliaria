@@ -17,6 +17,17 @@ ul {
     h3 {
         font-size: 1.2em !important;
     }
+
+
+}
+
+#inicio {
+    height: 45rem;
+}
+
+#fondoInicio {
+    background-image: url(../../app/images/inicio.jpg);
+    background-size: cover;
 }
 
 
@@ -33,6 +44,41 @@ table.dataTable thead .sorting_desc_disabled:before {
     bottom: .5em !important;
 }
 
+#inicio {
+    height: 45rem !important;
+}
+
+.btn-social {
+    height: 4rem !important;
+}
+
+#userActivo img {
+    width: 3rem;
+
+
+}
+
+#fichaInmueble {
+    margin: auto;
+    width: 100%;
+}
+
+#fichaInmueble table {
+    margin: auto;
+    width: 100%;
+
+}
+
+#fichaInmueble td {
+    border: 1px solid black;
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+#fichaInmueble tr {
+    height: 4rem;
+}
 
 
 

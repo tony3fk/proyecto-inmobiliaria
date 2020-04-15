@@ -30,6 +30,9 @@ class Model extends PDO
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
+
+
+
     public function listarAlquiler($tipo, $provincia)
     {
         if (!empty($tipo) && !empty($provincia)) {
@@ -91,12 +94,6 @@ class Model extends PDO
 
         return $id;
     }
-
-
-
-
-
-
 
 
     public function buscarPorOperacion($operacion)
@@ -179,5 +176,16 @@ class Model extends PDO
         $select->execute();
         $registro = $select->fetch();
         return $registro;
+    }
+
+    public function resetPassword($password, $email)
+    {
+
+        $sql = 'update usuarios set password="' . $password . '" WHERE email="' . $email . '"';
+        // echo $sql;
+        // die();
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute([$password, $email]);
+        return $stmt->rowCount();
     }
 }

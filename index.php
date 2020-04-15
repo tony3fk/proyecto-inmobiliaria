@@ -2,15 +2,19 @@
 
 // web/index.php
 // carga del modelo y los controladores
-require_once __DIR__ . '/../app/Config.php';
-require_once __DIR__ . '/../app/Model.php';
-require_once __DIR__ . '/../app/Controller.php';
-require_once __DIR__ . '../../app/libs/sessionClass.php';
+require_once('./app/Config.php');
+require_once('./app/Model.php');
+require_once('./app/Controller.php');
+require_once('./app/libs/sessionClass.php');
 
-//ini_set("session.use_trans_sid", "0");
-//ini_set("session.use_only_cookies", "1");
 
-//session_set_cookie_params(0, "/", $_SERVER["HTTP_HOST"], 0); //Esta configuración cierra la sesion al cerrar el navegador.
+
+// ini_set("session.use_trans_sid", "0");
+// ini_set("session.use_only_cookies", "1");
+error_reporting(E_ALL ^ E_NOTICE);
+
+
+session_set_cookie_params(0, "/", $_SERVER["HTTP_HOST"], 0); //Esta configuración cierra la sesion al cerrar el navegador.
 
 
 
@@ -24,13 +28,13 @@ $sesion = new Session;
 $sesion->init();
 
 
-//comprobación de inactividad para cerrar sesion
-if (isset($_SESSION['time'])) {
-    if ($sesion->inactividad()) {
+// //comprobación de inactividad para cerrar sesion
+// if (isset($_SESSION['time'])) {
+//     if ($sesion->inactividad()) {
 
-        echo "<script> alert('Se cerro la sesion por inactividad.'); window.location= 'index.php?ctl=login' </script>"; //se lanza un alert y se redirecciona a la página de login
-    }
-}
+//         echo "<script> alert('Se cerro la sesion por inactividad.'); window.location= 'index.php?ctl=login' </script>"; //se lanza un alert y se redirecciona a la página de login
+//     }
+// }
 
 
 
@@ -55,6 +59,7 @@ $map = array(
     'listarInmuebles' => array('controller' => 'Controller', 'action' => 'listarInmuebles', 'tipo' => 2),
     'eliminarInmuebles' => array('controller' => 'Controller', 'action' => 'eliminarInmuebles', 'tipo' => 2),
     'eliminarUsuario' => array('controller' => 'Controller', 'action' => 'eliminarUsuario', 'tipo' => 2),
+    'resetPassword' => array('controller' => 'Controller', 'action' => 'resetPassword', 'tipo' => 0),
 
 
     'verInmueble' => array('controller' => 'Controller', 'action' => 'verInmueble', 'tipo' => 0),
@@ -104,7 +109,7 @@ En caso de estar utilizando sesiones y permisos en las diferentes acciones compr
 if (method_exists($controlador['controller'], $controlador['action'])) { //comprobar aqui si el usuario tiene el nivel suficiente para ejecutar la accion
     //--------------control de nivel//
 
-    if ($map[$ruta]['tipo'] <= $sesion->get('tipo')) {
+    if ($map[$ruta]['tipo'] <= $sesion->get('tipo') || $map[$ruta]['tipo'] <= $_COOKIE['tipo']) {
         call_user_func(array(new $controlador['controller'], $controlador['action']));
     } else {
 
