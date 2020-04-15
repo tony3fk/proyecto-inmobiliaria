@@ -146,18 +146,19 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="text-center">
-                                                            <a href="https://phpoll.com/recover" tabindex="5"
-                                                                class="forgot-password">Forgot Password?</a>
-                                                        </div>
+
+                                        </form>
+                                        <!-- fin formulario de login -->
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <a href="index.php?ctl=resetPassword" tabindex="5"
+                                                            class="forgot-password">Forgot Password?</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-                                        <!-- fin formulario de login -->
+                                        </div>
 
                                         <!-- botones inicio mediante redes sociales -->
                                         <div class=" row" style="display: <?php echo $display ?>;">
@@ -226,10 +227,6 @@
                                             </div>
                                         </form>
                                         <!-- Fin formulario de registro -->
-
-
-
-
 
 
                                     </div>

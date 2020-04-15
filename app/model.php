@@ -96,12 +96,6 @@ class Model extends PDO
     }
 
 
-
-
-
-
-
-
     public function buscarPorOperacion($operacion)
     {
 
@@ -182,5 +176,16 @@ class Model extends PDO
         $select->execute();
         $registro = $select->fetch();
         return $registro;
+    }
+
+    public function resetPassword($password, $email)
+    {
+
+        $sql = 'update usuarios set password="' . $password . '" WHERE email="' . $email . '"';
+        // echo $sql;
+        // die();
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->execute([$password, $email]);
+        return $stmt->rowCount();
     }
 }
