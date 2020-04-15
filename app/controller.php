@@ -13,6 +13,7 @@ class Controller
         $m = new Model;
         $sesion = new Session;
 
+
         //Recojo y valido datos del formulario
         $params['nombre'] = recoge('nombre');
         $params['password'] = crypt_blowfish(recoge('password'))  /*recoge('password')*/;
@@ -31,6 +32,7 @@ class Controller
                     //$params['temp'] = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
                     $params['tipo'] = $registro['tipo'];
                     $params['ciudad'] = $registro['ciudad']; //determinar ciudad desde la geolocalización
+
                     $sesion->setSession($params); //establece el user, el nivel a la sesion, la ciudad y la temperatura
 
                     header('location: index.php?ctl=inicio');

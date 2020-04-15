@@ -9,10 +9,10 @@ require_once('./app/libs/sessionClass.php');
 
 
 
-//ini_set("session.use_trans_sid", "0");
-//ini_set("session.use_only_cookies", "1");
+ini_set("session.use_trans_sid", "0");
+ini_set("session.use_only_cookies", "1");
 
-//session_set_cookie_params(0, "/", $_SERVER["HTTP_HOST"], 0); //Esta configuración cierra la sesion al cerrar el navegador.
+session_set_cookie_params(0, "/", $_SERVER["HTTP_HOST"], 0); //Esta configuración cierra la sesion al cerrar el navegador.
 
 
 
@@ -106,7 +106,7 @@ En caso de estar utilizando sesiones y permisos en las diferentes acciones compr
 if (method_exists($controlador['controller'], $controlador['action'])) { //comprobar aqui si el usuario tiene el nivel suficiente para ejecutar la accion
     //--------------control de nivel//
 
-    if ($map[$ruta]['tipo'] <= $sesion->get('tipo')) {
+    if ($map[$ruta]['tipo'] <= $sesion->get('tipo') || $map[$ruta]['tipo'] <= $_COOKIE['tipo']) {
         call_user_func(array(new $controlador['controller'], $controlador['action']));
     } else {
 
