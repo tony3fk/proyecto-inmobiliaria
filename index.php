@@ -2,10 +2,12 @@
 
 // web/index.php
 // carga del modelo y los controladores
-require_once __DIR__ . '/../app/Config.php';
-require_once __DIR__ . '/../app/Model.php';
-require_once __DIR__ . '/../app/Controller.php';
-require_once __DIR__ . '../../app/libs/sessionClass.php';
+require_once('./app/Config.php');
+require_once('./app/Model.php');
+require_once('./app/Controller.php');
+require_once('./app/libs/sessionClass.php');
+
+
 
 //ini_set("session.use_trans_sid", "0");
 //ini_set("session.use_only_cookies", "1");
@@ -24,13 +26,13 @@ $sesion = new Session;
 $sesion->init();
 
 
-//comprobación de inactividad para cerrar sesion
-if (isset($_SESSION['time'])) {
-    if ($sesion->inactividad()) {
+// //comprobación de inactividad para cerrar sesion
+// if (isset($_SESSION['time'])) {
+//     if ($sesion->inactividad()) {
 
-        echo "<script> alert('Se cerro la sesion por inactividad.'); window.location= 'index.php?ctl=login' </script>"; //se lanza un alert y se redirecciona a la página de login
-    }
-}
+//         echo "<script> alert('Se cerro la sesion por inactividad.'); window.location= 'index.php?ctl=login' </script>"; //se lanza un alert y se redirecciona a la página de login
+//     }
+// }
 
 
 

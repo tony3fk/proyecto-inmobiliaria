@@ -1,41 +1,46 @@
 <?php ob_start() ?>
 
-<div class=" col-md-12 " id="inicio">
-    <!-- <img src="../app/images/inicio.jpg" alt="ImagenInicio" id="imagenInicio"> -->
+<div class=" col-12 " id="inicio">
 
+    <div id="fondoInicio" class="jumbotron h-100">
 
-
-
-
-    <div class="jumbotron h-auto" style="background-image: url(../app/images/inicio.jpg); background-size: cover; ">
-
-        <form class="form-horizontal" action="index.php?ctl=inicio" method="POST">
-            <fieldset>
+        <form class="form-horizontal justify-content-center" action="index.php?ctl=inicio" method="POST">
+            <fieldset style="margin-top: 9rem">
 
                 <!-- Form Name -->
                 <h2 class="h1-responsive font-weight-bold text-center text-warning ">¿Qué estás buscando?</h2>
                 <br>
 
                 <!-- Multiple Checkboxes (inline) -->
-                <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning" for="radiobutton">Operación</h6>
-                    <div class="col-md-4">
-                        <label class="checkbox-inline text-light" for="radiobutton">
-                            <input type="radio" name="operacion" id="radiobutton" value="Venta">
-                            Venta
-                        </label>
-                        &nbsp;
-                        <label class="checkbox-inline text-light" for="radiobutton">
+                <div class="form-group row justify-content-center">
+                    <div class="col-5">
+                        <h5 class="control-label text-warning text-md-right text-sm-left font-weight-bold"
+                            for="radiobutton">Operación
+                        </h5>
+                    </div>
+
+                    <div class="col-2 text-center">
+                        <h5 class="checkbox-inline text-light  " for="radiobutton"> <input type="radio" name="operacion"
+                                id="radiobutton" value="Venta">Venta
+                        </h5>
+
+
+                    </div>
+                    <div class="col-5">
+                        <h5 class="checkbox-inline text-light" for="radiobutton">
                             <input type="radio" name="operacion" id="radiobutton" value="Alquiler">
                             Alquiler
-                        </label>
+                        </h5>
                     </div>
                 </div>
 
                 <!-- Select Basic -->
-                <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning " for="tipo">Tipo</h6>
-                    <div class="col-md-2">
+                <div class="form-group row justify-content-center">
+                    <div class="col-3 col-md-2 ">
+                        <h5 class=" control-label text-warning text-center font-weight-bold " for=" tipo">Tipo</h5>
+                    </div>
+
+                    <div class="col-9 col-md-5 col-xl-3">
                         <select id="selectTipo" name="tipo" class="form-control">
                             <option value="">Todos</option>
                             <option value="Parking">Parking</option>
@@ -50,71 +55,75 @@
                 </div>
 
                 <!-- Select Basic -->
-                <div class="form-group row">
-                    <h6 class="col-md-5 control-label text-right text-warning" for="provincia">Provincia</h6>
-                    <div class="col-md-2">
+                <div class="form-group row justify-content-center">
+                    <div class="col-3 col-md-2">
+                        <h5 class=" control-label text-warning text-center font-weight-bold" for="provincia">Provincia
+                        </h5>
+                    </div>
+
+                    <div class="col-9 col-md-5 col-xl-3">
                         <select id="selectProvincia" name="provincia" class="form-control">
                             <option value=''>Todas</option>
-                            <option value='alava'>Álava</option>
-                            <option value='albacete'>Albacete</option>
-                            <option value='alicante'>Alicante/Alacant</option>
-                            <option value='almeria'>Almería</option>
-                            <option value='asturias'>Asturias</option>
-                            <option value='avila'>Ávila</option>
-                            <option value='badajoz'>Badajoz</option>
-                            <option value='barcelona'>Barcelona</option>
-                            <option value='burgos'>Burgos</option>
-                            <option value='caceres'>Cáceres</option>
-                            <option value='cadiz'>Cádiz</option>
-                            <option value='cantabria'>Cantabria</option>
-                            <option value='castellon'>Castellón/Castelló</option>
-                            <option value='ceuta'>Ceuta</option>
-                            <option value='ciudadreal'>Ciudad Real</option>
-                            <option value='cordoba'>Córdoba</option>
-                            <option value='cuenca'>Cuenca</option>
-                            <option value='girona'>Girona</option>
-                            <option value='laspalmas'>Las Palmas</option>
-                            <option value='granada'>Granada</option>
-                            <option value='guadalajara'>Guadalajara</option>
-                            <option value='guipuzcoa'>Guipúzcoa</option>
-                            <option value='huelva'>Huelva</option>
-                            <option value='huesca'>Huesca</option>
-                            <option value='illesbalears'>Illes Balears</option>
-                            <option value='jaen'>Jaén</option>
-                            <option value='acoruña'>A Coruña</option>
-                            <option value='larioja'>La Rioja</option>
-                            <option value='leon'>León</option>
-                            <option value='lleida'>Lleida</option>
-                            <option value='lugo'>Lugo</option>
-                            <option value='madrid'>Madrid</option>
-                            <option value='malaga'>Málaga</option>
-                            <option value='melilla'>Melilla</option>
-                            <option value='murcia'>Murcia</option>
-                            <option value='navarra'>Navarra</option>
-                            <option value='ourense'>Ourense</option>
-                            <option value='palencia'>Palencia</option>
-                            <option value='pontevedra'>Pontevedra</option>
-                            <option value='salamanca'>Salamanca</option>
-                            <option value='segovia'>Segovia</option>
-                            <option value='sevilla'>Sevilla</option>
-                            <option value='soria'>Soria</option>
-                            <option value='tarragona'>Tarragona</option>
-                            <option value='santacruztenerife'>Santa Cruz de Tenerife</option>
-                            <option value='teruel'>Teruel</option>
-                            <option value='toledo'>Toledo</option>
-                            <option value='valencia'>Valencia/Valéncia</option>
-                            <option value='valladolid'>Valladolid</option>
-                            <option value='vizcaya'>Vizcaya</option>
-                            <option value='zamora'>Zamora</option>
-                            <option value='zaragoza'>Zaragoza</option>
+                            <option value='Alava'>Álava</option>
+                            <option value='Albacete'>Albacete</option>
+                            <option value='Alicante'>Alicante/Alacant</option>
+                            <option value='Almeria'>Almería</option>
+                            <option value='Asturias'>Asturias</option>
+                            <option value='Avila'>Ávila</option>
+                            <option value='Badajoz'>Badajoz</option>
+                            <option value='Barcelona'>Barcelona</option>
+                            <option value='Burgos'>Burgos</option>
+                            <option value='Caceres'>Cáceres</option>
+                            <option value='Cadiz'>Cádiz</option>
+                            <option value='Cantabria'>Cantabria</option>
+                            <option value='Castellon'>Castellón/Castelló</option>
+                            <option value='Ceuta'>Ceuta</option>
+                            <option value='Ciudadreal'>Ciudad Real</option>
+                            <option value='Cordoba'>Córdoba</option>
+                            <option value='Cuenca'>Cuenca</option>
+                            <option value='Girona'>Girona</option>
+                            <option value='Laspalmas'>Las Palmas</option>
+                            <option value='Granada'>Granada</option>
+                            <option value='Guadalajara'>Guadalajara</option>
+                            <option value='Guipuzcoa'>Guipúzcoa</option>
+                            <option value='Huelva'>Huelva</option>
+                            <option value='Huesca'>Huesca</option>
+                            <option value='Illesbalears'>Illes Balears</option>
+                            <option value='Jaen'>Jaén</option>
+                            <option value='Acoruña'>A Coruña</option>
+                            <option value='Larioja'>La Rioja</option>
+                            <option value='Leon'>León</option>
+                            <option value='Lleida'>Lleida</option>
+                            <option value='Lugo'>Lugo</option>
+                            <option value='Madrid'>Madrid</option>
+                            <option value='Malaga'>Málaga</option>
+                            <option value='Melilla'>Melilla</option>
+                            <option value='Murcia'>Murcia</option>
+                            <option value='Navarra'>Navarra</option>
+                            <option value='Ourense'>Ourense</option>
+                            <option value='Palencia'>Palencia</option>
+                            <option value='Pontevedra'>Pontevedra</option>
+                            <option value='Salamanca'>Salamanca</option>
+                            <option value='Segovia'>Segovia</option>
+                            <option value='Sevilla'>Sevilla</option>
+                            <option value='Soria'>Soria</option>
+                            <option value='Tarragona'>Tarragona</option>
+                            <option value='Santacruztenerife'>Santa Cruz de Tenerife</option>
+                            <option value='Teruel'>Teruel</option>
+                            <option value='Toledo'>Toledo</option>
+                            <option value='Valencia'>Valencia/Valéncia</option>
+                            <option value='Valladolid'>Valladolid</option>
+                            <option value='Vizcaya'>Vizcaya</option>
+                            <option value='Zamora'>Zamora</option>
+                            <option value='Zaragoza'>Zaragoza</option>
                         </select>
                     </div>
                 </div>
                 <br>
-                <div class="form-group row">
-                    <div class="col-md-5 control-label text-center"></div>
+                <div class="form-group row justify-content-center">
+                    <!-- <div class="col-md-5 control-label text-center"></div> -->
 
-                    <div class="col-md-2">
+                    <div class="col-7 col-md-5 col-xl-3">
                         <button type="submit" class="btn btn-warning col-12" name="bSubmitInicio">Enviar</button>
                     </div>
 
@@ -126,15 +135,6 @@
 
 
 
-
-
-
-
-    <?php if (isset($params['mensajeError'])) : ?>
-    <div class="alert alert-danger">
-        <h5><strong>Lo siento. </strong> <?php echo $params['mensajeError'] ?></h5>
-    </div>
-    <?php endif; ?>
 </div>
 
 <?php $contenido = ob_get_clean() ?>
