@@ -37,15 +37,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="./web/css/bootstrap/js/bootstrap.js"></script>
 
-    <!-- <script>
-    $.get("http://ipinfo.io", function(response) {
-        var provincia = response.region;
-        console.log(provincia);
-        document.cookie = 'provincia=' + provincia;
-    }, "jsonp");
 
-    //crea la $_COOKIE['provincia] según la ip del navegador.
-    </script> -->
 
 
     <title>Login Gestión Inmobiliaria</title>
@@ -55,6 +47,7 @@
 </head>
 
 <body class="bg-light">
+
 
 
 
@@ -97,8 +90,10 @@
                         <div class="panel panel-login">
 
                             <?php
+
                             //si el logueado es admin, es porque accede desde el menú de administrador y se oculta la opción de login
-                            if ($_SESSION['tipo'] == 2) {
+
+                            if ($_COOKIE['tipo'] === 2) {
                                 $displayLogin = " none";
                                 $displayRegister = " block";
                                 $display = "d-none";
@@ -107,6 +102,7 @@
                                 $displayRegister = "none";
                                 $display = "";
                             }
+
                             ?>
 
                             <div class="panel-heading">
