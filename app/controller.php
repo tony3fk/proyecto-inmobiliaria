@@ -526,6 +526,36 @@ class Controller
     //FIN ENVÍO EMAIL DE REGISTRO
 
 
+    public function resetPassword()
+    {
+        if (isset($_POST['bReset'])) {
+            // $nombre = recoge('nombre');
+            $params['mensaje'] = "";
+            $email = recoge('email');
+            $password = crypt_blowfish(recoge('password'));
+            $confirm_password = crypt_blowfish(recoge('password'));
+
+            if ($password == $confirm_password) {
+                $m = new Model();
+                if ($m->resetPassword($password, $email)) {
+
+
+                    header('Location: index.php?ctl=login');
+                } else {
+                    $params['mensaje'] = "No hay ningún usuario con ese email";
+                    header('Location: index.php?ctl=resetPassword');
+                }
+            } else {
+                $params['mensaje'] = "Los passwords han de ser iguales";
+                header('Location: index.php?ctl=resetPassword');
+            }
+        }
+
+
+        require('./app/templates/resetPassword.php');
+    }
+
+
 
 
 

@@ -9,8 +9,10 @@ require_once('./app/libs/sessionClass.php');
 
 
 
-ini_set("session.use_trans_sid", "0");
-ini_set("session.use_only_cookies", "1");
+// ini_set("session.use_trans_sid", "0");
+// ini_set("session.use_only_cookies", "1");
+error_reporting(E_ALL ^ E_NOTICE);
+
 
 session_set_cookie_params(0, "/", $_SERVER["HTTP_HOST"], 0); //Esta configuración cierra la sesion al cerrar el navegador.
 
@@ -57,6 +59,7 @@ $map = array(
     'listarInmuebles' => array('controller' => 'Controller', 'action' => 'listarInmuebles', 'tipo' => 2),
     'eliminarInmuebles' => array('controller' => 'Controller', 'action' => 'eliminarInmuebles', 'tipo' => 2),
     'eliminarUsuario' => array('controller' => 'Controller', 'action' => 'eliminarUsuario', 'tipo' => 2),
+    'resetPassword' => array('controller' => 'Controller', 'action' => 'resetPassword', 'tipo' => 0),
 
 
     'verInmueble' => array('controller' => 'Controller', 'action' => 'verInmueble', 'tipo' => 0),
