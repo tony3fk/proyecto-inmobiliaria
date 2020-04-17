@@ -188,4 +188,19 @@ class Model extends PDO
         $stmt->execute([$password, $email]);
         return $stmt->rowCount();
     }
+
+    public function listarConParametros($operacion, $tipo, $provincia)
+    {
+        $consulta = "SELECT * FROM inmuebles WHERE operacion=:operacion AND tipo LIKE :tipo AND provincia LIKE :provincia";
+
+        $select = $this->conexion->prepare($consulta);
+        $select->bindParam(':operacion', $operacion);
+        $select->bindParam(':tipo', $tipo);
+        $select->bindParam(':provincia', $provincia);
+        $select->execute();
+        $registro = $select->fetchAll();
+
+
+        return $registro;
+    }
 }

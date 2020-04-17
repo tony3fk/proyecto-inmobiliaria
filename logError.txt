@@ -7,3 +7,4 @@ Error 404: No existe la ruta resetPassword
 Error 404: No existe la ruta resetPassword
 Error 404: No existe la ruta resetPassword
 Error 404: No existe la ruta resetPassword
+Error 404: No existe la ruta buscarConParametros

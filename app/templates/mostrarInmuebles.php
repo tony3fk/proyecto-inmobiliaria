@@ -7,7 +7,7 @@
     <?php foreach ($params['inmuebles'] as $inmuebles) : ?>
 
 
-    <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12" id="card">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
         <!-- Card Dark -->
         <div class="card">
 

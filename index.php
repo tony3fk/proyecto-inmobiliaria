@@ -54,14 +54,12 @@ $map = array(
     'listarVenta' => array('controller' => 'Controller', 'action' => 'listarVenta', 'tipo' => 0),
     'listarAlquiler' => array('controller' => 'Controller', 'action' => 'listarAlquiler', 'tipo' => 0),
     'insertar' => array('controller' => 'Controller', 'action' => 'insertarInmueble', 'tipo' => 2),
-    'buscarPorProvincia' => array('controller' => 'Controller', 'action' => 'buscarPorProvincia', 'tipo' => 0),
+    'buscarConParametros' => array('controller' => 'Controller', 'action' => 'buscarConParametros', 'tipo' => 0),
     'listarUsuarios' => array('controller' => 'Controller', 'action' => 'listarUsuarios', 'tipo' => 2),
     'listarInmuebles' => array('controller' => 'Controller', 'action' => 'listarInmuebles', 'tipo' => 2),
     'eliminarInmuebles' => array('controller' => 'Controller', 'action' => 'eliminarInmuebles', 'tipo' => 2),
     'eliminarUsuario' => array('controller' => 'Controller', 'action' => 'eliminarUsuario', 'tipo' => 2),
     'resetPassword' => array('controller' => 'Controller', 'action' => 'resetPassword', 'tipo' => 0),
-
-
     'verInmueble' => array('controller' => 'Controller', 'action' => 'verInmueble', 'tipo' => 0),
     'salir' => array('controller' => 'Controller', 'action' => 'salir', 'tipo' => 0),
     'error' => array('controller' => 'Controller', 'action' => 'error', 'tipo' => 0),

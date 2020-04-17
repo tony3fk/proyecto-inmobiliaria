@@ -129,74 +129,7 @@ class Controller
     }
     //FIN REGISTRO
 
-    /*
-    //REGISTRO ADMIN
-    public function registerAdmin()
-    {
-        try {
 
-            $params = array(
-                'nombre' => '',
-                'email' => '',
-                'password' => '',
-                'ciudad' => '',
-                'tipo' => '',
-                'mensaje' => ''
-
-            );
-
-            $params['nombre'] = recoge('nombre');
-            $params['email'] = recoge('email');
-            $params['password'] = crypt_blowfish(recoge('password'));
-            $params['tipo'] = 2;
-            $params['ciudad'] = recoge('ciudad');
-
-
-            // comprobar campos formulario
-            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && isset($params['tipo']) && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
-                if (isset($_POST['bRegister'])) { //si se pulsa registrar
-
-
-                    // Si no ha habido problema creo modelo y hago inserción
-                    $m = new Model();
-                    if ($m->InsertUser($params)) {
-                        self::email($params['email']);
-                        header('Location: index.php?ctl=listarUsuarios');
-                    } else {
-                        $params = array(
-                            'nombre' => $params['nombre'],
-                            'email' =>   $params['email'],
-                            'provincia' => $params['password'],
-                            'tipo' => $params['tipo'],
-                            'ciudad' =>  $params['ciudad']
-
-
-                        );
-                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
-                    }
-                } else {
-                    $params = array(
-                        'nombre' => $params['nombre'],
-                        'email' =>   $params['email'],
-                        'provincia' => $params['password'],
-                        'tipo' => $params['tipo'],
-                        'ciudad' =>  $params['ciudad']
-                    );
-                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
-                }
-            }
-        } catch (Exception $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
-        } catch (Error $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
-        }
-
-        require __DIR__ . '/templates/register.php';
-    }
-    //FIN REGISTRO ADMIN
-*/
 
 
     //INICIO
@@ -564,7 +497,36 @@ class Controller
         require('./app/templates/resetPassword.php');
     }
 
+    //busqueda Parametrica
+    public function buscarConParametros()
+    {
+        try {
+            $params = array(
 
+                'inmuebles' => '',
+                'mensaje' => ''
+            );
+            $m = new Model();
+            if (isset($_POST['bSubmitInicio'])) {
+                $operacion = $_POST['operacion'];
+                $tipo = $_POST['tipo'];
+                $provincia = $_POST['provincia'];
+                $params['inmuebles'] = $m->listarConParametros($operacion, $tipo, $provincia);
+
+                if (count($params['inmuebles']) == 0) {
+                    echo "no hay resultados";
+                }
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+        require __DIR__ . '/templates/mostrarInmuebles.php';
+    }
+    // busqueda parametrica
 
 
 
@@ -606,35 +568,10 @@ class Controller
 
 
 
+
+
+
     /*
-    //BUSCAR POR PROVINCIA (SIN USAR)
-    public function buscarPorProvincia()
-    {
-        try {
-            $params = array(
-                'provincia' => '',
-                'resultado' => array()
-            );
-            $m = new Model();
-            if (isset($_POST['buscar'])) {
-                $provincia =  recoge("provincia");
-                $params['provincia'] = $provincia;
-
-                $params['resultado'] = $m->buscarPorProvincia($provincia);
-            }
-        } catch (Exception $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
-        } catch (Error $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
-        }
-        require __DIR__ . '/templates/buscarPorProvincia.php';
-    }
-    // FIN BUSCAR POR PROVINCIA
-
-
-
     //BUSCAR POR TIPO (SIN USAR)
     public function buscarPorTipo()
     {
@@ -659,5 +596,75 @@ class Controller
         require __DIR__ . '/templates/buscarPorTipo.php';
     }
     //FIN BUSCAR POR TIPO
+*/
+
+
+    /*
+    //REGISTRO ADMIN
+    public function registerAdmin()
+    {
+        try {
+
+            $params = array(
+                'nombre' => '',
+                'email' => '',
+                'password' => '',
+                'ciudad' => '',
+                'tipo' => '',
+                'mensaje' => ''
+
+            );
+
+            $params['nombre'] = recoge('nombre');
+            $params['email'] = recoge('email');
+            $params['password'] = crypt_blowfish(recoge('password'));
+            $params['tipo'] = 2;
+            $params['ciudad'] = recoge('ciudad');
+
+
+            // comprobar campos formulario
+            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && isset($params['tipo']) && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
+                if (isset($_POST['bRegister'])) { //si se pulsa registrar
+
+
+                    // Si no ha habido problema creo modelo y hago inserción
+                    $m = new Model();
+                    if ($m->InsertUser($params)) {
+                        self::email($params['email']);
+                        header('Location: index.php?ctl=listarUsuarios');
+                    } else {
+                        $params = array(
+                            'nombre' => $params['nombre'],
+                            'email' =>   $params['email'],
+                            'provincia' => $params['password'],
+                            'tipo' => $params['tipo'],
+                            'ciudad' =>  $params['ciudad']
+
+
+                        );
+                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
+                    }
+                } else {
+                    $params = array(
+                        'nombre' => $params['nombre'],
+                        'email' =>   $params['email'],
+                        'provincia' => $params['password'],
+                        'tipo' => $params['tipo'],
+                        'ciudad' =>  $params['ciudad']
+                    );
+                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
+                }
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+
+        require __DIR__ . '/templates/register.php';
+    }
+    //FIN REGISTRO ADMIN
 */
 }
