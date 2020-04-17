@@ -2,13 +2,21 @@
 
 class Config
 {
+    //para localhost:
     static public $mvc_bd_hostname = "localhost";
     static public $mvc_bd_nombre = "inmobiliaria";
     static public $mvc_bd_usuario = "root";
     static public $mvc_bd_clave = "";
 
+    //para 000webhostapp.com:
+    // static public $mvc_bd_hostname = "localhost";
+    // static public $mvc_bd_nombre = "id13312903_inmobiliaria";
+    // static public $mvc_bd_usuario = "id13312903_root";
+    // static public $mvc_bd_clave = "Nora.lucia2012";
 
-    static public $oauthJSON = '{
+
+
+    /*static public $oauthJSON = '{
                                     "web":{
                                         "client_id":"498199509579-8a07elvkdfahkjm9sj09rp6tvmsfb9ek.apps.googleusercontent.com",
                                         "project_id":"proyecto-inmobiliaria-abastos",
@@ -18,5 +26,5 @@ class Config
                                         "client_secret":"FNKetPKlI6Ro8XJYgKnVYcQG",
                                         "redirect_uris":["http://localhost:8080/proyecto/web/index.php"]
                                     }
-                                }';
+                                }';*/
 }

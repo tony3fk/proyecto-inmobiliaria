@@ -124,68 +124,74 @@
                                 <div class="row">
                                     <div class="col-sm-12">
 
+                                        <div id="login-form">
+                                            <!-- formulario de login -->
+                                            <form action="index.php?ctl=login" method="post" role="form"
+                                                style="display: <?php echo $displayLogin ?>;">
+                                                <!-- <div class="form-group">
+                                                <input type="text" name="nombre" id="username" tabindex="1" class="form-control text-center" placeholder="Username" value="">
+                                            </div> -->
+                                                <div class="form-group">
+                                                    <input type="email" name="email" id="email" tabindex="1"
+                                                        class="form-control text-center" placeholder="Email" value=""
+                                                        required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="password" name="password" id="password" tabindex="2"
+                                                        class="form-control text-center" placeholder="Password"
+                                                        required>
+                                                </div>
 
-                                        <!-- formulario de login -->
-                                        <form id="login-form" action="index.php?ctl=login" method="post" role="form"
-                                            style="display: <?php echo $displayLogin ?>;">
-                                            <div class="form-group">
-                                                <input type="text" name="nombre" id="username" tabindex="1"
-                                                    class="form-control text-center" placeholder="Username" value="">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="password" id="password" tabindex="2"
-                                                    class="form-control text-center" placeholder="Password">
-                                            </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6 col-sm-offset-3">
+                                                            <input type="submit" name="bLogin" id="login-submit"
+                                                                tabindex="4"
+                                                                class="form-control btn btn-login btn-primary"
+                                                                value="Log In">
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                            </form>
+                                            <!-- fin formulario de login -->
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-sm-12 col-md-6 col-sm-offset-3">
-                                                        <input type="submit" name="bLogin" id="login-submit"
-                                                            tabindex="4" class="form-control btn btn-login btn-primary"
-                                                            value="Log In">
+                                                    <div class="col-12">
+                                                        <div class="text-center">
+                                                            <a href="index.php?ctl=resetPassword" tabindex="5"
+                                                                class="forgot-password">Forgot Password?</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                        </form>
-                                        <!-- fin formulario de login -->
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="text-center">
-                                                        <a href="index.php?ctl=resetPassword" tabindex="5"
-                                                            class="forgot-password">Forgot Password?</a>
-                                                    </div>
+                                            <!-- botones inicio mediante redes sociales -->
+                                            <div class=" row" style="display: <?php echo $display ?>;">
+                                                <div class="col-4 ">
+                                                    <button onclick="facebookSignIn()"
+                                                        class="btn btn-block btn-facebook " id="btnLoginFacebook">
+                                                        <i class="fa fa-facebook fa-fw"></i> Login
+                                                    </button>
                                                 </div>
+
+                                                <div class="col-4 ">
+                                                    <button onclick="googleSignIn()" class="btn btn-block btn-google"
+                                                        id="btnLoginGoogle">
+                                                        <i class="fa fa-google fa-fw"></i>Login
+                                                    </button>
+                                                </div>
+
+                                                <div class="col-4 ">
+                                                    <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter"
+                                                        id="btnLoginTwitter">
+                                                        <i class="fa fa-twitter fa-fw"></i> Login
+                                                    </button>
+                                                </div>
+
                                             </div>
+                                            <!-- fin inicio redes sociales -->
                                         </div>
-
-                                        <!-- botones inicio mediante redes sociales -->
-                                        <div class=" row" style="display: <?php echo $display ?>;">
-                                            <div class="col-4 ">
-                                                <button onclick="facebookSignIn()" class="btn btn-block btn-facebook "
-                                                    id="btnLoginFacebook">
-                                                    <i class="fa fa-facebook fa-fw"></i> Facebook Login
-                                                </button>
-                                            </div>
-
-                                            <div class="col-4 ">
-                                                <button onclick="googleSignIn()" class="btn btn-block btn-google"
-                                                    id="btnLoginGoogle">
-                                                    <i class="fa fa-google fa-fw"></i> Google Login
-                                                </button>
-                                            </div>
-
-                                            <div class="col-4 ">
-                                                <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter"
-                                                    id="btnLoginTwitter">
-                                                    <i class="fa fa-twitter fa-fw"></i> Twitter Login
-                                                </button>
-                                            </div>
-
-                                        </div>
-                                        <!-- fin inicio redes sociales -->
-
 
 
                                         <br>
@@ -264,7 +270,7 @@
 
         <!-- footer -->
 
-        <footer id="pie" class="row  fixed-bottom bg-light  justify-content-center p-4">
+        <footer id="pie" class="row   bg-light  justify-content-center p-4">
 
             <div class="  col-md-5 text-center text-dark bg-light">
 

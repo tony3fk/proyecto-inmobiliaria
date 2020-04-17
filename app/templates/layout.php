@@ -64,69 +64,85 @@
 <body onload="geoFindMe()">
 
     <div class="container-fluid bg-light">
+        <div class="row">
+            <!-- header -->
 
-        <!-- header -->
+            <header class="header col-12">
 
-        <header class="header">
-
-            <div class="row bg-dark justify-content-center  header">
-                <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
-
-            </div>
-            <div class="row">
-                <div class=" col-10 bg-dark text-center">
-                    <h5 class="text-warning ">Tu portal inmobiliario</h5>
-                </div>
-
-                <div class=" col-2 bg-dark text-right">
-
-                    <h3 class="text-warning navbar-brand " id="temp"></h3>
-                    <!-- widget de geolocalizacion y temperatura -->
+                <div class="row bg-dark justify-content-center  header">
+                    <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
 
                 </div>
-            </div>
-        </header>
+                <div class="row">
+                    <div class=" col-md-10 col-8 bg-dark text-center">
+                        <h5 class="text-warning ">Tu portal inmobiliario</h5>
+                    </div>
+
+                    <div class=" col-md-2 col-4 bg-dark text-right">
+
+                        <h3 class="text-warning navbar-brand " id="temp"></h3>
+                        <!-- widget de geolocalizacion y temperatura -->
+
+                    </div>
+                </div>
+            </header>
 
 
-        <!-- navbar -->
-        <nav class="row navbar navbar-expand-md navbar-light bg-warning menu">
-            <div>
+            <!-- navbar -->
+            <nav class="  col-12 navbar navbar-expand-md navbar-light bg-warning menu">
 
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+                <div class="col-1 d-lg-none">
+                    <button type="button" class="navbar-toggler " data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-                <div class="navbar-nav mr-auto justify-content-between">
+
+                <div class="collapse navbar-collapse justify-content-start col-3 col-lg-8" id="navbarCollapse">
+
                     <a href="index.php?ctl=inicio" class="nav-item nav-link ">
-                        <h4>Inicio |</h4>
+                        <h4>Inicio </h4>
                     </a>
-                    <a href="index.php?ctl=listarVenta" class="nav-item nav-link ">
-                        <h4>Venta |</h4>
+                    <!-- <a href="index.php?ctl=listarVenta" class="nav-item nav-link ">
+                        <h4>Venta </h4>
                     </a>
                     <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link ">
-                        <h4>Alquiler |</h4>
-                    </a>
+                        <h4>Alquiler </h4>
+                    </a> -->
                     <a href="#footer" class="nav-item nav-link " id=" bContact">
-                        <h4>Contacto |</h4>
+                        <h4>Contacto </h4>
                     </a>
 
                     <a href="index.php?ctl=salir" class="nav-item nav-link">
                         <h4>Salir </h4>
                     </a>
+
+                    <?php
+                    //si no es administrador se aplica la class de Bootstrap d-none en el siguiente elemento div #menuAdmin
+                    $displayNone = "";
+                    if ($_COOKIE['tipo'] != 2) {
+                        $displayNone = " d-none";
+                    }
+                    ?>
+
                 </div>
-                <?php
-                //si no es administrador se aplica la class de Bootstrap d-none en el siguiente elemento div #menuAdmin
-                $displayNone = "";
-                if ($_COOKIE['tipo'] != 2) {
-                    $displayNone = " d-none";
-                }
-                ?>
-                <div class="navbar-nav ml-auto">
-                    <div id="menuAdmin" class="nav-item dropdown <?php echo $displayNone ?> ">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menú Admin</a>
-                        <div class="dropdown-menu">
+
+                <div id="userActivo" class="col-8 col-lg-4 ">
+
+                    <div id="menuAdmin" class="nav-item dropdown row justify-content-end  ">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+
+                            <?php
+                            $nombre = strtoupper($_COOKIE['nombre']);
+                            $imagen = $_COOKIE['imagen'];
+                            echo  $nombre;
+                            ?>
+
+
+                        </a>
+
+
+                        <div class="dropdown-menu justify-content-end <?php echo $displayNone ?>">
                             <a href="index.php?ctl=listarInmuebles" class="dropdown-item">Gestión Inmuebles</a>
                             <a href="index.php?ctl=insertar" class="dropdown-item">Añadir Inmueble</a>
 
@@ -134,195 +150,191 @@
                             <a href="index.php?ctl=register" class="dropdown-item">Añadir Administrador</a>
 
                         </div>
+
+
+                        <img src="<?php echo $imagen ?>" alt="imgperfil">
                     </div>
 
 
-
                 </div>
+
+            </nav>
+
+
+
+            <!-- contenido-->
+
+
+            <div class="container-fluid">
+                <div class="row" id="contenido"><?php echo $contenido ?></div>
             </div>
-            <div>
-                <div id="userActivo" class="p-1">
-                    <h5 class="nav-item nav-link">
-                        <?php
-                        echo strtoupper('<span class="text-dark"> ' . $_COOKIE['nombre'] . ' </span>');
-                        $imagen = $_COOKIE['imagen'];
-                        echo '<img src=' . $imagen . '>';
-                        ?>
-                    </h5>
-                </div>
-            </div>
-        </nav>
-
-
-
-        <!-- contenido-->
-
-        <br>
-        <div class="container-fluid">
-            <div class="row" id="contenido"><?php echo $contenido ?></div>
-        </div>
 
 
 
 
 
-        <!-- Footer -->
+            <!-- Footer -->
 
-        <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 ">
+            <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 ">
 
-            <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
+                <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-1"></div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-1"></div>
 
-                <!--formulario-->
-                <div class="col-lg-8 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                    <!--formulario-->
+                    <div class="col-lg-8 mb-md-0 mb-5">
+                        <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
-                        <!--Grid row-->
-                        <div class="row">
+                            <!--Grid row-->
+                            <div class="row">
 
-                            <!--Grid column-->
-                            <div class="col-md-6">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                    <label for="name" class="">Tu nombre</label>
+                                <!--Grid column-->
+                                <div class="col-md-6">
+                                    <div class="md-form mb-0">
+                                        <input type="text" id="name" name="name" class="form-control" required>
+                                        <label for="name" class="">Tu nombre</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <!--Grid column-->
+                                <!--Grid column-->
 
-                            <!--Grid column-->
-                            <div class="col-md-6">
-                                <div class="md-form mb-0">
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                    <label for="email" class="">Tu email</label>
+                                <!--Grid column-->
+                                <div class="col-md-6">
+                                    <div class="md-form mb-0">
+                                        <input type="email" id="email" name="email" class="form-control" required>
+                                        <label for="email" class="">Tu email</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <!--Grid column-->
-
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="subject" name="subject" class="form-control" required>
-                                    <label for="subject" class="">Asunto</label>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!--Grid column-->
-                            <div class="col-md-12">
-
-                                <div class="md-form">
-                                    <textarea type="text" id="message" name="message" rows="2"
-                                        class="form-control md-textarea" required></textarea>
-                                    <label for="message">Tu mensaje</label>
-                                </div>
+                                <!--Grid column-->
 
                             </div>
-                        </div>
-                        <!--Grid row-->
+                            <!--Grid row-->
 
-                    </form>
+                            <!--Grid row-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="md-form mb-0">
+                                        <input type="text" id="subject" name="subject" class="form-control" required>
+                                        <label for="subject" class="">Asunto</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Grid row-->
 
-                    <div class="text-center text-md-center ">
-                        <a class="btn btn-warning" href="#">Enviar</a> <!-- añadir envio por mail-->
+                            <!--Grid row-->
+                            <div class="row">
+
+                                <!--Grid column-->
+                                <div class="col-md-12">
+
+                                    <div class="md-form">
+                                        <textarea type="text" id="message" name="message" rows="2"
+                                            class="form-control md-textarea" required></textarea>
+                                        <label for="message">Tu mensaje</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--Grid row-->
+
+
+
+                            <div class="text-center text-md-center ">
+                                <button name="bEmail" type="submit" class="btn btn-warning">Enviar</button>
+                                <!-- añadir envio por mail-->
+                            </div>
+                        </form>
+                        <div class="status"></div>
                     </div>
-                    <div class="status"></div>
-                </div>
-                <!--fin formulario-->
+                    <!--fin formulario-->
 
 
-                <div class="col-lg-3 text-center justify-content-center">
+                    <div class="col-lg-3 text-center justify-content-center">
 
-                    <!--  mail y telefono -->
-                    <div class="elementor-widget-wrap   bg-light text-dark ">
-                        <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
-                            <div class="elementor-widget-container">
-                                <div class="elementor-button-wrapper">
-                                    <a class="" role="button">
-                                        <span class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">O MÁNDANOS UN EMAIL:</span>
-                                        </span>
-                                    </a>
+                        <!--  mail y telefono -->
+                        <div class="elementor-widget-wrap   bg-light text-dark ">
+                            <div
+                                class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
+                                <div class="elementor-widget-container">
+                                    <div class="elementor-button-wrapper">
+                                        <a class="" role="button">
+                                            <span class="elementor-button-content-wrapper">
+                                                <span class="elementor-button-text">O MÁNDANOS UN EMAIL:</span>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
-                            <div class="elementor-widget-container">
-                                <div class="elementor-button-wrapper">
-                                    <a href="mailto:" class="" role="button">
-                                        <span class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
-                                        </span>
-                                    </a>
+                            <div
+                                class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
+                                <div class="elementor-widget-container">
+                                    <div class="elementor-button-wrapper">
+                                        <a href="mailto:" class="" role="button">
+                                            <span class="elementor-button-content-wrapper">
+                                                <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button" ">
+                            <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button" ">
                         <div class=" elementor-widget-container">
-                            <div class="elementor-button-wrapper">
-                                <a href="tel:001-415-513-5579" class="" role="button">
-                                    <span class="elementor-button-content-wrapper">
-                                        <span class="elementor-button-text">Tel: +34 698 415 2828</span>
-                                    </span>
+                                <div class="elementor-button-wrapper">
+                                    <a href="tel:001-415-513-5579" class="" role="button">
+                                        <span class="elementor-button-content-wrapper">
+                                            <span class="elementor-button-text">Tel: +34 698 415 2828</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- fin mail y telefono -->
+
+                        <!-- botones redes sociales -->
+                        <div
+                            class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
+                            <div class="elementor-widget-container">
+
+                                <a href="https://www.facebook.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Facebook</span>
+                                    <i class="fa fa-facebook"></i>
                                 </a>
+                                <a href="https://twitter.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Twitter</span>
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Linkedin</span>
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a href="https://www.instagram.com/"
+                                    class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
+                                    target="_blank">
+                                    <span class="elementor-screen-only">Instagram</span>
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                        <!-- fin botones redes sociales -->
+                        <br>
+                        <div class="elementor-element  elementor-widget elementor-widget-heading">
+                            <div class="elementor-widget-container">
+                                <p class="elementor-heading-title elementor-size-default">Antonio Rodríguez<br>
+                                    ©<?php echo date("Y", time()) . " "; ?>Spain</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- fin mail y telefono -->
-
-                    <!-- botones redes sociales -->
-                    <div
-                        class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
-                        <div class="elementor-widget-container">
-
-                            <a href="https://www.facebook.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
-                                target="_blank">
-                                <span class="elementor-screen-only">Facebook</span>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="https://twitter.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
-                                target="_blank">
-                                <span class="elementor-screen-only">Twitter</span>
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
-                                target="_blank">
-                                <span class="elementor-screen-only">Linkedin</span>
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                            <a href="https://www.instagram.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
-                                target="_blank">
-                                <span class="elementor-screen-only">Instagram</span>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-
-                        </div>
-                    </div>
-                    <!-- fin botones redes sociales -->
-                    <br>
-                    <div class="elementor-element  elementor-widget elementor-widget-heading">
-                        <div class="elementor-widget-container">
-                            <p class="elementor-heading-title elementor-size-default">Antonio Rodríguez<br>
-                                ©<?php echo date("Y", time()) . " "; ?>Spain</p>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
 
 

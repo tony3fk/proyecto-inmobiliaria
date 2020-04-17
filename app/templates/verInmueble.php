@@ -1,12 +1,12 @@
 <?php ob_start() ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-5">
+        <div class="col-12 col-xl-6 ">
             <img class=" img-thumbnail" src="./app/images/<?php echo $params['referencia'] . ".jpeg"; ?>">
         </div>
 
 
-        <div id="fichaInmueble" class="col-7 align-content-center">
+        <div id="fichaInmueble" class=" col- 12 col-xl-6  align-content-center">
             <h1 class="text-center">Ref: <?php echo $params['referencia'] ?></h1>
             <table class="bg-light table-striped ">
 

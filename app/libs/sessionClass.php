@@ -12,6 +12,8 @@ class Session
     public function setSession(array $params)
     {
         //session_name($nombre);
+        $_SESSION['email'] = $params['email'];
+        setcookie('email', $params['email']);
         $_SESSION['nombre'] = $params['nombre'];
         setcookie('nombre', $params['nombre']);
         $_SESSION['tipo'] = $params['tipo'];
