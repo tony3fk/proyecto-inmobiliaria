@@ -16,7 +16,7 @@ class Config
 
 
 
-    static public $oauthJSON = '{
+    /*static public $oauthJSON = '{
                                     "web":{
                                         "client_id":"498199509579-8a07elvkdfahkjm9sj09rp6tvmsfb9ek.apps.googleusercontent.com",
                                         "project_id":"proyecto-inmobiliaria-abastos",
@@ -26,5 +26,5 @@ class Config
                                         "client_secret":"FNKetPKlI6Ro8XJYgKnVYcQG",
                                         "redirect_uris":["http://localhost:8080/proyecto/web/index.php"]
                                     }
-                                }';
+                                }';*/
 }

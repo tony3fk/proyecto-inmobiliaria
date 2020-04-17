@@ -128,13 +128,17 @@
                                         <!-- formulario de login -->
                                         <form id="login-form" action="index.php?ctl=login" method="post" role="form"
                                             style="display: <?php echo $displayLogin ?>;">
+                                            <!-- <div class="form-group">
+                                                <input type="text" name="nombre" id="username" tabindex="1" class="form-control text-center" placeholder="Username" value="">
+                                            </div> -->
                                             <div class="form-group">
-                                                <input type="text" name="nombre" id="username" tabindex="1"
-                                                    class="form-control text-center" placeholder="Username" value="">
+                                                <input type="email" name="email" id="email" tabindex="1"
+                                                    class="form-control text-center" placeholder="Email" value=""
+                                                    required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" id="password" tabindex="2"
-                                                    class="form-control text-center" placeholder="Password">
+                                                    class="form-control text-center" placeholder="Password" required>
                                             </div>
 
                                             <div class="form-group">

@@ -1,7 +1,7 @@
 <?php
 include('app/libs/utils.php');
 include('app/libs/sessionClass.php');
-include('app/libs/enviaMail.php');
+include('app/libs/sendbymail.php');
 
 class Controller
 {
@@ -15,21 +15,22 @@ class Controller
 
 
 
-        $params['nombre'] = recoge('nombre');
+        $params['email'] = recoge('email');
         $params['password'] = crypt_blowfish(recoge('password'))  /*recoge('password')*/;
 
 
-        if (isset($params['nombre']) && isset($params['password'])) { //compruebo si tengo datos 
+        if (isset($params['email']) && isset($params['password'])) { //compruebo si tengo datos 
 
             if (isset($_POST['bLogin'])) { // si se pulsa login
 
-                if ($registro = $m->SelectUser($params['nombre'],  $params['password'])) {
+                if ($registro = $m->SelectUser($params['email'],  $params['password'])) {
 
                     //$sesion->cerrarSesion(); //cierra sesion de invitado
                     //$sesion->init(); //inicia sesion de usuario registrado
 
                     //include('libs/clima.php'); //archivo con la funcion API del tiempo
                     //$params['temp'] = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
+                    $params['nombre'] = $registro['nombre'];
                     $params['tipo'] = $registro['tipo'];
                     $params['ciudad'] = $registro['ciudad']; //determinar ciudad desde la geolocalización
 
@@ -38,7 +39,7 @@ class Controller
                     header('location: index.php?ctl=inicio');
                 } else {
 
-                    $params['mensaje'] = 'Usuario o contraseña incorrectos.';
+                    $params['mensaje'] = 'Email o contraseña incorrectos.';
                 }
             }
         }

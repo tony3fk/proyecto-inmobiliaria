@@ -166,12 +166,12 @@ class Model extends PDO
 
 
     //devuelve el usuario logueado si existe
-    function SelectUser($nombre, $password)
+    function SelectUser($email, $password)
     {
-        $consulta = "SELECT * FROM usuarios WHERE nombre=:nombre AND password=:password";
+        $consulta = "SELECT * FROM usuarios WHERE email=:email AND password=:password";
 
         $select = $this->conexion->prepare($consulta);
-        $select->bindParam(':nombre', $nombre);
+        $select->bindParam(':email', $email);
         $select->bindParam(':password', $password);
         $select->execute();
         $registro = $select->fetch();

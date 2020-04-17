@@ -177,7 +177,7 @@
 
                 <!--formulario-->
                 <div class="col-lg-8 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                    <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
                         <!--Grid row-->
                         <div class="row">
@@ -230,11 +230,13 @@
                         </div>
                         <!--Grid row-->
 
-                    </form>
 
-                    <div class="text-center text-md-center ">
-                        <a class="btn btn-warning" href="#">Enviar</a> <!-- añadir envio por mail-->
-                    </div>
+
+                        <div class="text-center text-md-center ">
+                            <button name="bEmail" type="submit" class="btn btn-warning">Enviar</button>
+                            <!-- añadir envio por mail-->
+                        </div>
+                    </form>
                     <div class="status"></div>
                 </div>
                 <!--fin formulario-->
