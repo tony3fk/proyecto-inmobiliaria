@@ -98,9 +98,24 @@
             </div>
             <div class="col-4"></div>
         </div>
-        <div class="row">
-            <h1><?php echo $params['mensaje'] ?></h1>
+
+
+        <!-- mensaje de error -->
+        <div class=" row justify-content-center">
+
+            <?php if ($_SESSION['mensaje'] != '') {
+                $fondoRojo = "text-center alert alert-danger";
+            } else {
+                $fondoRojo = '';
+            } ?>
+
+            <h3 class="<?php echo $fondoRojo ?>" role="alert"><?php echo $_SESSION['mensaje'];
+                                                                //$params['mensaje'] = ''; 
+                                                                ?></h3>
+
         </div>
+        <!-- fin mensaje de error -->
+
 
     </div>
     <!-- footer -->

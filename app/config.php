@@ -2,10 +2,18 @@
 
 class Config
 {
+    //para localhost:
     static public $mvc_bd_hostname = "localhost";
     static public $mvc_bd_nombre = "inmobiliaria";
     static public $mvc_bd_usuario = "root";
     static public $mvc_bd_clave = "";
+
+    //para 000webhostapp.com:
+    // static public $mvc_bd_hostname = "localhost";
+    // static public $mvc_bd_nombre = "id13312903_inmobiliaria";
+    // static public $mvc_bd_usuario = "id13312903_root";
+    // static public $mvc_bd_clave = "Nora.lucia2012";
+
 
 
     static public $oauthJSON = '{

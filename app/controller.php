@@ -14,7 +14,7 @@ class Controller
         $sesion = new Session;
 
 
-        //Recojo y valido datos del formulario
+
         $params['nombre'] = recoge('nombre');
         $params['password'] = crypt_blowfish(recoge('password'))  /*recoge('password')*/;
 
@@ -528,30 +528,36 @@ class Controller
 
     public function resetPassword()
     {
+
+        $_SESSION['mensaje'] = "";
+        $m = new Model();
+
+        //Recojo y valido datos del formulario
+        $email = recoge('email');
+        $password = crypt_blowfish(recoge('password'));
+        $confirm_password = crypt_blowfish(recoge('password'));
+
         if (isset($_POST['bReset'])) {
-            // $nombre = recoge('nombre');
-            $params['mensaje'] = "";
-            $email = recoge('email');
-            $password = crypt_blowfish(recoge('password'));
-            $confirm_password = crypt_blowfish(recoge('password'));
 
             if ($password == $confirm_password) {
-                $m = new Model();
-                $row = $m->resetPassword($password, $email);
-                // echo $row;
-                // die();
-                if ($row == 1) {
 
-                    header('Location: index.php?ctl=login');
-                } else {
-                    $params['mensaje'] = "No hay ningún usuario con ese email";
-                    header('Location: index.php?ctl=resetPassword');
+
+
+                // $nombre = recoge('nombre');
+                if ($reg = $m->resetPassword($password, $email)) {
+                    if ($reg == 0) {
+                        $_SESSION['mensaje'] = "No hay ningún usuario con ese email";
+                        // echo $_SESSION['mensaje'];
+                        // die();
+                    } else {
+                        header('Location: index.php?ctl=login');
+                    }
                 }
             } else {
-                $params['mensaje'] = "Los passwords han de ser iguales";
-                header('Location: index.php?ctl=resetPassword');
+                $_SESSION['mensaje'] = "Los passwords han de ser iguales";
             }
         }
+
 
 
         require('./app/templates/resetPassword.php');
