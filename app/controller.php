@@ -334,6 +334,76 @@ class Controller
     }
     //FIN INSERTAR INMUEBLES
 
+    //UPDATE INMUEBLES
+    public function updateInmueble()
+    {
+        try {
+
+            $params = array(
+                'referencia' => '',
+                'tipo' => '',
+                'operacion' => '',
+                'provincia' => '',
+                'superficie' => '',
+                'precio_venta' => '',
+
+            );
+
+            if (isset($_POST['update'])) {
+                $referencia = recoge('referencia');
+                $tipo = recoge('tipo');
+                $operacion = recoge('operacion');
+                $provincia = recoge('provincia');
+                $superficie = recoge('superficie');
+                $precio_venta = recoge('precio_venta');
+
+                // comprobar campos formulario
+                if (isset($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta)) {
+
+                    // Si no ha habido problema creo modelo y hago update
+                    $m = new Model();
+                    if ($m->updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta)) {
+                        $params['mensaje'] = "Actualizado correctamente";
+                        header('Location: ../../index.php?ctl=listarInmuebles');
+                    } else {
+                        $params = array(
+                            'referencia' => $referencia,
+                            'tipo' => $tipo,
+                            'operacion' => $operacion,
+                            'provincia' => $provincia,
+                            'superficie' => $superficie,
+                            'precio_venta' => $precio_venta
+
+                        );
+
+                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
+                    }
+                } else {
+                    $params = array(
+                        'referencia' => $referencia,
+                        'tipo' => $tipo,
+                        'operacion' => $operacion,
+                        'provincia' => $provincia,
+                        'superficie' => $superficie,
+                        'precio_venta' => $precio_venta
+                    );
+                    // print_r($params);
+                    // die();
+                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
+                }
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage() . date(" H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . date(" H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+
+        require('./app/templates/formInsertar.php');
+    }
+    //FIN UPDATE INMUEBLES
+
 
 
 
@@ -390,6 +460,45 @@ class Controller
         header('Location: index.php?ctl=listarInmuebles&borrado=1');
     }
     //FIN ELIMINAR INMUEBLE
+
+    //EDITAR INMUEBLE
+    public function editarInmuebles()
+    {
+        try {
+
+
+            if (!isset($_GET['id'])) {
+                throw new Exception('Inmueble no encontrado');
+            }
+
+            $referencia = recoge('id');
+            $m = new Model();
+            $result = $m->verInmueble($referencia);
+            $params['resultado'] = $result;
+            $ref = $params['resultado']['referencia'];
+            $tipo = $params['resultado']['tipo'];
+            $operacion = $params['resultado']['operacion'];
+            $provincia = $params['resultado']['provincia'];
+            $superficie = $params['resultado']['superficie'];
+            $precio_venta = $params['resultado']['precio_venta'];
+
+            header('Location: ./app/templates/editarInmuebles.php?ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta);
+
+
+
+            //$params['mensaje'] = "Ref: " . $referencia . " eliminado";
+        } catch (Exception $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
+            header('Location: index.php?ctl=error');
+        } catch (Error $e) {
+            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
+            header('Location: index.php?ctl=error');
+        }
+
+        require('./app/templates/editarInmuebles.php');
+        //header('Location: index.php?ctl=editarInmuebles&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta . "'");
+    }
+    //FIN EDITAR INMUEBLE
 
 
     //ELIMINAR USUARIOS

@@ -174,8 +174,13 @@
 
 
             <!-- Footer -->
+            <?php $displayNone = '';
+            if ($_COOKIE['tipo'] == 2) {
+                $displayNone = 'd-none';
+            }
+            ?>
 
-            <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 ">
+            <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 <?php echo $displayNone ?>">
 
                 <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
 
