@@ -275,29 +275,46 @@ class Controller
     public function insertarInmueble()
     {
         try {
+            $params['mensaje'] = '';
 
-            $params = array(
-                'tipo' => '',
-                'operacion' => '',
-                'provincia' => '',
-                'superficie' => '',
-                'precio_venta' => '',
-
-            );
 
             if (isset($_POST['insertar'])) {
+
+
+
+                //comprobación de la imagen
+                if ($_FILES['imagen']['error'] == 0 && ($_FILES['imagen']['type'] != 'image/jpg' || $_FILES['imagen']['type'] != 'image/jpeg')) {
+                    $imagen = $_FILES['imagen']['name'];
+                    $dir = './app/images/';
+
+
+                    //Añadimos el tiempo para asegurarnos que el nombre es único
+                    $idUnico = time();
+                    $nombreImagen = $dir . $idUnico . '_' . $imagen;
+
+                    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $nombreImagen)) {
+                        $params['mensaje'] = "El fichero ha sido guardado";
+                    } else {
+                        $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                    }
+                }
+
+
+                //recogida de datos del formulario
                 $tipo = recoge('tipo');
                 $operacion = recoge('operacion');
                 $provincia = recoge('provincia');
                 $superficie = recoge('superficie');
                 $precio_venta = recoge('precio_venta');
 
+
+
                 // comprobar campos formulario
                 if (validarDatos($tipo, $operacion, $provincia, $superficie, $precio_venta)) {
 
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
-                    if ($m->insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta)) {
+                    if ($m->insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $nombreImagen)) {
                         $params['mensaje'] = "Insertado correctamente";
                         header('Location: index.php?ctl=listarInmuebles');
                     } else {
@@ -307,6 +324,7 @@ class Controller
                             'provincia' => $provincia,
                             'superficie' => $superficie,
                             'precio_venta' => $precio_venta
+
 
                         );
                         $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';

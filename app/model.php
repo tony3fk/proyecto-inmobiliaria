@@ -130,9 +130,9 @@ class Model extends PDO
 
 
 
-    public function insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta)
+    public function insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen)
     {
-        $consulta = "insert into inmuebles (fecha_alta, tipo, operacion, provincia, superficie, precio_venta) values (?, ?, ?, ?, ?, ?)";
+        $consulta = "insert into inmuebles (fecha_alta, tipo, operacion, provincia, superficie, precio_venta, imagen) values (?, ?, ?, ?, ?, ?, ?)";
         $result = $this->conexion->prepare($consulta);
         $result->bindParam(1, date('d/m/Y', time()));
         $result->bindParam(2, $tipo);
@@ -140,6 +140,7 @@ class Model extends PDO
         $result->bindParam(4, $provincia);
         $result->bindParam(5, $superficie);
         $result->bindParam(6, $precio_venta);
+        $result->bindParam(7, $imagen);
         $result->execute();
 
         return $result;
