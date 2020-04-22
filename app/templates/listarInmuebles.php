@@ -5,6 +5,7 @@
 <div class="container">
 
     <?php
+
     if (isset($_GET['borrado'])) {
 
         echo '<h2 class="text-danger bg-warning">';
@@ -24,7 +25,9 @@
                 <th class="th-sm text-center">PROVINCIA</th>
                 <th class="th-sm text-center">SUPERFICIE</th>
                 <th class="th-sm text-center">PRECIO</th>
-                <th class="th-sm text-center"></th>
+                <th class="th-sm text-center">EDITAR</th>
+                <th class="th-sm text-center">ELIMINAR</th>
+
 
 
 
@@ -43,9 +46,15 @@
             <td><?php echo $inmuebles['superficie'] ?></td>
             <td><?php echo $inmuebles['precio_venta'] ?></td>
 
+
+            <td class="text-center">
+                <a href="index.php?ctl=editarInmuebles&id=<?php echo $inmuebles['referencia'] ?>"
+                    class="btn btn-outline-warning w-100">Editar Registro</a>
+            </td>
             <td class="text-center">
                 <a href="index.php?ctl=eliminarInmuebles&id=<?php echo $inmuebles['referencia'] ?>"
                     class="btn btn-outline-danger w-100">Eliminar Registro</a>
+
             </td>
         </tr>
         <?php

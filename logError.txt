@@ -8,3 +8,6 @@ Error 404: No existe la ruta resetPassword
 Error 404: No existe la ruta resetPassword
 Error 404: No existe la ruta resetPassword
 Error 404: No existe la ruta buscarConParametros
+Error 404: No existe la ruta editarInmuebles.php
+Error 404: No existe la ruta editarInmuebles.php
+Error 404: No existe la ruta editarInmuebles.php

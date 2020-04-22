@@ -1,19 +1,32 @@
-<?php ob_start() ?>
+<?php ob_start();
 
-<?php if (isset($params['mensaje'])) : ?>
-<b><span style="color: red;"><?php echo $params['mensaje'];
-                                    $params['mensaje'] = ""; ?></span></b>
-<?php endif; ?>
+$referencia = $_GET['ref'];
+$tipo = $_GET['tipo'];
+$operacion = $_GET['operacion'];
+$provincia = $_GET['provincia'];
+$superficie = $_GET['superficie'];
+$precio_venta = $_GET['precio_venta'];
+
+
+
+?>
+
+
 <br />
 
 <div class="container ">
     <br>
-    <form name="formInsertar" action="index.php?ctl=insertar" method="POST">
+    <form name="formInsertar" action="../../index.php?ctl=updateInmueble" method="POST">
+        <div class="form-group">
+            <label>Ref: </label>
+            <input type="text" name="referencia" value="<?php echo $referencia ?>" readonly
+                class="bg-warning text-center col-1"></input>
+        </div>
 
         <div class="form-group">
             <label>Tipo</label>
             <select class="form-control" id="FormControlSelect1" name="tipo" required>
-                <option value="<?php echo $params['tipo'] ?>"><?php echo $params['tipo'] ?></option>
+                <option default value="<?php echo $tipo ?>"><?php echo $tipo ?></option>
                 <option value="Parking">Parking</option>
                 <option value="Local">Local</option>
                 <option value="Oficina">Oficina</option>
@@ -27,7 +40,7 @@
         <div class="form-group">
             <label>Operación</label>
             <select class="form-control" id="FormControlSelect2" name="operacion" required>
-                <option value="<?php echo $params['operacion'] ?>"><?php echo $params['operacion'] ?></option>
+                <option default value="<?php echo $operacion ?>"><?php echo $operacion ?></option>
                 <option value="Venta">Venta</option>
                 <option value="Alquiler">Alquiler</option>
             </select>
@@ -38,7 +51,7 @@
         <div class="form-group">
             <label>Provincia</label>
             <select class="form-control" id="FormControlSelect3" name="provincia" required>
-                <option value="<?php echo $params['provincia'] ?>"><?php echo $params['provincia'] ?></option>
+                <option default value="<?php echo $provincia ?>"><?php echo $provincia ?></option>
                 <option value='alava'>Álava</option>
                 <option value='albacete'>Albacete</option>
                 <option value='alicante'>Alicante/Alacant</option>
@@ -98,18 +111,18 @@
         <div class="form-group">
             <label>Superficie (m2)</label>
             <input type="number" class="form-control" name="superficie" aria-describedby="SuperficieHelp"
-                value="<?php echo $params['superficie'] ?>" required>
+                value="<?php echo $superficie ?>" required>
         </div>
 
         <div class="form-group">
             <label>Precio (€)</label>
             <input type="number" class="form-control" name="precio_venta" aria-describedby="tipoHelp"
-                value="<?php echo $params['precio_venta'] ?>" required>
+                value="<?php echo $precio_venta ?>" required>
         </div>
 
 
         <br>
-        <input type="submit" class="btn btn-primary" value="insertar" name="insertar" />
+        <input type="submit" class="btn btn-primary" value="actualizar" name="update" />
     </form>
 </div>
 
