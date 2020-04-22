@@ -153,7 +153,7 @@ class Model extends PDO
         $update->bindParam(':tipo', $tipo);
         $update->bindParam(':operacion', $operacion);
         $update->bindParam(':provincia', $provincia);
-        $update->bindParam(':superfie', $superfie);
+        $update->bindParam(':superficie', $superficie);
         $update->bindParam(':precio_venta', $precio_venta);
         $update->execute();
         return $update;

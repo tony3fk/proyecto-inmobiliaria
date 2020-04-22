@@ -18,8 +18,9 @@ $precio_venta = $_GET['precio_venta'];
     <br>
     <form name="formInsertar" action="../../index.php?ctl=updateInmueble" method="POST">
         <div class="form-group">
-            <label>Ref</label>
-            <input type="text" name="referencia" value="<?php echo $referencia ?>"></input>
+            <label>Ref: </label>
+            <input type="text" name="referencia" value="<?php echo $referencia ?>" readonly
+                class="bg-warning text-center col-1"></input>
         </div>
 
         <div class="form-group">

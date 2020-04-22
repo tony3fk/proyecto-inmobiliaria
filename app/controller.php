@@ -339,45 +339,22 @@ class Controller
     {
         try {
 
-            $params = array(
-                'referencia' => '',
-                'tipo' => '',
-                'operacion' => '',
-                'provincia' => '',
-                'superficie' => '',
-                'precio_venta' => '',
-
-            );
-
             if (isset($_POST['update'])) {
-                $referencia = recoge('referencia');
-                $tipo = recoge('tipo');
-                $operacion = recoge('operacion');
-                $provincia = recoge('provincia');
-                $superficie = recoge('superficie');
-                $precio_venta = recoge('precio_venta');
+                $referencia = $_POST['referencia'];
+                $tipo = $_POST['tipo'];
+                $operacion = $_POST['operacion'];
+                $provincia = $_POST['provincia'];
+                $superficie = $_POST['superficie'];
+                $precio_venta = $_POST['precio_venta'];
 
                 // comprobar campos formulario
-                if (isset($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta)) {
 
-                    // Si no ha habido problema creo modelo y hago update
-                    $m = new Model();
-                    if ($m->updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta)) {
-                        $params['mensaje'] = "Actualizado correctamente";
-                        header('Location: ../../index.php?ctl=listarInmuebles');
-                    } else {
-                        $params = array(
-                            'referencia' => $referencia,
-                            'tipo' => $tipo,
-                            'operacion' => $operacion,
-                            'provincia' => $provincia,
-                            'superficie' => $superficie,
-                            'precio_venta' => $precio_venta
 
-                        );
-
-                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
-                    }
+                // Si no ha habido problema creo modelo y hago update
+                $m = new Model();
+                if ($m->updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta)) {
+                    $params['mensaje'] = "Actualizado correctamente";
+                    header('Location: index.php?ctl=listarInmuebles');
                 } else {
                     $params = array(
                         'referencia' => $referencia,
@@ -386,10 +363,10 @@ class Controller
                         'provincia' => $provincia,
                         'superficie' => $superficie,
                         'precio_venta' => $precio_venta
+
                     );
-                    // print_r($params);
-                    // die();
-                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
+
+                    $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
                 }
             }
         } catch (Exception $e) {
