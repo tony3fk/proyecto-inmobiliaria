@@ -7,6 +7,8 @@
 
 
         <div id="fichaInmueble" class=" col- 12 col-xl-6  align-content-center">
+            <button type="button" class="btn btn-lg btn-warning" onClick=goback()><i
+                    class="fa fa-arrow-left"></i></button>
             <h1 class="text-center">Ref: <?php echo $params['referencia'] ?></h1>
             <table class="bg-light table-striped ">
 
@@ -45,7 +47,11 @@
         </div>
     </div>
 </div>
-
+<script>
+function goback() {
+    history.go(-2);
+}
+</script>
 
 <?php $contenido = ob_get_clean() ?>
 

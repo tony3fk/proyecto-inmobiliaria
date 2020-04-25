@@ -592,12 +592,14 @@ class Controller
                 'inmuebles' => '',
                 'mensaje' => ''
             );
-            $m = new Model();
+
             if (isset($_POST['bSubmitInicio'])) {
-                $operacion = $_POST['operacion'];
-                $tipo = $_POST['tipo'];
-                $provincia = $_POST['provincia'];
-                $params['inmuebles'] = $m->listarConParametros($operacion, $tipo, $provincia);
+
+                $_COOKIE['operacion'] = $_POST['operacion'];
+                $_COOKIE['tipo'] = $_POST['tipo'];
+                $_COOKIE['provincia'] = $_POST['provincia'];
+                $m = new Model();
+                $params['inmuebles'] = $m->listarConParametros($_COOKIE['operacion'],  $_COOKIE['tipo'],  $_COOKIE['provincia']);
 
                 if (count($params['inmuebles']) == 0) {
                     echo "no hay resultados";

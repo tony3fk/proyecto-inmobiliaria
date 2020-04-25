@@ -41,7 +41,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
+
     <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css'
         media='all' />
 
@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
     <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
+    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
 
     <script src="./vendor/firebase/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="./vendor/firebase/firebase-ui-auth.css" />
@@ -96,7 +97,7 @@
                 </div>
                 <div class="row">
                     <div class=" col-md-10 col-8 bg-dark text-center">
-                        <h5 class="text-warning ">Tu portal inmobiliario</h5>
+                        <h4 class="text-warning ">Tu portal inmobiliario</h4>
                     </div>
 
                     <div class=" col-md-2 col-4 bg-dark text-right">
