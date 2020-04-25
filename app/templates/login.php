@@ -7,34 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-
-    <link rel='stylesheet' id='elementor-frontend-css'
-        href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
+    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
+    <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css'
         media='all' />
-
-
-    <!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css"> -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-        id="bootstrap-css" />
-
+    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
+    <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
-        id="bootstrap-css">
-
-    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
 
 
+    <script src="./vendor/firebase/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="./vendor/firebase/firebase-ui-auth.css" />
+    <script src="./vendor/firebase/firebase-app.js"></script>
 
     <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
 
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="./vendor/components/jquery/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
     <script src="./web/css/bootstrap/js/bootstrap.js"></script>
 
 

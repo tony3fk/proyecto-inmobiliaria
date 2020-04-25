@@ -1,4 +1,5 @@
 <?php
+require 'vendor/autoload.php';
 
 // web/index.php
 // carga del modelo y los controladores

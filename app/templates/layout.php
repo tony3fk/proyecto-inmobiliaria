@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
+    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./web/css/bootstrap/css/bootstrap" id="bootstrap-css">
     <link rel='stylesheet' id='elementor-frontend-css'
@@ -22,7 +22,7 @@
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
         id="bootstrap-css" />-->
 
-    <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
 
@@ -37,7 +37,28 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>  -->
+
+
+    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
+    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
+    <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css'
+        media='all' />
+
+    <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
+    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
+
+    <script src="./vendor/firebase/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="./vendor/firebase/firebase-ui-auth.css" />
+    <script src="./vendor/firebase/firebase-app.js"></script>
+
+    <script src="./vendor/components/jquery/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <!-- <script src="./web/css/bootstrap/js/bootstrap.js"></script> -->
+
 
     <script src="./app/libs/geolocalizacion.js"></script>
 
@@ -89,7 +110,7 @@
 
 
             <!-- navbar -->
-            <nav class="  col-12 navbar navbar-expand-md navbar-light bg-warning menu">
+            <nav class="col-12 navbar navbar-expand-md navbar-light bg-warning menu" id="navbar">
 
                 <div class="col-1 d-lg-none">
                     <button type="button" class="navbar-toggler " data-toggle="collapse" data-target="#navbarCollapse">
@@ -129,7 +150,7 @@
 
                 <div id="userActivo" class="col-8 col-lg-4 ">
 
-                    <div id="menuAdmin" class="nav-item dropdown row justify-content-end  ">
+                    <div id="menuAdmin" class="nav-item dropdown row justify-content-end">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
 
                             <?php
@@ -166,7 +187,7 @@
 
 
             <div class="container-fluid">
-                <div class="row" id="contenido"><?php echo $contenido ?></div>
+                <div class="row justify-content-center" id="contenido"><?php echo $contenido ?></div>
             </div>
 
 
