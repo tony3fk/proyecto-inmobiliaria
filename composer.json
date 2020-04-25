@@ -12,7 +12,9 @@
         "twbs/bootstrap": "4.4.*",
         "components/jquery": "3.3.*",
         "phpmailer/phpmailer": "6.1.*",
-        "components/font-awesome": "4.3.0",
+        "components/font-awesome": "4.3.0"
+    },
+    "require-dev": {
         "heroku/heroku-buildpack-php": "^173.0"
     }
 }
