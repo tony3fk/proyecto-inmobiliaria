@@ -1,8 +1,8 @@
 <?php ob_start(); ?>
 
+<!-- Listar inmuebles para el admin desde el menú de admin -->
 
-
-<div class="container">
+<div class="container-fluid mt-2">
 
     <?php
 
@@ -65,6 +65,9 @@
         ?>
     </table>
 </div>
+<script src="./app/libs/sortTables.js"></script>
+
+
 
 
 

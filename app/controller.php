@@ -70,7 +70,7 @@ class Controller
             $params['email'] = recoge('email');
             $params['password'] = crypt_blowfish(recoge('password'));
 
-            if ($_SESSION['tipo'] == 2) { //si está iniciada una sesión de administrador
+            if ($_SESSION['tipo'] == 2 || $_COOKIE['tipo'] == 2) { //si está iniciada una sesión de administrador
                 $params['tipo'] = 2;
             } else {
                 $params['tipo'] = 1;
@@ -89,7 +89,7 @@ class Controller
 
                         self::email($params['email']);
 
-                        if ($_SESSION['tipo'] == 2) {
+                        if ($_SESSION['tipo'] == 2 || $_COOKIE['tipo'] == 2) {
                             header('Location: index.php?ctl=listarUsuarios'); //si es admin
                         } else {
                             header('Location: index.php?ctl=login'); //si no es admin
@@ -462,11 +462,11 @@ class Controller
         try {
 
 
-            if (!isset($_GET['id'])) {
-                throw new Exception('Inmueble no encontrado');
-            }
 
-            $referencia = recoge('id');
+            $referencia = $_GET['id'];
+
+
+
             $m = new Model();
             $result = $m->verInmueble($referencia);
             $params['resultado'] = $result;
@@ -477,7 +477,7 @@ class Controller
             $superficie = $params['resultado']['superficie'];
             $precio_venta = $params['resultado']['precio_venta'];
 
-            header('Location: ./app/templates/editarInmuebles.php?ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta);
+            header('Location: index.php?ctl=modificarInmueble&ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta);
 
 
 
@@ -494,6 +494,11 @@ class Controller
         //header('Location: index.php?ctl=editarInmuebles&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta . "'");
     }
     //FIN EDITAR INMUEBLE
+
+    public function modificarInmueble()
+    {
+        require('./app/templates/editarInmuebles.php');
+    }
 
 
     //ELIMINAR USUARIOS
@@ -531,6 +536,8 @@ class Controller
         session_destroy();
         setcookie('nombre', '', time() - 100);
         setcookie('imagen', '', time() - 100);
+        setcookie('tipo', '', time() - 100);
+        setcookie('email', '', time() - 100);
         header('Location: index.php?ctl=login');
     }
     //FIN SALIR

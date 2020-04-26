@@ -83,15 +83,13 @@
                             <?php
 
                             //si el logueado es admin, es porque accede desde el menú de administrador y se oculta la opción de login
-
-                            if ($_COOKIE['tipo'] === 2) {
+                            $displayLogin = " block";
+                            $displayRegister = "none";
+                            $display = "";
+                            if ($_COOKIE['tipo'] == '2') {
                                 $displayLogin = " none";
                                 $displayRegister = " block";
                                 $display = "d-none";
-                            } else {
-                                $displayLogin = " block";
-                                $displayRegister = "none";
-                                $display = "";
                             }
 
                             ?>
@@ -151,14 +149,15 @@
                                                     <div class="col-12">
                                                         <div class="text-center">
                                                             <a href="index.php?ctl=resetPassword" tabindex="5"
-                                                                class="forgot-password">Forgot Password?</a>
+                                                                class="forgot-password <?php echo $display ?>">Forgot
+                                                                Password?</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <!-- botones inicio mediante redes sociales -->
-                                            <div class="row p-2" style="display: <?php echo $display ?>;">
+                                            <div class="row p-2 <?php echo $display ?>">
                                                 <div class="col-4 ">
                                                     <button onclick="facebookSignIn()"
                                                         class="btn btn-block btn-facebook " id="btnLoginFacebook">
@@ -194,15 +193,17 @@
                                             method="post" role="form" style="display: <?php echo $displayRegister ?>;">
                                             <div class="form-group">
                                                 <input type="text" name="nombre" id="usernamereg" tabindex="1"
-                                                    class="form-control" placeholder="Username" value="" required>
+                                                    class="form-control text-center" placeholder="Username" value=""
+                                                    required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="email" name="email" id="email" tabindex="1"
-                                                    class="form-control" placeholder="Email Address" value="" required>
+                                                    class="form-control text-center" placeholder="Email Address"
+                                                    value="" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" id="passwordreg" tabindex="2"
-                                                    class="form-control" placeholder="Password" required>
+                                                    class="form-control text-center" placeholder="Password" required>
                                             </div>
                                             <!-- <div class="form-group">
                                                 <input type="password" name="confirm-password" id="confirm-password"
@@ -210,7 +211,7 @@
                                             </div> -->
                                             <div class="form-group">
                                                 <input type="text" name="ciudad" id="ciudad" tabindex="2"
-                                                    class="form-control" placeholder="Ciudad" required>
+                                                    class="form-control text-center" placeholder="Ciudad" required>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row justify-content-center">

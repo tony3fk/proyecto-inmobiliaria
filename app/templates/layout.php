@@ -6,68 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./web/css/bootstrap/css/bootstrap" id="bootstrap-css">
-    <link rel='stylesheet' id='elementor-frontend-css'
-        href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
-        media='all' />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-
-    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
-
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-        id="bootstrap-css" />-->
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
-    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="./web/css/bootstrap/js/bootstrap.js"></script>
-    <script src="https://kit.fontawesome.com/ab12d61800.js" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>  -->
-
+    <title>Gestión Inmobiliaria</title>
 
     <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-
-    <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css'
+    <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css'
         media='all' />
-
-    <!-- <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css"> -->
-
-    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
-    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="./vendor/datatables/datatables/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="./vendor/datatables/datatables/examples/resources/syntax/shCore.css">
     <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
-    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
 
     <script src="./vendor/firebase/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="./vendor/firebase/firebase-ui-auth.css" />
+    <link rel="stylesheet" type="text/css" href="./vendor/firebase/firebase-ui-auth.css" />
     <script src="./vendor/firebase/firebase-app.js"></script>
-
-
     <script src="./vendor/components/jquery/jquery.min.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <script src="./vendor/datatables/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="./vendor/datatables/datatables/examples/resources/syntax/shCore.js"></script>
     <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- <script src="./web/css/bootstrap/js/bootstrap.js"></script> -->
-
-
     <script src="./app/libs/geolocalizacion.js"></script>
 
-
-    <title>Gestión Inmobiliaria</title>
 
     <script>
     $(document).ready(function() {
@@ -80,10 +39,6 @@
         });
     });
     </script>
-
-
-
-
 </head>
 
 <body onload="geoFindMe()">

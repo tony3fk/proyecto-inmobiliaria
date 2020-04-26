@@ -60,6 +60,7 @@ $map = array(
     'listarUsuarios' => array('controller' => 'Controller', 'action' => 'listarUsuarios', 'tipo' => 2),
     'listarInmuebles' => array('controller' => 'Controller', 'action' => 'listarInmuebles', 'tipo' => 2),
     'editarInmuebles' => array('controller' => 'Controller', 'action' => 'editarInmuebles', 'tipo' => 2),
+    'modificarInmueble' => array('controller' => 'Controller', 'action' => 'modificarInmueble', 'tipo' => 2),
     'eliminarInmuebles' => array('controller' => 'Controller', 'action' => 'eliminarInmuebles', 'tipo' => 2),
     'eliminarUsuario' => array('controller' => 'Controller', 'action' => 'eliminarUsuario', 'tipo' => 2),
     'resetPassword' => array('controller' => 'Controller', 'action' => 'resetPassword', 'tipo' => 0),
