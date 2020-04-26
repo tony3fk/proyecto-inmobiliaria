@@ -8,7 +8,7 @@
 
 <div class="container ">
     <br>
-    <form name="formInsertar" action="index.php?ctl=insertar" method="POST">
+    <form name="formInsertar" action="index.php?ctl=insertar" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
             <label>Tipo</label>
@@ -106,6 +106,11 @@
             <input type="number" class="form-control" name="precio_venta" aria-describedby="tipoHelp"
                 value="<?php echo $params['precio_venta'] ?>" required>
         </div>
+        <div class="form-group">
+            <label>Imagen</label>
+            <input type="file" name="imagen" id="imagen" />
+        </div>
+
 
 
         <br>

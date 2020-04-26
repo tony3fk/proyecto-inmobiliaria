@@ -25,6 +25,7 @@
                 <th class="th-sm text-center">PROVINCIA</th>
                 <th class="th-sm text-center">SUPERFICIE</th>
                 <th class="th-sm text-center">PRECIO</th>
+                <th class="th-sm text-center">IMAGEN</th>
                 <th class="th-sm text-center">EDITAR</th>
                 <th class="th-sm text-center">ELIMINAR</th>
 
@@ -45,6 +46,7 @@
             <td><?php echo $inmuebles['provincia'] ?></td>
             <td><?php echo $inmuebles['superficie'] ?></td>
             <td><?php echo $inmuebles['precio_venta'] ?></td>
+            <td><a href="<?php echo $inmuebles['imagen'] ?>" target="_blank"><?php echo $inmuebles['imagen'] ?></a></td>
 
 
             <td class="text-center">

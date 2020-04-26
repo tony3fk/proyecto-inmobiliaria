@@ -1,1 +1,0 @@
-SQLSTATE[42S22]: Column not found: 1054 Unknown column 'referencia' in 'order clause'0.94875800 1585776813
