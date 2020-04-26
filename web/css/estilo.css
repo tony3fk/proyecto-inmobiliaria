@@ -234,3 +234,28 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 
 /* fin de estilos formulario de login y registro */
+
+/* ordenamiento de tablas */
+
+table tr th {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.sorting {
+    background-color: #D4D4D4;
+}
+
+.asc:after {
+    content: ' ↑';
+}
+
+.desc:after {
+    content: " ↓";
+}
+
+
+/* fin ordenamiento de tablas */

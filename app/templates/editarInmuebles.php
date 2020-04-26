@@ -1,22 +1,19 @@
-<?php ob_start();
+<?php ob_start(); ?>
 
+
+<?php
 $referencia = $_GET['ref'];
 $tipo = $_GET['tipo'];
 $operacion = $_GET['operacion'];
 $provincia = $_GET['provincia'];
 $superficie = $_GET['superficie'];
-$precio_venta = $_GET['precio_venta'];
+$precio_venta = $_GET['precio_venta']; ?>
 
 
-
-?>
-
-
-<br />
 
 <div class="container ">
     <br>
-    <form name="formInsertar" action="../../index.php?ctl=updateInmueble" method="POST">
+    <form name="formInsertar" action="index.php?ctl=updateInmueble" method="POST">
         <div class="form-group">
             <label>Ref: </label>
             <input type="text" name="referencia" value="<?php echo $referencia ?>" readonly
