@@ -45,7 +45,7 @@
     <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css'
         media='all' />
 
-    <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
     <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
     <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
@@ -56,8 +56,11 @@
     <link type="text/css" rel="stylesheet" href="./vendor/firebase/firebase-ui-auth.css" />
     <script src="./vendor/firebase/firebase-app.js"></script>
 
+
     <script src="./vendor/components/jquery/jquery.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <!-- <script src="./web/css/bootstrap/js/bootstrap.js"></script> -->
 
 
@@ -131,7 +134,7 @@
                     <a href="index.php?ctl=listarAlquiler" class="nav-item nav-link ">
                         <h4>Alquiler </h4>
                     </a> -->
-                    <a href="#footer" class="nav-item nav-link " id=" bContact">
+                    <a href="#footer" class="nav-item nav-link " id="bContact">
                         <h4>Contacto </h4>
                     </a>
 
@@ -151,7 +154,7 @@
 
                 <div id="userActivo" class="col-8 col-lg-4 ">
 
-                    <div id="menuAdmin" class="nav-item dropdown row justify-content-end">
+                    <div id="menuAdmin" class="nav-item  dropdown row justify-content-end">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
 
                             <?php
@@ -164,7 +167,7 @@
                         </a>
 
 
-                        <div class="dropdown-menu justify-content-end <?php echo $displayNone ?>">
+                        <div class="dropdown-menu bg-warning justify-content-end <?php echo $displayNone ?>">
                             <a href="index.php?ctl=listarInmuebles" class="dropdown-item">Gestión Inmuebles</a>
                             <a href="index.php?ctl=insertar" class="dropdown-item">Añadir Inmueble</a>
 

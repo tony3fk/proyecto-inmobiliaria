@@ -11,9 +11,10 @@
     <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css'
         media='all' />
     <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
-    <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
+    <!-- <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css"> -->
+
     <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
 
 
     <script src="./vendor/firebase/firebase-ui-auth.js"></script>
@@ -23,8 +24,9 @@
     <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
 
     <script src="./vendor/components/jquery/jquery.min.js"></script>
+    <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
-    <script src="./web/css/bootstrap/js/bootstrap.js"></script>
+    <!-- <script src="./web/css/bootstrap/js/bootstrap.js"></script> -->
 
 
 
@@ -73,7 +75,7 @@
 
             <!-- formulario de acceso -->
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mt-5">
 
                     <div class="col-10 col-md-8 col-lg-6 ">
                         <div class="panel panel-login">
@@ -95,7 +97,7 @@
                             ?>
 
                             <div class="panel-heading">
-                                <div class="row">
+                                <div class="row pt-2">
                                     <div class="col-6">
                                         <a href="#" class="btn btn-outline-primary <?php echo $display ?>"
                                             id="login-form-link">Login</a>
@@ -115,7 +117,7 @@
 
                                         <div id="login-form">
                                             <!-- formulario de login -->
-                                            <form action="index.php?ctl=login" method="post" role="form"
+                                            <form class="p-2" action="index.php?ctl=login" method="post" role="form"
                                                 style="display: <?php echo $displayLogin ?>;">
                                                 <!-- <div class="form-group">
                                                 <input type="text" name="nombre" id="username" tabindex="1" class="form-control text-center" placeholder="Username" value="">
@@ -132,7 +134,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <div class="row">
+                                                    <div class="row justify-content-center">
                                                         <div class="col-sm-12 col-md-6 col-sm-offset-3">
                                                             <input type="submit" name="bLogin" id="login-submit"
                                                                 tabindex="4"
@@ -156,7 +158,7 @@
                                             </div>
 
                                             <!-- botones inicio mediante redes sociales -->
-                                            <div class=" row" style="display: <?php echo $display ?>;">
+                                            <div class="row p-2" style="display: <?php echo $display ?>;">
                                                 <div class="col-4 ">
                                                     <button onclick="facebookSignIn()"
                                                         class="btn btn-block btn-facebook " id="btnLoginFacebook">
@@ -188,8 +190,8 @@
 
 
                                         <!--formulario de registro -->
-                                        <form id="register-form" action="index.php?ctl=register" method="post"
-                                            role="form" style="display: <?php echo $displayRegister ?>;">
+                                        <form class="p-2" id="register-form" action="index.php?ctl=register"
+                                            method="post" role="form" style="display: <?php echo $displayRegister ?>;">
                                             <div class="form-group">
                                                 <input type="text" name="nombre" id="usernamereg" tabindex="1"
                                                     class="form-control" placeholder="Username" value="" required>
@@ -211,7 +213,7 @@
                                                     class="form-control" placeholder="Ciudad" required>
                                             </div>
                                             <div class="form-group">
-                                                <div class="row">
+                                                <div class="row justify-content-center">
                                                     <div class="col-sm-6 col-sm-offset-3">
                                                         <input type="submit" name="bRegister" id="register-submit"
                                                             tabindex="4"
@@ -259,7 +261,7 @@
 
         <!-- footer -->
 
-        <footer id="pie" class="row   bg-light  justify-content-center p-4">
+        <footer id="pie" class="row   bg-light  justify-content-center p-4 mt-5">
 
             <div class="  col-md-5 text-center text-dark bg-light">
 
