@@ -19,8 +19,19 @@ class Session
         $_SESSION['tipo'] = $params['tipo'];
         setcookie('tipo', $params['tipo']);
         $_SESSION['time'] = time();
-        setcookie('imagen', './app/images/profile.png');
+
         $_SESSION['ciudad'] = $params['ciudad'];
+
+        //si no se registra con avatar, se le asigna avatar por defecto
+        if (!$params['avatar']) {
+            $_SESSION['avatar'] = './app/images/avatars/profile.png';
+            setcookie('avatar', './app/images/avatars/profile.png');
+        } else {
+            $_SESSION['avatar'] = $params['avatar'];
+            setcookie('avatar', $params['avatar']);
+        }
+
+
         //$_SESSION['temp'] = $params['temp'];
 
 
@@ -51,21 +62,23 @@ class Session
         session_unset();
         session_destroy();
     }
+
+
     public function getStatus()
     {
         return session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
     }
 
-    public function inactividad()
-    {
+    // public function inactividad()
+    // {
 
-        if (time() - $_SESSION['time'] > 900) { //tiempo de inactividad 15 minutos.
+    //     if (time() - $_SESSION['time'] > 900) { //tiempo de inactividad 15 minutos.
 
-            session_destroy();
-            return true;
-        } else {
-            $_SESSION['time'] = time();
-            return false;
-        }
-    }
+    //         session_destroy();
+    //         return true;
+    //     } else {
+    //         $_SESSION['time'] = time();
+    //         return false;
+    //     }
+    // }
 }

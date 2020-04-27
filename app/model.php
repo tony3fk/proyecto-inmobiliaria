@@ -166,13 +166,15 @@ class Model extends PDO
     function InsertUser(array $params)
     {
 
-        $consulta = "INSERT INTO usuarios (nombre, email, password, tipo, ciudad) VALUES (:nombre,  :email, :password, :tipo, :ciudad)";
+        $consulta = "INSERT INTO usuarios (nombre, email, password, tipo, ciudad, avatar) VALUES (:nombre,  :email, :password, :tipo, :ciudad, :avatar)";
         $insert = $this->conexion->prepare($consulta);
         $insert->bindParam(':nombre', $params['nombre']);
         $insert->bindParam(':email', $params['email']);
         $insert->bindParam(':password', $params['password']);
         $insert->bindParam(':tipo', $params['tipo']);
         $insert->bindParam(':ciudad', $params['ciudad']);
+        $insert->bindParam(':avatar', $params['avatar']);
+
         $insert->execute();
         return $insert;
     }

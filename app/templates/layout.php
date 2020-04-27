@@ -9,8 +9,7 @@
     <title>Gestión Inmobiliaria</title>
 
     <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-    <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css'
-        media='all' />
+    <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' media='all' />
     <link rel="stylesheet" type="text/css" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
     <link rel="stylesheet" type="text/css" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
     <link rel="stylesheet" type="text/css" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
@@ -114,7 +113,7 @@
 
                             <?php
                             $nombre = strtoupper($_COOKIE['nombre']);
-                            $imagen = $_COOKIE['imagen'];
+                            $imagen = $_COOKIE['avatar'];
                             echo  $nombre;
                             ?>
 
@@ -213,8 +212,7 @@
                                 <div class="col-md-12">
 
                                     <div class="md-form">
-                                        <textarea type="text" id="message" name="message" rows="2"
-                                            class="form-control md-textarea" required></textarea>
+                                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required></textarea>
                                         <label for="message">Tu mensaje</label>
                                     </div>
 
@@ -238,8 +236,7 @@
 
                         <!--  mail y telefono -->
                         <div class="elementor-widget-wrap   bg-light text-dark ">
-                            <div
-                                class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
+                            <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
                                 <div class="elementor-widget-container">
                                     <div class="elementor-button-wrapper">
                                         <a class="" role="button">
@@ -250,8 +247,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
+                            <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
                                 <div class="elementor-widget-container">
                                     <div class="elementor-button-wrapper">
                                         <a href="mailto:" class="" role="button">
@@ -277,31 +273,22 @@
                         <!-- fin mail y telefono -->
 
                         <!-- botones redes sociales -->
-                        <div
-                            class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
+                        <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
                             <div class="elementor-widget-container">
 
-                                <a href="https://www.facebook.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
-                                    target="_blank">
+                                <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook " target="_blank">
                                     <span class="elementor-screen-only">Facebook</span>
                                     <i class="fa fa-facebook"></i>
                                 </a>
-                                <a href="https://twitter.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
-                                    target="_blank">
+                                <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
                                     <span class="elementor-screen-only">Twitter</span>
                                     <i class="fa fa-twitter"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
-                                    target="_blank">
+                                <a href="https://www.linkedin.com/" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin " target="_blank">
                                     <span class="elementor-screen-only">Linkedin</span>
                                     <i class="fa fa-linkedin"></i>
                                 </a>
-                                <a href="https://www.instagram.com/"
-                                    class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
-                                    target="_blank">
+                                <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram " target="_blank">
                                     <span class="elementor-screen-only">Instagram</span>
                                     <i class="fa fa-instagram"></i>
                                 </a>

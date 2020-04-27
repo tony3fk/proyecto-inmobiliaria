@@ -32,8 +32,8 @@ class Controller
                     //$params['temp'] = weather($registro['ciudad']); //llamada a la función que retorna la temperatura de la ciudad
                     $params['nombre'] = $registro['nombre'];
                     $params['tipo'] = $registro['tipo'];
-                    $params['ciudad'] = $registro['ciudad']; //determinar ciudad desde la geolocalización
-
+                    $params['ciudad'] = $registro['ciudad'];
+                    $params['avatar'] = $registro['avatar'];
                     $sesion->setSession($params); //establece el user, el nivel a la sesion, la ciudad y la temperatura
 
                     header('location: index.php?ctl=inicio');
@@ -62,6 +62,7 @@ class Controller
                 'password' => '',
                 'ciudad' => '',
                 'tipo' => '',
+                'avatar' => NULL,
                 'mensaje' => ''
 
             );
@@ -77,11 +78,35 @@ class Controller
             }
 
             $params['ciudad'] = recoge('ciudad');
-
-
             // comprobar campos formulario
-            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && is_numeric($params['tipo'])  && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
+
+            //compruebo si tengo datos y si el email es correcto
+            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && is_numeric($params['tipo'])  && isset($params['ciudad'])) {
                 if (isset($_POST['bRegister'])) { //si se pulsa registrar
+
+
+                    //comprobar foto
+                    //comprobación de la imagen si la hay, sin errores y tamaño menos a 2 MB
+                    if ($_FILES['avatar']['error'] == 0 && $_FILES['avatar']['size'] <= 2097152) {
+                        $avatar = $_FILES['avatar']['name'];
+                        $dir = './app/images/avatars/';
+
+
+                        //Añadimos el tiempo para asegurarnos que el nombre es único
+
+                        $params['avatar'] = $dir . time() . '_' . $avatar;
+
+                        //subida de avatar a carpeta avatares
+                        if (move_uploaded_file($_FILES['avatar']['tmp_name'],  $params['avatar'])) {
+                            $params['mensaje'] = "El fichero ha sido guardado";
+                        } else {
+                            $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                        }
+                    } else {
+                        $params['mensaje'] == 'Formato incorrecto o imagen demasiado grande';
+                    }
+
+
 
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
@@ -100,7 +125,8 @@ class Controller
                             'email' =>   $params['email'],
                             'provincia' => $params['password'],
                             'ciudad' =>  $params['ciudad'],
-                            'tipo' => $params['tipo']
+                            'tipo' => $params['tipo'],
+                            'avatar' => $params['avatar']
 
 
                         );
@@ -112,7 +138,9 @@ class Controller
                         'email' =>   $params['email'],
                         'provincia' => $params['password'],
                         'ciudad' =>  $params['ciudad'],
-                        'tipo' => $params['tipo']
+                        'tipo' => $params['tipo'],
+                        'avatar' => $params['avatar']
+
                     );
                     $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
                 }
@@ -528,8 +556,6 @@ class Controller
     //FIN ELIMINAR USUARIOS
 
 
-
-
     //SALIR
     public function salir()
     {
@@ -538,6 +564,7 @@ class Controller
         setcookie('imagen', '', time() - 100);
         setcookie('tipo', '', time() - 100);
         setcookie('email', '', time() - 100);
+        setcookie('avatar', '', time() - 100);
         header('Location: index.php?ctl=login');
     }
     //FIN SALIR
@@ -641,143 +668,4 @@ class Controller
     }
     // busqueda parametrica
 
-
-
-
-
-
-
-
-
-    // function register()
-    // {
-    //     $params['mensaje'] = "";
-    //     $m = new Model;
-    //     //Recojo y valido datos del formulario
-    //     $nombre = recoge('nombre');
-    //     $email = recoge('email');
-    //     $password = recoge('password') /*crypt_blowfish(recoge('password'))*/;
-    //     $ciudad = recoge('ciudad');
-    //     if (isset($nombre) && isset($email) && _email($password) && isset($ciudad)) { //compruebo si tengo datos y si el email es correcto
-
-    //         if (isset($_POST['bRegister'])) { //si se pulsa registrar
-
-    //             if ($m->InsertUser($nombre, $email, $password, $ciudad)) {
-    //                 $params['mensaje'] = 'Registrado con éxito.';
-
-    //                 enviaMail($email);
-
-    //                 header('Location: index.php?ctl=login');
-    //             } else {
-
-    //                 //$params['mensaje'] = 'No se ha podido registrar el usuario o ya existe.';
-    //                 echo "No se ha podido registrar el usuario o ya existe.";
-    //             }
-    //         }
-    //     }
-
-    //     require __DIR__ . '/templates/register.php';
-    // }
-
-
-
-
-
-
-    /*
-    //BUSCAR POR TIPO (SIN USAR)
-    public function buscarPorTipo()
-    {
-        try {
-            $params = array(
-                'tipo' => '',
-                'resultado' => array()
-            );
-            $m = new Model();
-            if (isset($_POST['buscar'])) {
-                $tipo = recoge("tipo");
-                $params['tipo'] = $tipo;
-                $params['resultado'] = $m->buscarPorTipo($tipo);
-            }
-        } catch (Exception $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
-        } catch (Error $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
-        }
-        require __DIR__ . '/templates/buscarPorTipo.php';
-    }
-    //FIN BUSCAR POR TIPO
-*/
-
-
-    /*
-    //REGISTRO ADMIN
-    public function registerAdmin()
-    {
-        try {
-
-            $params = array(
-                'nombre' => '',
-                'email' => '',
-                'password' => '',
-                'ciudad' => '',
-                'tipo' => '',
-                'mensaje' => ''
-
-            );
-
-            $params['nombre'] = recoge('nombre');
-            $params['email'] = recoge('email');
-            $params['password'] = crypt_blowfish(recoge('password'));
-            $params['tipo'] = 2;
-            $params['ciudad'] = recoge('ciudad');
-
-
-            // comprobar campos formulario
-            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && isset($params['tipo']) && isset($params['ciudad'])) { //compruebo si tengo datos y si el email es correcto
-                if (isset($_POST['bRegister'])) { //si se pulsa registrar
-
-
-                    // Si no ha habido problema creo modelo y hago inserción
-                    $m = new Model();
-                    if ($m->InsertUser($params)) {
-                        self::email($params['email']);
-                        header('Location: index.php?ctl=listarUsuarios');
-                    } else {
-                        $params = array(
-                            'nombre' => $params['nombre'],
-                            'email' =>   $params['email'],
-                            'provincia' => $params['password'],
-                            'tipo' => $params['tipo'],
-                            'ciudad' =>  $params['ciudad']
-
-
-                        );
-                        $params['mensaje'] = 'No se ha podido insertar el inmueble. Revisa el formulario';
-                    }
-                } else {
-                    $params = array(
-                        'nombre' => $params['nombre'],
-                        'email' =>   $params['email'],
-                        'provincia' => $params['password'],
-                        'tipo' => $params['tipo'],
-                        'ciudad' =>  $params['ciudad']
-                    );
-                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
-                }
-            }
-        } catch (Exception $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
-        } catch (Error $e) {
-            error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
-        }
-
-        require __DIR__ . '/templates/register.php';
-    }
-    //FIN REGISTRO ADMIN
-*/
 }
