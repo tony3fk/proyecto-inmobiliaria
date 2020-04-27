@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
     <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
-    <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css'
-        media='all' />
+    <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css' media='all' />
     <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
     <!-- <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
@@ -97,12 +96,10 @@
                             <div class="panel-heading">
                                 <div class="row pt-2">
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-outline-primary <?php echo $display ?>"
-                                            id="login-form-link">Login</a>
+                                        <a href="#" class="btn btn-outline-primary <?php echo $display ?>" id="login-form-link">Login</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-outline-secondary"
-                                            id="register-form-link">Register</a>
+                                        <a href="#" class="btn btn-outline-secondary" id="register-form-link">Register</a>
                                     </div>
                                 </div>
                                 <hr>
@@ -115,29 +112,21 @@
 
                                         <div id="login-form">
                                             <!-- formulario de login -->
-                                            <form class="p-2" action="index.php?ctl=login" method="post" role="form"
-                                                style="display: <?php echo $displayLogin ?>;">
+                                            <form class="p-2" action="index.php?ctl=login" method="post" role="form" style="display: <?php echo $displayLogin ?>;">
                                                 <!-- <div class="form-group">
                                                 <input type="text" name="nombre" id="username" tabindex="1" class="form-control text-center" placeholder="Username" value="">
                                             </div> -->
                                                 <div class="form-group">
-                                                    <input type="email" name="email" id="email" tabindex="1"
-                                                        class="form-control text-center" placeholder="Email" value=""
-                                                        required>
+                                                    <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="Email" value="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="password" name="password" id="password" tabindex="2"
-                                                        class="form-control text-center" placeholder="Password"
-                                                        required>
+                                                    <input type="password" name="password" id="password" tabindex="2" class="form-control text-center" placeholder="Password" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <div class="row justify-content-center">
                                                         <div class="col-sm-12 col-md-6 col-sm-offset-3">
-                                                            <input type="submit" name="bLogin" id="login-submit"
-                                                                tabindex="4"
-                                                                class="form-control btn btn-login btn-primary"
-                                                                value="Log In">
+                                                            <input type="submit" name="bLogin" id="login-submit" tabindex="4" class="form-control btn btn-login btn-primary" value="Log In">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -148,8 +137,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="text-center">
-                                                            <a href="index.php?ctl=resetPassword" tabindex="5"
-                                                                class="forgot-password <?php echo $display ?>">Forgot
+                                                            <a href="index.php?ctl=resetPassword" tabindex="5" class="forgot-password <?php echo $display ?>">Forgot
                                                                 Password?</a>
                                                         </div>
                                                     </div>
@@ -159,22 +147,19 @@
                                             <!-- botones inicio mediante redes sociales -->
                                             <div class="row p-2 <?php echo $display ?>">
                                                 <div class="col-4 ">
-                                                    <button onclick="facebookSignIn()"
-                                                        class="btn btn-block btn-facebook " id="btnLoginFacebook">
+                                                    <button onclick="facebookSignIn()" class="btn btn-block btn-facebook " id="btnLoginFacebook">
                                                         <i class="fa fa-facebook fa-fw"></i> Login
                                                     </button>
                                                 </div>
 
                                                 <div class="col-4 ">
-                                                    <button onclick="googleSignIn()" class="btn btn-block btn-google"
-                                                        id="btnLoginGoogle">
+                                                    <button onclick="googleSignIn()" class="btn btn-block btn-google" id="btnLoginGoogle">
                                                         <i class="fa fa-google fa-fw"></i>Login
                                                     </button>
                                                 </div>
 
                                                 <div class="col-4 ">
-                                                    <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter"
-                                                        id="btnLoginTwitter">
+                                                    <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter" id="btnLoginTwitter">
                                                         <i class="fa fa-twitter fa-fw"></i> Login
                                                     </button>
                                                 </div>
@@ -189,37 +174,31 @@
 
 
                                         <!--formulario de registro -->
-                                        <form class="p-2" id="register-form" action="index.php?ctl=register"
-                                            method="post" role="form" style="display: <?php echo $displayRegister ?>;">
+                                        <form class="p-2" id="register-form" action="index.php?ctl=register" method="post" role="form" style="display: <?php echo $displayRegister ?>;" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <input type="text" name="nombre" id="usernamereg" tabindex="1"
-                                                    class="form-control text-center" placeholder="Username" value=""
-                                                    required>
+                                                <input type="text" name="nombre" id="usernamereg" tabindex="1" class="form-control text-center" placeholder="Username" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" name="email" id="email" tabindex="1"
-                                                    class="form-control text-center" placeholder="Email Address"
-                                                    value="" required>
+                                                <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="Email Address" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" id="passwordreg" tabindex="2"
-                                                    class="form-control text-center" placeholder="Password" required>
+                                                <input type="password" name="password" id="passwordreg" tabindex="2" class="form-control text-center" placeholder="Password" required>
                                             </div>
                                             <!-- <div class="form-group">
                                                 <input type="password" name="confirm-password" id="confirm-password"
                                                     tabindex="2" class="form-control" placeholder="Confirm Password">
                                             </div> -->
                                             <div class="form-group">
-                                                <input type="text" name="ciudad" id="ciudad" tabindex="2"
-                                                    class="form-control text-center" placeholder="Ciudad" required>
+                                                <input type="text" name="ciudad" id="ciudad" tabindex="2" class="form-control text-center" placeholder="Ciudad" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Avatar (max 2MB)</label>
+                                                <input type="file" name="avatar" id="avatar" accept="image/gif,image/jpeg,image/jpg,image/png" />
                                             </div>
                                             <div class="form-group">
                                                 <div class="row justify-content-center">
                                                     <div class="col-sm-6 col-sm-offset-3">
-                                                        <input type="submit" name="bRegister" id="register-submit"
-                                                            tabindex="4"
-                                                            class="form-control btn btn-register btn-secondary"
-                                                            value="Register Now">
+                                                        <input type="submit" name="bRegister" id="register-submit" tabindex="4" class="form-control btn btn-register btn-secondary" value="Register Now">
                                                     </div>
                                                 </div>
                                             </div>
@@ -276,31 +255,22 @@
 
 
 
-                <div
-                    class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
+                <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
                     <div class="elementor-widget-container">
                         <div>
-                            <a href="https://www.facebook.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
-                                target="_blank">
+                            <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook " target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-facebook"></i>
                             </a>
-                            <a href="https://twitter.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-twitter "
-                                target="_blank">
+                            <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-twitter"></i>
                             </a>
-                            <a href="https://www.linkedin.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
-                                target="_blank">
+                            <a href="https://www.linkedin.com/" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin " target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-linkedin"></i>
                             </a>
-                            <a href="https://www.instagram.com/"
-                                class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
-                                target="_blank">
+                            <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram " target="_blank">
                                 <span class="elementor-screen-only"></span>
                                 <i class="fa fa-instagram"></i>
                             </a>

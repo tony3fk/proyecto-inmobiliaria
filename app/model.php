@@ -15,8 +15,6 @@ class Model extends PDO
         $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-
-
     public function listarVenta($tipo, $provincia)
 
     {
@@ -31,8 +29,6 @@ class Model extends PDO
         return $result->fetchAll();
     }
 
-
-
     public function listarAlquiler($tipo, $provincia)
     {
         if (!empty($tipo) && !empty($provincia)) {
@@ -45,9 +41,6 @@ class Model extends PDO
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
-
-
-
 
 
     public function listarUsuarios($orderBy = " order by tipo desc")
@@ -66,33 +59,46 @@ class Model extends PDO
         return $result->fetchAll();
     }
 
-
-
     public function eliminarInmuebles($referencia)
     {
-
+        $imagen = self::obtenerImagenDelInmueble($referencia);
         $consulta = "delete from inmuebles where referencia = :referencia";
-
         $result = $this->conexion->prepare($consulta);
         $result->bindParam(':referencia', $referencia);
         $result->execute();
+        return $imagen;
+    }
 
-
-        return $referencia;
+    public function obtenerImagenDelInmueble($referencia)
+    {
+        $consulta = "SELECT imagen FROM inmuebles WHERE referencia=:referencia";
+        $select = $this->conexion->prepare($consulta);
+        $select->bindParam(':referencia', $referencia);
+        $select->execute();
+        $registro = $select->fetch();
+        return $registro['imagen'];
     }
 
 
     public function eliminarUsuario($id)
     {
-
+        $avatar = self::obtenerAvatarDeUsuario($id);
         $consulta = "delete from usuarios where id = :id";
-
         $result = $this->conexion->prepare($consulta);
         $result->bindParam(':id', $id);
         $result->execute();
+        return $avatar;
+    }
 
+    public function obtenerAvatarDeUsuario($id)
+    {
 
-        return $id;
+        $consulta = "SELECT avatar FROM usuarios WHERE id=:id";
+        $select = $this->conexion->prepare($consulta);
+        $select->bindParam(':id', $id);
+        $select->execute();
+        $registro = $select->fetch();
+        return $registro['avatar'];
     }
 
 
@@ -109,12 +115,6 @@ class Model extends PDO
     }
 
 
-
-
-
-
-
-
     public function verInmueble($referencia)
     {
 
@@ -125,10 +125,6 @@ class Model extends PDO
         $result->execute();
         return $result->fetch();
     }
-
-
-
-
 
     public function insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen)
     {
@@ -160,24 +156,22 @@ class Model extends PDO
         return $update;
     }
 
-
-
     //funcion para insertar nuevos usuarios
     function InsertUser(array $params)
     {
 
-        $consulta = "INSERT INTO usuarios (nombre, email, password, tipo, ciudad) VALUES (:nombre,  :email, :password, :tipo, :ciudad)";
+        $consulta = "INSERT INTO usuarios (nombre, email, password, tipo, ciudad, avatar) VALUES (:nombre,  :email, :password, :tipo, :ciudad, :avatar)";
         $insert = $this->conexion->prepare($consulta);
         $insert->bindParam(':nombre', $params['nombre']);
         $insert->bindParam(':email', $params['email']);
         $insert->bindParam(':password', $params['password']);
         $insert->bindParam(':tipo', $params['tipo']);
         $insert->bindParam(':ciudad', $params['ciudad']);
+        $insert->bindParam(':avatar', $params['avatar']);
+
         $insert->execute();
         return $insert;
     }
-
-
 
     //devuelve el usuario logueado si existe
     function SelectUser($email, $password)
