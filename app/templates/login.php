@@ -47,7 +47,7 @@
         <header class=" row  navbar bg-dark justify-content-center ">
             <ul>
                 <li>
-                    <h1 class="text-warning display-1 title ">Gestión Inmobiliaria</h1>
+                    <h1 class="text-warning display-1 title "><?php echo Config::$TITULO; ?></h1>
                 </li>
                 <h2 class="text-muted">Log in</h2>
             </ul>

@@ -49,12 +49,12 @@
             <header class="header col-12">
 
                 <div class="row bg-dark justify-content-center  header">
-                    <h1 class="text-warning display-2 title ">Gestión Inmobiliaria</h1>
+                    <h1 class="text-warning display-2 title "><?php echo Config::$TITULO; ?></h1>
 
                 </div>
                 <div class="row">
                     <div class=" col-md-10 col-8 bg-dark text-center">
-                        <h4 class="text-warning ">Tu portal inmobiliario</h4>
+                        <h4 class="text-warning "><?php echo Config::$ESLOGAN; ?></h4>
                     </div>
 
                     <div class=" col-md-2 col-4 bg-dark text-right">
@@ -113,7 +113,7 @@
 
                             <?php
                             $nombre = strtoupper($_COOKIE['nombre']);
-                            $imagen = $_COOKIE['avatar'];
+                            //$imagen = $_COOKIE['avatar'];
                             echo  $nombre;
                             ?>
 
@@ -131,7 +131,7 @@
                         </div>
 
 
-                        <img src="<?php echo $imagen ?>" alt="imgperfil">
+                        <img src="<?php echo $_COOKIE['avatar'] ?>" alt="imgperfil">
                     </div>
 
 

@@ -39,7 +39,7 @@ googleSignIn = () => {
         
         //crear cookies
         document.cookie = "nombre=" + encodeURIComponent(displayName);
-        document.cookie = "imagen=" + encodeURIComponent(photoURL);
+        document.cookie = "avatar=" + encodeURIComponent(photoURL);
         document.cookie = "tipo="+1;
 
         window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
@@ -75,7 +75,7 @@ facebookSignIn = () => {
 
         //crear cookies
         document.cookie = "nombre=" + encodeURIComponent(displayName);
-        document.cookie = "imagen=" + encodeURIComponent(photoURL);
+        document.cookie = "avatar=" + encodeURIComponent(photoURL);
 
         window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
          
@@ -105,7 +105,7 @@ twitterSignIn = () => {
 
         //crear cookies
         document.cookie = "nombre=" + encodeURIComponent(displayName);
-        document.cookie = "imagen=" + encodeURIComponent(photoURL);
+        document.cookie = "avatar=" + encodeURIComponent(photoURL);
 
         window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
          

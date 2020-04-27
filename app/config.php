@@ -16,6 +16,11 @@ class Config
 
 
 
+    static public $TITULO = "Gestión Inmobiliaria";
+    static public $ESLOGAN = "Tu Portal Inmobiliario";
+
+
+
     /*static public $oauthJSON = '{
                                     "web":{
                                         "client_id":"498199509579-8a07elvkdfahkjm9sj09rp6tvmsfb9ek.apps.googleusercontent.com",
