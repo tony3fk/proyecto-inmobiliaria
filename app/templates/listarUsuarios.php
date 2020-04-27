@@ -3,7 +3,7 @@
 
 
 
-<div class="container">
+<div class="container-fluid">
 
     <?php
     if (isset($_GET['borrado'])) {
@@ -24,6 +24,7 @@
                 <th class="th-sm text-center">PASSWORD</th>
                 <th class="th-sm text-center">TIPO</th>
                 <th class="th-sm text-center">CIUDAD</th>
+                <th class="th-sm text-center">AVATAR</th>
                 <th class="th-sm text-center"></th>
 
 
@@ -41,9 +42,9 @@
             <td><?php echo "******" /*$usuarios['password']*/ ?></td>
             <td><?php echo $usuarios['tipo'] ?></td>
             <td><?php echo $usuarios['ciudad'] ?></td>
+            <td><a href="<?php echo $usuarios['avatar'] ?>"><?php echo $usuarios['avatar'] ?></a></td>
             <td class="text-center">
-                <a href="index.php?ctl=eliminarUsuario&id=<?php echo $usuarios['id'] ?>"
-                    class="btn btn-outline-danger w-100">Eliminar Registro</a>
+                <a href="index.php?ctl=eliminarUsuario&id=<?php echo $usuarios['id'] ?>" class="btn btn-outline-danger w-100">Eliminar Registro</a>
             </td>
         </tr>
         <?php

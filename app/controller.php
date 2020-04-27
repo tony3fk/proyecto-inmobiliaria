@@ -540,8 +540,9 @@ class Controller
             }
             $id = recoge('id');
             $m = new Model();
-            $result = $m->eliminarUsuario($id);
-            $params['resultado'] = $result;
+            $avatar = $m->eliminarUsuario($id);
+            unlink($avatar); //se elimina su avatar
+
             $params['mensaje'] = "Usuario eliminado";
         } catch (Exception $e) {
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
