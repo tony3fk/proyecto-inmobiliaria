@@ -61,29 +61,32 @@ class Model extends PDO
 
     public function eliminarInmuebles($referencia)
     {
-
+        $imagen = self::obtenerImagenDelInmueble($referencia);
         $consulta = "delete from inmuebles where referencia = :referencia";
-
         $result = $this->conexion->prepare($consulta);
         $result->bindParam(':referencia', $referencia);
         $result->execute();
+        return $imagen;
+    }
 
-
-        return $referencia;
+    public function obtenerImagenDelInmueble($referencia)
+    {
+        $consulta = "SELECT imagen FROM inmuebles WHERE referencia=:referencia";
+        $select = $this->conexion->prepare($consulta);
+        $select->bindParam(':referencia', $referencia);
+        $select->execute();
+        $registro = $select->fetch();
+        return $registro['imagen'];
     }
 
 
     public function eliminarUsuario($id)
     {
         $avatar = self::obtenerAvatarDeUsuario($id);
-
-
         $consulta = "delete from usuarios where id = :id";
         $result = $this->conexion->prepare($consulta);
         $result->bindParam(':id', $id);
         $result->execute();
-
-
         return $avatar;
     }
 

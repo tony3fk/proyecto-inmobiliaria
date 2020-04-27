@@ -469,9 +469,9 @@ class Controller
             }
             $referencia = recoge('id');
             $m = new Model();
-            $result = $m->eliminarInmuebles($referencia);
-            $params['resultado'] = $result;
-            $params['mensaje'] = "Ref: " . $referencia . " eliminado";
+            $imagen = $m->eliminarInmuebles($referencia);
+            unlink($imagen);
+            $mensaje = "Ref: " . $referencia . " eliminada";
         } catch (Exception $e) {
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
             header('Location: index.php?ctl=error');
@@ -480,7 +480,7 @@ class Controller
             header('Location: index.php?ctl=error');
         }
 
-        header('Location: index.php?ctl=listarInmuebles&borrado=1');
+        header("Location: index.php?ctl=listarInmuebles&borrado=$mensaje");
     }
     //FIN ELIMINAR INMUEBLE
 
