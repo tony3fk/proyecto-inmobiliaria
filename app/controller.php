@@ -311,7 +311,8 @@ class Controller
 
 
                 //comprobación de la imagen
-                if ($_FILES['imagen']['error'] == 0 && ($_FILES['imagen']['type'] != 'image/jpg' || $_FILES['imagen']['type'] != 'image/jpeg')) {
+                //comprobación de la imagen si la hay, sin errores y tamaño menos a 5 MB
+                if ($_FILES['imagen']['error'] == 0 && ($_FILES['imagen']['size'] <= 5097152)) {
                     $imagen = $_FILES['imagen']['name'];
                     $dir = './app/images/';
 
@@ -380,10 +381,16 @@ class Controller
     }
     //FIN INSERTAR INMUEBLES
 
+
+
+
+
+
     //UPDATE INMUEBLES
     public function updateInmueble()
     {
         try {
+            $m = new Model();
 
             if (isset($_POST['update'])) {
                 $referencia = $_POST['referencia'];
@@ -393,12 +400,44 @@ class Controller
                 $superficie = $_POST['superficie'];
                 $precio_venta = $_POST['precio_venta'];
 
-                // comprobar campos formulario
+
+                //si hay imagen:
+                if (!isset($_POST['imagen'])) {
+                    $imagen = $_POST['imagen'];
+
+
+                    //comprobar foto
+
+                    if ($_FILES['imagen']['error'] == 0 && $_FILES['imagen']['size'] <= 5097152) {
+
+                        $imgTemp = $_FILES['imagen']['name'];
+                        $dir = './app/images/';
+
+
+                        //Añadimos el tiempo para asegurarnos que el nombre es único
+
+                        $imagen = $dir . time() . '_' . $imgTemp;
+
+                        //subida de avatar a carpeta avatares
+                        if (move_uploaded_file($_FILES['imagen']['tmp_name'],  $imagen)) {
+                            $params['mensaje'] = "El fichero ha sido guardado";
+                        } else {
+                            $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                        }
+                    } else {
+                        $params['mensaje'] == 'Formato incorrecto o imagen demasiado grande';
+                    }
+                } else {
+                    $registro = $m->verInmueble($referencia);
+                    $imagen = $registro['imagen'];
+                }
+
+
 
 
                 // Si no ha habido problema creo modelo y hago update
-                $m = new Model();
-                if ($m->updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta)) {
+
+                if ($m->updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen)) {
                     $params['mensaje'] = "Actualizado correctamente";
                     header('Location: index.php?ctl=listarInmuebles');
                 } else {
@@ -408,7 +447,8 @@ class Controller
                         'operacion' => $operacion,
                         'provincia' => $provincia,
                         'superficie' => $superficie,
-                        'precio_venta' => $precio_venta
+                        'precio_venta' => $precio_venta,
+                        'imagen' => $imagen
 
                     );
 
@@ -504,8 +544,9 @@ class Controller
             $provincia = $params['resultado']['provincia'];
             $superficie = $params['resultado']['superficie'];
             $precio_venta = $params['resultado']['precio_venta'];
+            $imagen = $params['resultado']['imagen'];
 
-            header('Location: index.php?ctl=modificarInmueble&ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta);
+            header('Location: index.php?ctl=modificarInmueble&ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta . '&imagen=' . $imagen);
 
 
 

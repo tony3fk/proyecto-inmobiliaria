@@ -7,17 +7,18 @@ $tipo = $_GET['tipo'];
 $operacion = $_GET['operacion'];
 $provincia = $_GET['provincia'];
 $superficie = $_GET['superficie'];
-$precio_venta = $_GET['precio_venta']; ?>
+$precio_venta = $_GET['precio_venta'];
+$imagen = $_GET['imagen'];
+?>
 
 
 
-<div class="container ">
+<div class="container mb-5">
     <br>
-    <form name="formInsertar" action="index.php?ctl=updateInmueble" method="POST">
+    <form name="formInsertar" action="index.php?ctl=updateInmueble" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label>Ref: </label>
-            <input type="text" name="referencia" value="<?php echo $referencia ?>" readonly
-                class="bg-warning text-center col-1"></input>
+            <input type="text" name="referencia" value="<?php echo $referencia ?>" readonly class="bg-warning text-center col-1"></input>
         </div>
 
         <div class="form-group">
@@ -107,20 +108,32 @@ $precio_venta = $_GET['precio_venta']; ?>
 
         <div class="form-group">
             <label>Superficie (m2)</label>
-            <input type="number" class="form-control" name="superficie" aria-describedby="SuperficieHelp"
-                value="<?php echo $superficie ?>" required>
+            <input type="number" class="form-control" name="superficie" aria-describedby="SuperficieHelp" value="<?php echo $superficie ?>" required>
         </div>
 
         <div class="form-group">
             <label>Precio (€)</label>
-            <input type="number" class="form-control" name="precio_venta" aria-describedby="tipoHelp"
-                value="<?php echo $precio_venta ?>" required>
+            <input type="number" class="form-control" name="precio_venta" aria-describedby="tipoHelp" value="<?php echo $precio_venta ?>" required>
+        </div>
+        <div class="form-group">
+            <img class="w-25  img-responsive" src="<?php echo $imagen ?>" alt="imagen">
+            <label>Modificar imagen: </label>
+            <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg, image/jpg, image/gif" />
+
         </div>
 
 
+
         <br>
-        <input type="submit" class="btn btn-primary" value="actualizar" name="update" />
+        <div class="form-group text-center">
+            <input type="submit" class="btn btn-primary" value="Actualizar" name="update" />
+            <input type="button" onclick="javascript:history.go(-1)" class="btn btn-danger" value="Cancelar" name="cancel" />
+        </div>
+
     </form>
+
+
+
 </div>
 
 
