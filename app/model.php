@@ -142,9 +142,9 @@ class Model extends PDO
         return $result;
     }
 
-    public function updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta)
+    public function updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen)
     {
-        $consulta = "update inmuebles set tipo=:tipo, operacion=:operacion, provincia=:provincia, superficie=:superficie, precio_venta=:precio_venta where referencia=:referencia";
+        $consulta = "update inmuebles set tipo=:tipo, operacion=:operacion, provincia=:provincia, superficie=:superficie, precio_venta=:precio_venta, imagen=:imagen where referencia=:referencia";
         $update = $this->conexion->prepare($consulta);
         $update->bindParam(':referencia', $referencia);
         $update->bindParam(':tipo', $tipo);
@@ -152,6 +152,7 @@ class Model extends PDO
         $update->bindParam(':provincia', $provincia);
         $update->bindParam(':superficie', $superficie);
         $update->bindParam(':precio_venta', $precio_venta);
+        $update->bindParam(':imagen', $imagen);
         $update->execute();
         return $update;
     }
