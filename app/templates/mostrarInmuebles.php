@@ -14,8 +14,7 @@
             <!-- Card image -->
             <div class="embed-responsive embed-responsive-4by3">
 
-                <img class="card-img-top embed-responsive-item img-thumbnail" src="<?php echo $inmuebles['imagen']; ?>"
-                    alt="Card image cap" id="img-inmueble">
+                <img class="card-img-top embed-responsive-item img-thumbnail" src="<?php echo $inmuebles['imagen']; ?>" alt="Card image cap" id="img-inmueble">
 
             </div>
 
@@ -48,8 +47,7 @@
                 </p>
                 <!-- Link -->
                 <div class="text-right">
-                    <a href="index.php?ctl=verInmueble&referencia=<?php echo $inmuebles['referencia'] ?>"
-                        class="btn btn-primary">
+                    <a href="index.php?ctl=verInmueble&referencia=<?php echo $inmuebles['referencia'] ?>" class="btn btn-warning">
                         <h5>Más info. </h5>
                     </a>
                 </div>

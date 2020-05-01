@@ -77,10 +77,19 @@
                 </div>
 
 
-                <div class="collapse navbar-collapse justify-content-start col-3 col-lg-8" id="navbarCollapse">
+                <div class="collapse navbar-collapse justify-content-start col-10 col-lg-10" id="navbarCollapse">
 
-                    <a href="index.php?ctl=inicio" class="nav-item nav-link ">
-                        <h4>Inicio </h4>
+                    <?php
+                    $muestraInicio = "";
+                    if ($_GET['ctl'] == "inicio") {
+                        $muestraHome = 'd-none';
+                    }
+
+
+                    ?>
+
+                    <a href="index.php?ctl=inicio" class="nav-item nav-link <?php echo $muestraHome; ?>">
+                        <h5>Home </h5>
                     </a>
                     <!-- <a href="index.php?ctl=listarVenta" class="nav-item nav-link ">
                         <h4>Venta </h4>
@@ -89,12 +98,10 @@
                         <h4>Alquiler </h4>
                     </a> -->
                     <a href="#footer" class="nav-item nav-link " id="bContact">
-                        <h4>Contacto </h4>
+                        <h5>Contacto </h5>
                     </a>
 
-                    <a href="index.php?ctl=salir" class="nav-item nav-link">
-                        <h4>Salir </h4>
-                    </a>
+
 
                     <?php
                     //si no es administrador se aplica la class de Bootstrap d-none en el siguiente elemento div #menuAdmin
@@ -106,7 +113,7 @@
 
                 </div>
 
-                <div id="userActivo" class="col-8 col-lg-4 ">
+                <div id="userActivo" class="col-8 col-lg-2 ">
 
                     <div id="menuAdmin" class="nav-item  dropdown row justify-content-end">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -121,12 +128,14 @@
                         </a>
 
 
-                        <div class="dropdown-menu bg-warning justify-content-end <?php echo $displayNone ?>">
-                            <a href="index.php?ctl=listarInmuebles" class="dropdown-item">Gestión Inmuebles</a>
-                            <a href="index.php?ctl=insertar" class="dropdown-item">Añadir Inmueble</a>
+                        <div class="dropdown-menu bg-warning justify-content-end">
 
-                            <a href="index.php?ctl=listarUsuarios" class="dropdown-item">Gestión Usuarios</a>
-                            <a href="index.php?ctl=register" class="dropdown-item">Añadir Administrador</a>
+                            <a href="index.php?ctl=listarInmuebles" class="dropdown-item  <?php echo $displayNone ?>">Gestión Inmuebles</a>
+                            <a href="index.php?ctl=insertar" class="dropdown-item  <?php echo $displayNone ?>">Añadir Inmueble</a>
+
+                            <a href="index.php?ctl=listarUsuarios" class="dropdown-item  <?php echo $displayNone ?>">Gestión Usuarios</a>
+                            <a href="index.php?ctl=register" class="dropdown-item  <?php echo $displayNone ?>">Añadir Administrador</a>
+                            <a href="index.php?ctl=salir" class="dropdown-item">Salir</a>
 
                         </div>
 
@@ -161,7 +170,7 @@
 
             <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 <?php echo $displayNone ?>">
 
-                <h2 class="h1-responsive font-weight-bold text-center my-4">Contacto</h2>
+                <h2 class="h1-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
 
                 <div class="row justify-content-center">
                     <div class="col-lg-1"></div>
@@ -224,7 +233,7 @@
 
                             <div class="text-center text-md-center ">
                                 <button name="bEmail" type="submit" class="btn btn-warning">Enviar</button>
-                                <!-- añadir envio por mail-->
+                                <!--  envio por mail-->
                             </div>
                         </form>
                         <div class="status"></div>
