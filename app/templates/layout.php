@@ -36,6 +36,19 @@
             }, 700); //Llega a su destino con el tiempo deseado
             return false;
         });
+        $('#ir-arriba').click(function() {
+            $('body, html').animate({
+                scrollTop: '0px'
+            }, 300);
+        });
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 0) {
+                $('#ir-arriba').slideDown(300);
+            } else {
+                $('#ir-arriba').slideUp(300);
+            }
+        });
     });
     </script>
 </head>
@@ -234,6 +247,12 @@
                             <div class="text-center text-md-center ">
                                 <button name="bEmail" type="submit" class="btn btn-warning">Enviar</button>
                                 <!--  envio por mail-->
+                            </div>
+                            <br>
+                            <div class="top-icon text-center">
+                                <a href="#" id="ir-arriba">
+                                    <i class="fa fa-chevron-up">Up</i>
+                                </a>
                             </div>
                         </form>
                         <div class="status"></div>
