@@ -28,6 +28,7 @@
 
 
     <script>
+    //scripts para el scroll de la página
     $(document).ready(function() {
         $('#bContact').click(function() {
             var destino = $(this.hash); //this.hash lee el atributo href de este
@@ -51,6 +52,9 @@
         });
     });
     </script>
+
+
+
 </head>
 
 <body onload="geoFindMe()">
@@ -153,7 +157,9 @@
                         </div>
 
 
-                        <img src="<?php echo $_COOKIE['avatar'] ?>" alt="imgperfil">
+                        <a href="">
+                            <img src="<?php echo $_COOKIE['avatar'] ?>" alt="imgperfil">
+                        </a>
                     </div>
 
 
