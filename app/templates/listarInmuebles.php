@@ -53,7 +53,7 @@
                 <a href="index.php?ctl=editarInmuebles&id=<?php echo $inmuebles['referencia'] ?>" class="btn btn-outline-warning w-100">Editar Registro</a>
             </td>
             <td class="text-center">
-                <a href="index.php?ctl=eliminarInmuebles&id=<?php echo $inmuebles['referencia'] ?>" class="btn btn-outline-danger w-100">Eliminar Registro</a>
+                <a href="index.php?ctl=eliminarInmuebles&id=<?php echo $inmuebles['referencia'] ?>" class=" btnEliminar btn btn-outline-danger w-100">Eliminar Registro</a>
 
             </td>
         </tr>
@@ -64,6 +64,8 @@
     </table>
 </div>
 <script src="./app/libs/sortTables.js"></script>
+
+
 
 
 

@@ -25,35 +25,8 @@
     <script src="./vendor/datatables/datatables/examples/resources/syntax/shCore.js"></script>
     <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./app/libs/geolocalizacion.js"></script>
-
-
-    <script>
-    //scripts para el scroll de la página
-    $(document).ready(function() {
-        $('#bContact').click(function() {
-            var destino = $(this.hash); //this.hash lee el atributo href de este
-            $('html, body').animate({
-                scrollTop: destino.offset().top
-            }, 700); //Llega a su destino con el tiempo deseado
-            return false;
-        });
-        $('#ir-arriba').click(function() {
-            $('body, html').animate({
-                scrollTop: '0px'
-            }, 300);
-        });
-
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 0) {
-                $('#ir-arriba').slideDown(300);
-            } else {
-                $('#ir-arriba').slideUp(300);
-            }
-        });
-    });
-    </script>
-
-
+    <script src="./app/libs/scrolls.js"></script>
+    <script src="./app/libs/confirmaEliminacion.js"></script>
 
 </head>
 
@@ -152,14 +125,16 @@
 
                             <a href="index.php?ctl=listarUsuarios" class="dropdown-item  <?php echo $displayNone ?>">Gestión Usuarios</a>
                             <a href="index.php?ctl=register" class="dropdown-item  <?php echo $displayNone ?>">Añadir Administrador</a>
+                            <hr>
                             <a href="index.php?ctl=salir" class="dropdown-item">Salir</a>
 
                         </div>
 
 
-                        <a href="">
-                            <img src="<?php echo $_COOKIE['avatar'] ?>" alt="imgperfil">
-                        </a>
+                        <img src="<?php echo $_COOKIE['avatar'] ?>" alt="imgperfil" id="avatar">
+
+
+
                     </div>
 
 
@@ -356,6 +331,9 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="./app/libs/authFirebase.js"></script>
+
+
+
 
 
 </body>
