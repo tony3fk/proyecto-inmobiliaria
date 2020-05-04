@@ -3,10 +3,10 @@
 class Config
 {
     //para localhost:
-    static public $mvc_bd_hostname = "localhost";
-    static public $mvc_bd_nombre = "inmobiliaria";
-    static public $mvc_bd_usuario = "root";
-    static public $mvc_bd_clave = "";
+    // static public $mvc_bd_hostname = "localhost";
+    // static public $mvc_bd_nombre = "inmobiliaria";
+    // static public $mvc_bd_usuario = "root";
+    // static public $mvc_bd_clave = "";
 
     //para 000webhostapp.com:
     // static public $mvc_bd_hostname = "localhost";
@@ -14,6 +14,19 @@ class Config
     // static public $mvc_bd_usuario = "id13312903_root";
     // static public $mvc_bd_clave = "Nora.lucia2012";
 
+
+    //para clever-cloud.com
+    static public $mvc_bd_hostname = "bffvv5tyvury4tx2z9yy-mysql.services.clever-cloud.com:3306";
+    static public $mvc_bd_nombre = "bffvv5tyvury4tx2z9yy";
+    static public $mvc_bd_usuario = "uu7qlndrrg8yccsz";
+    static public $mvc_bd_clave = "MkRTqdolj8AjGEOKsUym";
+
+    // MYSQL_ADDON_HOST=bffvv5tyvury4tx2z9yy-mysql.services.clever-cloud.com
+    // MYSQL_ADDON_DB=bffvv5tyvury4tx2z9yy
+    // MYSQL_ADDON_USER=uu7qlndrrg8yccsz
+    // MYSQL_ADDON_PORT=3306
+    // MYSQL_ADDON_PASSWORD=MkRTqdolj8AjGEOKsUym 
+    // MYSQL_ADDON_URI=mysql://uu7qlndrrg8yccsz:MkRTqdolj8AjGEOKsUym@bffvv5tyvury4tx2z9yy-mysql.services.clever-cloud.com:3306/bffvv5tyvury4tx2z9yy
 
 
     static public $TITULO = "Gestión Inmobiliaria";

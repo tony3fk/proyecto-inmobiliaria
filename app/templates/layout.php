@@ -28,7 +28,6 @@
     <script src="./app/libs/scrolls.js"></script>
     <script src="./app/libs/confirmaEliminacion.js"></script>
 
-
 </head>
 
 <body onload="geoFindMe()">
@@ -126,14 +125,16 @@
 
                             <a href="index.php?ctl=listarUsuarios" class="dropdown-item  <?php echo $displayNone ?>">Gestión Usuarios</a>
                             <a href="index.php?ctl=register" class="dropdown-item  <?php echo $displayNone ?>">Añadir Administrador</a>
+                            <hr>
                             <a href="index.php?ctl=salir" class="dropdown-item">Salir</a>
 
                         </div>
 
 
-                        <a href="">
-                            <img src="<?php echo $_COOKIE['avatar'] ?>" alt="imgperfil">
-                        </a>
+                        <img src="<?php echo $_COOKIE['avatar'] ?>" alt="imgperfil" id="avatar">
+
+
+
                     </div>
 
 
@@ -330,6 +331,9 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="./app/libs/authFirebase.js"></script>
+
+
+
 
 
 </body>
