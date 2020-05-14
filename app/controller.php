@@ -495,7 +495,20 @@ class Controller
             $referencia = recoge('referencia');
             $m = new Model();
             $result = $m->verInmueble($referencia);
-            $params = $result;
+            $arrayImagenes = json_decode($result['imagen'], true);
+            $params = [
+                'referencia' => $result['referencia'],
+                'fecha_alta' => $result['fecha_alta'],
+                'tipo' => $result['tipo'],
+                'operacion' => $result['operacion'],
+                'provincia' => $result['provincia'],
+                'superficie' => $result['superficie'],
+                'precio_venta' => $result['precio_venta'],
+                'fecha_venta' => $result['fecha_venta'],
+                'vendedor' => $result['vendedor'],
+                'imagen' => $arrayImagenes,
+
+            ];
         } catch (Exception $e) {
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
             header('Location: index.php?ctl=error');
