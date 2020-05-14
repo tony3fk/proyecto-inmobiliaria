@@ -308,23 +308,35 @@ class Controller
 
             if (isset($_POST['insertar'])) {
 
+                if ($_FILES['imagen']) {
+
+                    // print_r($_FILES['imagen']);
+                    // die();
+
+                    $cantidad = count($_FILES['imagen']);
+
+                    for ($i = 0; $i <= $cantidad; $i++) {
+                        //comprobación de la imagen
+                        //comprobación de la imagen si la hay, sin errores y tamaño menos a 5 MB
+                        if ($_FILES['imagen']['error'][$i] == 0 && ($_FILES['imagen']['size'][$i] <= 5097152)) {
+                            $imagen = $_FILES['imagen']['name'][$i];
+                            $dir = './app/images/';
 
 
-                //comprobación de la imagen
-                //comprobación de la imagen si la hay, sin errores y tamaño menos a 5 MB
-                if ($_FILES['imagen']['error'] == 0 && ($_FILES['imagen']['size'] <= 5097152)) {
-                    $imagen = $_FILES['imagen']['name'];
-                    $dir = './app/images/';
+                            //Añadimos el tiempo para asegurarnos que el nombre es único
+                            $idUnico = time();
+                            $nombreImagen = $dir . $idUnico . '_' . $imagen;
 
 
-                    //Añadimos el tiempo para asegurarnos que el nombre es único
-                    $idUnico = time();
-                    $nombreImagen = $dir . $idUnico . '_' . $imagen;
+                            $arrayImagenes[$i] = $nombreImagen;
 
-                    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $nombreImagen)) {
-                        $params['mensaje'] = "El fichero ha sido guardado";
-                    } else {
-                        $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+
+                            if (move_uploaded_file($_FILES['imagen']['tmp_name'][$i], $nombreImagen)) {
+                                $params['mensaje'] = "El fichero ha sido guardado";
+                            } else {
+                                $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                            }
+                        }
                     }
                 }
 
@@ -343,7 +355,9 @@ class Controller
 
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
-                    if ($m->insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $nombreImagen)) {
+                    $jsonImagenes = json_encode($arrayImagenes);
+
+                    if ($m->insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $jsonImagenes)) {
                         $params['mensaje'] = "Insertado correctamente";
                         header('Location: index.php?ctl=listarInmuebles');
                     } else {

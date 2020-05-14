@@ -2,7 +2,7 @@
 
 <?php if (isset($params['mensaje'])) : ?>
 <b><span style="color: red;"><?php echo $params['mensaje'];
-                                    $params['mensaje'] = ""; ?></span></b>
+                                        $params['mensaje'] = ""; ?></span></b>
 <?php endif; ?>
 <br />
 
@@ -97,18 +97,16 @@
 
         <div class="form-group">
             <label>Superficie (m2)</label>
-            <input type="number" class="form-control" name="superficie" aria-describedby="SuperficieHelp"
-                value="<?php echo $params['superficie'] ?>" required>
+            <input type="number" class="form-control" name="superficie" aria-describedby="SuperficieHelp" value="<?php echo $params['superficie'] ?>" required>
         </div>
 
         <div class="form-group">
             <label>Precio (€)</label>
-            <input type="number" class="form-control" name="precio_venta" aria-describedby="tipoHelp"
-                value="<?php echo $params['precio_venta'] ?>" required>
+            <input type="number" class="form-control" name="precio_venta" aria-describedby="tipoHelp" value="<?php echo $params['precio_venta'] ?>" required>
         </div>
         <div class="form-group">
             <label>Imagen</label>
-            <input type="file" name="imagen" id="imagen" />
+            <input type="file" name="imagen[]" id="imagen" multiple />
         </div>
 
 

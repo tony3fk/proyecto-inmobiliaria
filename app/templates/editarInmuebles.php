@@ -118,7 +118,7 @@ $imagen = $_GET['imagen'];
         <div class="form-group">
             <img class="w-25  img-responsive" src="<?php echo $imagen ?>" alt="imagen">
             <label>Modificar imagen: </label>
-            <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg, image/jpg, image/gif" />
+            <input type="file" name="imagen[]" id="imagen" accept="image/png, image/jpeg, image/jpg, image/gif" multiple />
 
         </div>
 
