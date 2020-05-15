@@ -22,48 +22,33 @@
     <div class="row">
 
         <!-- imagen -->
-        <!-- <div class="col-12 col-xl-6 m-auto "> -->
-        <!-- <a href="<?php //echo $params['imagen']; 
-                        ?>" target="_blank">
-                <img class="w-100 img-thumbnail" src="<?php //echo $params['imagen']; 
-                                                        ?>">
-            </a> -->
+
         <div id="carouselExampleIndicators" class="carousel slide col-12 col-xl-6 m-auto " data-ride="carousel">
             <ol class="carousel-indicators">
+
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                <?php for ($i = 1; $i < count($params['imagen']); $i++) {
+                    ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $i; ?>"></li>
+
+                <?php } ?>
             </ol>
             <div class="carousel-inner">
 
-                <?php //for ($i = 0; $i <= count($params['imagen']); $i++) { 
-                ?>
+
+
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="<?php echo $params['imagen'][0]; ?>" alt="First slide">
                 </div>
+                <?php for ($i = 1; $i < count($params['imagen']); $i++) {
+                    ?>
                 <div class="carousel-item ">
-                    <img class="d-block w-100" src="<?php echo $params['imagen'][1]; ?>" alt="First slide">
+                    <img class="d-block w-100" src="<?php echo $params['imagen'][$i]; ?>" alt="First slide">
                 </div>
-                <div class="carousel-item ">
-                    <img class="d-block w-100" src="<?php echo $params['imagen'][2]; ?>" alt="First slide">
-                </div>
-                <div class="carousel-item ">
-                    <img class="d-block w-100" src="<?php echo $params['imagen'][3]; ?>" alt="First slide">
-                </div>
-                <div class="carousel-item ">
-                    <img class="d-block w-100" src="<?php echo $params['imagen'][4]; ?>" alt="First slide">
-                </div>
-                <?php //} 
+
+                <?php }
                 ?>
-                <!-- <div class="carousel-item">
-                        <img class="d-block w-100" src="..." alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="..." alt="Third slide">
-                    </div> -->
+
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -74,7 +59,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <!-- </div> -->
+
         <!-- fin imagen -->
 
 
