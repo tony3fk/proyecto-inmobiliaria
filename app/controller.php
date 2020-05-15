@@ -312,8 +312,6 @@ class Controller
 
                 if ($_FILES['imagen']) {
 
-                    // print_r($_FILES['imagen']);
-                    // die();
 
                     $cantidad = count($_FILES['imagen']);
 
@@ -417,30 +415,31 @@ class Controller
 
 
                 //si hay imagen:
-                if (!isset($_POST['imagen'])) {
-                    $imagen = $_POST['imagen'];
+                if (isset($_FILES['imagen'])) {
+                    // $imagen[] = $_FILES['imagen'];
+                    $cantidad = count($_FILES['imagen']);
+
+                    for ($i = 0; $i <= $cantidad; $i++) {
+                        //comprobación de la imagen
+                        //comprobación de la imagen si la hay, sin errores y tamaño menos a 5 MB
+                        if ($_FILES['imagen']['error'][$i] == 0 && ($_FILES['imagen']['size'][$i] <= 5097152)) {
+                            $imagen[] = $_FILES['imagen']['name'][$i];
+                            $dir = './app/images/';
+
+                            //Añadimos el tiempo para asegurarnos que el nombre es único
+
+                            $nombreImagen[$i] = $dir . time() . '_' . $imagen[$i];
 
 
-                    //comprobar foto
-
-                    if ($_FILES['imagen']['error'] == 0 && $_FILES['imagen']['size'] <= 5097152) {
-
-                        $imgTemp = $_FILES['imagen']['name'];
-                        $dir = './app/images/';
+                            $arrayImagenes[$i] = $nombreImagen[$i];
 
 
-                        //Añadimos el tiempo para asegurarnos que el nombre es único
-
-                        $imagen = $dir . time() . '_' . $imgTemp;
-
-                        //subida de avatar a carpeta avatares
-                        if (move_uploaded_file($_FILES['imagen']['tmp_name'],  $imagen)) {
-                            $params['mensaje'] = "El fichero ha sido guardado";
-                        } else {
-                            $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                            if (move_uploaded_file($_FILES['imagen']['tmp_name'][$i], $nombreImagen[$i])) {
+                                $params['mensaje'] = "El fichero ha sido guardado";
+                            } else {
+                                $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                            }
                         }
-                    } else {
-                        $params['mensaje'] == 'Formato incorrecto o imagen demasiado grande';
                     }
                 } else {
                     $registro = $m->verInmueble($referencia);
@@ -448,11 +447,11 @@ class Controller
                 }
 
 
-
+                $jsonImagenes = json_encode($arrayImagenes);
 
                 // Si no ha habido problema creo modelo y hago update
 
-                if ($m->updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen)) {
+                if ($m->updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta,  $jsonImagenes)) {
                     $params['mensaje'] = "Actualizado correctamente";
                     header('Location: index.php?ctl=listarInmuebles');
                 } else {
@@ -463,7 +462,7 @@ class Controller
                         'provincia' => $provincia,
                         'superficie' => $superficie,
                         'precio_venta' => $precio_venta,
-                        'imagen' => $imagen
+                        'imagen' => $jsonImagenes
 
                     );
 
