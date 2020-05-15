@@ -14,7 +14,19 @@
             <!-- Card image -->
             <div class="embed-responsive embed-responsive-4by3">
 
-                <img class="card-img-top embed-responsive-item img-thumbnail" src="<?php echo $inmuebles['imagen']; ?>" alt="Card image cap" id="img-inmueble">
+                <img class="card-img-top embed-responsive-item img-thumbnail" src="
+                <?php
+                    $string = json_decode($inmuebles['imagen']);
+                    if (json_last_error() == JSON_ERROR_NONE) {
+                        $arrayImgs = json_decode($inmuebles['imagen'], true);
+                        echo $arrayImgs[0];
+                    } else {
+                        echo $inmuebles['imagen'];
+                    }
+
+
+
+                    ?>" alt="Card image cap" id="img-inmueble">
 
             </div>
 

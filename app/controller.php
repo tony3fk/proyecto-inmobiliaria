@@ -215,6 +215,8 @@ class Controller
                 'inmuebles' => $m->listarVenta($tipo, $provincia)
             );
 
+
+
             // Recogemos los dos tipos de excepciones que se pueden producir
         } catch (Exception $e) {
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
@@ -319,19 +321,18 @@ class Controller
                         //comprobación de la imagen
                         //comprobación de la imagen si la hay, sin errores y tamaño menos a 5 MB
                         if ($_FILES['imagen']['error'][$i] == 0 && ($_FILES['imagen']['size'][$i] <= 5097152)) {
-                            $imagen = $_FILES['imagen']['name'][$i];
+                            $imagen[] = $_FILES['imagen']['name'][$i];
                             $dir = './app/images/';
 
-
                             //Añadimos el tiempo para asegurarnos que el nombre es único
-                            $idUnico = time();
-                            $nombreImagen = $dir . $idUnico . '_' . $imagen;
+
+                            $nombreImagen[$i] = $dir . time() . '_' . $imagen[$i];
 
 
-                            $arrayImagenes[$i] = $nombreImagen;
+                            $arrayImagenes[$i] = $nombreImagen[$i];
 
 
-                            if (move_uploaded_file($_FILES['imagen']['tmp_name'][$i], $nombreImagen)) {
+                            if (move_uploaded_file($_FILES['imagen']['tmp_name'][$i], $nombreImagen[$i])) {
                                 $params['mensaje'] = "El fichero ha sido guardado";
                             } else {
                                 $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
@@ -488,6 +489,10 @@ class Controller
     //VER INMUEBLE
     public function verInmueble()
     {
+        function isJSON($string)
+        {
+            return is_string($string) && is_array(json_decode($string, true)) && (json_last_error() == JSON_ERROR_NONE) ? true : false;
+        }
         try {
             if (!isset($_GET['referencia'])) {
                 throw new Exception('Página no encontrada');
@@ -495,20 +500,16 @@ class Controller
             $referencia = recoge('referencia');
             $m = new Model();
             $result = $m->verInmueble($referencia);
-            $arrayImagenes = json_decode($result['imagen'], true);
-            $params = [
-                'referencia' => $result['referencia'],
-                'fecha_alta' => $result['fecha_alta'],
-                'tipo' => $result['tipo'],
-                'operacion' => $result['operacion'],
-                'provincia' => $result['provincia'],
-                'superficie' => $result['superficie'],
-                'precio_venta' => $result['precio_venta'],
-                'fecha_venta' => $result['fecha_venta'],
-                'vendedor' => $result['vendedor'],
-                'imagen' => $arrayImagenes,
 
-            ];
+            //comprobar si $result[imagen] es un json
+
+
+            if (isJSON($result['imagen'])) {
+                $arrayImagenes = json_decode($result['imagen'], true);
+                $result = [
+                    'imagen' => $arrayImagenes,
+                ];
+            }
         } catch (Exception $e) {
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
             header('Location: index.php?ctl=error');
@@ -722,8 +723,11 @@ class Controller
                 $m = new Model();
                 $params['inmuebles'] = $m->listarConParametros($_COOKIE['operacion'],  $_COOKIE['tipo'],  $_COOKIE['provincia']);
 
+                // print_r($params);
+                // die();
+
                 if (count($params['inmuebles']) == 0) {
-                    echo "no hay resultados";
+                    $params['mensaje'] = "no hay resultados";
                 }
             }
         } catch (Exception $e) {
