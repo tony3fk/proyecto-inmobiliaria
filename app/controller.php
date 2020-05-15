@@ -482,30 +482,39 @@ class Controller
     //FIN UPDATE INMUEBLES
 
 
-
+    function isJSON($string)
+    {
+        return is_string($string) && is_array(json_decode($string, true)) && (json_last_error() == JSON_ERROR_NONE) ? true : false;
+    }
 
 
     //VER INMUEBLE
     public function verInmueble()
     {
-        function isJSON($string)
-        {
-            return is_string($string) && is_array(json_decode($string, true)) && (json_last_error() == JSON_ERROR_NONE) ? true : false;
-        }
+
         try {
             if (!isset($_GET['referencia'])) {
                 throw new Exception('Página no encontrada');
             }
-            $referencia = recoge('referencia');
+            $referencia = $_GET['referencia'];
             $m = new Model();
+
             $result = $m->verInmueble($referencia);
+
 
             //comprobar si $result[imagen] es un json
 
 
-            if (isJSON($result['imagen'])) {
+            if (Self::isJSON($result['imagen'])) {
                 $arrayImagenes = json_decode($result['imagen'], true);
                 $result = [
+
+                    'referencia' => $result['referencia'],
+                    'tipo' => $result['tipo'],
+                    'operacion' => $result['operacion'],
+                    'provincia' => $result['provincia'],
+                    'superficie' => $result['superficie'],
+                    'precio_venta' => $result['precio_venta'],
                     'imagen' => $arrayImagenes,
                 ];
             }
@@ -556,11 +565,7 @@ class Controller
     {
         try {
 
-
-
             $referencia = $_GET['id'];
-
-
 
             $m = new Model();
             $result = $m->verInmueble($referencia);
@@ -571,7 +576,12 @@ class Controller
             $provincia = $params['resultado']['provincia'];
             $superficie = $params['resultado']['superficie'];
             $precio_venta = $params['resultado']['precio_venta'];
-            $imagen = json_decode($params['resultado']['imagen'], true);
+
+            if (Self::isJSON($params['resultado']['imagen'])) {
+                $imagen = json_decode($params['resultado']['imagen'], true);
+            } else {
+                $imagen = $params['resultado']['imagen'];
+            }
 
             header('Location: index.php?ctl=modificarInmueble&ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta . '&imagen=' . serialize($imagen));
 

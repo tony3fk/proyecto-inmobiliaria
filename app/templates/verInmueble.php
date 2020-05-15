@@ -3,7 +3,7 @@
     <br>
     <div class="row justify-content-around">
         <div class="col-1 ">
-            <a href="index.php?ctl=verInmueble&referencia= " <?php echo $result['referencia'] - 1; ?>" type="button" class="btn btn-lg btn-outline-warning w-100">
+            <a href="index.php?ctl=verInmueble&referencia=<?php echo $result['referencia'] - 1; ?>" type="button" class="btn btn-lg btn-outline-warning w-100">
                 <i class="text-dark fa fa-angle-double-left"></i>
             </a>
         </div>

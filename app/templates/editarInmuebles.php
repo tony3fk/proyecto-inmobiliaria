@@ -10,6 +10,7 @@ $superficie = $_GET['superficie'];
 $precio_venta = $_GET['precio_venta'];
 $imagen = unserialize($_GET['imagen']);
 
+// !is_array($imagen) ? $imagen = $_GET['imagen'] : true;
 
 ?>
 
@@ -119,18 +120,20 @@ $imagen = unserialize($_GET['imagen']);
         </div>
         <div class="form-group">
 
-            <?php
+            <?php if (is_array($imagen)) {  ?>
 
-
-
-            foreach ($imagen as $img) {
-                ?>
+            <?php foreach ($imagen as $img) { ?>
             <a href="<?php echo $img ?>">
                 <img class="img-responsive" style="width:12em; height:7em" src="<?php echo $img ?>" alt="imagen">
             </a>
 
             <?php }
-            ?>
+                } else { ?>
+            <a href="<?php echo $img ?>">
+                <img class="img-responsive" style="width:12em; height:7em" src="<?php echo $imagen ?>" alt="imagen">
+            </a>
+
+            <?php } ?>
 
 
             <br><br>
