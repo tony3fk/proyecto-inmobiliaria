@@ -55,7 +55,7 @@
                         ?>
 
                 <div class="carousel-item ">
-                    <img class="d-block w-100" src="<?php echo $result['imagen'][$i]; ?>" alt="First slide">
+                    <img style="width: 100%; height:30rem;" class="d-block w-100" src="<?php echo $result['imagen'][$i]; ?>" alt="First slide">
                 </div>
 
                 <?php }

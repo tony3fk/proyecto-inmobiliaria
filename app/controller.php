@@ -543,10 +543,23 @@ class Controller
             if (!isset($_GET['id'])) {
                 throw new Exception('Inmueble no encontrado');
             }
+
+
             $referencia = recoge('id');
             $m = new Model();
             $imagen = $m->eliminarInmuebles($referencia);
-            unlink($imagen);
+
+            if (Self::isJSON($imagen)) {
+                $arrayImagenes = json_decode($imagen, true);
+                foreach ($arrayImagenes as $img) {
+                    unlink($img);
+                }
+            } else {
+                unlink($imagen);
+            }
+
+
+
             $mensaje = "Ref: " . $referencia . " eliminada";
         } catch (Exception $e) {
             error_log($e->getMessage() . microtime() . PHP_EOL, 3, "logExceptio.txt");
