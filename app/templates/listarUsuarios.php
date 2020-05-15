@@ -1,9 +1,9 @@
 <?php ob_start(); ?>
 
 
+<br>
 
-
-<div class="container-fluid">
+<div class="container">
 
     <?php
     if (isset($_GET['borrado'])) {
@@ -21,7 +21,7 @@
                 <th class="th-sm text-center">ID</th>
                 <th class="th-sm text-center">NOMBRE</th>
                 <th class="th-sm text-center">EMAIL</th>
-                <th class="th-sm text-center">PASSWORD</th>
+
                 <th class="th-sm text-center">TIPO</th>
                 <th class="th-sm text-center">CIUDAD</th>
                 <th class="th-sm text-center">AVATAR</th>
@@ -33,13 +33,13 @@
         </thead>
         <?php
         foreach ($params['usuarios'] as $usuarios) { // aquí hago la consulta la itero con each. 
-        ?>
+            ?>
         <tr>
 
             <td><?php echo $usuarios['id'] ?></td>
             <td><?php echo $usuarios['nombre'] ?></td>
             <td><?php echo $usuarios['email'] ?></td>
-            <td><?php echo "******" /*$usuarios['password']*/ ?></td>
+
             <td><?php echo $usuarios['tipo'] ?></td>
             <td><?php echo $usuarios['ciudad'] ?></td>
             <td><a href="<?php echo $usuarios['avatar'] ?>"><?php echo $usuarios['avatar'] ?></a></td>

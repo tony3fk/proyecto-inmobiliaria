@@ -8,7 +8,10 @@ $operacion = $_GET['operacion'];
 $provincia = $_GET['provincia'];
 $superficie = $_GET['superficie'];
 $precio_venta = $_GET['precio_venta'];
-$imagen = $_GET['imagen'];
+$imagen = unserialize($_GET['imagen']);
+
+// !is_array($imagen) ? $imagen = $_GET['imagen'] : true;
+
 ?>
 
 
@@ -116,9 +119,27 @@ $imagen = $_GET['imagen'];
             <input type="number" class="form-control" name="precio_venta" aria-describedby="tipoHelp" value="<?php echo $precio_venta ?>" required>
         </div>
         <div class="form-group">
-            <img class="w-25  img-responsive" src="<?php echo $imagen ?>" alt="imagen">
-            <label>Modificar imagen: </label>
-            <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg, image/jpg, image/gif" />
+
+            <?php if (is_array($imagen)) {  ?>
+
+            <?php foreach ($imagen as $img) { ?>
+            <a href="<?php echo $img ?>">
+                <img class="img-responsive" style="width:12em; height:7em" src="<?php echo $img ?>" alt="imagen">
+            </a>
+
+            <?php }
+                } else { ?>
+            <a href="<?php echo $img ?>">
+                <img class="img-responsive" style="width:12em; height:7em" src="<?php echo $imagen ?>" alt="imagen">
+            </a>
+
+            <?php } ?>
+
+
+            <br><br>
+
+            <label>Modificar imágenes? </label>
+            <input type="file" name="imagen[]" id="imagen" accept="image/png, image/jpeg, image/jpg, image/gif" multiple />
 
         </div>
 

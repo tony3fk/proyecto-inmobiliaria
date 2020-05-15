@@ -76,7 +76,12 @@ class Model extends PDO
         $select->bindParam(':referencia', $referencia);
         $select->execute();
         $registro = $select->fetch();
-        return $registro['imagen'];
+
+        if ($registro['imagen'] == './app/images/default/default.jpg') {
+            return null;
+        } else {
+            return $registro['imagen'];
+        }
     }
 
 
