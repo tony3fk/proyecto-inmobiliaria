@@ -571,9 +571,9 @@ class Controller
             $provincia = $params['resultado']['provincia'];
             $superficie = $params['resultado']['superficie'];
             $precio_venta = $params['resultado']['precio_venta'];
-            $imagen = $params['resultado']['imagen'];
+            $imagen = json_decode($params['resultado']['imagen'], true);
 
-            header('Location: index.php?ctl=modificarInmueble&ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta . '&imagen=' . $imagen);
+            header('Location: index.php?ctl=modificarInmueble&ref=' . $ref . '&tipo=' . $tipo . '&operacion=' . $operacion . '&provincia=' . $provincia . '&superficie=' . $superficie . '&precio_venta=' . $precio_venta . '&imagen=' . serialize($imagen));
 
 
 
