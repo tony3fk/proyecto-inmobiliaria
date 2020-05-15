@@ -25,7 +25,7 @@
                 <th class="th-sm text-center">PROVINCIA</th>
                 <th class="th-sm text-center">SUPERFICIE</th>
                 <th class="th-sm text-center">PRECIO</th>
-                <th class="th-sm text-center">IMAGEN</th>
+                <th class="th-sm text-center">IMAGENES</th>
                 <th class="th-sm text-center">EDITAR</th>
                 <th class="th-sm text-center">ELIMINAR</th>
 
@@ -36,7 +36,7 @@
         </thead>
         <?php
         foreach ($params['inmuebles'] as $inmuebles) { // aquí hago la consulta la itero con each. 
-        ?>
+            ?>
         <tr>
 
             <td><?php echo $inmuebles['referencia'] ?></td>
@@ -46,7 +46,30 @@
             <td><?php echo $inmuebles['provincia'] ?></td>
             <td><?php echo $inmuebles['superficie'] ?></td>
             <td><?php echo $inmuebles['precio_venta'] ?></td>
-            <td><a href="<?php echo $inmuebles['imagen'] ?>" target="_blank"><?php echo $inmuebles['imagen'] ?></a></td>
+            <td>
+                <ul>
+                    <?php
+                            $arrayImg = json_decode($inmuebles['imagen'], true);
+
+                            if (json_last_error() === JSON_ERROR_NONE) {
+                                foreach ($arrayImg as $img) {
+                                    ?>
+                    <li>
+                        <a href="<?php echo $img ?>"><?php echo $img ?></a>
+                    </li>
+                    <?php }
+                                } else { ?>
+                    <li>
+                        <a href="<?php echo $inmuebles['imagen'] ?>"><?php echo $inmuebles['imagen'] ?></a>
+                    </li>
+
+
+                    <?php } ?>
+
+
+                </ul>
+
+            </td>
 
 
             <td class="text-center">
