@@ -104,7 +104,9 @@
 
                 </div>
 
-                <div id="userActivo" class="col-8 col-md-3 ">
+                <?php isset($_GET['msg']) ? $ver = 'd-none' : $ver = ''; ?>
+
+                <div id="userActivo" class="col-8 col-md-3 <?php echo $ver; ?> ">
 
                     <div id="menuAdmin" class="nav-item  dropdown row justify-content-end">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">

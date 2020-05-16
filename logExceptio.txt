@@ -1,0 +1,1 @@
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'admin2@admin.com' for key 'email'19:37:02 - 16/05/2020

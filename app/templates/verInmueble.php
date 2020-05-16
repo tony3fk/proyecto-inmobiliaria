@@ -117,14 +117,12 @@
 
                 </tr>
 
-                <?php $displayNone = '';
-                if ($_COOKIE['tipo'] != 2) {
-                    $displayNone = 'd-none';
-                }
-                ?>
+                <?php $_COOKIE['tipo'] != 2 ? $displayNone = 'd-none' : $displayNone = ''; ?>
                 <tr>
                     <td class="text-center">
-                        <a href="index.php?ctl=editarInmuebles&id=<?php echo $result['referencia'] ?>" <?php echo $displayNone ?>"><i class="fa fa-edit"></i></a>
+                        <a href="index.php?ctl=editarInmuebles&id=<?php echo $result['referencia'] ?>" class="<?php echo $displayNone ?>">
+                            <i class="fa fa-edit"></i>
+                        </a>
                     </td>
                     <td>
 
