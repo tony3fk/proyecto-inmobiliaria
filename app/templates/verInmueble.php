@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<div class="container-fluid mt-2">
+<div class="container-fluid mt-2" id="verInmueble">
     <br>
     <div class="row justify-content-around">
         <div class="col-1 ">
@@ -23,7 +23,7 @@
 
         <!-- imagen -->
 
-        <div id="carouselExampleIndicators" class="carousel slide col-12 col-xl-6 m-auto " data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide col-12 col-lg-6 m-auto " data-ride="carousel">
             <ol class="carousel-indicators">
 
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -76,9 +76,11 @@
         <!-- fin imagen -->
 
 
-        <div id="fichaInmueble" class=" col- 12 col-xl-6  mt-1">
 
-            <h1 class="text-center">Ref: <?php echo $result['referencia'] ?></h1>
+        <div id="fichaInmueble" class=" col-12 col-lg-6  mt-1">
+
+            <h2 class="text-center">Ref: <?php echo $result['referencia'] ?></h2>
+            <br>
 
             <!--Implantar siguiente registro -->
             <table class="bg-light table-striped ">
@@ -122,11 +124,11 @@
                 ?>
                 <tr>
                     <td class="text-center">
-                        <a href="index.php?ctl=editarInmuebles&id=<?php echo $result['referencia'] ?>" class="btn btn-warning w-25 <?php echo $displayNone ?>"><i class="fa fa-edit"></i></a>
+                        <a href="index.php?ctl=editarInmuebles&id=<?php echo $result['referencia'] ?>" <?php echo $displayNone ?>"><i class="fa fa-edit"></i></a>
                     </td>
                     <td>
 
-                        <a class="btn btn-outline-primary w-50" id="download">Guardar Inmueble</a>
+                        <a id="download"><i class="fa fa-save"></i></a>
                     </td>
                 </tr>
 

@@ -1,12 +1,20 @@
 <?php ob_start() ?>
 
-<div class="container">
+<div class="container" style="height: 50em;">
 
-    <h3 class="text-center"> Ha habido un error </h3>
-    <h5 class="text-center alert alert-danger" role="alert">
-        <?php echo $_SESSION['mensaje'];
-        $_SESSION['mensaje'] = ''; ?>
-    </h5>
+    <br><br>
+
+
+    <h3 class="text-center alert alert-danger" role="alert">
+        <?php echo $_GET['msg'];
+        ?>
+    </h3>
+
+    <div class="text-center">
+        <input class="btn btn-primary " type="button" onclick="history.back()" name="volver" value="Volver">
+
+    </div>
+
 </div>
 
 

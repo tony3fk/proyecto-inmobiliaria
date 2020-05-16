@@ -55,6 +55,8 @@ class Controller
     //REGISTRO
     public function register()
     {
+
+        $_SESSION['mensaje'] = '';
         try {
 
             $params = array(
@@ -147,11 +149,15 @@ class Controller
                 }
             }
         } catch (Exception $e) {
+
+            $params['mensaje'] = $e->getMessage();
             error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
+            header('Location: index.php?ctl=error&msg=' . $params['mensaje']);
         } catch (Error $e) {
+
+            $params['mensaje'] = $e->getMessage();
             error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
+            header('Location: index.php?ctl=error&msg=' . $params['mensaje']);
         }
 
         require('./app/templates/login.php');
@@ -192,6 +198,7 @@ class Controller
     //PÁGINA DE ERROR
     public function error()
     {
+
 
         require('./app/templates/error.php');
     }
