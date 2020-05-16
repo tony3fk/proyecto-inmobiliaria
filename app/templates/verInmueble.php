@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<div class="container-fluid">
+<div class="container-fluid mt-2" id="verInmueble">
     <br>
     <div class="row justify-content-around">
         <div class="col-1 ">
@@ -19,11 +19,11 @@
 
     </div>
     <br>
-    <div class="row">
+    <div class="row" style="width: 100%; height:35em;">
 
         <!-- imagen -->
 
-        <div id="carouselExampleIndicators" class="carousel slide col-12 col-xl-6 m-auto " data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide col-12 col-lg-6 m-auto " data-ride="carousel">
             <ol class="carousel-indicators">
 
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -55,7 +55,7 @@
                         ?>
 
                 <div class="carousel-item ">
-                    <img style="width: 100%; height:30rem;" class="d-block w-100" src="<?php echo $result['imagen'][$i]; ?>" alt="First slide">
+                    <img class="d-block w-100" src="<?php echo $result['imagen'][$i]; ?>" alt="First slide">
                 </div>
 
                 <?php }
@@ -76,12 +76,15 @@
         <!-- fin imagen -->
 
 
-        <div id="fichaInmueble" class=" col- 12 col-xl-6  mt-1">
 
-            <h1 class="text-center">Ref: <?php echo $result['referencia'] ?></h1>
+        <div id="fichaInmueble" class=" col-12 col-lg-6  mt-1">
+
+            <h2 class="text-center">Ref: <?php echo $result['referencia'] ?></h2>
+            <br>
 
             <!--Implantar siguiente registro -->
             <table class="bg-light table-striped ">
+
 
                 <tr>
                     <td>Fecha de alta</td>
@@ -114,21 +117,23 @@
 
                 </tr>
 
-                <?php $displayNone = '';
-                if ($_COOKIE['tipo'] != 2) {
-                    $displayNone = 'd-none';
-                }
-                ?>
+                <?php $_COOKIE['tipo'] != 2 ? $displayNone = 'd-none' : $displayNone = ''; ?>
                 <tr>
                     <td class="text-center">
-                        <a href="index.php?ctl=editarInmuebles&id=<?php echo $result['referencia'] ?>" class="btn btn-warning w-25 <?php echo $displayNone ?>"><i class="fa fa-edit"></i></a>
+                        <a href="index.php?ctl=editarInmuebles&id=<?php echo $result['referencia'] ?>" class="<?php echo $displayNone ?>">
+                            <i class="fa fa-edit"></i>
+                        </a>
                     </td>
                     <td>
 
+                        <a id="download"><i class="fa fa-save"></i></a>
                     </td>
                 </tr>
 
+
             </table>
+            <br>
+            <div class="sharethis-inline-share-buttons"></div>
         </div>
     </div>
 </div>
@@ -137,6 +142,18 @@ function goback() {
     history.go(-2);
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script>
+html2canvas(document.body, {
+    onrendered(canvas) {
+        var link = document.getElementById('download');;
+        var image = canvas.toDataURL();
+        link.href = image;
+        link.download = 'screenshot.png';
+    }
+});
+</script>
+
 
 <?php $contenido = ob_get_clean() ?>
 

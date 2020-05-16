@@ -27,6 +27,7 @@
     <script src="./app/libs/geolocalizacion.js"></script>
     <script src="./app/libs/scrolls.js"></script>
     <script src="./app/libs/confirmaEliminacion.js"></script>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5ebed02e2d5f810012b130b7&product=inline-share-buttons" async="async"></script>
 
 </head>
 
@@ -60,14 +61,14 @@
             <!-- navbar -->
             <nav class="col-12 navbar navbar-expand-md navbar-light bg-warning menu" id="navbar">
 
-                <div class="col-1 d-lg-none">
+                <div class="col-1 d-md-none">
                     <button type="button" class="navbar-toggler " data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
 
 
-                <div class="collapse navbar-collapse justify-content-start col-10 col-lg-10" id="navbarCollapse">
+                <div class="collapse navbar-collapse justify-content-start col-10 col-md-9" id="navbarCollapse">
 
                     <?php
                     $muestraInicio = "";
@@ -103,7 +104,9 @@
 
                 </div>
 
-                <div id="userActivo" class="col-8 col-lg-2 ">
+                <?php isset($_GET['msg']) ? $ver = 'd-none' : $ver = ''; ?>
+
+                <div id="userActivo" class="col-8 col-md-3 <?php echo $ver; ?> ">
 
                     <div id="menuAdmin" class="nav-item  dropdown row justify-content-end">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
@@ -155,22 +158,22 @@
 
 
 
-            <!-- Footer -->
-            <?php $displayNone = '';
-            if ($_COOKIE['tipo'] == 2) {
-                $displayNone = 'd-none';
-            }
-            ?>
 
-            <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 <?php echo $displayNone ?>">
 
-                <h2 class="h1-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
+            <footer id="footer" class=" bg-light text-dark col-12 p-2 ">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="h1-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
+                    </div>
 
-                <div class="row justify-content-center">
-                    <div class="col-lg-1"></div>
+                </div>
+
+
+                <div class="row">
+
 
                     <!--formulario-->
-                    <div class="col-lg-8 mb-md-0 mb-5">
+                    <div class="col-lg-9 mb-md-0 mb-5 p-5">
                         <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
                             <!--Grid row-->

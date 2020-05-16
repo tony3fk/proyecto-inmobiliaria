@@ -131,7 +131,7 @@ class Model extends PDO
         return $result->fetch();
     }
 
-    public function insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen)
+    public function insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen = './app/images/default/default.jpg')
     {
         $consulta = "insert into inmuebles (fecha_alta, tipo, operacion, provincia, superficie, precio_venta, imagen) values (?, ?, ?, ?, ?, ?, ?)";
         $result = $this->conexion->prepare($consulta);
@@ -147,7 +147,7 @@ class Model extends PDO
         return $result;
     }
 
-    public function updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen)
+    public function updateInmueble($referencia, $tipo, $operacion, $provincia, $superficie, $precio_venta, $imagen = './app/images/default/default.jpg')
     {
         $consulta = "update inmuebles set tipo=:tipo, operacion=:operacion, provincia=:provincia, superficie=:superficie, precio_venta=:precio_venta, imagen=:imagen where referencia=:referencia";
         $update = $this->conexion->prepare($consulta);

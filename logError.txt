@@ -1,7 +1,1 @@
-
-Call to undefined function isJSON()0.02405000 1589547733
-Call to undefined function isJSON()0.85847300 1589547753
-Call to undefined function isJSON()0.14233500 1589547810
-Call to undefined function isJSON()0.31645900 1589556310
-Call to undefined function isJSON()0.67992900 1589556370
-Call to undefined function isJSON()0.31271100 1589556377
+, no tienes permiso para realizar esta acción. Se requiere ser administrador.

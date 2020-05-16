@@ -2,6 +2,7 @@
 include('app/libs/utils.php');
 include('app/libs/sessionClass.php');
 include('app/libs/sendbymail.php');
+include('app/libs/isJson.php');
 
 class Controller
 {
@@ -54,6 +55,8 @@ class Controller
     //REGISTRO
     public function register()
     {
+
+        $_SESSION['mensaje'] = '';
         try {
 
             $params = array(
@@ -146,11 +149,15 @@ class Controller
                 }
             }
         } catch (Exception $e) {
+
+            $params['mensaje'] = $e->getMessage();
             error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logExceptio.txt");
-            header('Location: index.php?ctl=error');
+            header('Location: index.php?ctl=error&msg=' . $params['mensaje']);
         } catch (Error $e) {
+
+            $params['mensaje'] = $e->getMessage();
             error_log($e->getMessage() . date("H:i:s - d/m/Y", time()) . PHP_EOL, 3, "logError.txt");
-            header('Location: index.php?ctl=error');
+            header('Location: index.php?ctl=error&msg=' . $params['mensaje']);
         }
 
         require('./app/templates/login.php');
@@ -191,6 +198,7 @@ class Controller
     //PÁGINA DE ERROR
     public function error()
     {
+
 
         require('./app/templates/error.php');
     }
@@ -310,12 +318,13 @@ class Controller
 
             if (isset($_POST['insertar'])) {
 
-                if ($_FILES['imagen']) {
+                if ($_FILES['imagen']['error'][0] != 4) {
 
 
-                    $cantidad = count($_FILES['imagen']);
+                    $cantidad = count($_FILES['imagen']['name']);
 
-                    for ($i = 0; $i <= $cantidad; $i++) {
+
+                    for ($i = 0; $i < $cantidad; $i++) {
                         //comprobación de la imagen
                         //comprobación de la imagen si la hay, sin errores y tamaño menos a 5 MB
                         if ($_FILES['imagen']['error'][$i] == 0 && ($_FILES['imagen']['size'][$i] <= 5097152)) {
@@ -325,7 +334,6 @@ class Controller
                             //Añadimos el tiempo para asegurarnos que el nombre es único
 
                             $nombreImagen[$i] = $dir . time() . '_' . $imagen[$i];
-
 
                             $arrayImagenes[$i] = $nombreImagen[$i];
 
@@ -337,7 +345,17 @@ class Controller
                             }
                         }
                     }
+                    $jsonImagenes = json_encode($arrayImagenes);
+                } else {
+                    $jsonImagenes = './app/images/default/default.jpg'; //si no sube imagen, se aplica imagen default.
+
                 }
+
+                //isset($jsonImagenes) ? $jsonImagenes = './app/images/default/default.jpg' : true;
+
+
+
+
 
 
                 //recogida de datos del formulario
@@ -354,7 +372,11 @@ class Controller
 
                     // Si no ha habido problema creo modelo y hago inserción
                     $m = new Model();
-                    $jsonImagenes = json_encode($arrayImagenes);
+
+
+
+
+
 
                     if ($m->insertarInmueble($tipo, $operacion, $provincia, $superficie, $precio_venta, $jsonImagenes)) {
                         $params['mensaje'] = "Insertado correctamente";
@@ -415,11 +437,11 @@ class Controller
 
 
                 //si hay imagen:
-                if (isset($_FILES['imagen'])) {
-                    // $imagen[] = $_FILES['imagen'];
-                    $cantidad = count($_FILES['imagen']);
+                if ($_FILES['imagen']['error'][0] != 4) {
 
-                    for ($i = 0; $i <= $cantidad; $i++) {
+                    $cantidad = count($_FILES['imagen']['name']);
+
+                    for ($i = 0; $i < $cantidad; $i++) {
                         //comprobación de la imagen
                         //comprobación de la imagen si la hay, sin errores y tamaño menos a 5 MB
                         if ($_FILES['imagen']['error'][$i] == 0 && ($_FILES['imagen']['size'][$i] <= 5097152)) {
@@ -440,14 +462,17 @@ class Controller
                                 $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
                             }
                         }
+                        $jsonImagenes = json_encode($arrayImagenes);
                     }
+                } elseif ($_FILES['imagen']['error'][0] == 4) {
+                    $jsonImagenes = './app/images/default/default.jpg';
                 } else {
                     $registro = $m->verInmueble($referencia);
-                    $imagen = $registro['imagen'];
+                    $jsonImagenes = $registro['imagen'];
                 }
 
 
-                $jsonImagenes = json_encode($arrayImagenes);
+
 
                 // Si no ha habido problema creo modelo y hago update
 
@@ -482,11 +507,6 @@ class Controller
     //FIN UPDATE INMUEBLES
 
 
-    function isJSON($string)
-    {
-        return is_string($string) && is_array(json_decode($string, true)) && (json_last_error() == JSON_ERROR_NONE) ? true : false;
-    }
-
 
     //VER INMUEBLE
     public function verInmueble()
@@ -505,7 +525,7 @@ class Controller
             //comprobar si $result[imagen] es un json
 
 
-            if (Self::isJSON($result['imagen'])) {
+            if (isJSON($result['imagen'])) {
                 $arrayImagenes = json_decode($result['imagen'], true);
                 $result = [
 
@@ -549,13 +569,19 @@ class Controller
             $m = new Model();
             $imagen = $m->eliminarInmuebles($referencia);
 
-            if (Self::isJSON($imagen)) {
+
+
+            if (isJSON($imagen)) {
                 $arrayImagenes = json_decode($imagen, true);
                 foreach ($arrayImagenes as $img) {
-                    unlink($img);
+                    if ($img != './app/images/default/default.jpg') {
+                        unlink($img);
+                    }
                 }
             } else {
-                unlink($imagen);
+                if ($img != './app/images/default/default.jpg') {
+                    unlink($imagen);
+                }
             }
 
 
@@ -590,7 +616,7 @@ class Controller
             $superficie = $params['resultado']['superficie'];
             $precio_venta = $params['resultado']['precio_venta'];
 
-            if (Self::isJSON($params['resultado']['imagen'])) {
+            if (isJSON($params['resultado']['imagen'])) {
                 $imagen = json_decode($params['resultado']['imagen'], true);
             } else {
                 $imagen = $params['resultado']['imagen'];
@@ -690,6 +716,35 @@ class Controller
     //FIN ENVÍO EMAIL DE REGISTRO
 
 
+    //ENVÍO EMAIL CON LA BÚSQUEDA
+    public function emailConBusqueda($email, $params)
+    {
+
+        $para = $email; //aquí mail del registrado
+        $asunto = "Aquí tiene su búsqueda de inmuebles";
+        $mensaje = "<hr>";
+        $mensaje .= "<h2> Aquí tiene su búsqueda de inmuebles</h2><br>";
+        $mensaje .= "<hr>";
+        $mensaje .= "";
+
+        // Para enviar correo HTML, la cabecera Content-type debe definirse
+        $cabeceras  = "MIME-Version: 1.0\n";
+        $cabeceras .= "Content-type: text/html; charset=UTF-8\n";
+
+        // Cabeceras adicionales
+        $cabeceras .= "From: Tony <mail@yahoo.es>\n";
+        $cabeceras .= "To: Tony <tony3fk@gmail.com>\n";
+        $cabeceras .= "Reply-To: mail@gmail.com\n";
+        $cabeceras .= "X-Mailer: PHP/" . phpversion();
+
+        // Enviarlo
+        if (mail($para, $asunto, $mensaje, $cabeceras)) {
+            return true;
+        }
+    }
+    //FIN ENVÍO EMAIL CON LA BÚSQUEDA
+
+
     public function resetPassword()
     {
 
@@ -745,8 +800,9 @@ class Controller
                 $m = new Model();
                 $params['inmuebles'] = $m->listarConParametros($_COOKIE['operacion'],  $_COOKIE['tipo'],  $_COOKIE['provincia']);
 
-                // print_r($params);
-                // die();
+
+                //envía email con la búsqueda
+                //Self::emailConBusqueda($_COOKIE['email'], $params['inmuebles']);
 
                 if (count($params['inmuebles']) == 0) {
                     $params['mensaje'] = "no hay resultados";
@@ -762,5 +818,8 @@ class Controller
         require __DIR__ . '/templates/mostrarInmuebles.php';
     }
     // busqueda parametrica
+
+
+
 
 }

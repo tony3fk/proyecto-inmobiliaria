@@ -18,7 +18,5 @@
         "components/font-awesome": "4.3.0",
         "datatables/datatables": "^1.10"
     },
-    "require-dev": {
-        "heroku/heroku-buildpack-php": "^173.0"
-    }
+    "require-dev": {}
 }
