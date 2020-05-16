@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<div class="container-fluid">
+<div class="container-fluid mt-2">
     <br>
     <div class="row justify-content-around">
         <div class="col-1 ">
@@ -19,7 +19,7 @@
 
     </div>
     <br>
-    <div class="row">
+    <div class="row" style="width: 100%; height:35em;">
 
         <!-- imagen -->
 
@@ -55,7 +55,7 @@
                         ?>
 
                 <div class="carousel-item ">
-                    <img style="width: 100%; height:30rem;" class="d-block w-100" src="<?php echo $result['imagen'][$i]; ?>" alt="First slide">
+                    <img class="d-block w-100" src="<?php echo $result['imagen'][$i]; ?>" alt="First slide">
                 </div>
 
                 <?php }
@@ -82,6 +82,7 @@
 
             <!--Implantar siguiente registro -->
             <table class="bg-light table-striped ">
+
 
                 <tr>
                     <td>Fecha de alta</td>
@@ -125,10 +126,14 @@
                     </td>
                     <td>
 
+                        <a class="btn btn-outline-primary w-50" id="download">Guardar Inmueble</a>
                     </td>
                 </tr>
 
+
             </table>
+            <br>
+            <div class="sharethis-inline-share-buttons"></div>
         </div>
     </div>
 </div>
@@ -137,6 +142,18 @@ function goback() {
     history.go(-2);
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script>
+html2canvas(document.body, {
+    onrendered(canvas) {
+        var link = document.getElementById('download');;
+        var image = canvas.toDataURL();
+        link.href = image;
+        link.download = 'screenshot.png';
+    }
+});
+</script>
+
 
 <?php $contenido = ob_get_clean() ?>
 

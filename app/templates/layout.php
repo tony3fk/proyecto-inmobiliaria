@@ -27,6 +27,7 @@
     <script src="./app/libs/geolocalizacion.js"></script>
     <script src="./app/libs/scrolls.js"></script>
     <script src="./app/libs/confirmaEliminacion.js"></script>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5ebed02e2d5f810012b130b7&product=inline-share-buttons" async="async"></script>
 
 </head>
 
@@ -162,15 +163,21 @@
             }
             ?>
 
-            <footer id="footer" class="mb-4 bg-light text-dark col-12 p-2 <?php echo $displayNone ?>">
+            <div id="footer" class=" bg-light text-dark col-12 p-2 <?php //echo $displayNone oculta el footer al admin
+                                                                    ?>">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="h1-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
+                    </div>
 
-                <h2 class="h1-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
+                </div>
 
-                <div class="row justify-content-center">
-                    <div class="col-lg-1"></div>
+
+                <div class="row">
+
 
                     <!--formulario-->
-                    <div class="col-lg-8 mb-md-0 mb-5">
+                    <div class="col-lg-9 mb-md-0 mb-5 p-5">
                         <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
                             <!--Grid row-->
@@ -314,7 +321,7 @@
                         </div>
                     </div>
                 </div>
-            </footer>
+            </div>
         </div>
     </div>
 
