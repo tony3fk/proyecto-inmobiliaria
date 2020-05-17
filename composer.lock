@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10e7437fee4e7fd37cfa67fc61f2dbbf",
+    "content-hash": "5536702bb779ed3a847c71851e10781a",
     "packages": [
         {
             "name": "components/font-awesome",
@@ -107,6 +107,50 @@
             "description": "DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.",
             "homepage": "http://www.datatables.net/",
             "time": "2019-10-01T13:42:32+00:00"
+        },
+        {
+            "name": "heroku/heroku-buildpack-php",
+            "version": "v174",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heroku/heroku-buildpack-php.git",
+                "reference": "17a69b4ed7a2c32188a4ab244187e6a30cc7374e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/17a69b4ed7a2c32188a4ab244187e6a30cc7374e",
+                "reference": "17a69b4ed7a2c32188a4ab244187e6a30cc7374e",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/heroku-hhvm-apache2",
+                "bin/heroku-hhvm-nginx",
+                "bin/heroku-php-apache2",
+                "bin/heroku-php-nginx"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Zuelke",
+                    "email": "dz@heroku.com"
+                }
+            ],
+            "description": "Toolkit for starting a PHP application locally, with or without foreman, using the same config for PHP/HHVM and Apache2/Nginx as on Heroku",
+            "homepage": "https://github.com/heroku/heroku-buildpack-php",
+            "keywords": [
+                "apache",
+                "apache2",
+                "foreman",
+                "heroku",
+                "hhvm",
+                "nginx",
+                "php"
+            ],
+            "time": "2020-04-30T18:02:46+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
