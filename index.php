@@ -3,10 +3,10 @@ require('vendor/autoload.php');
 
 // web/index.php
 // carga del modelo y los controladores
-require_once('/app/config.php');
-require_once('/app/model.php');
-require_once('/app/controller.php');
-require_once('/app/libs/sessionClass.php');
+require_once('app/config.php');
+require_once('app/model.php');
+require_once('app/controller.php');
+require_once('app/libs/sessionClass.php');
 
 
 
