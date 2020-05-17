@@ -6,24 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="web/css/reset.css" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
-    <link rel='stylesheet' id='elementor-frontend-css'
-        href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css'
-        media='all' />
+    <link rel='stylesheet' id='elementor-frontend-css' href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css' media='all' />
 
 
     <!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap" id="bootstrap-css"> -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-        id="bootstrap-css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
 
-    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="web/css/estilo.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
-        id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
     <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
@@ -35,7 +31,7 @@
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="./web/css/bootstrap/js/bootstrap.js"></script>
+    <script src="web/css/bootstrap/js/bootstrap.js"></script>
 
 
 
@@ -72,25 +68,21 @@
                     </div> -->
 
                     <div class="form-group">
-                        <input type="email" name="email" id="email" tabindex="1" class="form-control text-center"
-                            placeholder="EMAIL" value="" required>
+                        <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="EMAIL" value="" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="password" id="passwordreg" tabindex="2"
-                            class="form-control text-center" placeholder="PASSWORD" required>
+                        <input type="password" name="password" id="passwordreg" tabindex="2" class="form-control text-center" placeholder="PASSWORD" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="confirm_password" id="passwordreg" tabindex="2"
-                            class="form-control text-center" placeholder="CONFIRM PASSWORD" required>
+                        <input type="password" name="confirm_password" id="passwordreg" tabindex="2" class="form-control text-center" placeholder="CONFIRM PASSWORD" required>
                     </div>
 
 
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-3">
-                                <input type="submit" name="bReset" id="reset-submit" tabindex="4"
-                                    class="form-control btn btn-register btn-secondary" value="Reset Password">
+                                <input type="submit" name="bReset" id="reset-submit" tabindex="4" class="form-control btn btn-register btn-secondary" value="Reset Password">
                             </div>
                         </div>
                     </div>
@@ -134,30 +126,22 @@
 
 
 
-            <div
-                class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
+            <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
                 <div class="elementor-widget-container">
                     <div>
-                        <a href="https://www.facebook.com/"
-                            class="elementor-icon elementor-social-icon elementor-social-icon-facebook "
-                            target="_blank">
+                        <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook " target="_blank">
                             <span class="elementor-screen-only"></span>
                             <i class="fa fa-facebook"></i>
                         </a>
-                        <a href="https://twitter.com/"
-                            class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
+                        <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
                             <span class="elementor-screen-only"></span>
                             <i class="fa fa-twitter"></i>
                         </a>
-                        <a href="https://www.linkedin.com/"
-                            class="elementor-icon elementor-social-icon elementor-social-icon-linkedin "
-                            target="_blank">
+                        <a href="https://www.linkedin.com/" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin " target="_blank">
                             <span class="elementor-screen-only"></span>
                             <i class="fa fa-linkedin"></i>
                         </a>
-                        <a href="https://www.instagram.com/"
-                            class="elementor-icon elementor-social-icon elementor-social-icon-instagram "
-                            target="_blank">
+                        <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram " target="_blank">
                             <span class="elementor-screen-only"></span>
                             <i class="fa fa-instagram"></i>
                         </a>
