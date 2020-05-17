@@ -1,6 +1,10 @@
 <?php ob_start() ?>
 
+
 <!-- Grid column -->
+
+<div class="row m-3"></div>
+
 <div class="row col-12">
 
 
@@ -9,12 +13,12 @@
 
     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
         <!-- Card Dark -->
-        <div class="card">
+        <div class="card" id="card">
 
             <!-- Card image -->
             <div class="embed-responsive embed-responsive-4by3">
 
-                <img class="card-img-top embed-responsive-item img-thumbnail" src="
+                <img class="card-img-top embed-responsive-item img-thumbnail  mx-auto d-block" src="
                 <?php
                     $string = json_decode($inmuebles['imagen']);
                     if (json_last_error() == JSON_ERROR_NONE) {
@@ -59,7 +63,7 @@
                 </p>
                 <!-- Link -->
                 <div class="text-right">
-                    <a href="index.php?ctl=verInmueble&referencia=<?php echo $inmuebles['referencia'] ?>" class="btn btn-warning">
+                    <a href="index.php?ctl=verInmueble&referencia=<?php echo $inmuebles['referencia'] ?>" class="btn btn-warning" target="_blank">
                         <h5>Más info. </h5>
                     </a>
                 </div>

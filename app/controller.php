@@ -805,7 +805,8 @@ class Controller
                 //Self::emailConBusqueda($_COOKIE['email'], $params['inmuebles']);
 
                 if (count($params['inmuebles']) == 0) {
-                    $params['mensaje'] = "no hay resultados";
+                    $params['mensaje'] = "No hay resultados.";
+                    header('Location: index.php?ctl=error&msg=' . $params['mensaje']);
                 }
             }
         } catch (Exception $e) {

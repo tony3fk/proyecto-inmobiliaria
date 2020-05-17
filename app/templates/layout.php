@@ -151,6 +151,7 @@
 
 
             <div class="container-fluid">
+
                 <div class="row justify-content-center" id="contenido"><?php echo $contenido ?></div>
             </div>
 
