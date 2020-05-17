@@ -8,25 +8,25 @@
 
     <title>Gestión Inmobiliaria</title>
 
-    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-    <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' media='all' />
-    <link rel="stylesheet" type="text/css" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
-    <link rel="stylesheet" type="text/css" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="./vendor/datatables/datatables/media/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="./vendor/datatables/datatables/examples/resources/syntax/shCore.css">
-    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="web/css/reset.css" />
+    <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='vendor/elementor/frontend.min.css' media='all' />
+    <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="vendor/components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/media/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/examples/resources/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="web/css/estilo.css" />
 
-    <script src="./vendor/firebase/firebase-ui-auth.js"></script>
-    <link rel="stylesheet" type="text/css" href="./vendor/firebase/firebase-ui-auth.css" />
-    <script src="./vendor/firebase/firebase-app.js"></script>
-    <script src="./vendor/components/jquery/jquery.min.js"></script>
-    <script src="./vendor/datatables/datatables/media/js/jquery.dataTables.js"></script>
-    <script src="./vendor/datatables/datatables/examples/resources/syntax/shCore.js"></script>
-    <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="./app/libs/geolocalizacion.js"></script>
-    <script src="./app/libs/scrolls.js"></script>
-    <script src="./app/libs/confirmaEliminacion.js"></script>
+    <script src="vendor/firebase/firebase-ui-auth.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/firebase/firebase-ui-auth.css" />
+    <script src="vendor/firebase/firebase-app.js"></script>
+    <script src="vendor/components/jquery/jquery.min.js"></script>
+    <script src="vendor/datatables/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/datatables/examples/resources/syntax/shCore.js"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app/libs/geolocalizacion.js"></script>
+    <script src="app/libs/scrolls.js"></script>
+    <script src="app/libs/confirmaEliminacion.js"></script>
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5ebed02e2d5f810012b130b7&product=inline-share-buttons" async="async"></script>
 
 </head>
@@ -331,7 +331,7 @@
 
     <!-- --------------------S C R I P T S ------------------------  -->
 
-    <script src="./app/libs/imagenesEnlaces.js"></script>
+    <script src="app/libs/imagenesEnlaces.js"></script>
 
     <script>
     $(document).ready(function() {
@@ -341,7 +341,7 @@
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-    <script src="./app/libs/authFirebase.js"></script>
+    <script src="app/libs/authFirebase.js"></script>
 
 
 

@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="./web/css/reset.css" />
-    <link rel="stylesheet" href="./vendor/components/font-awesome/css/font-awesome.min.css" />
-    <link rel='stylesheet' id='elementor-frontend-css' href='./vendor/elementor/frontend.min.css' type='text/css' media='all' />
-    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="web/css/reset.css" />
+    <link rel="stylesheet" href="vendor/components/font-awesome/css/font-awesome.min.css" />
+    <link rel='stylesheet' id='elementor-frontend-css' href='vendor/elementor/frontend.min.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
     <!-- <link href="./vendor/twbs/bootstrap/dist/css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
-    <link rel="stylesheet" href="./vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
-    <link rel="stylesheet" type="text/css" href="./web/css/estilo.css" />
+    <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
+    <link rel="stylesheet" type="text/css" href="web/css/estilo.css" />
 
 
-    <script src="./vendor/firebase/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="./vendor/firebase/firebase-ui-auth.css" />
-    <script src="./vendor/firebase/firebase-app.js"></script>
+    <script src="vendor/firebase/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="vendor/firebase/firebase-ui-auth.css" />
+    <script src="vendor/firebase/firebase-app.js"></script>
 
     <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
 
-    <script src="./vendor/components/jquery/jquery.min.js"></script>
-    <script src="./vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/components/jquery/jquery.min.js"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
     <!-- <script src="./web/css/bootstrap/js/bootstrap.js"></script> -->
 
@@ -317,7 +317,7 @@
     </script>
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-    <script src="./app/libs/authFirebase.js"></script>
+    <script src="app/libs/authFirebase.js"></script>
 
 
 
