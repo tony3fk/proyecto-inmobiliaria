@@ -42,7 +42,7 @@ googleSignIn = () => {
         document.cookie = "avatar=" + encodeURIComponent(photoURL);
         document.cookie = "tipo="+1;
 
-        window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
+        window.location.replace("https://gestioninmobiliaria.herokuapp.com/index.php?ctl=inicio");
 
         // var userActivo = document.getElementById("userActivo");
         // userActivo.innerHTML(displayName);
@@ -77,7 +77,7 @@ facebookSignIn = () => {
         document.cookie = "nombre=" + encodeURIComponent(displayName);
         document.cookie = "avatar=" + encodeURIComponent(photoURL);
 
-        window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
+        window.location.replace("https://gestioninmobiliaria.herokuapp.com/index.php?ctl=inicio");
          
     }).catch(function (error) {
         console.log(error)
@@ -107,7 +107,7 @@ twitterSignIn = () => {
         document.cookie = "nombre=" + encodeURIComponent(displayName);
         document.cookie = "avatar=" + encodeURIComponent(photoURL);
 
-        window.location.replace("http://localhost:8080/proyecto/index.php?ctl=inicio");
+        window.location.replace("https://gestioninmobiliaria.herokuapp.com/index.php?ctl=inicio");
          
     }).catch(function (error) {
         console.log(error)
