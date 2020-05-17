@@ -157,14 +157,14 @@
 
 
 
-
-
-
+            <!-- footer -->
+            <br><br><br>
+            <hr width="70%" size="20" color="blue" noshade>
 
             <footer id="footer" class=" bg-light text-dark col-12 p-2 ">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="h1-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
+                        <h2 class="h2-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
                     </div>
 
                 </div>
@@ -183,33 +183,36 @@
                                 <!--Grid column-->
                                 <div class="col-md-6">
                                     <div class="md-form mb-0">
-                                        <input type="text" id="name" name="name" class="form-control" required>
-                                        <label for="name" class="">Tu nombre</label>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required><br>
+                                        <!-- <label for="name" class="">Tu nombre</label> -->
                                     </div>
                                 </div>
+
                                 <!--Grid column-->
 
                                 <!--Grid column-->
                                 <div class="col-md-6">
                                     <div class="md-form mb-0">
-                                        <input type="email" id="email" name="email" class="form-control" required>
-                                        <label for="email" class="">Tu email</label>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                                        <!-- <label for="email" class="">Tu email</label> -->
                                     </div>
                                 </div>
                                 <!--Grid column-->
 
                             </div>
+                            <br>
                             <!--Grid row-->
 
                             <!--Grid row-->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="md-form mb-0">
-                                        <input type="text" id="subject" name="subject" class="form-control" required>
-                                        <label for="subject" class="">Asunto</label>
+                                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Asunto" required>
+                                        <!-- <label for="subject" class="">Asunto</label> -->
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <!--Grid row-->
 
                             <!--Grid row-->
@@ -219,12 +222,14 @@
                                 <div class="col-md-12">
 
                                     <div class="md-form">
-                                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required></textarea>
-                                        <label for="message">Tu mensaje</label>
+                                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" placeholder="Mensaje" required></textarea>
+                                        <!-- <label for="message">Tu mensaje</label> -->
                                     </div>
 
                                 </div>
                             </div>
+                            <br>
+
                             <!--Grid row-->
 
 
@@ -325,6 +330,8 @@
 
 
     <!-- --------------------S C R I P T S ------------------------  -->
+
+    <script src="./app/libs/imagenesEnlaces.js"></script>
 
     <script>
     $(document).ready(function() {

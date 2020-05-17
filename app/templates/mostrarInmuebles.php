@@ -11,7 +11,7 @@
     <?php foreach ($params['inmuebles'] as $inmuebles) : ?>
 
 
-    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
         <!-- Card Dark -->
         <div class="card" id="card">
 
@@ -40,16 +40,8 @@
 
 
                 <!-- Title  -->
-                <h4 class="card-title">Precio:
-                    <?php
-                            if ($inmuebles['operacion'] == "Alquiler") {
-                                echo number_format(substr($inmuebles['precio_venta'], 1, 4), 2, ',', '.') . " €/mes";
-                            } else {
-                                echo number_format($inmuebles['precio_venta'], 2, ',', '.') . " €";
-                            }
-                            ?>
-
-
+                <h4 class="card-title">
+                    <?php echo $inmuebles['tipo'] . " en " . $inmuebles['operacion'] ?>
 
                 </h4>
 
@@ -59,8 +51,18 @@
 
                 <h6 class="card-text   ">Provincia: <?php echo $inmuebles['provincia'] ?></h6>
 
-                <p class="card-text  "><?php echo $inmuebles['tipo'] . " en " . $inmuebles['operacion'] ?>
-                </p>
+                <span class="card-text  "> Precio:
+                    <?php
+                            if ($inmuebles['operacion'] == "Alquiler") {
+                                echo number_format(substr($inmuebles['precio_venta'], 1, 4), 2, ',', '.') . " €/mes";
+                            } else {
+                                echo number_format($inmuebles['precio_venta'], 2, ',', '.') . " €";
+                            }
+                            ?>
+                </span>
+                <hr>
+
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi tempora delectus natus libero, pariatur praesentium inventore iusto nulla! Quasi deserunt numquam, sunt fugiat possimus adipisci velit corrupti dolorum laudantium saepe.</p>
                 <!-- Link -->
                 <div class="text-right">
                     <a href="index.php?ctl=verInmueble&referencia=<?php echo $inmuebles['referencia'] ?>" class="btn btn-warning" target="_blank">

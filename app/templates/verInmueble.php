@@ -42,11 +42,11 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img class="d-block w-100 img-thumbnail mx-auto d-block" src="<?php
-                                                                                    is_array($result['imagen']) ? $img = $result['imagen'][0] : $img = $result['imagen'];
-                                                                                    echo $img;
+                    <img class="d-block w-100 img-thumbnail mx-auto d-block" style="height: 35em;" src="<?php
+                                                                                                        is_array($result['imagen']) ? $img = $result['imagen'][0] : $img = $result['imagen'];
+                                                                                                        echo $img;
 
-                                                                                    ?>" alt="First slide">
+                                                                                                        ?>" alt="First slide">
                 </div>
 
                 <?php

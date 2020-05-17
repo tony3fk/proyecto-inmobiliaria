@@ -48,6 +48,15 @@ ul {
     width: 100%;
 }
 
+#thumb {
+    position: absolute;
+    border: 1px solid #b7e5ff;
+    background: #ccc;
+    padding: 5px;
+    display: none;
+    color: #333;
+}
+
 
 
 /* responsive  */

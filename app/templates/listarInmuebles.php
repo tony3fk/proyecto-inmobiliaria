@@ -3,6 +3,7 @@
 <!-- Listar inmuebles para el admin desde el menú de admin -->
 
 <div class="container-fluid mt-2">
+    <h3 class="text-center">Gestión de inmuebles</h3>
 
     <?php
 
@@ -47,33 +48,28 @@
             <td><?php echo $inmuebles['superficie'] ?></td>
             <td><?php echo $inmuebles['precio_venta'] ?></td>
             <td>
-                <ul>
+                <div class="row justify-content-start m-1">
+
                     <?php
                             $arrayImg = json_decode($inmuebles['imagen'], true);
 
                             if (json_last_error() === JSON_ERROR_NONE) {
                                 foreach ($arrayImg as $img) {
                                     ?>
-                    <li>
-                        <a href="<?php echo $img ?>"><?php echo $img ?></a>
-                    </li>
-                    <?php }
-                                } else { ?>
-                    <li>
-                        <a href="<?php echo $inmuebles['imagen'] ?>"><?php echo $inmuebles['imagen'] ?></a>
-                    </li>
-
-
-                    <?php } ?>
-
-
-                </ul>
+                    <div class="d-inline p-2">
+                        <a href="<?php echo $img ?>" target="_blank" class="thumb"> <img src="<?php echo $img ?>" alt="thumb" style="width:5rem;"></a>
+                        <?php }
+                                    } else { ?>
+                        <a href="<?php echo $inmuebles['imagen'] ?>" target="_blank" class="thumb"><img src="<?php echo $inmuebles['imagen'] ?>" alt="thumb" style="width:5rem;"></a>
+                        <?php } ?>
+                    </div>
+                </div>
 
             </td>
 
 
             <td class="text-center">
-                <a href="index.php?ctl=editarInmuebles&id=<?php echo $inmuebles['referencia'] ?>" class="btn btn-outline-warning w-100">Editar Registro</a>
+                <a href="index.php?ctl=editarInmuebles&id=<?php echo $inmuebles['referencia'] ?>" class="btn btn-outline-warning w-100" target="_blank">Editar Registro</a>
             </td>
             <td class="text-center">
                 <a href="index.php?ctl=eliminarInmuebles&id=<?php echo $inmuebles['referencia'] ?>" class=" btnEliminar btn btn-outline-danger w-100">Eliminar Registro</a>
