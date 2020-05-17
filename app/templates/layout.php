@@ -10,20 +10,28 @@
 
     <link rel="stylesheet" type="text/css" href="web/css/reset.css" />
     <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='vendor/elementor/frontend.min.css' media='all' />
-    <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap-social.css">
-    <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css">
-    <link rel="stylesheet" type="text/css" href="vendor/components/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/media/css/jquery.dataTables.css">
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap-social.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css"> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/components/font-awesome/css/font-awesome.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" integrity="sha256-VBrFgheoreGl4pKmWgZh3J23pJrhNlSUOBek+8Z2Gv0=" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/examples/resources/syntax/shCore.css">
     <link rel="stylesheet" type="text/css" href="web/css/estilo.css" />
 
-    <script src="vendor/firebase/firebase-ui-auth.js"></script>
+    <!-- <script src="vendor/firebase/firebase-ui-auth.js"></script> -->
     <link rel="stylesheet" type="text/css" href="vendor/firebase/firebase-ui-auth.css" />
-    <script src="vendor/firebase/firebase-app.js"></script>
-    <script src="vendor/components/jquery/jquery.min.js"></script>
-    <script src="vendor/datatables/datatables/media/js/jquery.dataTables.js"></script>
+
+
+
+    <!-- <script src="vendor/firebase/firebase-app.js"></script> -->
+    <!-- <script src="vendor/components/jquery/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/datatables/examples/resources/syntax/shCore.js"></script>
-    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="app/libs/geolocalizacion.js"></script>
     <script src="app/libs/scrolls.js"></script>
     <script src="app/libs/confirmaEliminacion.js"></script>
@@ -339,6 +347,8 @@
         $('.dataTables_length').addClass('bs-select');
     });
     </script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="app/libs/authFirebase.js"></script>
