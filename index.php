@@ -3,16 +3,16 @@ require 'vendor/autoload.php';
 
 // web/index.php
 // carga del modelo y los controladores
-require_once('./app/Config.php');
-require_once('./app/Model.php');
-require_once('./app/Controller.php');
-require_once('./app/libs/sessionClass.php');
+require_once('/app/Config.php');
+require_once('/app/Model.php');
+require_once('/app/Controller.php');
+require_once('/app/libs/sessionClass.php');
 
 
 
 // ini_set("session.use_trans_sid", "0");
 // ini_set("session.use_only_cookies", "1");
-error_reporting(E_ALL ^ E_NOTICE);
+error_reporting(0);
 
 
 session_set_cookie_params(0, "/", $_SERVER["HTTP_HOST"], 0); //Esta configuración cierra la sesion al cerrar el navegador.
