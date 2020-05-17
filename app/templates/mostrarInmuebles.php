@@ -54,7 +54,7 @@
                 <span class="card-text  "> Precio:
                     <?php
                             if ($inmuebles['operacion'] == "Alquiler") {
-                                echo number_format(substr($inmuebles['precio_venta'], 1, 4), 2, ',', '.') . " €/mes";
+                                echo number_format(substr($inmuebles['precio_venta'], 1, 4), 2, ',', '.') * 1000 . " €/mes";
                             } else {
                                 echo number_format($inmuebles['precio_venta'], 2, ',', '.') . " €";
                             }
