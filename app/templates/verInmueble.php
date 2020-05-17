@@ -1,7 +1,7 @@
 <?php ob_start() ?>
-<div class="container-fluid mt-2" id="verInmueble">
+<div class="container-fluid mt-2 ml-3" id="verInmueble">
     <br>
-    <div class="row justify-content-around">
+    <div class="row justify-content-around mr-5">
         <div class="col-1 ">
             <a href="index.php?ctl=verInmueble&referencia=<?php echo $result['referencia'] - 1; ?>" type="button" class="btn btn-lg btn-outline-warning w-100">
                 <i class="text-dark fa fa-angle-double-left"></i>
@@ -42,11 +42,11 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="<?php
-                                                    is_array($result['imagen']) ? $img = $result['imagen'][0] : $img = $result['imagen'];
-                                                    echo $img;
+                    <img class="d-block w-100 img-thumbnail mx-auto d-block" style="height: 35em;" src="<?php
+                                                                                                        is_array($result['imagen']) ? $img = $result['imagen'][0] : $img = $result['imagen'];
+                                                                                                        echo $img;
 
-                                                    ?>" alt="First slide">
+                                                                                                        ?>" alt="First slide">
                 </div>
 
                 <?php
@@ -83,7 +83,7 @@
             <br>
 
             <!--Implantar siguiente registro -->
-            <table class="bg-light table-striped ">
+            <table class="table table-hover">
 
 
                 <tr>

@@ -3,7 +3,9 @@
 
 <br>
 
-<div class="container">
+<div class="container mt-5">
+
+    <h3 class="text-center">Gestión de usuarios</h3>
 
     <?php
     if (isset($_GET['borrado'])) {
@@ -42,7 +44,18 @@
 
             <td><?php echo $usuarios['tipo'] ?></td>
             <td><?php echo $usuarios['ciudad'] ?></td>
-            <td><a href="<?php echo $usuarios['avatar'] ?>"><?php echo $usuarios['avatar'] ?></a></td>
+            <td>
+                <div class="row justify-content-start m-1">
+                    <div class="d-inline p-2">
+                        <a href="<?php echo $usuarios['avatar'] ?>" target="_blank" class="thumb">
+                            <img src="<?php echo $usuarios['avatar'] ?>" alt="avatar" style="width:5rem;">
+                        </a>
+
+                    </div>
+
+
+                </div>
+            </td>
             <td class="text-center">
                 <a href="index.php?ctl=eliminarUsuario&id=<?php echo $usuarios['id'] ?>" class="btnEliminar btn btn-outline-danger w-100">Eliminar Registro</a>
             </td>
