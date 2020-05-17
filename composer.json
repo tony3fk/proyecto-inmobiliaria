@@ -16,8 +16,9 @@
         "components/jquery": "3.3.*",
         "phpmailer/phpmailer": "6.1.*",
         "components/font-awesome": "4.3.0",
-        "datatables/datatables": "^1.10",
-        "heroku/heroku-buildpack-php": "^174.0"
+        "datatables/datatables": "^1.10"
     },
-    "require-dev": {}
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "^174.0"
+    }
 }
