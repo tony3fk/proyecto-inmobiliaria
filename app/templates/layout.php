@@ -71,14 +71,14 @@
             <!-- navbar -->
             <nav class="col-12 navbar navbar-expand-md navbar-light bg-warning menu" id="navbar">
 
-                <div class="col-1 d-md-none">
+                <div class="col-1 d-xs-none d-md-none">
                     <button type="button" class="navbar-toggler " data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
 
 
-                <div class="collapse navbar-collapse justify-content-start col-10 col-md-9" id="navbarCollapse">
+                <div class="collapse navbar-collapse justify-content-start col-3 col-md-9" id="navbarCollapse">
 
                     <?php
                     $muestraInicio = "";
@@ -116,7 +116,7 @@
 
                 <?php isset($_GET['msg']) ? $ver = 'd-none' : $ver = ''; ?>
 
-                <div id="userActivo" class="col-8 col-md-3 <?php echo $ver; ?> ">
+                <div id="userActivo" class="col-7 col-md-3 <?php echo $ver; ?> ">
 
                     <div id="menuAdmin" class="nav-item  dropdown row justify-content-end">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">

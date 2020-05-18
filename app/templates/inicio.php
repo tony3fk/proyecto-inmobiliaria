@@ -2,7 +2,7 @@
 
 <div class="col-12 " id="inicio">
 
-    <div id="fondoInicio" class="jumbotron h-100 row">
+    <div id="fondoInicio" class="jumbotron row">
         <div class="justify-content-center col-12" id="formInicio">
             <form class="form-horizontal " action="index.php?ctl=buscarConParametros" method="POST">
                 <fieldset style="margin-top: 9rem">
@@ -19,17 +19,17 @@
                             </h5>
                         </div>
 
-                        <div class="col-2 text-center">
+                        <div class="col-3 text-center">
                             <h5 class="checkbox-inline text-light  " for="radiobutton">
-                                <input type="radio" name="operacion" id="radiobutton" value="Venta" checked>Venta
+                                <input type="radio" name="operacion" id="radiobutton" value="Venta" checked><label for=""> Venta</label>
                             </h5>
 
 
                         </div>
-                        <div class="col-5">
+                        <div class="col-4">
                             <h5 class="checkbox-inline text-light" for="radiobutton">
-                                <input type="radio" name="operacion" id="radiobutton" value="Alquiler">
-                                Alquiler
+                                <input type="radio" name="operacion" id="radiobutton" value="Alquiler"><label for=""> Alquiler</label>
+
                             </h5>
                         </div>
                     </div>

@@ -31,9 +31,6 @@ ul {
 
 }
 
-#inicio {
-    height: 45rem;
-}
 
 #fondoInicio {
     background-image: url(../../app/images/inicio.jpg);
@@ -78,6 +75,10 @@ ul {
 
     }
 
+    #inicio {
+        height: 33rem;
+    }
+
 
 
 
@@ -103,6 +104,10 @@ ul {
 
     }
 
+    #inicio {
+        height: 45rem;
+    }
+
 }
 
 /* md */
@@ -121,6 +126,10 @@ ul {
         font-size: 1.2rem;
         text-align: center;
 
+    }
+
+    #inicio {
+        height: 45rem;
     }
 
 }
@@ -143,6 +152,10 @@ ul {
 
     }
 
+    #inicio {
+        height: 45rem;
+    }
+
 }
 
 /* xl */
@@ -161,6 +174,10 @@ ul {
         font-size: 1.8rem;
         text-align: center;
 
+    }
+
+    #inicio {
+        height: 45rem;
     }
 
 }
@@ -187,9 +204,7 @@ table.dataTable thead .sorting_desc_disabled:before {
     bottom: .5em !important;
 }
 
-#inicio {
-    height: 45rem !important;
-}
+
 
 .btn-social {
     height: 4rem !important;
