@@ -38,7 +38,7 @@ function geoFindMe() {
         output.innerHTML = "No se puede determinar localización.";
     };
 
-    output.innerHTML = "<i class="+"far fa-compass"+"></i>";
+    output.innerHTML = "<i class="+"fa fa-compass"+"></i>";
 
     navigator.geolocation.getCurrentPosition(success, error);
     }
