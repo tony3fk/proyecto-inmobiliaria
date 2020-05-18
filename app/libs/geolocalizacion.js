@@ -18,7 +18,7 @@ function geoFindMe() {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
-        var apiURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude +
+        var apiURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude +
             "&appid=96edde9f7c64ae00b99322b16b678542";
 
         
