@@ -35,8 +35,8 @@
     <script src="app/libs/geolocalizacion.js"></script>
     <script src="app/libs/scrolls.js"></script>
     <script src="app/libs/confirmaEliminacion.js"></script>
-    <!-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5ebed02e2d5f810012b130b7&product=inline-share-buttons" async="async"></script> -->
-    <script src="app/libs/shareThis.js"></script>
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5ebed02e2d5f810012b130b7&product=inline-share-buttons" async="async"></script>
+
 </head>
 
 <body onload="geoFindMe()">
