@@ -22,9 +22,9 @@ if (isset($_POST['bEmail'])) {
     // Enviarlo
     if (mail($para, $asunto, $mensaje, $cabeceras)) {
         echo '<script>alert("Mensaje enviado");</script>';
-        header('Location: index.php?ctl=inicio');
+        header('Location: https://gestioninmobiliaria.herokuapp.com/index.php?ctl=inicio');
     } else {
-        header('Location: index.php?ctl=error&msg="No se ha podido mandar el email"');
+        header('Location: https://gestioninmobiliaria.herokuapp.com/index.php?ctl=error&msg="No se ha podido mandar el email"');
         //return "No se ha podido mandar el email";
     }
 }
