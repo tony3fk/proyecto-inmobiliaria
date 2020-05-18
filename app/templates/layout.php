@@ -50,7 +50,7 @@
             <header class="header col-12">
 
                 <div class="row bg-dark justify-content-center  header">
-                    <h1 class="text-warning display-2 title "><?php echo Config::$TITULO; ?></h1>
+                    <h1 class="text-warning display-2 title mt-2"><?php echo Config::$TITULO; ?></h1>
 
                 </div>
                 <div class="row">
@@ -162,7 +162,7 @@
 
             <div class="container-fluid">
 
-                <div class="row justify-content-center" id="contenido"><?php echo $contenido ?></div>
+                <div class="row" id="contenido"><?php echo $contenido ?></div>
             </div>
 
 
@@ -184,7 +184,7 @@
 
 
                     <!--formulario-->
-                    <div class="col-lg-9 mb-md-0 mb-5 p-5">
+                    <div class="col-lg-9 m-auto p-4">
                         <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
                             <!--Grid row-->
@@ -260,49 +260,45 @@
                     <!--fin formulario-->
 
 
-                    <div class="col-lg-3 text-center justify-content-center">
+                    <div class="col-lg-3 text-center justify-content-center m-auto">
 
                         <!--  mail y telefono -->
-                        <div class="elementor-widget-wrap   bg-light text-dark ">
-                            <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
-                                <div class="elementor-widget-container">
-                                    <div class="elementor-button-wrapper">
-                                        <a class="" role="button">
-                                            <span class="elementor-button-content-wrapper">
-                                                <span class="elementor-button-text">O MÁNDANOS UN EMAIL:</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
+                        <div class=" ">
+                            <div class="">
+
+
+                                <span class="">O MÁNDANOS UN EMAIL:</span>
+
                             </div>
-                            <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button">
-                                <div class="elementor-widget-container">
-                                    <div class="elementor-button-wrapper">
-                                        <a href="mailto:" class="" role="button">
-                                            <span class="elementor-button-content-wrapper">
-                                                <span class="elementor-button-text">info@gestioninmobiliaria.com</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
+
+                            <div class="">
+
+                                <a href="mailto:" class="" role="button">
+
+                                    <span class="">info@gestioninmobiliaria.com</span>
+
+                                </a>
+
                             </div>
-                            <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button" ">
-                        <div class=" elementor-widget-container">
-                                <div class="elementor-button-wrapper">
-                                    <a href="tel:0034645212828" class="" role="button">
-                                        <span class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">Tel: +34 645 21 2828</span>
-                                        </span>
-                                    </a>
-                                </div>
+
+
+
+                            <div class="">
+                                <a href=" tel:0034645212828" class="" role="button">
+
+                                    <span class="">Tel: +34 645 21 2828</span>
+
+                                </a>
+
                             </div>
+                            <br>
                         </div>
 
                         <!-- fin mail y telefono -->
 
                         <!-- botones redes sociales -->
-                        <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
-                            <div class="elementor-widget-container">
+                        <div class="">
+                            <div class="">
                                 <!-- Facebook -->
                                 <a href="www.facebook.com" class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fa fa-facebook"></i></a>
                                 <!--Twitter-->
@@ -314,10 +310,11 @@
                             </div>
                         </div>
                         <!-- fin botones redes sociales -->
+
                         <br>
-                        <div class="elementor-element  elementor-widget elementor-widget-heading">
-                            <div class="elementor-widget-container">
-                                <p class="elementor-heading-title elementor-size-default">Antonio Rodríguez<br>
+                        <div class="">
+                            <div class="">
+                                <p class="">Antonio Rodríguez<br>
                                     ©<?php echo date("Y", time()) . " "; ?>Spain</p>
                             </div>
                         </div>

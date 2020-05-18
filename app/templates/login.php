@@ -271,45 +271,62 @@
 
         <footer id="pie" class="row   bg-light  justify-content-center p-4 mt-5">
 
-            <div class="  col-md-5 text-center text-dark bg-light">
+            <div class="col-lg-3 text-center justify-content-center m-auto">
+
+                <!--  mail y telefono -->
+                <div class=" ">
+                    <div class="">
 
 
-                <div class="elementor-align-center  elementor-widget-button">
-                    <a href="mailto:" class="" role="button">info@gestioninmobiliaria.com</a>
+                        <span class="">O MÁNDANOS UN EMAIL:</span>
+
+                    </div>
+
+                    <div class="">
+
+                        <a href="mailto:" class="" role="button">
+
+                            <span class="">info@gestioninmobiliaria.com</span>
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="">
+                        <a href=" tel:0034645212828" class="" role="button">
+
+                            <span class="">Tel: +34 645 21 2828</span>
+
+                        </a>
+
+                    </div>
+                    <br>
                 </div>
-                <div class="  elementor-align-center elementor-widget elementor-widget-button">
-                    <a href="tel:+34-698-415-282" class="" role="button">tel: +34 698 415 282</a>
-                </div>
 
+                <!-- fin mail y telefono -->
 
-
-                <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global  elementor-widget-social-icons">
-                    <div class="elementor-widget-container">
-                        <div>
-                            <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook " target="_blank">
-                                <span class="elementor-screen-only"></span>
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
-                                <span class="elementor-screen-only"></span>
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin " target="_blank">
-                                <span class="elementor-screen-only"></span>
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                            <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram " target="_blank">
-                                <span class="elementor-screen-only"></span>
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
+                <!-- botones redes sociales -->
+                <div class="">
+                    <div class="">
+                        <!-- Facebook -->
+                        <a href="www.facebook.com" class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fa fa-facebook"></i></a>
+                        <!--Twitter-->
+                        <a href="www.twitter.com" class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fa fa-twitter"></i></a>
+                        <!--Linkedin-->
+                        <a href="www.linkedin.com" class="btn-floating btn-lg btn-li" type="button" role="button"><i class="fa fa-linkedin"></i></a>
+                        <!--Instagram-->
+                        <a href="www.instagram.com" class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="elementor-element  elementor-widget elementor-widget-heading">
-                    <div class="elementor-widget-container">
-                        <span id="copyright">Antonio Rodríguez</span>
-                        <p class="elementor-heading-title elementor-size-default">©<?php echo date("Y", time()) ?>
-                            Spain.</p>
+                <!-- fin botones redes sociales -->
+
+                <br>
+                <div class="">
+                    <div class="">
+                        <p class="">Antonio Rodríguez<br>
+                            ©<?php echo date("Y", time()) . " "; ?>Spain</p>
                     </div>
                 </div>
             </div>
