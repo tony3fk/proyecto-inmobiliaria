@@ -35,16 +35,6 @@
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
     <!-- <script src="./web/css/bootstrap/js/bootstrap.js"></script> -->
 
-    <script>
-    $('#passwordreg, #confirm-password').on('keyup', function() {
-        if ($('#passwordreg').val() == $('#confirm-password').val()) {
-            $('#message').html('Matching').css('color', 'green');
-        } else
-            $('#message').html('Not Matching').css('color', 'red');
-    });
-    </script>
-
-
 
 
     <title>Login Gestión Inmobiliaria</title>
@@ -116,7 +106,7 @@
                                         <a href="#" class="btn btn-outline-primary <?php echo $display ?>" id="login-form-link">Login</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-outline-secondary" id="register-form-link">Registro</a>
+                                        <a href="#" class="btn btn-outline-secondary" id="register-form-link">Register</a>
                                     </div>
                                 </div>
                                 <hr>
@@ -126,6 +116,22 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-sm-12">
+                                        <!-- mensaje de succes -->
+                                        <div class="justify-content-center">
+
+                                            <?php if ($params['success'] != '') {
+                                                $fondo = "text-center alert alert-success";
+                                            } else {
+                                                $fondo = '';
+                                            } ?>
+
+                                            <h3 class="<?php echo $fondo ?>" role="alert"><?php
+                                                                                            echo $params['success'];
+
+                                                                                            $params['success'] = ''; ?></h3>
+
+                                        </div>
+                                        <!-- fin mensaje de success -->
 
                                         <div id="login-form">
                                             <!-- formulario de login -->
@@ -154,7 +160,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="text-center">
-                                                            <a href="index.php?ctl=resetPassword" tabindex="5" class="forgot-password <?php echo $display ?>">¿Olvidaste la contraseña?</a>
+                                                            <a href="index.php?ctl=resetPassword" tabindex="5" class="forgot-password <?php echo $display ?>">¿Olvidaste tu password?</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -191,6 +197,8 @@
 
                                         <!--formulario de registro -->
                                         <form class="p-2" id="register-form" action="index.php?ctl=register" method="post" role="form" style="display: <?php echo $displayRegister ?>;" enctype="multipart/form-data">
+
+
                                             <div class="form-group">
                                                 <input type="text" name="nombre" id="usernamereg" tabindex="1" class="form-control text-center" placeholder="Nombre" value="" required>
                                             </div>
@@ -198,11 +206,11 @@
                                                 <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="Email" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" id="passwordreg" tabindex="2" class="form-control text-center" placeholder="Password" required>
+                                                <input type="password" name="password" id="passwordreg" tabindex="2" class="form-control text-center" placeholder="Password" required minlength="8">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirma password">
-                                                <p id="message"></p>
+                                                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control  text-center" placeholder="Confirma password" required minlength="8">
+
                                             </div>
 
 
@@ -216,7 +224,7 @@
                                             <div class="form-group">
                                                 <div class="row justify-content-center">
                                                     <div class="col-sm-6 col-sm-offset-3">
-                                                        <input type="submit" name="bRegister" id="register-submit" tabindex="4" class="form-control btn btn-register btn-secondary" value="Register Now">
+                                                        <input type="submit" name="bRegister" id="register-submit" tabindex="4" class="form-control btn btn-register btn-secondary" value="Regístrate">
                                                     </div>
                                                 </div>
                                             </div>
@@ -241,13 +249,15 @@
             <div class="justify-content-center">
 
                 <?php if ($params['mensaje'] != '') {
-                    $fondoRojo = "text-center alert alert-danger";
+                    $fondo = "text-center alert alert-danger";
                 } else {
-                    $fondoRojo = '';
+                    $fondo = '';
                 } ?>
 
-                <h3 class="<?php echo $fondoRojo ?>" role="alert"><?php echo $params['mensaje'];
-                                                                    $params['mensaje'] = ''; ?></h3>
+                <h3 class="<?php echo $fondo ?>" role="alert"><?php echo $params['mensaje'];
+
+                                                                $params['mensaje'] = '';
+                                                                ?></h3>
 
             </div>
             <!-- fin mensaje de error -->

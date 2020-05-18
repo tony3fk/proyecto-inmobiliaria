@@ -21,13 +21,16 @@
         <thead class="thead-dark">
             <tr>
                 <th class="th-sm text-center">ID</th>
+                <th class="th-sm text-center">FECHA</th>
                 <th class="th-sm text-center">NOMBRE</th>
                 <th class="th-sm text-center">EMAIL</th>
 
                 <th class="th-sm text-center">TIPO</th>
-                <th class="th-sm text-center">CIUDAD</th>
+
                 <th class="th-sm text-center">AVATAR</th>
                 <th class="th-sm text-center"></th>
+
+
 
 
 
@@ -39,11 +42,12 @@
         <tr>
 
             <td><?php echo $usuarios['id'] ?></td>
+            <td><?php echo $usuarios['created'] ?></td>
             <td><?php echo $usuarios['nombre'] ?></td>
             <td><?php echo $usuarios['email'] ?></td>
 
             <td><?php echo $usuarios['tipo'] ?></td>
-            <td><?php echo $usuarios['ciudad'] ?></td>
+
             <td>
                 <div class="row justify-content-start m-1">
                     <div class="d-inline p-2">

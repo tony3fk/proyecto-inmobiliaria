@@ -43,10 +43,10 @@ class Model extends PDO
     }
 
 
-    public function listarUsuarios($orderBy = " order by tipo desc")
+    public function listarUsuarios()
     {
 
-        $consulta = "select * from usuarios $orderBy";
+        $consulta = "select * from usuarios";
         $result = $this->conexion->query($consulta);
         return $result->fetchAll();
     }
@@ -166,14 +166,16 @@ class Model extends PDO
     function InsertUser(array $params)
     {
 
-        $consulta = "INSERT INTO usuarios (nombre, email, password, tipo, ciudad, avatar) VALUES (:nombre,  :email, :password, :tipo, :ciudad, :avatar)";
+        $consulta = "INSERT INTO usuarios (nombre, email, password, tipo, avatar, created) VALUES (:nombre,  :email, :password, :tipo, :avatar, :created)";
         $insert = $this->conexion->prepare($consulta);
         $insert->bindParam(':nombre', $params['nombre']);
         $insert->bindParam(':email', $params['email']);
         $insert->bindParam(':password', $params['password']);
         $insert->bindParam(':tipo', $params['tipo']);
-        $insert->bindParam(':ciudad', $params['ciudad']);
+
+
         $insert->bindParam(':avatar', $params['avatar']);
+        $insert->bindParam(':created', date('Y-m-d H:i:s', time()));
 
         $insert->execute();
         return $insert;

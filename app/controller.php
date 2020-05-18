@@ -59,6 +59,7 @@ class Controller
         $_SESSION['mensaje'] = '';
         try {
 
+
             $params = array(
                 'nombre' => '',
                 'email' => '',
@@ -67,7 +68,8 @@ class Controller
                 'ciudad' => '',
                 'tipo' => '',
                 'avatar' => NULL,
-                'mensaje' => ''
+                'mensaje' => '',
+                'success' => ''
 
             );
 
@@ -82,47 +84,65 @@ class Controller
                 $params['tipo'] = 1;
             }
 
-            //$params['ciudad'] = '';
-            // comprobar campos formulario
-
-            //compruebo si tengo datos y si el email es correcto
-            if (isset($params['nombre']) &&  _email($params['email']) && is_numeric($params['tipo'])  && ($params['password'] == $params['confirm-password'])) {
-                if (isset($_POST['bRegister'])) { //si se pulsa registrar
+            if ($params['password'] == $params['confirm-password']) {
 
 
-                    //comprobar foto
-                    //comprobación de la imagen si la hay, sin errores y tamaño menos a 2 MB
-                    if ($_FILES['avatar']['error'] == 0 && $_FILES['avatar']['size'] <= 2097152) {
-                        $avatar = $_FILES['avatar']['name'];
-                        $dir = './app/images/avatars/';
+                //$params['ciudad'] = '';
+                // comprobar campos formulario
+
+                //compruebo si tengo datos y si el email es correcto
+                if (isset($params['nombre']) &&  _email($params['email']) && is_numeric($params['tipo'])) {
+                    if (isset($_POST['bRegister'])) { //si se pulsa registrar
 
 
-                        //Añadimos el tiempo para asegurarnos que el nombre es único
 
-                        $params['avatar'] = $dir . time() . '_' . $avatar;
+                        //comprobar foto
+                        //comprobación de la imagen si la hay, sin errores y tamaño menos a 2 MB
+                        if ($_FILES['avatar']['error'] == 0 && $_FILES['avatar']['size'] <= 2097152) {
+                            $avatar = $_FILES['avatar']['name'];
+                            $dir = './app/images/avatars/';
 
-                        //subida de avatar a carpeta avatares
-                        if (move_uploaded_file($_FILES['avatar']['tmp_name'],  $params['avatar'])) {
-                            $params['mensaje'] = "El fichero ha sido guardado";
+
+                            //Añadimos el tiempo para asegurarnos que el nombre es único
+
+                            $params['avatar'] = $dir . time() . '_' . $avatar;
+
+                            //subida de avatar a carpeta avatares
+                            if (move_uploaded_file($_FILES['avatar']['tmp_name'],  $params['avatar'])) {
+                                $params['mensaje'] = "El fichero ha sido guardado";
+                            } else {
+                                $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                            }
                         } else {
-                            $params['mensaje'] = 'Error: No se puede mover el fichero a su destino';
+                            $params['mensaje'] == 'Formato incorrecto o imagen demasiado grande';
                         }
-                    } else {
-                        $params['mensaje'] == 'Formato incorrecto o imagen demasiado grande';
-                    }
 
 
 
-                    // Si no ha habido problema creo modelo y hago inserción
-                    $m = new Model();
-                    if ($m->InsertUser($params)) {
+                        // Si no ha habido problema creo modelo y hago inserción
+                        $m = new Model();
+                        if ($m->InsertUser($params)) {
 
-                        self::email($params['email']);
+                            self::email($params['email']);
 
-                        if ($_SESSION['tipo'] == 2 || $_COOKIE['tipo'] == 2) {
-                            header('Location: index.php?ctl=listarUsuarios'); //si es admin
+                            if ($_SESSION['tipo'] == 2 || $_COOKIE['tipo'] == 2) {
+                                header('Location: index.php?ctl=listarUsuarios'); //si es admin
+                            } else {
+                                header('Location: index.php?ctl=login'); //si no es admin
+                            }
+                            $params['mensaje'] = 'Registrado correctamente. Inicia sesión.';
                         } else {
-                            header('Location: index.php?ctl=login'); //si no es admin
+                            $params = array(
+                                'nombre' => $params['nombre'],
+                                'email' =>   $params['email'],
+                                'provincia' => $params['password'],
+                                'ciudad' =>  $params['ciudad'],
+                                'tipo' => $params['tipo'],
+                                'avatar' => $params['avatar']
+
+
+                            );
+                            $params['mensaje'] = 'Revisa el formulario';
                         }
                     } else {
                         $params = array(
@@ -133,22 +153,12 @@ class Controller
                             'tipo' => $params['tipo'],
                             'avatar' => $params['avatar']
 
-
                         );
-                        $params['mensaje'] = 'Revisa el formulario';
+                        $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
                     }
-                } else {
-                    $params = array(
-                        'nombre' => $params['nombre'],
-                        'email' =>   $params['email'],
-                        'provincia' => $params['password'],
-                        'ciudad' =>  $params['ciudad'],
-                        'tipo' => $params['tipo'],
-                        'avatar' => $params['avatar']
-
-                    );
-                    $params['mensaje'] = 'Hay datos que no son correctos. Revisa el formulario';
                 }
+            } else {
+                $params['mensaje'] = 'Las contraseñas deben ser iguales';
             }
         } catch (Exception $e) {
 

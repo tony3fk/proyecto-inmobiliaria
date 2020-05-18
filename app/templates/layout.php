@@ -9,7 +9,8 @@
     <title>Gestión Inmobiliaria</title>
 
     <link rel="stylesheet" type="text/css" href="web/css/reset.css" />
-    <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='vendor/elementor/frontend.min.css' media='all' />
+    <!-- <link rel='stylesheet' type='text/css' id='elementor-frontend-css' href='vendor/elementor/frontend.min.css' media='all' /> -->
+    <link rel='stylesheet' id='elementor-frontend-css' href='http://strohlsf.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.8.5' type='text/css' media='all' />
     <!-- <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap-social.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css"> -->
@@ -17,19 +18,20 @@
     <!-- <link rel="stylesheet" type="text/css" href="vendor/components/font-awesome/css/font-awesome.min.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" integrity="sha256-VBrFgheoreGl4pKmWgZh3J23pJrhNlSUOBek+8Z2Gv0=" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/examples/resources/syntax/shCore.css">
-    <link rel="stylesheet" type="text/css" href="web/css/estilo.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/examples/resources/syntax/shCore.css"> -->
+
 
     <!-- <script src="vendor/firebase/firebase-ui-auth.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="vendor/firebase/firebase-ui-auth.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/firebase/firebase-ui-auth.css" /> -->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
 
-
+    <link rel="stylesheet" type="text/css" href="web/css/estilo.css" />
 
     <!-- <script src="vendor/firebase/firebase-app.js"></script> -->
     <!-- <script src="vendor/components/jquery/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/datatables/examples/resources/syntax/shCore.js"></script>
+    <!-- <script src="vendor/datatables/datatables/examples/resources/syntax/shCore.js"></script> -->
     <!-- <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="app/libs/geolocalizacion.js"></script>
@@ -183,7 +185,7 @@
 
                     <!--formulario-->
                     <div class="col-lg-9 mb-md-0 mb-5 p-5">
-                        <form id="contact-form" name="contact-form" action="app/libs/sendbymail.php" method="POST">
+                        <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
                             <!--Grid row-->
                             <div class="row">
@@ -249,7 +251,7 @@
                             <br>
                             <div class="top-icon text-center">
                                 <a href="#" id="ir-arriba">
-                                    <i class="fa fa-chevron-up">Up</i>
+                                    <i class="fa fa-arrow-up"></i>
                                 </a>
                             </div>
                         </form>
@@ -287,9 +289,9 @@
                             <div class="elementor-element  elementor-align-center elementor-widget elementor-widget-button" ">
                         <div class=" elementor-widget-container">
                                 <div class="elementor-button-wrapper">
-                                    <a href="tel:001-415-513-5579" class="" role="button">
+                                    <a href="tel:0034645212828" class="" role="button">
                                         <span class="elementor-button-content-wrapper">
-                                            <span class="elementor-button-text">Tel: +34 698 415 2828</span>
+                                            <span class="elementor-button-text">Tel: +34 645 21 2828</span>
                                         </span>
                                     </a>
                                 </div>
@@ -301,24 +303,14 @@
                         <!-- botones redes sociales -->
                         <div class="elementor-element  elementor-shape-rounded elementor-widget elementor-widget-global elementor-widget-social-icons">
                             <div class="elementor-widget-container">
-
-                                <a href="https://www.facebook.com/" class="elementor-icon elementor-social-icon elementor-social-icon-facebook " target="_blank">
-                                    <span class="elementor-screen-only">Facebook</span>
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="https://twitter.com/" class="elementor-icon elementor-social-icon elementor-social-icon-twitter " target="_blank">
-                                    <span class="elementor-screen-only">Twitter</span>
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin " target="_blank">
-                                    <span class="elementor-screen-only">Linkedin</span>
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a href="https://www.instagram.com/" class="elementor-icon elementor-social-icon elementor-social-icon-instagram " target="_blank">
-                                    <span class="elementor-screen-only">Instagram</span>
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-
+                                <!-- Facebook -->
+                                <a href="www.facebook.com" class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fa fa-facebook"></i></a>
+                                <!--Twitter-->
+                                <a href="www.twitter.com" class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fa fa-twitter"></i></a>
+                                <!--Linkedin-->
+                                <a href="www.linkedin.com" class="btn-floating btn-lg btn-li" type="button" role="button"><i class="fa fa-linkedin"></i></a>
+                                <!--Instagram-->
+                                <a href="www.instagram.com" class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                         <!-- fin botones redes sociales -->
