@@ -6,7 +6,7 @@ function geoFindMe() {
     
     var output = document.getElementById("temp");
 
-    if (!navigator.geolocation) {
+    if (!navigator.geolocation.getCurrentPosition(position)) {
         output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
         return;
     }
