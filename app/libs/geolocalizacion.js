@@ -11,6 +11,8 @@ function geoFindMe() {
         return;
     }
 
+   
+
     function success(position) {
         
         var latitude = position.coords.latitude;
@@ -18,6 +20,8 @@ function geoFindMe() {
 
         var apiURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude +
             "&appid=96edde9f7c64ae00b99322b16b678542";
+
+        
 
         $.getJSON(apiURL, function(data) {
             //data is the JSON string
@@ -37,6 +41,8 @@ function geoFindMe() {
     function error() {
         output.innerHTML = "No se puede determinar localización.";
     };
+
+     console.log(position);
 
     output.innerHTML = '<i class="fa fa-compass"></i>';
 
