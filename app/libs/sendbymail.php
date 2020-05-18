@@ -22,9 +22,10 @@ if (isset($_POST['bEmail'])) {
     // Enviarlo
     if (mail($para, $asunto, $mensaje, $cabeceras)) {
         echo '<script>alert("Mensaje enviado");</script>';
-        header('Location: ../../index.php?ctl=inicio');
+        header('Location: index.php?ctl=inicio');
     } else {
-        return "No se ha podido mandar el email";
+        header('Location: index.php?ctl=error&msg="No se ha podido mandar el email"');
+        //return "No se ha podido mandar el email";
     }
 }
 

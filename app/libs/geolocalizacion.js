@@ -39,10 +39,10 @@ function geoFindMe() {
     };
 
     function error() {
-        output.innerHTML = "No se puede determinar localización.";
+        output.innerHTML = '<i class="fa fa-compass"></i>';
     };
 
-     console.log(position);
+    
 
     output.innerHTML = '<i class="fa fa-compass"></i>';
 
