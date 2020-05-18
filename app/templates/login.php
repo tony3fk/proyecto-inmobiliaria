@@ -35,6 +35,15 @@
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
     <!-- <script src="./web/css/bootstrap/js/bootstrap.js"></script> -->
 
+    <script>
+    $('#passwordreg, #confirm-password').on('keyup', function() {
+        if ($('#passwordreg').val() == $('#confirm-password').val()) {
+            $('#message').html('Matching').css('color', 'green');
+        } else
+            $('#message').html('Not Matching').css('color', 'red');
+    });
+    </script>
+
 
 
 
@@ -107,7 +116,7 @@
                                         <a href="#" class="btn btn-outline-primary <?php echo $display ?>" id="login-form-link">Login</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-outline-secondary" id="register-form-link">Register</a>
+                                        <a href="#" class="btn btn-outline-secondary" id="register-form-link">Registro</a>
                                     </div>
                                 </div>
                                 <hr>
@@ -134,7 +143,7 @@
                                                 <div class="form-group">
                                                     <div class="row justify-content-center">
                                                         <div class="col-sm-12 col-md-6 col-sm-offset-3">
-                                                            <input type="submit" name="bLogin" id="login-submit" tabindex="4" class="form-control btn btn-login btn-primary" value="Log In">
+                                                            <input type="submit" name="bLogin" id="login-submit" tabindex="4" class="form-control btn btn-login btn-primary" value="Login">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -145,8 +154,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="text-center">
-                                                            <a href="index.php?ctl=resetPassword" tabindex="5" class="forgot-password <?php echo $display ?>">Forgot
-                                                                Password?</a>
+                                                            <a href="index.php?ctl=resetPassword" tabindex="5" class="forgot-password <?php echo $display ?>">¿Olvidaste la contraseña?</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -184,21 +192,23 @@
                                         <!--formulario de registro -->
                                         <form class="p-2" id="register-form" action="index.php?ctl=register" method="post" role="form" style="display: <?php echo $displayRegister ?>;" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <input type="text" name="nombre" id="usernamereg" tabindex="1" class="form-control text-center" placeholder="Username" value="" required>
+                                                <input type="text" name="nombre" id="usernamereg" tabindex="1" class="form-control text-center" placeholder="Nombre" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="Email Address" value="" required>
+                                                <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="Email" value="" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="password" id="passwordreg" tabindex="2" class="form-control text-center" placeholder="Password" required>
                                             </div>
-                                            <!-- <div class="form-group">
-                                                <input type="password" name="confirm-password" id="confirm-password"
-                                                    tabindex="2" class="form-control" placeholder="Confirm Password">
-                                            </div> -->
                                             <div class="form-group">
-                                                <input type="text" name="ciudad" id="ciudad" tabindex="2" class="form-control text-center" placeholder="Ciudad" required>
+                                                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirma password">
+                                                <p id="message"></p>
                                             </div>
+
+
+                                            <!-- <div class="form-group">
+                                                <input type="text" name="ciudad" id="ciudad" tabindex="2" class="form-control text-center" placeholder="Ciudad" required>
+                                            </div> -->
                                             <div class="form-group">
                                                 <label> Avatar (max 2MB)</label>
                                                 <input type="file" name="avatar" id="avatar" accept="image/gif,image/jpeg,image/jpg,image/png" />

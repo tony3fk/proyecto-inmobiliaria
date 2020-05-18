@@ -63,6 +63,7 @@ class Controller
                 'nombre' => '',
                 'email' => '',
                 'password' => '',
+                'confirm-password' => '',
                 'ciudad' => '',
                 'tipo' => '',
                 'avatar' => NULL,
@@ -73,6 +74,7 @@ class Controller
             $params['nombre'] = recoge('nombre');
             $params['email'] = recoge('email');
             $params['password'] = crypt_blowfish(recoge('password'));
+            $params['confirm-password'] = crypt_blowfish(recoge('confirm-password'));
 
             if ($_SESSION['tipo'] == 2 || $_COOKIE['tipo'] == 2) { //si está iniciada una sesión de administrador
                 $params['tipo'] = 2;
@@ -80,11 +82,11 @@ class Controller
                 $params['tipo'] = 1;
             }
 
-            $params['ciudad'] = recoge('ciudad');
+            //$params['ciudad'] = '';
             // comprobar campos formulario
 
             //compruebo si tengo datos y si el email es correcto
-            if (isset($params['nombre']) &&  _email($params['email'])  && isset($params['password']) && is_numeric($params['tipo'])  && isset($params['ciudad'])) {
+            if (isset($params['nombre']) &&  _email($params['email']) && is_numeric($params['tipo'])  && ($params['password'] == $params['confirm-password'])) {
                 if (isset($_POST['bRegister'])) { //si se pulsa registrar
 
 

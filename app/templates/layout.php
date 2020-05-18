@@ -183,7 +183,7 @@
 
                     <!--formulario-->
                     <div class="col-lg-9 mb-md-0 mb-5 p-5">
-                        <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
+                        <form id="contact-form" name="contact-form" action="app/libs/sendbymail.php" method="POST">
 
                             <!--Grid row-->
                             <div class="row">
