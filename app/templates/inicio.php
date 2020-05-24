@@ -13,20 +13,21 @@
                     <br>
 
                     <!-- Multiple Checkboxes (inline) -->
-                    <div class="form-group row justify-content-center">
-                        <div class="col-5">
+                    <div class="form-group row justify-content-center ">
+                        <div class="col-4 col-sm-5">
                             <h5 class="control-label text-warning text-md-right text-sm-left font-weight-bold" for="radiobutton">Operación
                             </h5>
                         </div>
 
-                        <div class="col-3 text-center">
+                        <div class="col-4 col-sm-2 text-center">
                             <h5 class="checkbox-inline text-light  " for="radiobutton">
                                 <input type="radio" name="operacion" id="radiobutton" value="Venta" checked><label for=""> Venta</label>
                             </h5>
 
 
                         </div>
-                        <div class="col-4">
+
+                        <div class="col-4 col-sm-5">
                             <h5 class="checkbox-inline text-light" for="radiobutton">
                                 <input type="radio" name="operacion" id="radiobutton" value="Alquiler"><label for=""> Alquiler</label>
 
