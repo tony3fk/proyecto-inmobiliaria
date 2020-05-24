@@ -80,10 +80,10 @@
             <br>
 
             <!-- formulario de acceso -->
-            <div class="container">
+            <div class="container" id="form-login">
                 <div class="row justify-content-center mt-5">
 
-                    <div class="col-10 col-md-8 col-lg-6 ">
+                    <div class="col-12 col-md-8 col-lg-7  ">
                         <div class="panel panel-login">
 
                             <?php
@@ -103,10 +103,14 @@
                             <div class="panel-heading">
                                 <div class="row pt-2">
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-outline-primary <?php echo $display ?>" id="login-form-link">Login</a>
+                                        <a href="#" class="btn btn-outline-primary <?php echo $display ?>" id="login-form-link">
+                                            <h4>Login</h4>
+                                        </a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#" class="btn btn-outline-secondary" id="register-form-link">Register</a>
+                                        <a href="#" class="btn btn-outline-secondary" id="register-form-link">
+                                            <h4>Register</h4>
+                                        </a>
                                     </div>
                                 </div>
                                 <hr>
@@ -140,16 +144,18 @@
                                                 <input type="text" name="nombre" id="username" tabindex="1" class="form-control text-center" placeholder="Username" value="">
                                             </div> -->
                                                 <div class="form-group">
-                                                    <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="Email" value="" required>
+                                                    <input type="email" name="email" id="email" tabindex="1" class="form-control text-center col-8 m-auto" placeholder="Email" value="" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="password" name="password" id="password" tabindex="2" class="form-control text-center" placeholder="Password" required>
+                                                    <input type="password" name="password" id="password" tabindex="2" class="form-control text-center col-8 m-auto" placeholder="Password" required>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-sm-12 col-md-6 col-sm-offset-3">
-                                                            <input type="submit" name="bLogin" id="login-submit" tabindex="4" class="form-control btn btn-login btn-primary" value="Login">
+                                                        <div class="col-6 col-sm-offset-3">
+                                                            <button type="submit" name="bLogin" id="login-submit" tabindex="4" class="form-control btn btn-login btn-primary m-auto">
+                                                                <h4>Login</h4>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -167,22 +173,31 @@
                                             </div>
 
                                             <!-- botones inicio mediante redes sociales -->
-                                            <div class="row p-2 <?php echo $display ?>">
+                                            <div class="row p-2  <?php echo $display ?>" id="login-social">
                                                 <div class="col-4 ">
                                                     <button onclick="facebookSignIn()" class="btn btn-block btn-facebook " id="btnLoginFacebook">
-                                                        <i class="fa fa-facebook fa-fw"></i> Login
+                                                        <i class="fa fa-facebook fa-fw w-100 p-0 m-0">
+
+                                                        </i>
+                                                        <h5>Login</h5>
                                                     </button>
                                                 </div>
 
-                                                <div class="col-4 ">
-                                                    <button onclick="googleSignIn()" class="btn btn-block btn-google" id="btnLoginGoogle">
-                                                        <i class="fa fa-google fa-fw"></i>Login
+                                                <div class="col-4  ">
+                                                    <button onclick="googleSignIn()" class="btn btn-block btn-google " id="btnLoginGoogle">
+                                                        <i class="fa fa-google fa-fw w-100 p-0 m-0">
+
+                                                        </i>
+                                                        <h5>Login</h5>
                                                     </button>
                                                 </div>
 
                                                 <div class="col-4 ">
                                                     <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter" id="btnLoginTwitter">
-                                                        <i class="fa fa-twitter fa-fw"></i> Login
+                                                        <i class="fa fa-twitter fa-fw w-100 p-0 m-0">
+
+                                                        </i>
+                                                        <h5>Login</h5>
                                                     </button>
                                                 </div>
 
@@ -200,16 +215,16 @@
 
 
                                             <div class="form-group">
-                                                <input type="text" name="nombre" id="usernamereg" tabindex="1" class="form-control text-center" placeholder="Nombre" value="" required>
+                                                <input type="text" name="nombre" id="usernamereg" tabindex="1" class="form-control text-center col-8 m-auto" placeholder="Nombre" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" name="email" id="email" tabindex="1" class="form-control text-center" placeholder="Email" value="" required>
+                                                <input type="email" name="email" id="email" tabindex="1" class="form-control text-center col-8 m-auto" placeholder="Email" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" id="passwordreg" tabindex="2" class="form-control text-center" placeholder="Password" required minlength="8">
+                                                <input type="password" name="password" id="passwordreg" tabindex="2" class="form-control text-center col-8 m-auto" placeholder="Password" required minlength="8">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control  text-center" placeholder="Confirma password" required minlength="8">
+                                                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control  text-center col-8 m-auto" placeholder="Confirma password" required minlength="8">
 
                                             </div>
 
@@ -223,7 +238,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="row justify-content-center">
-                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                    <div class="col-6 col-sm-offset-3">
                                                         <input type="submit" name="bRegister" id="register-submit" tabindex="4" class="form-control btn btn-register btn-secondary" value="Regístrate">
                                                     </div>
                                                 </div>
@@ -271,14 +286,14 @@
 
         <footer id="pie" class="row   bg-light  justify-content-center p-4 mt-5">
 
-            <div class="col-lg-3 text-center justify-content-center m-auto">
+            <div class="col-sm-8 col-lg-5 text-center justify-content-center m-auto ">
 
                 <!--  mail y telefono -->
-                <div class=" ">
+                <div class="shadow p-3 mb-5 bg-white rounded">
                     <div class="">
 
 
-                        <span class="">O MÁNDANOS UN EMAIL:</span>
+                        <h4>O MÁNDANOS UN EMAIL:</h4>
 
                     </div>
 
@@ -286,7 +301,7 @@
 
                         <a href="mailto:" class="" role="button">
 
-                            <span class="">info@gestioninmobiliaria.com</span>
+                            <h5>info@inmobiliaria.com</h5>
 
                         </a>
 
@@ -297,40 +312,41 @@
                     <div class="">
                         <a href=" tel:0034645212828" class="" role="button">
 
-                            <span class="">Tel: +34 645 21 2828</span>
+                            <h5>Tel: +34 645 21 2828</h5>
 
                         </a>
 
                     </div>
                     <br>
-                </div>
 
-                <!-- fin mail y telefono -->
 
-                <!-- botones redes sociales -->
-                <div class="">
+                    <!-- fin mail y telefono -->
+
+                    <!-- botones redes sociales -->
                     <div class="">
-                        <!-- Facebook -->
-                        <a href="http://www.facebook.com" class="btn-floating btn-lg btn-fb" target="_blank" type="button" role="button"><i class="fa fa-facebook"></i></a>
-                        <!--Twitter-->
-                        <a href="http://www.twitter.com" class="btn-floating btn-lg btn-tw" target="_blank" type="button" role="button"><i class="fa fa-twitter"></i></a>
-                        <!--Linkedin-->
-                        <a href="http://www.linkedin.com" class="btn-floating btn-lg btn-li" target="_blank" type="button" role="button"><i class="fa fa-linkedin"></i></a>
-                        <!--Instagram-->
-                        <a href="http://www.instagram.com" class="btn-floating btn-lg btn-ins" target="_blank" type="button" role="button"><i class="fa fa-instagram"></i></a>
+                        <div class="">
+                            <!-- Facebook -->
+                            <a href="http://www.facebook.com" class="btn btn-fb p-0 " target="_blank" type="button" role="button"><i class="fa fa-facebook"></i></a>
+                            <!--Twitter-->
+                            <a href="http://www.twitter.com" class="btn btn-tw  p-0" target="_blank" type="button" role="button"><i class="fa fa-twitter"></i></a>
+                            <!--Linkedin-->
+                            <a href="http://www.linkedin.com" class="btn btn-li p-0" target="_blank" type="button" role="button"><i class="fa fa-linkedin"></i></a>
+                            <!--Instagram-->
+                            <a href="http://www.instagram.com" class="btn btn-ins p-0" target="_blank" type="button" role="button"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <!-- fin botones redes sociales -->
+
+                    <br>
+                    <div class="">
+                        <div class="">
+                            <h5 class="">Antonio Rodríguez<br>
+                                ©<?php echo date("Y", time()) . " "; ?>Spain</h5>
+                        </div>
                     </div>
                 </div>
-                <!-- fin botones redes sociales -->
 
-                <br>
-                <div class="">
-                    <div class="">
-                        <p class="">Antonio Rodríguez<br>
-                            ©<?php echo date("Y", time()) . " "; ?>Spain</p>
-                    </div>
-                </div>
             </div>
-
         </footer>
         <!-- Fin footer -->
 

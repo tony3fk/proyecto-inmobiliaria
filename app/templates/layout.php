@@ -184,7 +184,7 @@
 
 
                     <!--formulario-->
-                    <div class="col-lg-8 m-auto p-4">
+                    <div class="col-10 col-lg-8 m-auto p-4">
                         <h2 class="h2-responsive  text-center my-4">CONTACTA CON NOSOTROS</h2><br>
                         <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
@@ -261,7 +261,7 @@
                     <!--fin formulario-->
 
                     <br>
-                    <div class="col-lg-3 text-center justify-content-center m-auto ">
+                    <div class="col-8 col-lg-3 text-center justify-content-center m-auto ">
 
                         <!--  mail y telefono -->
                         <div class="shadow p-3 mb-5 bg-white rounded">
