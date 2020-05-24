@@ -10,7 +10,7 @@
     <!-- <link rel="stylesheet" href="vendor/components/font-awesome/css/font-awesome.min.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" integrity="sha256-VBrFgheoreGl4pKmWgZh3J23pJrhNlSUOBek+8Z2Gv0=" crossorigin="anonymous" />
 
-    <link rel='stylesheet' id='elementor-frontend-css' href='vendor/elementor/frontend.min.css' type='text/css' media='all' />
+    <!-- <link rel='stylesheet' id='elementor-frontend-css' href='vendor/elementor/frontend.min.css' type='text/css' media='all' /> -->
     <!-- <link rel="stylesheet" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" id="bootstrap-css"> -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -22,7 +22,7 @@
 
 
     <!-- <script src="vendor/firebase/firebase-ui-auth.js"></script> -->
-    <link type="text/css" rel="stylesheet" href="vendor/firebase/firebase-ui-auth.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="vendor/firebase/firebase-ui-auth.css" /> -->
     <!-- <script src="vendor/firebase/firebase-app.js"></script> -->
 
     <!-- <script src="../app/libs/geolocalizacion.js"></script> -->
