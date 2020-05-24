@@ -311,13 +311,13 @@
                 <div class="">
                     <div class="">
                         <!-- Facebook -->
-                        <a href="http://www.facebook.com" class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fa fa-facebook"></i></a>
+                        <a href="http://www.facebook.com" class="btn-floating btn-lg btn-fb" target="_blank" type="button" role="button"><i class="fa fa-facebook"></i></a>
                         <!--Twitter-->
-                        <a href="http://www.twitter.com" class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fa fa-twitter"></i></a>
+                        <a href="http://www.twitter.com" class="btn-floating btn-lg btn-tw" target="_blank" type="button" role="button"><i class="fa fa-twitter"></i></a>
                         <!--Linkedin-->
-                        <a href="http://www.linkedin.com" class="btn-floating btn-lg btn-li" type="button" role="button"><i class="fa fa-linkedin"></i></a>
+                        <a href="http://www.linkedin.com" class="btn-floating btn-lg btn-li" target="_blank" type="button" role="button"><i class="fa fa-linkedin"></i></a>
                         <!--Instagram-->
-                        <a href="http://www.instagram.com" class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fa fa-instagram"></i></a>
+                        <a href="http://www.instagram.com" class="btn-floating btn-lg btn-ins" target="_blank" type="button" role="button"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
                 <!-- fin botones redes sociales -->

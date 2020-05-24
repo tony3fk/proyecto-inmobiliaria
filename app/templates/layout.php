@@ -172,19 +172,20 @@
             <hr width="70%" size="20" color="blue" noshade>
 
             <footer id="footer" class=" bg-light text-dark col-12 p-2 ">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
                         <h2 class="h2-responsive font-weight-bold text-center my-4">Contacta con nosotros</h2>
                     </div>
 
-                </div>
+                </div> -->
 
 
                 <div class="row">
 
 
                     <!--formulario-->
-                    <div class="col-lg-9 m-auto p-4">
+                    <div class="col-lg-8 m-auto p-4">
+                        <h2 class="h2-responsive  text-center my-4">CONTACTA CON NOSOTROS</h2><br>
                         <form id="contact-form" name="contact-form" action="./app/libs/sendbymail.php" method="POST">
 
                             <!--Grid row-->
@@ -245,7 +246,7 @@
 
 
                             <div class="text-center text-md-center ">
-                                <button name="bEmail" type="submit" class="btn btn-warning">Enviar</button>
+                                <button name="bEmail" type="submit" class="btn btn-lg btn-warning">Enviar</button>
                                 <!--  envio por mail-->
                             </div>
                             <br>
@@ -259,15 +260,15 @@
                     </div>
                     <!--fin formulario-->
 
-
-                    <div class="col-lg-3 text-center justify-content-center m-auto">
+                    <br>
+                    <div class="col-lg-3 text-center justify-content-center m-auto ">
 
                         <!--  mail y telefono -->
-                        <div class=" ">
+                        <div class="shadow p-3 mb-5 bg-white rounded">
                             <div class="">
 
 
-                                <span class="">O MÁNDANOS UN EMAIL:</span>
+                                <h4>O MÁNDANOS UN EMAIL:</h4>
 
                             </div>
 
@@ -275,7 +276,7 @@
 
                                 <a href="mailto:" class="" role="button">
 
-                                    <span class="">info@gestioninmobiliaria.com</span>
+                                    <h5>info@inmobiliaria.com</h5>
 
                                 </a>
 
@@ -286,40 +287,41 @@
                             <div class="">
                                 <a href=" tel:0034645212828" class="" role="button">
 
-                                    <span class="">Tel: +34 645 21 2828</span>
+                                    <h5>Tel: +34 645 21 2828</h5>
 
                                 </a>
 
                             </div>
                             <br>
-                        </div>
 
-                        <!-- fin mail y telefono -->
 
-                        <!-- botones redes sociales -->
-                        <div class="">
+                            <!-- fin mail y telefono -->
+
+                            <!-- botones redes sociales -->
                             <div class="">
-                                <!-- Facebook -->
-                                <a href="http://www.facebook.com" class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fa fa-facebook"></i></a>
-                                <!--Twitter-->
-                                <a href="http://www.twitter.com" class="btn-floating btn-lg btn-tw" type="button" role="button"><i class="fa fa-twitter"></i></a>
-                                <!--Linkedin-->
-                                <a href="http://www.linkedin.com" class="btn-floating btn-lg btn-li" type="button" role="button"><i class="fa fa-linkedin"></i></a>
-                                <!--Instagram-->
-                                <a href="http://www.instagram.com" class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fa fa-instagram"></i></a>
+                                <div class="">
+                                    <!-- Facebook -->
+                                    <a href="http://www.facebook.com" class="btn btn-fb p-0 " target="_blank" type="button" role="button"><i class="fa fa-facebook"></i></a>
+                                    <!--Twitter-->
+                                    <a href="http://www.twitter.com" class="btn btn-tw  p-0" target="_blank" type="button" role="button"><i class="fa fa-twitter"></i></a>
+                                    <!--Linkedin-->
+                                    <a href="http://www.linkedin.com" class="btn btn-li p-0" target="_blank" type="button" role="button"><i class="fa fa-linkedin"></i></a>
+                                    <!--Instagram-->
+                                    <a href="http://www.instagram.com" class="btn btn-ins p-0" target="_blank" type="button" role="button"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <!-- fin botones redes sociales -->
+
+                            <br>
+                            <div class="">
+                                <div class="">
+                                    <h5 class="">Antonio Rodríguez<br>
+                                        ©<?php echo date("Y", time()) . " "; ?>Spain</h5>
+                                </div>
                             </div>
                         </div>
-                        <!-- fin botones redes sociales -->
-
-                        <br>
-                        <div class="">
-                            <div class="">
-                                <p class="">Antonio Rodríguez<br>
-                                    ©<?php echo date("Y", time()) . " "; ?>Spain</p>
-                            </div>
-                        </div>
+                        <div class="col-lg-1"></div>
                     </div>
-                </div>
             </footer>
         </div>
     </div>

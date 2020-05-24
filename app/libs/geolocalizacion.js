@@ -7,7 +7,7 @@ function geoFindMe() {
     var output = document.getElementById("temp");
 
     if (!navigator.geolocation.getCurrentPosition(success, error)) {
-        output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+        output.innerHTML = '<i class="fa fa-compass"></i>';
         return;
     }
 
