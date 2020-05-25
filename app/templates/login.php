@@ -153,8 +153,8 @@
                                                 <div class="form-group">
                                                     <div class="row justify-content-center">
                                                         <div class="col-6 col-sm-offset-3">
-                                                            <button type="submit" name="bLogin" id="login-submit" tabindex="4" class="form-control btn btn-login btn-primary m-auto">
-                                                                <h4>Login</h4>
+                                                            <button type="submit" name="bLogin" id="login-submit" tabindex="4" class="form-control btn btn-primary btn-lg m-auto">
+                                                                <h5>LOGIN</h5>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -176,28 +176,28 @@
                                             <div class="row p-2  <?php echo $display ?>" id="login-social">
                                                 <div class="col-4 ">
                                                     <button onclick="facebookSignIn()" class="btn btn-block btn-facebook " id="btnLoginFacebook">
-                                                        <i class="fa fa-facebook fa-fw w-100 p-0 m-0">
+                                                        <i class="fa fa-facebook w-25 p-0 m-0">
 
                                                         </i>
-                                                        <h5>Login</h5>
+                                                        <span>Login</span>
                                                     </button>
                                                 </div>
 
                                                 <div class="col-4  ">
                                                     <button onclick="googleSignIn()" class="btn btn-block btn-google " id="btnLoginGoogle">
-                                                        <i class="fa fa-google fa-fw w-100 p-0 m-0">
+                                                        <i class="fa fa-google w-25  p-0 m-0">
 
                                                         </i>
-                                                        <h5>Login</h5>
+                                                        <span>Login</span>
                                                     </button>
                                                 </div>
 
                                                 <div class="col-4 ">
                                                     <button onclick="twitterSignIn()" class="btn btn-block  btn-twitter" id="btnLoginTwitter">
-                                                        <i class="fa fa-twitter fa-fw w-100 p-0 m-0">
+                                                        <i class="fa fa-twitter w-25  p-0 m-0">
 
                                                         </i>
-                                                        <h5>Login</h5>
+                                                        <span>Login</span>
                                                     </button>
                                                 </div>
 
