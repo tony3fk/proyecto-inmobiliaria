@@ -27,25 +27,20 @@
 googleSignIn = () => {
     base_provider = new firebase.auth.GoogleAuthProvider()
     firebase.auth().signInWithPopup(base_provider).then(function (result) {
-        // var accessToken = result.credential.accessToken;
-        // var idToken = result.credential.idToken;
-        // var providerId = result.credential.providerId;
+   
         var displayName = result.user.displayName;
         var email = result.user.email;
         var providerId = result.user.providerData.providerId;
         var photoURL = result.user.photoURL;
-        // console.log(result)
-        console.log("Success!")
+      
+        // console.log("Success!")
         
         //crear cookies
         document.cookie = "nombre=" + encodeURIComponent(displayName);
         document.cookie = "avatar=" + encodeURIComponent(photoURL);
         document.cookie = "tipo="+1;
 
-        window.location.replace("https://gestioninmobiliaria.herokuapp.com/index.php?ctl=inicio");
-
-        // var userActivo = document.getElementById("userActivo");
-        // userActivo.innerHTML(displayName);
+        window.location.replace("https://gestioninmobiliaria.herokuapp.com/index.php?ctl=inicio");  
 
 
     }).catch(function (error) {
@@ -53,8 +48,6 @@ googleSignIn = () => {
         console.log("Error!");
         alert("Error!\n"+error.email+"\n"+error.message);
     })
-
-
 }
 
 //facebook sign in
